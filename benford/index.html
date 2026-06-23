@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>京大入試が暴いた「数字の偏り」——ベンフォードの法則と不正検知の数理</title>
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --accent: #2563eb;
+  --border: #e5e7eb;
+  --code-bg: #f3f4f6;
+  --max-w: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Serif", "Source Han Serif", "Georgia", serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.8;
+  padding: 2rem 1rem;
+}
+.container { max-width: var(--max-w); margin: 0 auto; }
+
+/* Language selector */
+.lang-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+.lang-btn {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px 4px 0 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--fg);
+  transition: all 0.15s;
+}
+.lang-btn:hover { background: var(--code-bg); }
+.lang-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Content sections */
+.content-section { display: none; }
+.content-section.active { display: block; }
+.content-section[dir="rtl"] { direction: rtl; text-align: right; }
+
+/* Typography */
+h1 { font-size: 1.8rem; margin: 1.5rem 0 1rem; line-height: 1.3; }
+h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.15rem; margin: 1.2rem 0 0.6rem; }
+p { margin: 0.8rem 0; }
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+[dir="rtl"] blockquote { border-left: none; border-right: 3px solid var(--accent); }
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+pre { background: var(--code-bg); padding: 1rem; overflow-x: auto; border-radius: 6px; margin: 1rem 0; }
+pre code { background: none; padding: 0; }
+table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.8rem; text-align: left; }
+[dir="rtl"] th, [dir="rtl"] td { text-align: right; }
+th { background: var(--code-bg); font-weight: 600; }
+a { color: var(--accent); }
+sup { font-size: 0.75em; }
+
+/* Math */
+.math.display { display: block; text-align: center; margin: 1.2rem 0; overflow-x: auto; }
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: 3rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: #999;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h1 { font-size: 1.4rem; }
+  body { padding: 1rem 0.75rem; }
+  .lang-btn { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<nav class="lang-selector" role="tablist" aria-label="Language">
+  <button class="lang-btn" data-lang="ja" role="tab" onclick="switchLang('ja')">日本語</button>
+  <button class="lang-btn" data-lang="en" role="tab" onclick="switchLang('en')">English</button>
+  <button class="lang-btn" data-lang="zh-Hans" role="tab" onclick="switchLang('zh-Hans')">简体中文</button>
+  <button class="lang-btn" data-lang="es" role="tab" onclick="switchLang('es')">Español</button>
+  <button class="lang-btn" data-lang="hi" role="tab" onclick="switchLang('hi')">हिन्दी</button>
+  <button class="lang-btn" data-lang="ar" role="tab" onclick="switchLang('ar')">العربية</button>
+</nav>
+
+<article id="content-ja" class="content-section" dir="ltr" lang="ja">
+<h1>京大入試が暴いた「数字の偏り」——ベンフォードの法則と不正検知の数理</h1>
+<h2>1. 導入：2024年京都大学理系数学・第6問</h2>
+<p>2024年度の京都大学理系数学・第6問は、一見すると純粋な数列の極限問題である。しかしその帰結は、統計的不正検知の根幹を成す法則へと直結する。</p>
+<p>問題の設定は以下の通りである。数列 <span class="math inline">\(a_k = 2^{\sqrt{k}}\)</span>（<span class="math inline">\(k = 1, 2, 3, \ldots\)</span>）を考える。<span class="math inline">\(\lfloor a_k \rfloor\)</span>（<span class="math inline">\(a_k\)</span> の整数部分）が <span class="math inline">\(n\)</span> 桁となる項の個数を <span class="math inline">\(N_n\)</span>、そのうち最高位の数字が <span class="math inline">\(1\)</span> である項の個数を <span class="math inline">\(L_n\)</span> とするとき、極限</p>
+<span class="math display">\[\lim_{n \to \infty} \frac{L_n}{N_n}\]</span>
+<p>を求めよ。</p>
+<h3>解法の骨格</h3>
+<p><span class="math inline">\(\lfloor a_k \rfloor\)</span> が <span class="math inline">\(n\)</span> 桁であるとは <span class="math inline">\(10^{n-1} \leq 2^{\sqrt{k}} < 10^n\)</span> を意味する。常用対数をとると</p>
+<span class="math display">\[n - 1 \leq \sqrt{k} \cdot \log_{10} 2 < n\]</span>
+<p>であるから、<span class="math inline">\(\beta = \log_{10} 2\)</span> とおけば</p>
+<span class="math display">\[\frac{n-1}{\beta} \leq \sqrt{k} < \frac{n}{\beta}\]</span>
+<p>を満たす正の整数 <span class="math inline">\(k\)</span> の個数が <span class="math inline">\(N_n\)</span> に相当する。二乗して整数の個数を評価すると</p>
+<span class="math display">\[N_n \approx \left(\frac{n}{\beta}\right)^2 - \left(\frac{n-1}{\beta}\right)^2 = \frac{2n - 1}{\beta^2}\]</span>
+<p>となる（<span class="math inline">\(n \to \infty\)</span> における漸近評価）。</p>
+<p>一方、最高位が <span class="math inline">\(1\)</span> となる条件は <span class="math inline">\(10^{n-1} \leq 2^{\sqrt{k}} < 2 \cdot 10^{n-1}\)</span> であり、常用対数をとると</p>
+<span class="math display">\[\frac{n-1}{\beta} \leq \sqrt{k} < \frac{n - 1 + \beta}{\beta} = \frac{n-1}{\beta} + 1\]</span>
+<p>を得る。同様に <span class="math inline">\(L_n\)</span> を漸近評価すると</p>
+<span class="math display">\[L_n \approx \left(\frac{n-1}{\beta} + 1\right)^2 - \left(\frac{n-1}{\beta}\right)^2 = \frac{2(n-1)}{\beta} + 1\]</span>
+<p>したがって</p>
+<span class="math display">\[\frac{L_n}{N_n} \approx \frac{\frac{2(n-1)}{\beta} + 1}{\frac{2n-1}{\beta^2}} = \frac{2\beta(n-1) + \beta^2}{2n - 1} \xrightarrow{n \to \infty} \beta = \log_{10} 2\]</span>
+<span class="math display">\[\boxed{\lim_{n \to \infty} \frac{L_n}{N_n} = \log_{10} 2 \approx 0.301}\]</span>
+<p>この結果は、数列 <span class="math inline">\(2^{\sqrt{k}}\)</span> の先頭桁が <span class="math inline">\(1\)</span> となる割合が約30.1%に収束することを意味する。これは偶然ではない。</p>
+<h2>2. ベンフォードの法則</h2>
+<p>上記の極限値 <span class="math inline">\(\log_{10} 2\)</span> は、<strong>ベンフォードの法則</strong>（Benford's Law）における先頭桁 <span class="math inline">\(d = 1\)</span> の出現確率そのものである。ベンフォードの法則とは、自然発生的な数値データの先頭桁 <span class="math inline">\(d\)</span>（<span class="math inline">\(d \in \{1, 2, \ldots, 9\}\)</span>）が一様分布に従わず、対数分布に従うという経験則であり、その確率分布は</p>
+<span class="math display">\[P(d) = \log_{10}\left(1 + \frac{1}{d}\right)\]</span>
+<p>で与えられる。<span class="math inline">\(d = 1\)</span> のとき <span class="math inline">\(P(1) = \log_{10} 2 \approx 0.301\)</span> となり、京大第6問の帰結と正確に一致する。</p>
+<p>直感的には、対数スケール上で <span class="math inline">\([1, 2)\)</span> の区間幅が <span class="math inline">\(\log_{10} 2 - \log_{10} 1 = \log_{10} 2\)</span> であるのに対し、<span class="math inline">\([9, 10)\)</span> の区間幅は <span class="math inline">\(\log_{10} 10 - \log_{10} 9 = 1 - \log_{10} 9 \approx 0.046\)</span> と狭くなることに起因する。指数的成長を示すデータや、複数の桁にまたがるスケールを持つデータセットは、この対数的間隔に従って先頭桁が分布する。</p>
+<p>京大第6問は、<span class="math inline">\(2^{\sqrt{k}}\)</span> という具体的な数列を用いて、この法則の数理的メカニズムを入試問題という形式で証明させた、極めて洗練された出題であったと言える。</p>
+<h2>3. 不正検知への応用</h2>
+<p>ベンフォードの法則の実践的価値は、その<strong>逸脱の検出</strong>にある。自然に生成されたデータがこの法則に従う一方、意図的に操作されたデータはしばしば従わない。この性質を利用し、複数の分野で異常値検知ツールとして活用されている。</p>
+<h3>3.1 税務調査と財務監査</h3>
+<p>ベンフォードの法則の応用として最も確立されているのが、会計データの監査である。納税申告書に記載された金額、企業の仕訳帳エントリ、経費報告書といった財務データの先頭桁分布は、通常ベンフォードの法則に良好に適合する。逆に、数値を恣意的に作成・改竄した場合、人間は無意識に一様分布に近い数字を選択する傾向があり、先頭桁分布にベンフォードの法則からの有意な乖離が生じる（Gauvrit et al., 2017）。</p>
+<p>具体的な手法としては、観測された先頭桁分布とベンフォード分布の適合度を <span class="math inline">\(\chi^2\)</span> 検定や平均絶対偏差（MAD）で評価する。米国の内国歳入庁（IRS）をはじめとする税務当局は、このアプローチを税務不正のスクリーニングツールとして実務に導入している。</p>
+<h3>3.2 医療費請求データ</h3>
+<p>Park et al.（2016）は、韓国の健康保険審査評価院（HIRA）の大規模医療費請求データにベンフォードの法則を適用し、診療報酬の不正請求パターンの検出を試みた。請求金額の先頭桁および先頭2桁の分布を解析した結果、特定の医療機関群においてベンフォード分布からの系統的な逸脱が確認され、過剰請求との関連が示唆された。</p>
+<h3>3.3 選挙データ</h3>
+<p>選挙における得票数の検証にもベンフォードの法則が適用されてきた。2009年のイラン大統領選挙や2020年の米国大統領選挙において、特定地域の得票数がベンフォード分布から逸脱しているとの分析が報告された。ただし、選挙データへの適用には重大な留意点がある。投票区の規模が限定されている場合や、候補者数が少ない場合、得票数のレンジが狭くなり、ベンフォードの法則の前提条件（複数桁にわたるスケール）を満たさない可能性がある。選挙データにおけるベンフォード分布からの逸脱と不正行為との間に直接的な関連を仮定することは、方法論的に慎重であるべきである。</p>
+<h3>3.4 COVID-19報告データ</h3>
+<p>Kennedy &amp; Yam（2020）は、WHOおよび各国政府が公表したCOVID-19の累積症例数にベンフォードの法則とZipfの法則を適用し、報告値の信頼性を評価した。大多数の国のデータはベンフォード分布に概ね適合したが、一部の国では有意な逸脱が観察された。ただし著者らは、逸脱が直ちに意図的操作を意味するものではなく、検査体制の差異や報告遅延といった構造的要因も寄与し得ると述べている。</p>
+<h2>4. 適用限界</h2>
+<p>ベンフォードの法則は万能ではない。以下の条件下では、自然なデータであっても法則に適合しない。</p>
+<p><strong>スケール不変性の欠如。</strong> ベンフォードの法則は、データが複数の桁にまたがるスケールを持つ場合に成立しやすい。特定の狭い数値範囲に限定されたデータセット（例：人間の身長、IQスコア、為替レート）では、先頭桁分布は法則に従わない。</p>
+<p><strong>人為的な閾値効果。</strong> 価格が <span class="math inline">\(\\)</span>9.99<span class="math inline">\(や\)</span>\<span class="math inline">\(19.99\)</span> に集中する小売データ、あるいは規制上の閾値（高額療養費制度の自己負担限度額など）が存在するデータでは、先頭桁分布に系統的な偏りが生じ、ベンフォード分布からの逸脱が不正ではなく制度設計に起因する場合がある。</p>
+<p><strong>標本サイズ。</strong> 統計的検定の検出力は標本サイズに依存する。小規模データセットでは、真の逸脱を検出する統計的パワーが不足する一方、大規模データでは実質的に無意味な微小逸脱でも統計的に有意となり得る。</p>
+<p><strong>単独証拠としての不十分さ。</strong> ベンフォードの法則からの逸脱は、不正の「証拠」ではなく「端緒」（red flag）として位置づけるべきである。逸脱の検出は追加調査の契機であり、逸脱のみをもって不正を断定することは統計学的に不適切である。</p>
+<h2>5. 結論</h2>
+<p>2024年京都大学理系第6問は、数列の極限という古典的な枠組みの中に、ベンフォードの法則の数理的基盤を埋め込んだ出題であった。その帰結 <span class="math inline">\(\log_{10} 2\)</span> は、自然界のデータに潜む先頭桁の対数分布を端的に表現している。</p>
+<p>この法則は、税務監査、医療費請求、選挙データ、公衆衛生データなど、多様な領域における異常値検知ツールとして応用されている。しかしながら、その適用にはデータのスケール特性や標本サイズに関する慎重な評価が不可欠であり、逸脱の検出は不正の確定ではなく精査の端緒として扱うべきである。</p>
+<p>数学の入試問題が、社会における不正検知の原理を内包していたという事実は、純粋数学と応用統計学の間の深い関連を改めて示すものである。</p>
+<h2>参考文献</h2>
+<ol>
+<li>Gauvrit, N. G., Houillon, J.-C., &amp; Delahaye, J.-P. (2017). Generalized Benford's Law as a Lie Detector. <em>Advances in Cognitive Psychology</em>, 13(2), 121–127. DOI: <a href="https://doi.org/10.5709/acp-0212-x">10.5709/acp-0212-x</a>. PMID: 28713450.</li>
+<li>Kennedy, A. P., &amp; Yam, S. C. P. (2020). On the authenticity of COVID-19 case figures. <em>PLOS ONE</em>, 15(12), e0243123. DOI: <a href="https://doi.org/10.1371/journal.pone.0243123">10.1371/journal.pone.0243123</a>. PMID: 33290420.</li>
+<li>Park, J. A., Kim, M., &amp; Yoon, S. (2016). Evaluation of Large-scale Data to Detect Irregularity in Payment for Medical Services: An Extended Use of Benford's Law. <em>Methods of Information in Medicine</em>, 55(3), 284–291. DOI: <a href="https://doi.org/10.3414/ME15-01-0076">10.3414/ME15-01-0076</a>. PMID: 27097378.</li>
+</ol>
+<div class="disclaimer"><p>本コンテンツは、客観的な学術的エビデンスとデータ分析に基づく情報提供のみを目的としています。医学的助言、診断、または政治的批評を意図するものではありません。</p></div>
+</article>
+
+<article id="content-en" class="content-section" dir="ltr" lang="en">
+<h1>The "Numerical Bias" Revealed by the Kyoto University Entrance Exam: Benford's Law and the Mathematics of Fraud Detection</h1>
+<h2>1. Introduction: 2024 Kyoto University Science Mathematics, Question 6</h2>
+<p>The 2024 Kyoto University Science Mathematics Question 6 is, at first glance, a pure sequence limit problem. However, its consequence leads directly to a law that forms the foundation of statistical fraud detection.</p>
+<p>The problem setting is as follows. Consider the sequence <span class="math inline">\(a_k = 2^{\sqrt{k}}\)</span> (<span class="math inline">\(k = 1, 2, 3, \ldots\)</span>). Let <span class="math inline">\(N_n\)</span> be the number of terms where <span class="math inline">\(\lfloor a_k \rfloor\)</span> (the integer part of <span class="math inline">\(a_k\)</span>) has <span class="math inline">\(n\)</span> digits, and <span class="math inline">\(L_n\)</span> be the number of those terms whose leading digit is <span class="math inline">\(1\)</span>. Find the limit</p>
+<span class="math display">\[\lim_{n \to \infty} \frac{L_n}{N_n}\]</span>
+<h3>Outline of the Solution</h3>
+<p><span class="math inline">\(\lfloor a_k \rfloor\)</span> having <span class="math inline">\(n\)</span> digits means <span class="math inline">\(10^{n-1} \leq 2^{\sqrt{k}} < 10^n\)</span>. Taking the common logarithm gives</p>
+<span class="math display">\[n - 1 \leq \sqrt{k} \cdot \log_{10} 2 < n\]</span>
+<p>Setting <span class="math inline">\(\beta = \log_{10} 2\)</span>, we have</p>
+<span class="math display">\[\frac{n-1}{\beta} \leq \sqrt{k} < \frac{n}{\beta}\]</span>
+<p>The number of positive integers <span class="math inline">\(k\)</span> satisfying this corresponds to <span class="math inline">\(N_n\)</span>. Squaring to evaluate the number of integers yields</p>
+<span class="math display">\[N_n \approx \left(\frac{n}{\beta}\right)^2 - \left(\frac{n-1}{\beta}\right)^2 = \frac{2n - 1}{\beta^2}\]</span>
+<p>(asymptotic evaluation as <span class="math inline">\(n \to \infty\)</span>).</p>
+<p>On the other hand, the condition for the leading digit to be <span class="math inline">\(1\)</span> is <span class="math inline">\(10^{n-1} \leq 2^{\sqrt{k}} < 2 \cdot 10^{n-1}\)</span>, and taking the common logarithm yields</p>
+<span class="math display">\[\frac{n-1}{\beta} \leq \sqrt{k} < \frac{n - 1 + \beta}{\beta} = \frac{n-1}{\beta} + 1\]</span>
+<p>Similarly, evaluating <span class="math inline">\(L_n\)</span> asymptotically gives</p>
+<span class="math display">\[L_n \approx \left(\frac{n-1}{\beta} + 1\right)^2 - \left(\frac{n-1}{\beta}\right)^2 = \frac{2(n-1)}{\beta} + 1\]</span>
+<p>Therefore,</p>
+<span class="math display">\[\frac{L_n}{N_n} \approx \frac{\frac{2(n-1)}{\beta} + 1}{\frac{2n-1}{\beta^2}} = \frac{2\beta(n-1) + \beta^2}{2n - 1} \xrightarrow{n \to \infty} \beta = \log_{10} 2\]</span>
+<span class="math display">\[\boxed{\lim_{n \to \infty} \frac{L_n}{N_n} = \log_{10} 2 \approx 0.301}\]</span>
+<p>This result means that the proportion of terms in the sequence <span class="math inline">\(2^{\sqrt{k}}\)</span> with a leading digit of <span class="math inline">\(1\)</span> converges to approximately 30.1%. This is not a coincidence.</p>
+<h2>2. Benford's Law</h2>
+<p>The limit value <span class="math inline">\(\log_{10} 2\)</span> above is the exact probability of occurrence for the leading digit <span class="math inline">\(d = 1\)</span> in <strong>Benford's Law</strong>. Benford's Law is an empirical rule stating that the leading digit <span class="math inline">\(d\)</span> (<span class="math inline">\(d \in \{1, 2, \ldots, 9\}\)</span>) of naturally occurring numerical data does not follow a uniform distribution, but rather a logarithmic distribution, with its probability distribution given by</p>
+<span class="math display">\[P(d) = \log_{10}\left(1 + \frac{1}{d}\right)\]</span>
+<p>When <span class="math inline">\(d = 1\)</span>, <span class="math inline">\(P(1) = \log_{10} 2 \approx 0.301\)</span>, which exactly matches the consequence of the Kyoto University Question 6.</p>
+<p>Intuitively, this stems from the fact that on a logarithmic scale, the interval width of <span class="math inline">\([1, 2)\)</span> is <span class="math inline">\(\log_{10} 2 - \log_{10} 1 = \log_{10} 2\)</span>, whereas the interval width of <span class="math inline">\([9, 10)\)</span> narrows to <span class="math inline">\(\log_{10} 10 - \log_{10} 9 = 1 - \log_{10} 9 \approx 0.046\)</span>. Datasets exhibiting exponential growth or spanning multiple orders of magnitude distribute their leading digits according to these logarithmic intervals.</p>
+<p>It can be said that Kyoto University Question 6 was an extremely refined problem that required proving the mathematical mechanism of this law in the format of an entrance examination using the specific sequence <span class="math inline">\(2^{\sqrt{k}}\)</span>.</p>
+<h2>3. Application to Fraud Detection</h2>
+<p>The practical value of Benford's Law lies in the <strong>detection of deviations</strong>. While naturally generated data follows this law, intentionally manipulated data often does not. Utilizing this property, it is applied as an anomaly detection tool in multiple fields.</p>
+<h3>3.1 Tax Audits and Financial Auditing</h3>
+<p>The most established application of Benford's Law is the auditing of accounting data. The leading digit distribution of financial data such as amounts on tax returns, corporate journal entries, and expense reports typically fits Benford's Law well. Conversely, when numbers are arbitrarily created or altered, humans tend to unconsciously select digits closer to a uniform distribution, resulting in a significant deviation from Benford's distribution in the leading digit distribution (Gauvrit et al., 2017).</p>
+<p>As a specific method, the goodness of fit between the observed leading digit distribution and the Benford distribution is evaluated using <span class="math inline">\(\chi^2\)</span> tests or Mean Absolute Deviation (MAD). Tax authorities, including the United States Internal Revenue Service (IRS), have introduced this approach into practice as a screening tool for tax fraud.</p>
+<h3>3.2 Medical Claim Data</h3>
+<p>Park et al. (2016) applied Benford's Law to large-scale medical claim data from South Korea's Health Insurance Review &amp; Assessment Service (HIRA) to attempt to detect fraudulent billing patterns for medical services. Analysis of the leading digit and leading two digits distributions of the claimed amounts confirmed systematic deviations from the Benford distribution in a specific group of medical institutions, suggesting an association with overbilling.</p>
+<h3>3.3 Election Data</h3>
+<p>Benford's Law has also been applied to verify vote counts in elections. In the 2009 Iranian presidential election and the 2020 US presidential election, analyses reported that vote counts in certain regions deviated from the Benford distribution. However, there are significant caveats to applying it to election data. If the size of the voting precinct is limited or the number of candidates is small, the range of vote counts narrows, potentially failing to meet the prerequisite of Benford's Law (a scale spanning multiple digits). Assuming a direct association between deviations from the Benford distribution in election data and fraudulent behavior should be approached with methodological caution.</p>
+<h3>3.4 COVID-19 Reporting Data</h3>
+<p>Kennedy &amp; Yam (2020) applied Benford's Law and Zipf's Law to the cumulative COVID-19 case counts published by the WHO and national governments to evaluate the reliability of the reported values. While data from the majority of countries generally fit the Benford distribution, significant deviations were observed in some countries. However, the authors state that deviations do not immediately imply intentional manipulation, and structural factors such as differences in testing systems and reporting delays could also contribute.</p>
+<h2>4. Limitations of Application</h2>
+<p>Benford's Law is not universal. Under the following conditions, even natural data will not fit the law.</p>
+<p><strong>Lack of scale invariance.</strong> Benford's Law is more likely to hold when data has a scale spanning multiple digits. For datasets restricted to a specific narrow numerical range (e.g., human height, IQ scores, exchange rates), the leading digit distribution will not follow the law.</p>
+<p><strong>Artificial threshold effects.</strong> In retail data where prices are concentrated at <span class="math inline">\(\\)</span>9.99<span class="math inline">\(or\)</span>\<span class="math inline">\(19.99\)</span>, or data with regulatory thresholds (such as the out-of-pocket maximums in the high-cost medical care benefit system), a systematic bias occurs in the leading digit distribution, and deviations from the Benford distribution may stem from system design rather than fraud.</p>
+<p><strong>Sample size.</strong> The statistical power of a test depends on the sample size. In small datasets, there is insufficient statistical power to detect true deviations, while in massive datasets, even practically meaningless minute deviations can become statistically significant.</p>
+<p><strong>Insufficiency as standalone evidence.</strong> A deviation from Benford's Law should be positioned as a "red flag" rather than "evidence" of fraud. The detection of a deviation is a trigger for further investigation, and concluding fraud based solely on the deviation is statistically inappropriate.</p>
+<h2>5. Conclusion</h2>
+<p>The 2024 Kyoto University Science Question 6 was an exam problem that embedded the mathematical foundation of Benford's Law within the classical framework of sequence limits. Its consequence, <span class="math inline">\(\log_{10} 2\)</span>, succinctly expresses the logarithmic distribution of leading digits hidden in natural data.</p>
+<p>This law is applied as an anomaly detection tool in diverse areas such as tax auditing, medical claims, election data, and public health data. However, its application requires careful evaluation regarding the scale characteristics and sample size of the data, and the detection of deviations should be treated as the beginning of a closer examination rather than the confirmation of fraud.</p>
+<p>The fact that a mathematics entrance exam problem contained the principles of fraud detection in society once again demonstrates the deep association between pure mathematics and applied statistics.</p>
+<h2>References</h2>
+<ol>
+<li>Gauvrit, N. G., Houillon, J.-C., &amp; Delahaye, J.-P. (2017). Generalized Benford's Law as a Lie Detector. <em>Advances in Cognitive Psychology</em>, 13(2), 121–127. DOI: <a href="https://doi.org/10.5709/acp-0212-x">10.5709/acp-0212-x</a>. PMID: 28713450.</li>
+<li>Kennedy, A. P., &amp; Yam, S. C. P. (2020). On the authenticity of COVID-19 case figures. <em>PLOS ONE</em>, 15(12), e0243123. DOI: <a href="https://doi.org/10.1371/journal.pone.0243123">10.1371/journal.pone.0243123</a>. PMID: 33290420.</li>
+<li>Park, J. A., Kim, M., &amp; Yoon, S. (2016). Evaluation of Large-scale Data to Detect Irregularity in Payment for Medical Services: An Extended Use of Benford's Law. <em>Methods of Information in Medicine</em>, 55(3), 284–291. DOI: <a href="https://doi.org/10.3414/ME15-01-0076">10.3414/ME15-01-0076</a>. PMID: 27097378.</li>
+</ol>
+<div class="disclaimer"><p>This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p></div>
+</article>
+
+<article id="content-zh-Hans" class="content-section" dir="ltr" lang="zh-Hans">
+<h1>京都大学入学考试揭示的“数字偏差”——本福特定律与欺诈检测的数理</h1>
+<h2>1. 引言：2024年京都大学理科数学第6题</h2>
+<p>2024年度京都大学理科数学第6题乍看是一道纯粹的数列极限问题。然而，其结论直接导向了构成统计学欺诈检测基础的定律。</p>
+<p>问题设定如下：考虑数列 <span class="math inline">\(a_k = 2^{\sqrt{k}}\)</span>（<span class="math inline">\(k = 1, 2, 3, \ldots\)</span>）。设 <span class="math inline">\(\lfloor a_k \rfloor\)</span>（<span class="math inline">\(a_k\)</span> 的整数部分）为 <span class="math inline">\(n\)</span> 位的项数为 <span class="math inline">\(N_n\)</span>，其中最高位数字为 <span class="math inline">\(1\)</span> 的项数为 <span class="math inline">\(L_n\)</span>，求极限：</p>
+<span class="math display">\[\lim_{n \to \infty} \frac{L_n}{N_n}\]</span>
+<h3>解法概要</h3>
+<p><span class="math inline">\(\lfloor a_k \rfloor\)</span> 为 <span class="math inline">\(n\)</span> 位意味着 <span class="math inline">\(10^{n-1} \leq 2^{\sqrt{k}} < 10^n\)</span>。取常用对数得：</p>
+<span class="math display">\[n - 1 \leq \sqrt{k} \cdot \log_{10} 2 < n\]</span>
+<p>设 <span class="math inline">\(\beta = \log_{10} 2\)</span>，则有：</p>
+<span class="math display">\[\frac{n-1}{\beta} \leq \sqrt{k} < \frac{n}{\beta}\]</span>
+<p>满足该条件的正整数 <span class="math inline">\(k\)</span> 的个数相当于 <span class="math inline">\(N_n\)</span>。通过平方来评估整数的个数可得：</p>
+<span class="math display">\[N_n \approx \left(\frac{n}{\beta}\right)^2 - \left(\frac{n-1}{\beta}\right)^2 = \frac{2n - 1}{\beta^2}\]</span>
+<p>（当 <span class="math inline">\(n \to \infty\)</span> 时的渐近评估）。</p>
+<p>另一方面，最高位为 <span class="math inline">\(1\)</span> 的条件是 <span class="math inline">\(10^{n-1} \leq 2^{\sqrt{k}} < 2 \cdot 10^{n-1}\)</span>，取常用对数得：</p>
+<span class="math display">\[\frac{n-1}{\beta} \leq \sqrt{k} < \frac{n - 1 + \beta}{\beta} = \frac{n-1}{\beta} + 1\]</span>
+<p>同样地，对 <span class="math inline">\(L_n\)</span> 进行渐近评估得：</p>
+<span class="math display">\[L_n \approx \left(\frac{n-1}{\beta} + 1\right)^2 - \left(\frac{n-1}{\beta}\right)^2 = \frac{2(n-1)}{\beta} + 1\]</span>
+<p>因此，</p>
+<span class="math display">\[\frac{L_n}{N_n} \approx \frac{\frac{2(n-1)}{\beta} + 1}{\frac{2n-1}{\beta^2}} = \frac{2\beta(n-1) + \beta^2}{2n - 1} \xrightarrow{n \to \infty} \beta = \log_{10} 2\]</span>
+<span class="math display">\[\boxed{\lim_{n \to \infty} \frac{L_n}{N_n} = \log_{10} 2 \approx 0.301}\]</span>
+<p>这一结果意味着数列 <span class="math inline">\(2^{\sqrt{k}}\)</span> 中首位数字为 <span class="math inline">\(1\)</span> 的比例收敛于约 30.1%。这并非巧合。</p>
+<h2>2. 本福特定律</h2>
+<p>上述极限值 <span class="math inline">\(\log_{10} 2\)</span> 正是<strong>本福特定律</strong>（Benford's Law）中首位数字 <span class="math inline">\(d = 1\)</span> 的出现概率。本福特定律是一条经验法则，指出自然生成的数值数据其首位数字 <span class="math inline">\(d\)</span>（<span class="math inline">\(d \in \{1, 2, \ldots, 9\}\)</span>）并不服从均匀分布，而是服从对数分布，其概率分布为：</p>
+<span class="math display">\[P(d) = \log_{10}\left(1 + \frac{1}{d}\right)\]</span>
+<p>当 <span class="math inline">\(d = 1\)</span> 时，<span class="math inline">\(P(1) = \log_{10} 2 \approx 0.301\)</span>，这与京都大学第6题的结论完全一致。</p>
+<p>直观而言，这是因为在对数尺度上，区间 <span class="math inline">\([1, 2)\)</span> 的宽度为 <span class="math inline">\(\log_{10} 2 - \log_{10} 1 = \log_{10} 2\)</span>，而区间 <span class="math inline">\([9, 10)\)</span> 的宽度则缩小为 <span class="math inline">\(\log_{10} 10 - \log_{10} 9 = 1 - \log_{10} 9 \approx 0.046\)</span>。呈现指数增长或跨越多个数量级的数据集，其首位数字便会根据这种对数间隔进行分布。</p>
+<p>可以说，京都大学第6题通过 <span class="math inline">\(2^{\sqrt{k}}\)</span> 这一具体数列，以入学考试的形式证明了该定律的数理机制，是一道极其精妙的考题。</p>
+<h2>3. 在欺诈检测中的应用</h2>
+<p>本福特定律的实用价值在于其<strong>检测偏差</strong>的能力。自然生成的数据通常服从该定律，而人为操纵的数据往往会偏离。利用这一特性，它被作为异常值检测工具应用于多个领域。</p>
+<h3>3.1 税务调查与财务审计</h3>
+<p>本福特定律最成熟的应用在于会计数据的审计。纳税申报表上的金额、企业日记账分录、费用报告等财务数据的首位数字分布通常高度契合本福特定律。相反，当随意捏造或篡改数字时，人类往往会下意识地选择接近均匀分布的数字，导致首位数字分布与本福特分布产生显著偏离（Gauvrit et al., 2017）。</p>
+<p>具体方法上，通过 <span class="math inline">\(\chi^2\)</span> 检验或平均绝对偏差（MAD）来评估观测到的首位数字分布与本福特分布的拟合度。包括美国国税局（IRS）在内的税务机构，已将此方法作为税务欺诈的筛查工具引入实务。</p>
+<h3>3.2 医疗费用索赔数据</h3>
+<p>Park 等人（2016）将本福特定律应用于韩国健康保险审查评价院（HIRA）的大规模医疗索赔数据中，试图检测医疗服务报酬的欺诈性索赔模式。对索赔金额的首位数字及前两位数字的分布进行分析后发现，在特定医疗机构群体中存在偏离本福特分布的系统性偏差，提示了其与过度收费的关联（association）。</p>
+<h3>3.3 选举数据</h3>
+<p>本福特定律也曾被应用于验证选举中的得票数。在2009年伊朗总统选举及2020年美国总统选举中，均有分析报告指出特定地区的得票数偏离了本福特分布。然而，将其应用于选举数据时有重要的注意事项。如果投票区规模有限或候选人数量较少，得票数的极差将变窄，从而可能无法满足本福特定律的前提条件（跨越多个数量级的尺度）。在方法论上，应谨慎假定选举数据中偏离本福特分布与欺诈行为之间的直接关联（association）。</p>
+<h3>3.4 COVID-19 报告数据</h3>
+<p>Kennedy 与 Yam（2020）将本福特定律和齐普夫定律（Zipf's Law）应用于世卫组织及各国政府公布的 COVID-19 累计病例数，以评估报告数值的可靠性。虽然大多数国家的数据基本契合本福特分布，但在部分国家观察到了显著偏离。然而作者指出，偏差并不直接意味着有意操纵，检测体系的差异和报告延迟等结构性因素也可能造成影响。</p>
+<h2>4. 适用局限性</h2>
+<p>本福特定律并非万能。在以下条件下，即便是自然数据也不会服从该定律：</p>
+<p><strong>缺乏尺度不变性。</strong> 本福特定律在数据跨越多个数量级时更容易成立。被限制在特定狭窄数值范围内的数据集（例如：人类身高、智商得分、汇率），其首位数字分布不遵循该定律。</p>
+<p><strong>人为阈值效应。</strong> 在价格集中于 <span class="math inline">\(\\)</span>9.99<span class="math inline">\(或\)</span>\<span class="math inline">\(19.99\)</span> 的零售数据，或存在监管阈值（如高额医疗费制度中的自费限额）的数据中，首位数字分布会产生系统性偏差。此时偏离本福特分布可能源于制度设计而非欺诈。</p>
+<p><strong>样本量。</strong> 统计检验的效力依赖于样本量。在小规模数据集中，检测出真实偏差的统计功效不足；而在大规模数据集中，即使是毫无实际意义的微小偏差也可能具有统计学显著性。</p>
+<p><strong>作为单一证据的不充分性。</strong> 偏离本福特定律应被视为欺诈的“红旗警告”（red flag）而非“确凿证据”。检测出偏差应作为进一步调查的契机，仅凭偏差来断定欺诈在统计学上是不恰当的。</p>
+<h2>5. 结论</h2>
+<p>2024年京都大学理科第6题在数列极限的经典框架内，嵌入了本福特定律的数理基础。其结论 <span class="math inline">\(\log_{10} 2\)</span> 简洁地表达了隐藏在自然界数据首位数字中的对数分布。</p>
+<p>该定律作为异常值检测工具，已被应用于税务审计、医疗索赔、选举数据和公共卫生数据等广泛领域。然而，在应用时必须谨慎评估数据的尺度特征及样本量，偏差的检测应被视为深入审查的起点，而非欺诈的定论。</p>
+<p>数学入学考试题目中蕴含了社会欺诈检测原理这一事实，再次印证了纯粹数学与应用统计学之间的深刻关联（association）。</p>
+<h2>参考文献</h2>
+<ol>
+<li>Gauvrit, N. G., Houillon, J.-C., &amp; Delahaye, J.-P. (2017). Generalized Benford's Law as a Lie Detector. <em>Advances in Cognitive Psychology</em>, 13(2), 121–127. DOI: <a href="https://doi.org/10.5709/acp-0212-x">10.5709/acp-0212-x</a>. PMID: 28713450.</li>
+<li>Kennedy, A. P., &amp; Yam, S. C. P. (2020). On the authenticity of COVID-19 case figures. <em>PLOS ONE</em>, 15(12), e0243123. DOI: <a href="https://doi.org/10.1371/journal.pone.0243123">10.1371/journal.pone.0243123</a>. PMID: 33290420.</li>
+<li>Park, J. A., Kim, M., &amp; Yoon, S. (2016). Evaluation of Large-scale Data to Detect Irregularity in Payment for Medical Services: An Extended Use of Benford's Law. <em>Methods of Information in Medicine</em>, 55(3), 284–291. DOI: <a href="https://doi.org/10.3414/ME15-01-0076">10.3414/ME15-01-0076</a>. PMID: 27097378.</li>
+</ol>
+<div class="disclaimer"><p>本内容仅供参考，基于客观的学术证据和数据分析。本内容不构成医疗建议、诊断或政治评论。</p></div>
+</article>
+
+<article id="content-es" class="content-section" dir="ltr" lang="es">
+<h1>El "Sesgo Numérico" Revelado por el Examen de Ingreso a la Universidad de Kioto: La Ley de Benford y las Matemáticas de la Detección de Fraude</h1>
+<h2>1. Introducción: Matemáticas de Ciencias de la Universidad de Kioto de 2024, Pregunta 6</h2>
+<p>La Pregunta 6 de Matemáticas de Ciencias de la Universidad de Kioto de 2024 es, a primera vista, un problema puro de límite de sucesiones. Sin embargo, su consecuencia conduce directamente a una ley que forma la base de la detección estadística de fraudes.</p>
+<p>El planteamiento del problema es el siguiente. Considérese la sucesión <span class="math inline">\(a_k = 2^{\sqrt{k}}\)</span> (<span class="math inline">\(k = 1, 2, 3, \ldots\)</span>). Sea <span class="math inline">\(N_n\)</span> el número de términos en los que <span class="math inline">\(\lfloor a_k \rfloor\)</span> (la parte entera de <span class="math inline">\(a_k\)</span>) tiene <span class="math inline">\(n\)</span> dígitos, y <span class="math inline">\(L_n\)</span> el número de esos términos cuyo primer dígito es <span class="math inline">\(1\)</span>. Encuentre el límite</p>
+<span class="math display">\[\lim_{n \to \infty} \frac{L_n}{N_n}\]</span>
+<h3>Esquema de la Resolución</h3>
+<p>Que <span class="math inline">\(\lfloor a_k \rfloor\)</span> tenga <span class="math inline">\(n\)</span> dígitos significa que <span class="math inline">\(10^{n-1} \leq 2^{\sqrt{k}} < 10^n\)</span>. Tomando el logaritmo común se obtiene</p>
+<span class="math display">\[n - 1 \leq \sqrt{k} \cdot \log_{10} 2 < n\]</span>
+<p>Estableciendo <span class="math inline">\(\beta = \log_{10} 2\)</span>, tenemos</p>
+<span class="math display">\[\frac{n-1}{\beta} \leq \sqrt{k} < \frac{n}{\beta}\]</span>
+<p>El número de enteros positivos <span class="math inline">\(k\)</span> que satisfacen esto corresponde a <span class="math inline">\(N_n\)</span>. Elevando al cuadrado para evaluar el número de enteros se obtiene</p>
+<span class="math display">\[N_n \approx \left(\frac{n}{\beta}\right)^2 - \left(\frac{n-1}{\beta}\right)^2 = \frac{2n - 1}{\beta^2}\]</span>
+<p>(evaluación asintótica cuando <span class="math inline">\(n \to \infty\)</span>).</p>
+<p>Por otro lado, la condición para que el primer dígito sea <span class="math inline">\(1\)</span> es <span class="math inline">\(10^{n-1} \leq 2^{\sqrt{k}} < 2 \cdot 10^{n-1}\)</span>, y tomando el logaritmo común se obtiene</p>
+<span class="math display">\[\frac{n-1}{\beta} \leq \sqrt{k} < \frac{n - 1 + \beta}{\beta} = \frac{n-1}{\beta} + 1\]</span>
+<p>De manera similar, la evaluación asintótica de <span class="math inline">\(L_n\)</span> da</p>
+<span class="math display">\[L_n \approx \left(\frac{n-1}{\beta} + 1\right)^2 - \left(\frac{n-1}{\beta}\right)^2 = \frac{2(n-1)}{\beta} + 1\]</span>
+<p>Por lo tanto,</p>
+<span class="math display">\[\frac{L_n}{N_n} \approx \frac{\frac{2(n-1)}{\beta} + 1}{\frac{2n-1}{\beta^2}} = \frac{2\beta(n-1) + \beta^2}{2n - 1} \xrightarrow{n \to \infty} \beta = \log_{10} 2\]</span>
+<span class="math display">\[\boxed{\lim_{n \to \infty} \frac{L_n}{N_n} = \log_{10} 2 \approx 0.301}\]</span>
+<p>Este resultado significa que la proporción de términos en la sucesión <span class="math inline">\(2^{\sqrt{k}}\)</span> con un primer dígito de <span class="math inline">\(1\)</span> converge a aproximadamente el 30,1%. Esto no es una coincidencia.</p>
+<h2>2. La Ley de Benford</h2>
+<p>El valor límite <span class="math inline">\(\log_{10} 2\)</span> anterior es la probabilidad exacta de ocurrencia para el primer dígito <span class="math inline">\(d = 1\)</span> en la <strong>Ley de Benford</strong>. La Ley de Benford es una regla empírica que establece que el primer dígito <span class="math inline">\(d\)</span> (<span class="math inline">\(d \in \{1, 2, \ldots, 9\}\)</span>) de los datos numéricos que ocurren naturalmente no sigue una distribución uniforme, sino una distribución logarítmica, con su distribución de probabilidad dada por</p>
+<span class="math display">\[P(d) = \log_{10}\left(1 + \frac{1}{d}\right)\]</span>
+<p>Cuando <span class="math inline">\(d = 1\)</span>, <span class="math inline">\(P(1) = \log_{10} 2 \approx 0.301\)</span>, lo que coincide exactamente con la consecuencia de la Pregunta 6 de la Universidad de Kioto.</p>
+<p>Intuitivamente, esto se debe a que, en una escala logarítmica, el ancho del intervalo de <span class="math inline">\([1, 2)\)</span> es <span class="math inline">\(\log_{10} 2 - \log_{10} 1 = \log_{10} 2\)</span>, mientras que el ancho del intervalo de <span class="math inline">\([9, 10)\)</span> se estrecha a <span class="math inline">\(\log_{10} 10 - \log_{10} 9 = 1 - \log_{10} 9 \approx 0.046\)</span>. Los conjuntos de datos que muestran un crecimiento exponencial o que abarcan múltiples órdenes de magnitud distribuyen sus primeros dígitos de acuerdo con estos intervalos logarítmicos.</p>
+<p>Se puede decir que la Pregunta 6 de la Universidad de Kioto fue un problema extremadamente refinado que requería probar el mecanismo matemático de esta ley en el formato de un examen de ingreso utilizando la sucesión específica <span class="math inline">\(2^{\sqrt{k}}\)</span>.</p>
+<h2>3. Aplicación a la Detección de Fraude</h2>
+<p>El valor práctico de la Ley de Benford radica en la <strong>detección de desviaciones</strong>. Mientras que los datos generados naturalmente siguen esta ley, los datos manipulados intencionalmente a menudo no lo hacen. Aprovechando esta propiedad, se aplica como herramienta de detección de anomalías en múltiples campos.</p>
+<h3>3.1 Auditorías Fiscales y Financieras</h3>
+<p>La aplicación más establecida de la Ley de Benford es la auditoría de datos contables. La distribución del primer dígito de datos financieros, como los montos en las declaraciones de impuestos, los asientos contables corporativos y los informes de gastos, generalmente se ajusta bien a la Ley de Benford. Por el contrario, cuando los números se crean o alteran arbitrariamente, los humanos tienden a seleccionar inconscientemente dígitos más cercanos a una distribución uniforme, lo que resulta en una desviación significativa de la distribución de Benford en la distribución del primer dígito (Gauvrit et al., 2017).</p>
+<p>Como método específico, la bondad de ajuste entre la distribución del primer dígito observada y la distribución de Benford se evalúa mediante pruebas <span class="math inline">\(\chi^2\)</span> o la Desviación Absoluta Media (MAD). Las autoridades fiscales, incluido el Servicio de Impuestos Internos (IRS) de los Estados Unidos, han introducido este enfoque en la práctica como herramienta de detección de fraude fiscal.</p>
+<h3>3.2 Datos de Facturación Médica</h3>
+<p>Park et al. (2016) aplicaron la Ley de Benford a datos de facturación médica a gran escala del Servicio de Evaluación y Revisión de Seguros de Salud (HIRA) de Corea del Sur para intentar detectar patrones de facturación fraudulenta por servicios médicos. El análisis de las distribuciones del primer y de los dos primeros dígitos de los montos reclamados confirmó desviaciones sistemáticas de la distribución de Benford en un grupo específico de instituciones médicas, lo que sugiere una asociación con la sobrefacturación.</p>
+<h3>3.3 Datos Electorales</h3>
+<p>La Ley de Benford también se ha aplicado para verificar el recuento de votos en las elecciones. En las elecciones presidenciales iraníes de 2009 y las elecciones presidenciales de EE. UU. de 2020, los análisis informaron que el recuento de votos en ciertas regiones se desvió de la distribución de Benford. Sin embargo, existen advertencias importantes al aplicarlo a datos electorales. Si el tamaño del distrito electoral es limitado o el número de candidatos es pequeño, el rango de votos se estrecha, lo que podría no cumplir con el requisito previo de la Ley de Benford (una escala que abarca varios dígitos). Asumir una asociación directa entre las desviaciones de la distribución de Benford en los datos electorales y el comportamiento fraudulento debe abordarse con precaución metodológica.</p>
+<h3>3.4 Datos de Informes de COVID-19</h3>
+<p>Kennedy &amp; Yam (2020) aplicaron la Ley de Benford y la Ley de Zipf a los recuentos acumulativos de casos de COVID-19 publicados por la OMS y los gobiernos nacionales para evaluar la confiabilidad de los valores informados. Si bien los datos de la mayoría de los países se ajustaron en general a la distribución de Benford, se observaron desviaciones significativas en algunos países. Sin embargo, los autores afirman que las desviaciones no implican de inmediato una manipulación intencional, y factores estructurales como las diferencias en los sistemas de prueba y los retrasos en los informes también podrían contribuir.</p>
+<h2>4. Limitaciones de Aplicación</h2>
+<p>La Ley de Benford no es universal. Bajo las siguientes condiciones, incluso los datos naturales no se ajustarán a la ley.</p>
+<p><strong>Falta de invariancia de escala.</strong> Es más probable que la Ley de Benford se cumpla cuando los datos tienen una escala que abarca varios dígitos. Para conjuntos de datos restringidos a un rango numérico estrecho específico (p. ej., altura humana, puntuaciones de CI, tipos de cambio), la distribución del primer dígito no seguirá la ley.</p>
+<p><strong>Efectos de umbral artificial.</strong> En datos minoristas donde los precios se concentran en <span class="math inline">\(\\)</span>9.99<span class="math inline">\(o\)</span>\<span class="math inline">\(19.99\)</span>, o datos con umbrales regulatorios (como los máximos de bolsillo en el sistema de beneficios de atención médica de alto costo), ocurre un sesgo sistemático en la distribución del primer dígito, y las desviaciones de la distribución de Benford pueden derivar del diseño del sistema en lugar del fraude.</p>
+<p><strong>Tamaño de la muestra.</strong> La potencia estadística de una prueba depende del tamaño de la muestra. En conjuntos de datos pequeños, hay un poder estadístico insuficiente para detectar desviaciones verdaderas, mientras que en conjuntos de datos masivos, incluso desviaciones diminutas sin sentido práctico pueden volverse estadísticamente significativas.</p>
+<p><strong>Insuficiencia como prueba independiente.</strong> Una desviación de la Ley de Benford debe posicionarse como una "bandera roja" en lugar de "evidencia" de fraude. La detección de una desviación es un detonante para una mayor investigación, y concluir el fraude basándose únicamente en la desviación es estadísticamente inapropiado.</p>
+<h2>5. Conclusión</h2>
+<p>La Pregunta 6 de Ciencias de la Universidad de Kioto de 2024 fue un problema de examen que incorporó la base matemática de la Ley de Benford dentro del marco clásico de los límites de las sucesiones. Su consecuencia, <span class="math inline">\(\log_{10} 2\)</span>, expresa sucintamente la distribución logarítmica de los primeros dígitos ocultos en los datos naturales.</p>
+<p>Esta ley se aplica como una herramienta de detección de anomalías en diversas áreas, como la auditoría fiscal, la facturación médica, los datos electorales y los datos de salud pública. Sin embargo, su aplicación requiere una evaluación cuidadosa con respecto a las características de escala y el tamaño de la muestra de los datos, y la detección de desviaciones debe tratarse como el comienzo de un examen más detenido en lugar de la confirmación de un fraude.</p>
+<p>El hecho de que un problema de examen de ingreso de matemáticas contuviera los principios de la detección de fraudes en la sociedad demuestra una vez más la profunda asociación entre las matemáticas puras y la estadística aplicada.</p>
+<h2>Referencias</h2>
+<ol>
+<li>Gauvrit, N. G., Houillon, J.-C., &amp; Delahaye, J.-P. (2017). Generalized Benford's Law as a Lie Detector. <em>Advances in Cognitive Psychology</em>, 13(2), 121–127. DOI: <a href="https://doi.org/10.5709/acp-0212-x">10.5709/acp-0212-x</a>. PMID: 28713450.</li>
+<li>Kennedy, A. P., &amp; Yam, S. C. P. (2020). On the authenticity of COVID-19 case figures. <em>PLOS ONE</em>, 15(12), e0243123. DOI: <a href="https://doi.org/10.1371/journal.pone.0243123">10.1371/journal.pone.0243123</a>. PMID: 33290420.</li>
+<li>Park, J. A., Kim, M., &amp; Yoon, S. (2016). Evaluation of Large-scale Data to Detect Irregularity in Payment for Medical Services: An Extended Use of Benford's Law. <em>Methods of Information in Medicine</em>, 55(3), 284–291. DOI: <a href="https://doi.org/10.3414/ME15-01-0076">10.3414/ME15-01-0076</a>. PMID: 27097378.</li>
+</ol>
+<div class="disclaimer"><p>Este contenido es solo con fines informativos, basado en evidencia académica objetiva y análisis de datos. No pretende ser consejo médico, diagnóstico ni crítica política.</p></div>
+</article>
+
+<article id="content-hi" class="content-section" dir="ltr" lang="hi">
+<h1>क्योटो विश्वविद्यालय प्रवेश परीक्षा द्वारा प्रकट "संख्यात्मक पूर्वाग्रह" - बेनफोर्ड का नियम और धोखाधड़ी का पता लगाने का गणित</h1>
+<h2>1. परिचय: 2024 क्योटो विश्वविद्यालय विज्ञान गणित, प्रश्न 6</h2>
+<p>2024 क्योटो विश्वविद्यालय विज्ञान गणित का प्रश्न 6 पहली नज़र में एक शुद्ध अनुक्रम सीमा समस्या (sequence limit problem) है। हालाँकि, इसका परिणाम सीधे एक ऐसे नियम की ओर ले जाता है जो सांख्यिकीय धोखाधड़ी का पता लगाने (fraud detection) का आधार बनता है।</p>
+<p>समस्या की रूपरेखा इस प्रकार है: अनुक्रम <span class="math inline">\(a_k = 2^{\sqrt{k}}\)</span> (<span class="math inline">\(k = 1, 2, 3, \ldots\)</span>) पर विचार करें। मान लीजिए कि <span class="math inline">\(N_n\)</span> उन पदों की संख्या है जहाँ <span class="math inline">\(\lfloor a_k \rfloor\)</span> (<span class="math inline">\(a_k\)</span> का पूर्णांक भाग) में <span class="math inline">\(n\)</span> अंक हैं, और <span class="math inline">\(L_n\)</span> उन पदों की संख्या है जिनका पहला अंक <span class="math inline">\(1\)</span> है। निम्नलिखित सीमा (limit) ज्ञात करें:</p>
+<span class="math display">\[\lim_{n \to \infty} \frac{L_n}{N_n}\]</span>
+<h3>समाधान की रूपरेखा</h3>
+<p><span class="math inline">\(\lfloor a_k \rfloor\)</span> में <span class="math inline">\(n\)</span> अंक होने का अर्थ है <span class="math inline">\(10^{n-1} \leq 2^{\sqrt{k}} < 10^n\)</span>। सामान्य लघुगणक (common logarithm) लेने पर:</p>
+<span class="math display">\[n - 1 \leq \sqrt{k} \cdot \log_{10} 2 < n\]</span>
+<p><span class="math inline">\(\beta = \log_{10} 2\)</span> रखने पर, हमें प्राप्त होता है:</p>
+<span class="math display">\[\frac{n-1}{\beta} \leq \sqrt{k} < \frac{n}{\beta}\]</span>
+<p>इसे संतुष्ट करने वाले धनात्मक पूर्णांक <span class="math inline">\(k\)</span> की संख्या <span class="math inline">\(N_n\)</span> से मेल खाती है। पूर्णांकों की संख्या का मूल्यांकन करने के लिए वर्ग करने पर:</p>
+<span class="math display">\[N_n \approx \left(\frac{n}{\beta}\right)^2 - \left(\frac{n-1}{\beta}\right)^2 = \frac{2n - 1}{\beta^2}\]</span>
+<p>(चूँकि <span class="math inline">\(n \to \infty\)</span> होने पर अनंतस्पर्शी मूल्यांकन)।</p>
+<p>दूसरी ओर, पहले अंक के <span class="math inline">\(1\)</span> होने की शर्त <span class="math inline">\(10^{n-1} \leq 2^{\sqrt{k}} < 2 \cdot 10^{n-1}\)</span> है, और सामान्य लघुगणक लेने पर:</p>
+<span class="math display">\[\frac{n-1}{\beta} \leq \sqrt{k} < \frac{n - 1 + \beta}{\beta} = \frac{n-1}{\beta} + 1\]</span>
+<p>इसी प्रकार, <span class="math inline">\(L_n\)</span> का मूल्यांकन करने पर:</p>
+<span class="math display">\[L_n \approx \left(\frac{n-1}{\beta} + 1\right)^2 - \left(\frac{n-1}{\beta}\right)^2 = \frac{2(n-1)}{\beta} + 1\]</span>
+<p>अतः,</p>
+<span class="math display">\[\frac{L_n}{N_n} \approx \frac{\frac{2(n-1)}{\beta} + 1}{\frac{2n-1}{\beta^2}} = \frac{2\beta(n-1) + \beta^2}{2n - 1} \xrightarrow{n \to \infty} \beta = \log_{10} 2\]</span>
+<span class="math display">\[\boxed{\lim_{n \to \infty} \frac{L_n}{N_n} = \log_{10} 2 \approx 0.301}\]</span>
+<p>इस परिणाम का अर्थ है कि अनुक्रम <span class="math inline">\(2^{\sqrt{k}}\)</span> में पहले अंक <span class="math inline">\(1\)</span> वाले पदों का अनुपात लगभग 30.1% तक अभिसरित (converge) होता है। यह कोई संयोग नहीं है।</p>
+<h2>2. बेनफोर्ड का नियम</h2>
+<p>उपर्युक्त सीमा मान <span class="math inline">\(\log_{10} 2\)</span> <strong>बेनफोर्ड के नियम</strong> (Benford's Law) में प्रथम अंक <span class="math inline">\(d = 1\)</span> के होने की सटीक प्रायिकता है। बेनफोर्ड का नियम एक अनुभवजन्य नियम है जो बताता है कि प्राकृतिक रूप से उत्पन्न होने वाले संख्यात्मक डेटा का पहला अंक <span class="math inline">\(d\)</span> (<span class="math inline">\(d \in \{1, 2, \ldots, 9\}\)</span>) समान वितरण (uniform distribution) का पालन नहीं करता है, बल्कि एक लघुगणकीय वितरण (logarithmic distribution) का पालन करता है, जिसकी प्रायिकता वितरण इस प्रकार है:</p>
+<span class="math display">\[P(d) = \log_{10}\left(1 + \frac{1}{d}\right)\]</span>
+<p>जब <span class="math inline">\(d = 1\)</span>, तो <span class="math inline">\(P(1) = \log_{10} 2 \approx 0.301\)</span> होता है, जो क्योटो विश्वविद्यालय के प्रश्न 6 के परिणाम से पूरी तरह मेल खाता है।</p>
+<p>सहज रूप से, यह इस तथ्य से उत्पन्न होता है कि लघुगणकीय पैमाने पर, <span class="math inline">\([1, 2)\)</span> का अंतराल चौड़ाई <span class="math inline">\(\log_{10} 2 - \log_{10} 1 = \log_{10} 2\)</span> है, जबकि <span class="math inline">\([9, 10)\)</span> का अंतराल चौड़ाई सिकुड़कर <span class="math inline">\(\log_{10} 10 - \log_{10} 9 = 1 - \log_{10} 9 \approx 0.046\)</span> हो जाता है। घातीय वृद्धि (exponential growth) दर्शाने वाले या कई परिमाणों में फैले डेटासेट अपने पहले अंकों को इन लघुगणकीय अंतरालों के अनुसार वितरित करते हैं।</p>
+<p>यह कहा जा सकता है कि क्योटो विश्वविद्यालय का प्रश्न 6 एक अत्यंत परिष्कृत समस्या थी जिसने विशिष्ट अनुक्रम <span class="math inline">\(2^{\sqrt{k}}\)</span> का उपयोग करके प्रवेश परीक्षा के प्रारूप में इस नियम के गणितीय तंत्र को सिद्ध करने की मांग की।</p>
+<h2>3. धोखाधड़ी का पता लगाने में अनुप्रयोग</h2>
+<p>बेनफोर्ड के नियम का व्यावहारिक मूल्य <strong>विचलन (deviations) का पता लगाने</strong> में है। जहाँ प्राकृतिक रूप से उत्पन्न डेटा इस नियम का पालन करता है, वहीं जानबूझकर हेरफेर किया गया डेटा अक्सर इसका पालन नहीं करता है। इस गुण का उपयोग करते हुए, इसे कई क्षेत्रों में विसंगति का पता लगाने वाले उपकरण (anomaly detection tool) के रूप में लागू किया जाता है।</p>
+<h3>3.1 कर और वित्तीय ऑडिट</h3>
+<p>बेनफोर्ड के नियम का सबसे स्थापित अनुप्रयोग लेखांकन डेटा (accounting data) का ऑडिट है। कर रिटर्न पर राशि, कॉर्पोरेट जर्नल प्रविष्टियां, और व्यय रिपोर्ट जैसे वित्तीय डेटा का प्रथम-अंक वितरण आमतौर पर बेनफोर्ड के नियम के साथ अच्छी तरह से फिट बैठता है। इसके विपरीत, जब संख्याओं को मनमाने ढंग से बनाया या बदला जाता है, तो मनुष्य अनजाने में ऐसे अंक चुनते हैं जो समान वितरण के करीब होते हैं, जिसके परिणामस्वरूप प्रथम-अंक वितरण में बेनफोर्ड के वितरण से महत्वपूर्ण विचलन होता है (Gauvrit et al., 2017)।</p>
+<p>विशिष्ट पद्धति के रूप में, देखे गए प्रथम-अंक वितरण और बेनफोर्ड वितरण के बीच फिट की अच्छाई (goodness of fit) का मूल्यांकन <span class="math inline">\(\chi^2\)</span> परीक्षण या माध्य पूर्ण विचलन (MAD) का उपयोग करके किया जाता है। संयुक्त राज्य अमेरिका के आंतरिक राजस्व सेवा (IRS) सहित कर अधिकारियों ने इस दृष्टिकोण को कर धोखाधड़ी के लिए एक स्क्रीनिंग टूल के रूप में अभ्यास में पेश किया है।</p>
+<h3>3.2 चिकित्सा क्लेम डेटा</h3>
+<p>Park et al. (2016) ने चिकित्सा सेवाओं के लिए कपटपूर्ण बिलिंग पैटर्न का पता लगाने के लिए दक्षिण कोरिया की स्वास्थ्य बीमा समीक्षा और मूल्यांकन सेवा (HIRA) के बड़े पैमाने के चिकित्सा क्लेम डेटा पर बेनफोर्ड का नियम लागू किया। दावा की गई राशियों के पहले अंक और पहले दो अंकों के वितरण के विश्लेषण ने विशिष्ट चिकित्सा संस्थानों के समूह में बेनफोर्ड वितरण से व्यवस्थित विचलन की पुष्टि की, जो ओवरबिलिंग के साथ साहचर्य (association) का सुझाव देता है।</p>
+<h3>3.3 चुनाव डेटा</h3>
+<p>चुनावों में वोटों की गिनती को सत्यापित करने के लिए बेनफोर्ड का नियम भी लागू किया गया है। 2009 के ईरानी राष्ट्रपति चुनाव और 2020 के अमेरिकी राष्ट्रपति चुनाव में, विश्लेषणों ने बताया कि कुछ क्षेत्रों में वोटों की गिनती बेनफोर्ड वितरण से विचलित हो गई। हालाँकि, इसे चुनाव डेटा पर लागू करने में महत्वपूर्ण सावधानियां हैं। यदि मतदान क्षेत्र का आकार सीमित है या उम्मीदवारों की संख्या कम है, तो वोटों की गिनती की सीमा संकीर्ण हो जाती है, जो संभावित रूप से बेनफोर्ड के नियम की पूर्व शर्त (कई अंकों में फैला पैमाना) को पूरा करने में विफल रहता है। चुनाव डेटा में बेनफोर्ड वितरण से विचलन और धोखाधड़ी वाले व्यवहार के बीच सीधे साहचर्य (association) को मान लेने में पद्धतिगत सावधानी बरतनी चाहिए।</p>
+<h3>3.4 COVID-19 रिपोर्टिंग डेटा</h3>
+<p>Kennedy &amp; Yam (2020) ने रिपोर्ट किए गए मूल्यों की विश्वसनीयता का मूल्यांकन करने के लिए WHO और राष्ट्रीय सरकारों द्वारा प्रकाशित संचयी COVID-19 मामलों की संख्या पर बेनफोर्ड का नियम और ज़िपफ़ का नियम (Zipf's Law) लागू किया। जबकि अधिकांश देशों का डेटा आमतौर पर बेनफोर्ड वितरण के अनुकूल था, कुछ देशों में महत्वपूर्ण विचलन देखे गए। हालाँकि, लेखकों का कहना है कि विचलन का मतलब तुरंत जानबूझकर हेरफेर नहीं है, और परीक्षण प्रणालियों में अंतर और रिपोर्टिंग में देरी जैसे संरचनात्मक कारक भी योगदान दे सकते हैं।</p>
+<h2>4. अनुप्रयोग की सीमाएँ</h2>
+<p>बेनफोर्ड का नियम सार्वभौमिक नहीं है। निम्नलिखित शर्तों के तहत, प्राकृतिक डेटा भी नियम के अनुकूल नहीं होगा:</p>
+<p><strong>स्केल इनवेरियंस का अभाव।</strong> बेनफोर्ड के नियम के लागू होने की संभावना तब अधिक होती है जब डेटा का पैमाना कई अंकों तक फैला हो। एक विशिष्ट संकीर्ण संख्यात्मक सीमा (जैसे, मानव ऊंचाई, आईक्यू स्कोर, विनिमय दर) तक सीमित डेटासेट के लिए, प्रथम-अंक वितरण नियम का पालन नहीं करेगा।</p>
+<p><strong>कृत्रिम सीमा प्रभाव (Artificial threshold effects)।</strong> खुदरा डेटा में जहां कीमतें <span class="math inline">\(\\)</span>9.99<span class="math inline">\(या\)</span>\<span class="math inline">\(19.99\)</span> पर केंद्रित होती हैं, या विनियामक सीमा वाले डेटा (जैसे उच्च-लागत वाली चिकित्सा देखभाल लाभ प्रणाली में स्वयं के खर्च की अधिकतम सीमा), पहले अंक के वितरण में एक व्यवस्थित पूर्वाग्रह उत्पन्न होता है, और बेनफोर्ड वितरण से विचलन धोखाधड़ी के बजाय प्रणाली के डिज़ाइन से उत्पन्न हो सकता है।</p>
+<p><strong>नमूना आकार (Sample size)।</strong> किसी परीक्षण की सांख्यिकीय शक्ति नमूने के आकार पर निर्भर करती है। छोटे डेटासेट में, वास्तविक विचलनों का पता लगाने के लिए अपर्याप्त सांख्यिकीय शक्ति होती है, जबकि बड़े पैमाने के डेटासेट में, यहां तक ​​कि व्यावहारिक रूप से अर्थहीन मिनट विचलन भी सांख्यिकीय रूप से महत्वपूर्ण हो सकते हैं।</p>
+<p><strong>एकमात्र साक्ष्य के रूप में अपर्याप्तता।</strong> बेनफोर्ड के नियम से विचलन को धोखाधड़ी के "सबूत" के बजाय "रेड फ्लैग" (चेतावनी) के रूप में रखा जाना चाहिए। विचलन का पता लगाना आगे की जांच के लिए एक ट्रिगर है, और केवल विचलन के आधार पर धोखाधड़ी का निष्कर्ष निकालना सांख्यिकीय रूप से अनुचित है।</p>
+<h2>5. निष्कर्ष</h2>
+<p>2024 क्योटो विश्वविद्यालय विज्ञान प्रश्न 6 एक परीक्षा समस्या थी जिसने अनुक्रम सीमाओं के शास्त्रीय ढांचे के भीतर बेनफोर्ड के नियम की गणितीय नींव को अंतर्निहित किया। इसका परिणाम, <span class="math inline">\(\log_{10} 2\)</span>, प्राकृतिक डेटा में छिपे पहले अंकों के लघुगणकीय वितरण को स्पष्ट रूप से व्यक्त करता है।</p>
+<p>यह नियम कर ऑडिटिंग, चिकित्सा दावों, चुनाव डेटा और सार्वजनिक स्वास्थ्य डेटा जैसे विविध क्षेत्रों में विसंगति का पता लगाने वाले उपकरण के रूप में लागू किया जाता है। हालाँकि, इसके अनुप्रयोग के लिए डेटा की स्केल विशेषताओं और नमूना आकार के संबंध में सावधानीपूर्वक मूल्यांकन की आवश्यकता होती है, और विचलन का पता लगाने को धोखाधड़ी की पुष्टि के बजाय कड़ी जांच की शुरुआत के रूप में माना जाना चाहिए।</p>
+<p>यह तथ्य कि गणित की प्रवेश परीक्षा की समस्या में समाज में धोखाधड़ी का पता लगाने के सिद्धांत शामिल थे, एक बार फिर शुद्ध गणित और अनुप्रयुक्त सांख्यिकी के बीच गहरे साहचर्य (association) को प्रदर्शित करता है।</p>
+<h2>संदर्भ (References)</h2>
+<ol>
+<li>Gauvrit, N. G., Houillon, J.-C., &amp; Delahaye, J.-P. (2017). Generalized Benford's Law as a Lie Detector. <em>Advances in Cognitive Psychology</em>, 13(2), 121–127. DOI: <a href="https://doi.org/10.5709/acp-0212-x">10.5709/acp-0212-x</a>. PMID: 28713450.</li>
+<li>Kennedy, A. P., &amp; Yam, S. C. P. (2020). On the authenticity of COVID-19 case figures. <em>PLOS ONE</em>, 15(12), e0243123. DOI: <a href="https://doi.org/10.1371/journal.pone.0243123">10.1371/journal.pone.0243123</a>. PMID: 33290420.</li>
+<li>Park, J. A., Kim, M., &amp; Yoon, S. (2016). Evaluation of Large-scale Data to Detect Irregularity in Payment for Medical Services: An Extended Use of Benford's Law. <em>Methods of Information in Medicine</em>, 55(3), 284–291. DOI: <a href="https://doi.org/10.3414/ME15-01-0076">10.3414/ME15-01-0076</a>. PMID: 27097378.</li>
+</ol>
+<div class="disclaimer"><p>यह सामग्री केवल सूचनात्मक उद्देश्यों के लिए है, जो वस्तुनिष्ठ शैक्षणिक साक्ष्य और डेटा विश्लेषण पर आधारित है। यह चिकित्सा सलाह, निदान या राजनीतिक आलोचना के रूप में अभिप्रेत नहीं है।</p></div>
+</article>
+
+<article id="content-ar" class="content-section" dir="rtl" lang="ar">
+<h1>"التحيز الرقمي" الذي كشف عنه امتحان القبول بجامعة كيوتو: قانون بنفورد ورياضيات كشف الاحتيال</h1>
+<h2>1. مقدمة: رياضيات العلوم بجامعة كيوتو 2024، السؤال 6</h2>
+<p>يبدو السؤال السادس في رياضيات العلوم بجامعة كيوتو لعام 2024، للوهلة الأولى، وكأنه مسألة بحتة في نهاية المتتاليات. ومع ذلك، تؤدي نتيجتها مباشرة إلى قانون يشكل أساس الكشف الإحصائي عن الاحتيال.</p>
+<p>إعداد المسألة كالتالي: لنعتبر المتتالية <span class="math inline">\(a_k = 2^{\sqrt{k}}\)</span> (<span class="math inline">\(k = 1, 2, 3, \ldots\)</span>). ليكن <span class="math inline">\(N_n\)</span> هو عدد الحدود التي يمتلك فيها <span class="math inline">\(\lfloor a_k \rfloor\)</span> (الجزء الصحيح من <span class="math inline">\(a_k\)</span>) عدد <span class="math inline">\(n\)</span> من الخانات، و <span class="math inline">\(L_n\)</span> هو عدد تلك الحدود التي يكون رقمها الأول (الخانة الأولى) هو <span class="math inline">\(1\)</span>. أوجد النهاية:</p>
+<span class="math display">\[\lim_{n \to \infty} \frac{L_n}{N_n}\]</span>
+<h3>ملخص الحل</h3>
+<p>احتواء <span class="math inline">\(\lfloor a_k \rfloor\)</span> على <span class="math inline">\(n\)</span> خانة يعني أن <span class="math inline">\(10^{n-1} \leq 2^{\sqrt{k}} < 10^n\)</span>. بأخذ اللوغاريتم العشري ينتج:</p>
+<span class="math display">\[n - 1 \leq \sqrt{k} \cdot \log_{10} 2 < n\]</span>
+<p>بوضع <span class="math inline">\(\beta = \log_{10} 2\)</span>، نحصل على:</p>
+<span class="math display">\[\frac{n-1}{\beta} \leq \sqrt{k} < \frac{n}{\beta}\]</span>
+<p>عدد الأعداد الصحيحة الموجبة <span class="math inline">\(k\)</span> التي تحقق ذلك يقابل <span class="math inline">\(N_n\)</span>. بتربيع الأطراف لتقييم عدد الأعداد الصحيحة ينتج:</p>
+<span class="math display">\[N_n \approx \left(\frac{n}{\beta}\right)^2 - \left(\frac{n-1}{\beta}\right)^2 = \frac{2n - 1}{\beta^2}\]</span>
+<p>(التقييم التقاربي عندما <span class="math inline">\(n \to \infty\)</span>).</p>
+<p>من ناحية أخرى، شرط أن يكون الرقم الأول هو <span class="math inline">\(1\)</span> هو <span class="math inline">\(10^{n-1} \leq 2^{\sqrt{k}} < 2 \cdot 10^{n-1}\)</span>، وبأخذ اللوغاريتم العشري ينتج:</p>
+<span class="math display">\[\frac{n-1}{\beta} \leq \sqrt{k} < \frac{n - 1 + \beta}{\beta} = \frac{n-1}{\beta} + 1\]</span>
+<p>وبالمثل، بتقييم <span class="math inline">\(L_n\)</span> تقاربيًا ينتج:</p>
+<span class="math display">\[L_n \approx \left(\frac{n-1}{\beta} + 1\right)^2 - \left(\frac{n-1}{\beta}\right)^2 = \frac{2(n-1)}{\beta} + 1\]</span>
+<p>لذلك،</p>
+<span class="math display">\[\frac{L_n}{N_n} \approx \frac{\frac{2(n-1)}{\beta} + 1}{\frac{2n-1}{\beta^2}} = \frac{2\beta(n-1) + \beta^2}{2n - 1} \xrightarrow{n \to \infty} \beta = \log_{10} 2\]</span>
+<span class="math display">\[\boxed{\lim_{n \to \infty} \frac{L_n}{N_n} = \log_{10} 2 \approx 0.301}\]</span>
+<p>تعني هذه النتيجة أن نسبة الحدود في المتتالية <span class="math inline">\(2^{\sqrt{k}}\)</span> التي يكون رقمها الأول <span class="math inline">\(1\)</span> تتقارب إلى حوالي 30.1%. وهذه ليست مصادفة.</p>
+<h2>2. قانون بنفورد</h2>
+<p>قيمة النهاية <span class="math inline">\(\log_{10} 2\)</span> أعلاه هي الاحتمال الدقيق لظهور الرقم الأول <span class="math inline">\(d = 1\)</span> في <strong>قانون بنفورد</strong> (Benford's Law). قانون بنفورد هو قاعدة تجريبية تنص على أن الرقم الأول <span class="math inline">\(d\)</span> (<span class="math inline">\(d \in \{1, 2, \ldots, 9\}\)</span>) للبيانات العددية التي تحدث بشكل طبيعي لا يتبع توزيعًا منتظمًا، بل توزيعًا لوغاريتميًا، حيث يُعطى التوزيع الاحتمالي له بالمعادلة:</p>
+<span class="math display">\[P(d) = \log_{10}\left(1 + \frac{1}{d}\right)\]</span>
+<p>عندما <span class="math inline">\(d = 1\)</span>، فإن <span class="math inline">\(P(1) = \log_{10} 2 \approx 0.301\)</span>، وهو ما يتطابق تمامًا مع نتيجة السؤال السادس بجامعة كيوتو.</p>
+<p>بشكل بديهي، ينبع هذا من حقيقة أنه على المقياس اللوغاريتمي، عرض الفترة لـ <span class="math inline">\([1, 2)\)</span> هو <span class="math inline">\(\log_{10} 2 - \log_{10} 1 = \log_{10} 2\)</span>، في حين يضيق عرض الفترة لـ <span class="math inline">\([9, 10)\)</span> إلى <span class="math inline">\(\log_{10} 10 - \log_{10} 9 = 1 - \log_{10} 9 \approx 0.046\)</span>. تقوم مجموعات البيانات التي تُظهر نموًا أسيًا أو تمتد عبر أوامر متعددة من حيث الحجم بتوزيع أرقامها الأولى وفقًا لهذه الفترات اللوغاريتمية.</p>
+<p>يمكن القول إن السؤال السادس بجامعة كيوتو كان مسألة مصقولة للغاية تطلبت إثبات الآلية الرياضية لهذا القانون في شكل امتحان قبول باستخدام المتتالية المحددة <span class="math inline">\(2^{\sqrt{k}}\)</span>.</p>
+<h2>3. التطبيق في كشف الاحتيال</h2>
+<p>تكمن القيمة العملية لقانون بنفورد في <strong>كشف الانحرافات</strong>. في حين أن البيانات المُولَّدة بشكل طبيعي تتبع هذا القانون، فإن البيانات المُتلاعب بها عمدًا غالبًا ما لا تتبعه. ومن خلال الاستفادة من هذه الخاصية، يتم تطبيقه كأداة لاكتشاف الشذوذ في مجالات متعددة.</p>
+<h3>3.1 التدقيق الضريبي والمالي</h3>
+<p>إن التطبيق الأكثر رسوخًا لقانون بنفورد هو تدقيق البيانات المحاسبية. إن توزيع الخانة الأولى للبيانات المالية مثل المبالغ المدرجة في الإقرارات الضريبية، وقيود اليومية للشركات، وتقارير النفقات، عادة ما يتوافق بشكل جيد مع قانون بنفورد. وعلى العكس من ذلك، عندما يتم إنشاء الأرقام أو تغييرها بشكل تعسفي، يميل البشر دون وعي إلى اختيار أرقام أقرب إلى التوزيع المنتظم، مما يؤدي إلى انحراف كبير عن توزيع بنفورد في توزيع الخانة الأولى (Gauvrit et al., 2017).</p>
+<p>كطريقة محددة، يتم تقييم جودة المطابقة بين التوزيع المرصود للخانة الأولى وتوزيع بنفورد باستخدام اختبارات <span class="math inline">\(\chi^2\)</span> أو متوسط الانحراف المطلق (MAD). أدخلت السلطات الضريبية، بما في ذلك دائرة الإيرادات الداخلية الأمريكية (IRS)، هذا النهج في الممارسة كأداة فحص للاحتيال الضريبي.</p>
+<h3>3.2 بيانات المطالبات الطبية</h3>
+<p>قام Park et al. (2016) بتطبيق قانون بنفورد على بيانات المطالبات الطبية واسعة النطاق من خدمة مراجعة وتقييم التأمين الصحي في كوريا الجنوبية (HIRA) لمحاولة اكتشاف أنماط الفواتير الاحتيالية للخدمات الطبية. أكد تحليل توزيعات الخانة الأولى وأول خانتين للمبالغ المطالب بها وجود انحرافات منهجية عن توزيع بنفورد في مجموعة محددة من المؤسسات الطبية، مما يشير إلى وجود ارتباط (association) بالمبالغة في الفواتير.</p>
+<h3>3.3 بيانات الانتخابات</h3>
+<p>كما تم تطبيق قانون بنفورد للتحقق من فرز الأصوات في الانتخابات. في الانتخابات الرئاسية الإيرانية لعام 2009 والانتخابات الرئاسية الأمريكية لعام 2020، أفادت التحليلات أن فرز الأصوات في مناطق معينة انحرف عن توزيع بنفورد. ومع ذلك، هناك محاذير مهمة عند تطبيقه على بيانات الانتخابات. إذا كان حجم الدائرة الانتخابية محدودًا أو كان عدد المرشحين صغيرًا، فإن نطاق فرز الأصوات يضيق، مما قد يفشل في تلبية الشرط المسبق لقانون بنفورد (مقياس يمتد لعدة خانات). يجب التعامل مع افتراض وجود ارتباط (association) مباشر بين الانحرافات عن توزيع بنفورد في بيانات الانتخابات والسلوك الاحتيالي بحذر منهجي.</p>
+<h3>3.4 بيانات تقارير COVID-19</h3>
+<p>طبق Kennedy &amp; Yam (2020) قانون بنفورد وقانون زيف (Zipf's Law) على الأعداد التراكمية لحالات COVID-19 المنشورة من قبل منظمة الصحة العالمية والحكومات الوطنية لتقييم موثوقية القيم المُبلّغ عنها. في حين أن البيانات الواردة من غالبية البلدان كانت تتوافق عمومًا مع توزيع بنفورد، فقد لُوحظت انحرافات كبيرة في بعض البلدان. ومع ذلك، صرح المؤلفون أن الانحرافات لا تعني بالضرورة التلاعب المتعمد، وأن العوامل الهيكلية مثل الاختلافات في أنظمة الاختبار والتأخير في الإبلاغ يمكن أن تساهم أيضًا.</p>
+<h2>4. حدود التطبيق</h2>
+<p>قانون بنفورد ليس عالميًا. في ظل الظروف التالية، حتى البيانات الطبيعية لن تتوافق مع القانون.</p>
+<p><strong>الافتقار إلى ثبات المقياس.</strong> من المرجح أن يتحقق قانون بنفورد عندما يكون للبيانات مقياس يمتد لعدة خانات. بالنسبة لمجموعات البيانات المقتصرة على نطاق رقمي ضيق ومحدد (مثل طول الإنسان، درجات حاصل الذكاء، أسعار الصرف)، فإن توزيع الخانة الأولى لن يتبع القانون.</p>
+<p><strong>تأثيرات العتبة الاصطناعية.</strong> في بيانات البيع بالتجزئة حيث تتركز الأسعار عند <span class="math inline">\(\\)</span>9.99<span class="math inline">\(أو\)</span>\<span class="math inline">\(19.99\)</span>، أو البيانات ذات العتبات التنظيمية (مثل الحد الأقصى للنفقات النثرية في نظام مزايا الرعاية الطبية عالية التكلفة)، يحدث تحيز منهجي في توزيع الخانة الأولى، وقد تنبع الانحرافات عن توزيع بنفورد من تصميم النظام بدلاً من الاحتيال.</p>
+<p><strong>حجم العينة.</strong> تعتمد القوة الإحصائية للاختبار على حجم العينة. في مجموعات البيانات الصغيرة، توجد قوة إحصائية غير كافية لاكتشاف الانحرافات الحقيقية، بينما في مجموعات البيانات الضخمة، حتى الانحرافات الدقيقة التي لا معنى لها عمليًا يمكن أن تصبح ذات دلالة إحصائية.</p>
+<p><strong>عدم الكفاية كدليل مستقل.</strong> يجب وضع الانحراف عن قانون بنفورد كـ "علم أحمر" (إشارة تحذير) بدلاً من "دليل" على الاحتيال. إن اكتشاف الانحراف هو حافز لإجراء مزيد من التحقيق، واستنتاج الاحتيال بناءً على الانحراف وحده يُعد غير مناسب إحصائيًا.</p>
+<h2>5. الخلاصة</h2>
+<p>كان السؤال السادس في علوم جامعة كيوتو 2024 مسألة امتحان أدمجت الأساس الرياضي لقانون بنفورد ضمن الإطار الكلاسيكي لنهايات المتتاليات. وتُعبر نتيجتها، <span class="math inline">\(\log_{10} 2\)</span>، بإيجاز عن التوزيع اللوغاريتمي للرقم الأول المخفي في البيانات الطبيعية.</p>
+<p>يُطبق هذا القانون كأداة لاكتشاف الشذوذ في مجالات متنوعة مثل التدقيق الضريبي، والمطالبات الطبية، وبيانات الانتخابات، وبيانات الصحة العامة. ومع ذلك، يتطلب تطبيقه تقييمًا دقيقًا فيما يتعلق بخصائص المقياس وحجم العينة للبيانات، ويجب التعامل مع اكتشاف الانحرافات كبداية لفحص أدق بدلاً من تأكيد للاحتيال.</p>
+<p>إن حقيقة احتواء مسألة امتحان دخول في الرياضيات على مبادئ كشف الاحتيال في المجتمع تُظهر مرة أخرى الارتباط (association) العميق بين الرياضيات البحتة والإحصاء التطبيقي.</p>
+<h2>المراجع</h2>
+<ol>
+<li>Gauvrit, N. G., Houillon, J.-C., &amp; Delahaye, J.-P. (2017). Generalized Benford's Law as a Lie Detector. <em>Advances in Cognitive Psychology</em>, 13(2), 121–127. DOI: <a href="https://doi.org/10.5709/acp-0212-x">10.5709/acp-0212-x</a>. PMID: 28713450.</li>
+<li>Kennedy, A. P., &amp; Yam, S. C. P. (2020). On the authenticity of COVID-19 case figures. <em>PLOS ONE</em>, 15(12), e0243123. DOI: <a href="https://doi.org/10.1371/journal.pone.0243123">10.1371/journal.pone.0243123</a>. PMID: 33290420.</li>
+<li>Park, J. A., Kim, M., &amp; Yoon, S. (2016). Evaluation of Large-scale Data to Detect Irregularity in Payment for Medical Services: An Extended Use of Benford's Law. <em>Methods of Information in Medicine</em>, 55(3), 284–291. DOI: <a href="https://doi.org/10.3414/ME15-01-0076">10.3414/ME15-01-0076</a>. PMID: 27097378.</li>
+</ol>
+<div class="disclaimer"><p>هذا المحتوى لأغراض إعلامية فقط، استناداً إلى أدلة أكاديمية موضوعية وتحليل بيانات. وهو غير مخصص كاستشارة طبية أو تشخيص أو نقد سياسي.</p></div>
+</article>
+
+<footer class="site-footer">
+  Project Asymptote &mdash; Bridging mathematics, data science, and public health.
+</footer>
+
+</div>
+
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+  const section = document.getElementById('content-' + lang);
+  const btn = document.querySelector('[data-lang="' + lang + '"]');
+  if (section) section.classList.add('active');
+  if (btn) btn.classList.add('active');
+  document.documentElement.lang = lang.split('-')[0];
+  // Re-render math in newly visible section.
+  if (typeof renderMathInElement !== 'undefined') {
+    renderMathInElement(section, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+  // Update URL hash.
+  history.replaceState(null, '', '#' + lang);
+}
+
+// Initialize from hash or default to 'ja'.
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = location.hash.slice(1);
+  const validLangs = ['ja', 'en', 'zh-Hans', 'es', 'hi', 'ar'];
+  switchLang(validLangs.includes(hash) ? hash : 'ja');
+});
+</script>
+</body>
+</html>
