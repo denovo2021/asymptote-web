@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>光くしゃみ反射（ACHOO症候群）——太陽光がくしゃみを誘発するメカニズム、疫学的特徴、および事故リスク</title>
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --accent: #2563eb;
+  --border: #e5e7eb;
+  --code-bg: #f3f4f6;
+  --max-w: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Serif", "Source Han Serif", "Georgia", serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.8;
+  padding: 2rem 1rem;
+}
+.container { max-width: var(--max-w); margin: 0 auto; }
+
+/* Language selector */
+.lang-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+.lang-btn {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px 4px 0 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--fg);
+  transition: all 0.15s;
+}
+.lang-btn:hover { background: var(--code-bg); }
+.lang-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Content sections */
+.content-section { display: none; }
+.content-section.active { display: block; }
+.content-section[dir="rtl"] { direction: rtl; text-align: right; }
+
+/* Typography */
+h1 { font-size: 1.8rem; margin: 1.5rem 0 1rem; line-height: 1.3; }
+h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.15rem; margin: 1.2rem 0 0.6rem; }
+p { margin: 0.8rem 0; }
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+[dir="rtl"] blockquote { border-left: none; border-right: 3px solid var(--accent); }
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+pre { background: var(--code-bg); padding: 1rem; overflow-x: auto; border-radius: 6px; margin: 1rem 0; }
+pre code { background: none; padding: 0; }
+table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.8rem; text-align: left; }
+[dir="rtl"] th, [dir="rtl"] td { text-align: right; }
+th { background: var(--code-bg); font-weight: 600; }
+a { color: var(--accent); }
+sup { font-size: 0.75em; }
+
+/* Math */
+.math.display { display: block; text-align: center; margin: 1.2rem 0; overflow-x: auto; }
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: 3rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: #999;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h1 { font-size: 1.4rem; }
+  body { padding: 1rem 0.75rem; }
+  .lang-btn { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<nav class="lang-selector" role="tablist" aria-label="Language">
+  <button class="lang-btn" data-lang="ja" role="tab" onclick="switchLang('ja')">日本語</button>
+  <button class="lang-btn" data-lang="en" role="tab" onclick="switchLang('en')">English</button>
+  <button class="lang-btn" data-lang="zh-Hans" role="tab" onclick="switchLang('zh-Hans')">简体中文</button>
+  <button class="lang-btn" data-lang="es" role="tab" onclick="switchLang('es')">Español</button>
+  <button class="lang-btn" data-lang="hi" role="tab" onclick="switchLang('hi')">हिन्दी</button>
+  <button class="lang-btn" data-lang="ar" role="tab" onclick="switchLang('ar')">العربية</button>
+</nav>
+
+<article id="content-ja" class="content-section" dir="ltr" lang="ja">
+<h1>光くしゃみ反射（ACHOO症候群）——太陽光がくしゃみを誘発するメカニズム、疫学的特徴、および事故リスク</h1>
+<h2>1. 光くしゃみ反射とは何か</h2>
+<p>暗所から屋外に出た瞬間、あるいは眼科検査で眼底に光を当てた瞬間に、不随意のくしゃみが連続して生じる現象がある。これは<strong>光くしゃみ反射</strong>（photic sneeze reflex）と呼ばれ、1978年にCollie et al.が<strong>ACHOO症候群</strong>（Autosomal dominant Compelling Helio-Ophthalmic Outburst syndrome）と命名した（Collie et al., 1978）。</p>
+<p>本反射は<strong>常染色体優性遺伝</strong>形式をとり、片方の親が保因者であれば子の50%に発現する。くしゃみは通常1〜10回の連発（バースト）で生じ、その後最大24時間の不応期に入る。誘発因子は特定波長ではなく<strong>光強度の急激な変化</strong>であることが実験的に確認されている（Breitenbach et al., 1993）。</p>
+<h2>2. 疫学——有病率と人種差</h2>
+<h3>2.1 白人集団における有病率</h3>
+<p>光くしゃみ反射の有病率は、調査手法と対象集団により大きく異なる。初期の重要な研究として、Everett（1964）はジョンズ・ホプキンス大学において、白人男性で28%、白人女性で16%の有病率を報告した。Beckman &amp; Nordenson（1983）はスウェーデン集団で24%、Forrester（1985）はイングランド集団で25%、Morris（1987）はクリーブランド・クリニックの神経内科医20名中4名（20%）の保有を報告している。Semes et al.（1995）は検眼クリニック受診者を対象に白人で38.2%の有病率を見出した。</p>
+<p>特筆すべきは、Kulas et al.（2017）によるドイツ集団1,042名の横断研究で、自己申告ベースで<strong>57%</strong>という高い有病率が報告された点である。この値は従来報告の18〜35%を大幅に上回るが、質問紙の感度差や対象者バイアスが関与している可能性がある。</p>
+<h3>2.2 人種差</h3>
+<p>人種間での有病率差は顕著である。Everett（1964）は同一施設において、<strong>黒人男性で2%、黒人女性で2%</strong>という有病率を報告しており、白人集団（男性28%、女性16%）との差は10倍以上に達した。Semes et al.（1995）も同様に、黒人集団では8.2%と白人集団（38.2%）に比べ大幅に低い値を報告している。</p>
+<p>日本人集団については、Ikeda et al.（2018）のゲノムワイド関連解析（GWAS）で11,409名を対象に3.2%の有病率が報告されている。Sasayama et al.（2019）は11,840名の一般集団調査で3.1%と一致した値を得た。ただし、光くしゃみ反射が日常的で無害な現象であるため、自己申告ベースでは過小報告の可能性がある。</p>
+<h3>2.3 遺伝学的知見——ポリジェニックかつ非民族特異的</h3>
+<p>光くしゃみ反射の遺伝基盤は「単一遺伝子の常染色体優性」という古典的理解よりも複雑であることが、GWAS研究により明らかになりつつある。</p>
+<p>Ikeda et al.（2018）は日本人集団で3p12.1のSNPがゲノムワイド有意に達し、2q22.3および9q33.2のSNPも関連を支持する結果を得た。Wang et al.（2019）は中国人集団3,417名（有病率25.6%）を対象に、2q22.3のrs10427255（オッズ比1.68）と3p12.1のrs1032507（オッズ比0.65）を同定した。これらの結果から、光くしゃみ反射の遺伝基盤は<strong>ポリジェニック（多遺伝子的）</strong>であり、その関連遺伝子座は<strong>民族横断的に共有</strong>されていることが示された（Wang et al., 2019）。</p>
+<p>有病率の人種差は、関連する遺伝的多型のアレル頻度の集団間差により説明される可能性が高い。</p>
+<h2>3. 生理学的メカニズム——なぜ光がくしゃみを誘発するのか</h2>
+<p>光くしゃみ反射の神経生理学的メカニズムは完全には解明されていないが、現在までに3つの主要な仮説が提唱されている。</p>
+<h3>3.1 視神経-三叉神経間クロストーク仮説（Optic-Trigeminal Summation）</h3>
+<p>最も広く引用される仮説である。視神経（CN II）の強い光刺激が中脳レベルで三叉神経（CN V）の興奮閾値を低下させ、眼神経枝（V1）の活動が上顎神経枝（V2）——鼻腔粘膜のくしゃみ求心路——へ波及するというモデルである（Everett, 1964; Songu &amp; Cingi, 2009）。</p>
+<p>Songu &amp; Cingi（2009）は、視覚路（上丘, colliculus superior）と三叉神経の中脳核との解剖学的距離に個体差・人種差があり、これが家族集積性と人種差を説明しうると指摘した。反射の潜時が2.5〜15秒と比較的長いことから、前膝状体レベルの直接的反射弧ではなく、より高位での間接的な情報伝達が関与すると推定される（Morris, 1987）。</p>
+<h3>3.2 副交感神経汎化仮説（Parasympathetic Generalization）</h3>
+<p>光刺激による瞳孔収縮は副交感神経（動眼神経のEdinger-Westphal核）を介するが、この副交感神経活動が「汎化」し、鼻腔粘膜の分泌増加やくしゃみ中枢（延髄）の興奮閾値低下を惹起するとする仮説である（Everett, 1964）。光くしゃみ反射の保有者では、副交感神経系全般の反応性が非保有者に比べ亢進している可能性がある。</p>
+<h3>3.3 三叉神経心臓反射の亜型仮説</h3>
+<p>Chowdhury et al.（2019）は、光くしゃみ反射を<strong>三叉神経心臓反射（trigeminocardiac reflex, TCR）の亜型</strong>として位置づける仮説を提唱した。TCRは三叉神経感覚枝刺激による突然の副交感神経性徐脈・低血圧を特徴とし、光くしゃみ反射との共通点として副交感神経活動の亢進と脳幹レベルでの三叉神経統合を指摘している。</p>
+<p>いずれの仮説も完全な実験的検証には至っておらず、複数のメカニズムが重畳している可能性も排除されない。</p>
+<h2>4. 他の動物における光くしゃみ反射</h2>
+<p>光くしゃみ反射が<strong>ヒト特有の現象であるかどうか</strong>は、十分に検討されていない問題である。イヌやネコにおいてもくしゃみは日常的に観察されるが、その誘因は主に鼻腔粘膜への物理的・化学的刺激（粉塵、アレルゲン、異物）であり、光刺激によるくしゃみを系統的に記述した獣医学的研究は、PubMedおよびCrossRefの検索範囲においてきわめて限定的である。</p>
+<p>光くしゃみ反射の神経解剖学的基盤——視覚路と三叉神経核の近接性および副交感神経の汎化——はヒトの脳幹構造に特有のものではないが、反射弧が完成しているか否かは種特異的な神経回路の構成に依存する。現時点では、光くしゃみ反射を<strong>ヒト以外の種で確認した質の高いエビデンスは存在しない</strong>と結論するのが妥当である。</p>
+<h2>5. 事故リスク——トンネル出口と戦闘機コックピット</h2>
+<p>光くしゃみ反射は通常は無害な現象であるが、くしゃみに伴う<strong>不随意の閉眼</strong>（約0.5秒/回）が数回連続する状況は、特定の環境下で深刻な安全上のリスクとなる。</p>
+<h3>5.1 自動車運転</h3>
+<p>トンネル出口での暗所→明所の急激な光強度変化は、光くしゃみ反射の典型的誘因である。Senthilkumaran et al.（2026）は、26歳のバイク配達員が屋内駐車場から陽光下に出た際に光くしゃみ反射が誘発され交通事故を起こし、左眼窩底骨折（下直筋絞扼を伴う）を受傷した症例を報告した。注目すべきは、この患者が<strong>3カ月間で3件</strong>の交通事故を経験しており、いずれも光環境の急変（photic transition）に起因していた点である。著者らはこの症例を"When light becomes lethal"と題し、光くしゃみ反射が<strong>生命を脅かしうる</strong>事故リスク因子であることを強調した。</p>
+<h3>5.2 軍用航空</h3>
+<p>Breitenbach et al.（1993）は、米空軍予備役クリニックにおいて光くしゃみ反射の戦闘機パイロットに対するリスクを検討した。彼らは、光強度変化（特に水面からの太陽反射）が飛行中のくしゃみを誘発しうること、空中戦闘時にくしゃみ発作が生じた場合パイロットの状況認識が最も必要な瞬間に機能不全に陥る危険性、および着陸進入中のくしゃみが機体制御喪失をもたらしうることを指摘した。同研究では、狭帯域干渉フィルターを用いた波長別誘発試験および各種軍用・民間航空用ゴーグルの防御効果も評価されている。</p>
+<h3>5.3 事故責任の法的側面</h3>
+<p>光くしゃみ反射に起因する事故の法的責任（liability）は、まだ体系的に論じられた法学的・疫学的文献は乏しい。しかし、Senthilkumaran et al.（2026）の症例のように、本反射の保有者が再発性に事故を起こしている場合、運転免許制度における申告義務や、反射を認知した上での不対策（サングラス未着用等）が過失責任の判断に影響しうることは、公衆衛生上の論点として今後検討が必要である。</p>
+<h2>6. 類似の非アレルギー性反射——物理的刺激に対する「誤作動」</h2>
+<p>光くしゃみ反射は、生理学的に「不適切な刺激」に対して自律神経系が過剰応答する現象群の一つと位置づけられる。類似の非アレルギー性反射には以下がある。</p>
+<h3>6.1 満腹くしゃみ反射（Snatiation Reflex）</h3>
+<p>満腹時に不随意のくしゃみが連発する現象である。Teebi &amp; Al-Saleh（1989）が初めて常染色体優性遺伝形式を記述し、Hall（1990）が <em>Journal of Medical Genetics</em> 誌上でsneezeとsatiationの混成語として"snatiation"と命名した。誘因は食事の種類や温度ではなく<strong>胃の物理的伸展</strong>であり、鼻漏を伴わない点で味覚性鼻炎とは明確に区別される。メカニズムとしては、迷走神経を介した胃-鼻腔間反射弧が想定されているが、詳細は不明である。</p>
+<h3>6.2 寒冷誘発性鼻漏（Cold-Induced Rhinorrhea / Skier's Nose）</h3>
+<p>冷気吸入により鼻粘膜から水様性鼻汁が急速に分泌される現象であり、スキーヤーにおける有病率は96%に達するとの報告がある（Silvers, 1991）。冷気が鼻粘膜のTRP（transient receptor potential）チャネル（特にTRPM8）を活性化し、知覚神経刺激がコリン作動性反射を惹起して漿液腺分泌を亢進させるメカニズムが提唱されている。局所アトロピン前処置でほぼ完全に抑制されることから、副交感神経（ムスカリン受容体）を介する反射弧が主経路である。</p>
+<h3>6.3 味覚性鼻炎（Gustatory Rhinitis）</h3>
+<p>辛味食品の摂取直後に生じる水様性鼻漏であり、くしゃみは通常伴わない。Raphael et al.（1989）は、辛味成分がムスカリン受容体（おそらく粘膜下腺上）を刺激し、その分泌反応がアトロピン局所前処置で遮断されることを実証した。カプサイシン等のTRPV1作動薬が知覚神経終末を興奮させ、副交感神経反射を惹起するという機序が現在最も支持されている。</p>
+<p>これら3つの反射はいずれも、<strong>特定の物理的刺激に対する自律神経（主に副交感神経）の過剰応答</strong>という共通の病態生理学的枠組みで理解される。光くしゃみ反射が「視覚→三叉神経」のクロストークであるのに対し、snatiation は「胃伸展→迷走神経→くしゃみ中枢」、寒冷誘発性鼻漏は「TRPチャネル→三叉神経→コリン作動性分泌」、味覚性鼻炎は「TRPV1→ムスカリン性分泌反射」と、それぞれ異なる求心路から類似の遠心路（延髄のくしゃみ中枢ないし鼻腔分泌反射）に収束している。</p>
+<h2>7. まとめ</h2>
+<p>光くしゃみ反射は、18〜35%の有病率（ただし集団・手法により2〜57%まで変動）を示す常染色体優性遺伝形質であり、視覚路と三叉神経核のクロストークまたは副交感神経の汎化を主要な神経生理学的メカニズムとする。有病率には顕著な人種差（白人 &gt; 東アジア系 &gt; 黒人）が存在するが、GWAS研究はその遺伝基盤がポリジェニックかつ民族横断的に共有されていることを示している。</p>
+<p>通常は無害であるが、トンネル出口での運転や航空操縦といった状況では、くしゃみに伴う不随意の閉眼が重大事故につながりうる。光くしゃみ反射は、snatiation、寒冷誘発性鼻漏、味覚性鼻炎と共に、「不適切な物理的刺激に対する自律神経の過剰応答」という共通の枠組みで理解される自律神経反射群の一つであり、その進化的意義と臨床的重要性は今後さらなる検討を要する。</p>
+<h2>References</h2>
+<ol>
+<li>Senthilkumaran, S., Arathisenthil, S. V., Girija, S., Sanjay, P., &amp; Thirumalaikolundusubramanian, P. (2026). Photic Sneeze Reflex: When Light Becomes Lethal. <em>American Journal of Emergency Medicine</em>, 102, 170–172. DOI: <a href="https://doi.org/10.1016/j.ajem.2026.01.042">10.1016/j.ajem.2026.01.042</a>. PMID: 41619396.</li>
+<li>Beckman, L., &amp; Nordenson, I. (1983). Individual Differences with Respect to the Sneezing Reflex: An Inherited Physiological Trait in Man? <em>Human Heredity</em>, 33(6), 390–391. DOI: <a href="https://doi.org/10.1159/000153402">10.1159/000153402</a>. PMID: 6674114.</li>
+<li>Breitenbach, R. A., Swisher, P. K., Kim, M. K., &amp; Patel, B. S. (1993). The Photic Sneeze Reflex as a Risk Factor to Combat Pilots. <em>Military Medicine</em>, 158(12), 806–809. DOI: <a href="https://doi.org/10.1093/milmed/158.12.806">10.1093/milmed/158.12.806</a>. PMID: 8108024.</li>
+<li>Chowdhury, T., Sternberg, Z., Golanov, E., Gelpi, R., Rosemann, T., &amp; Schaller, B. J. (2019). Photic Sneeze Reflex: Another Variant of the Trigeminocardiac Reflex? <em>Future Neurology</em>, 14(4), FNL32. DOI: <a href="https://doi.org/10.2217/fnl-2019-0007">10.2217/fnl-2019-0007</a>.</li>
+<li>Collie, W. R., Pagon, R. A., Hall, J. G., &amp; Shokeir, M. H. K. (1978). ACHOO Syndrome (Autosomal Dominant Compelling Helio-Ophthalmic Outburst Syndrome). <em>Birth Defects Original Article Series</em>, 14(6B), 361–363.</li>
+<li>Everett, H. C. (1964). Sneezing in Response to Light. <em>Neurology</em>, 14(5), 483–490. DOI: <a href="https://doi.org/10.1212/WNL.14.5.483">10.1212/WNL.14.5.483</a>. PMID: 14144120.</li>
+<li>Forrester, J. M. (1985). Sneezing on Exposure to Bright Light as an Inherited Response. <em>Human Heredity</em>, 35(2), 113–114. DOI: <a href="https://doi.org/10.1159/000153528">10.1159/000153528</a>. PMID: 3988295.</li>
+<li>Hall, J. G. (1990). The SNATIATION Reflex. <em>Journal of Medical Genetics</em>, 27(4), 275. DOI: <a href="https://doi.org/10.1136/jmg.27.4.275">10.1136/jmg.27.4.275</a>. PMID: 2325106.</li>
+<li>Ikeda, M., et al. (2018). A Genome-Wide Association Study on Photic Sneeze Syndrome in a Japanese Population. <em>Journal of Human Genetics</em>, 63(6), 735–737. DOI: <a href="https://doi.org/10.1038/s10038-018-0441-z">10.1038/s10038-018-0441-z</a>. PMID: 29559738.</li>
+<li>Kulas, P., Hecker, D., Schick, B., &amp; Bozzato, A. (2017). Investigations on the Prevalence of the Photo-Induced Sneezing Reflex in the German Population, a Representative Cross-Sectional Study. <em>European Archives of Oto-Rhino-Laryngology</em>, 274(3), 1721–1725. DOI: <a href="https://doi.org/10.1007/s00405-016-4256-2">10.1007/s00405-016-4256-2</a>. PMID: 27568353.</li>
+<li>Morris, H. H. III (1987). ACHOO Syndrome: Prevalence and Inheritance. <em>Cleveland Clinic Journal of Medicine</em>, 54(5), 431–433. DOI: <a href="https://doi.org/10.3949/ccjm.54.5.431">10.3949/ccjm.54.5.431</a>.</li>
+<li>Raphael, G. D., Hauptschein-Raphael, M., &amp; Kaliner, M. A. (1989). Gustatory Rhinitis: A Syndrome of Food-Induced Rhinorrhea. <em>Journal of Allergy and Clinical Immunology</em>, 83(1), 110–115. DOI: <a href="https://doi.org/10.1016/0091-6749(89)90484-3">10.1016/0091-6749(89)90484-3</a>. PMID: 2643657.</li>
+<li>Sasayama, D., Asano, S., &amp; Kunugi, H. (2019). Possible Association between Photic Sneeze Syndrome and Migraine and Psychological Distress. <em>Neuropsychopharmacology Reports</em>, 39(4), 325–328. DOI: <a href="https://doi.org/10.1002/npr2.12067">10.1002/npr2.12067</a>. PMID: 31287245.</li>
+<li>Semes, L. P., Amos, J. F., &amp; Waterbor, J. W. (1995). The Photic Sneeze Response: A Descriptive Report of a Clinic Population. <em>Journal of the American Optometric Association</em>, 66(6), 372–377. PMID: 7673597.</li>
+<li>Silvers, W. S. (1991). The Skier's Nose: A Model of Cold-Induced Rhinorrhea. <em>Annals of Allergy</em>, 67(1), 32–36. PMID: 1859038.</li>
+<li>Songu, M., &amp; Cingi, C. (2009). Sneeze Reflex: Facts and Fiction. <em>Therapeutic Advances in Respiratory Disease</em>, 3(3), 131–141. DOI: <a href="https://doi.org/10.1177/1753465809340571">10.1177/1753465809340571</a>. PMID: 19617285.</li>
+<li>Teebi, A. S., &amp; Al-Saleh, Q. A. (1989). Autosomal Dominant Sneezing Disorder Provoked by Fullness of Stomach. <em>Journal of Medical Genetics</em>, 26(8), 539–540. DOI: <a href="https://doi.org/10.1136/jmg.26.8.539">10.1136/jmg.26.8.539</a>. PMID: 2769729.</li>
+<li>Wang, M., Sun, X., Shi, Y., Song, X., &amp; Mi, H. (2019). A Genome-Wide Association Study on Photic Sneeze Reflex in the Chinese Population. <em>Scientific Reports</em>, 9, 4993. DOI: <a href="https://doi.org/10.1038/s41598-019-41551-0">10.1038/s41598-019-41551-0</a>. PMID: 30899065.</li>
+</ol>
+<div class="disclaimer"><p>本コンテンツは、客観的な学術的エビデンスとデータ分析に基づく情報提供のみを目的としています。医学的助言、診断、または政治的批評を意図するものではありません。</p></div>
+</article>
+
+<article id="content-en" class="content-section" dir="ltr" lang="en">
+<h1>Photic Sneeze Reflex (ACHOO Syndrome) -- Mechanisms by Which Sunlight Triggers Sneezing, Epidemiological Features, and Accident Risk</h1>
+<h2>1. What Is the Photic Sneeze Reflex?</h2>
+<p>When stepping outdoors from a dark environment or when light is directed at the fundus during an ophthalmic examination, involuntary sneezing may occur in rapid succession. This phenomenon is known as the <strong>photic sneeze reflex</strong>, and was named <strong>ACHOO syndrome</strong> (Autosomal dominant Compelling Helio-Ophthalmic Outburst syndrome) by Collie et al. in 1978 (Collie et al., 1978).</p>
+<p>This reflex follows an <strong>autosomal dominant</strong> inheritance pattern; if one parent is a carrier, 50% of offspring will express the trait. Sneezing typically occurs in bursts of 1 to 10 consecutive episodes, followed by a refractory period lasting up to 24 hours. Experimental evidence has confirmed that the triggering factor is not a specific wavelength but rather a <strong>sudden change in light intensity</strong> (Breitenbach et al., 1993).</p>
+<h2>2. Epidemiology -- Prevalence and Racial Differences</h2>
+<h3>2.1 Prevalence in White Populations</h3>
+<p>The prevalence of the photic sneeze reflex varies considerably depending on survey methodology and study population. Among early landmark studies, Everett (1964) reported prevalence rates of 28% in white males and 16% in white females at Johns Hopkins University. Beckman &amp; Nordenson (1983) reported 24% in a Swedish population, Forrester (1985) reported 25% in an English population, and Morris (1987) found that 4 of 20 neurologists (20%) at the Cleveland Clinic carried the trait. Semes et al. (1995) identified a prevalence of 38.2% among white patients at an optometry clinic.</p>
+<p>Notably, a cross-sectional study of 1,042 individuals in a German population by Kulas et al. (2017) reported a high self-reported prevalence of <strong>57%</strong>. This figure substantially exceeds the previously reported range of 18--35%, though differences in questionnaire sensitivity and participant bias may have contributed.</p>
+<h3>2.2 Racial Differences</h3>
+<p>Differences in prevalence across racial groups are striking. Everett (1964) reported prevalence rates of <strong>2% in Black males and 2% in Black females</strong> at the same institution, a more than tenfold difference compared with the white population (28% in males, 16% in females). Semes et al. (1995) similarly reported a substantially lower rate of 8.2% in the Black population compared with 38.2% in the white population.</p>
+<p>Regarding Japanese populations, Ikeda et al. (2018) reported a prevalence of 3.2% among 11,409 individuals in a genome-wide association study (GWAS). Sasayama et al. (2019) obtained a consistent value of 3.1% in a general population survey of 11,840 individuals. However, because the photic sneeze reflex is an everyday and harmless phenomenon, self-reported prevalence may be subject to underreporting.</p>
+<h3>2.3 Genetic Findings -- Polygenic and Non-Ethnicity-Specific</h3>
+<p>GWAS studies have revealed that the genetic basis of the photic sneeze reflex is more complex than the classical understanding of "single-gene autosomal dominance."</p>
+<p>Ikeda et al. (2018) identified a SNP at 3p12.1 that reached genome-wide significance in a Japanese population, with SNPs at 2q22.3 and 9q33.2 also supporting an association. Wang et al. (2019) studied 3,417 individuals in a Chinese population (prevalence 25.6%) and identified rs10427255 at 2q22.3 (odds ratio 1.68) and rs1032507 at 3p12.1 (odds ratio 0.65). These results indicate that the genetic basis of the photic sneeze reflex is <strong>polygenic</strong> and that the associated loci are <strong>shared across ethnic groups</strong> (Wang et al., 2019).</p>
+<p>The racial differences in prevalence are most likely explained by inter-population differences in allele frequencies of the relevant genetic polymorphisms.</p>
+<h2>3. Physiological Mechanism -- Why Does Light Trigger Sneezing?</h2>
+<p>The neurophysiological mechanism of the photic sneeze reflex has not been fully elucidated, but three major hypotheses have been proposed to date.</p>
+<h3>3.1 Optic-Trigeminal Crosstalk Hypothesis (Optic-Trigeminal Summation)</h3>
+<p>This is the most widely cited hypothesis. Strong photic stimulation of the optic nerve (CN II) lowers the excitation threshold of the trigeminal nerve (CN V) at the midbrain level, and activity in the ophthalmic branch (V1) propagates to the maxillary branch (V2) -- the afferent sneeze pathway from the nasal mucosa (Everett, 1964; Songu &amp; Cingi, 2009).</p>
+<p>Songu &amp; Cingi (2009) suggested that individual and racial variation in the anatomical proximity between the visual pathway (superior colliculus) and the mesencephalic nucleus of the trigeminal nerve may explain both familial clustering and racial differences. Given the relatively long latency of 2.5 to 15 seconds, the reflex arc is thought to involve indirect, higher-level signal transmission rather than a direct reflex arc at the level of the lateral geniculate body (Morris, 1987).</p>
+<h3>3.2 Parasympathetic Generalization Hypothesis</h3>
+<p>Pupillary constriction in response to light is mediated by the parasympathetic nervous system (the Edinger-Westphal nucleus of the oculomotor nerve). This hypothesis posits that parasympathetic activity "generalizes," leading to increased secretion in the nasal mucosa and a lowered excitation threshold of the sneeze center (medulla oblongata) (Everett, 1964). Individuals who carry the photic sneeze reflex may exhibit overall heightened parasympathetic reactivity compared with non-carriers.</p>
+<h3>3.3 Trigeminocardiac Reflex Subtype Hypothesis</h3>
+<p>Chowdhury et al. (2019) proposed a hypothesis positioning the photic sneeze reflex as a <strong>subtype of the trigeminocardiac reflex (TCR)</strong>. TCR is characterized by sudden parasympathetic bradycardia and hypotension following stimulation of sensory branches of the trigeminal nerve. The authors noted common features with the photic sneeze reflex, including enhanced parasympathetic activity and trigeminal integration at the brainstem level.</p>
+<p>None of these hypotheses has been fully verified experimentally, and the possibility that multiple mechanisms operate in concert cannot be excluded.</p>
+<h2>4. Photic Sneeze Reflex in Other Animals</h2>
+<p>Whether the photic sneeze reflex is <strong>unique to humans</strong> remains an insufficiently examined question. Although sneezing is commonly observed in dogs and cats, the primary triggers are physical or chemical stimulation of the nasal mucosa (dust, allergens, foreign bodies), and systematic veterinary studies documenting light-induced sneezing are extremely limited within the scope of PubMed and CrossRef searches.</p>
+<p>The neuroanatomical substrate of the photic sneeze reflex -- proximity of visual pathways to trigeminal nuclei and parasympathetic generalization -- is not unique to the human brainstem. However, whether a complete reflex arc exists depends on species-specific neural circuit architecture. At present, it is reasonable to conclude that <strong>no high-quality evidence confirming the photic sneeze reflex in non-human species exists</strong>.</p>
+<h2>5. Accident Risk -- Tunnel Exits and Fighter Cockpits</h2>
+<p>The photic sneeze reflex is ordinarily a harmless phenomenon; however, the <strong>involuntary eye closure</strong> accompanying each sneeze (approximately 0.5 seconds per episode) occurring in rapid succession poses a serious safety risk under specific conditions.</p>
+<h3>5.1 Automobile Driving</h3>
+<p>The abrupt transition from darkness to bright light at tunnel exits is a classic trigger for the photic sneeze reflex. Senthilkumaran et al. (2026) reported a case in which a 26-year-old motorcycle delivery driver experienced a photic sneeze reflex upon exiting an indoor parking structure into sunlight, resulting in a traffic accident and a left orbital floor fracture (with inferior rectus entrapment). Notably, this patient had experienced <strong>three traffic accidents within three months</strong>, all attributable to sudden changes in the photic environment (photic transition). The authors titled this case "When light becomes lethal," emphasizing that the photic sneeze reflex can be a <strong>life-threatening</strong> accident risk factor.</p>
+<h3>5.2 Military Aviation</h3>
+<p>Breitenbach et al. (1993) examined the risk posed by the photic sneeze reflex to fighter pilots at a U.S. Air Force Reserve clinic. They noted that changes in light intensity (particularly solar reflections from water surfaces) can trigger in-flight sneezing; that a sneezing episode during aerial combat could incapacitate the pilot at the precise moment when situational awareness is most critical; and that sneezing during landing approach could result in loss of aircraft control. The study also evaluated wavelength-specific provocation tests using narrowband interference filters and the protective efficacy of various military and civilian aviation goggles.</p>
+<h3>5.3 Legal Aspects of Accident Liability</h3>
+<p>The legal liability for accidents caused by the photic sneeze reflex has yet to be systematically addressed in the jurisprudential or epidemiological literature. However, as illustrated by the case reported by Senthilkumaran et al. (2026), when carriers of this reflex experience recurrent accidents, the obligation to disclose the condition under driver licensing regulations and the failure to take precautions (such as not wearing sunglasses) despite awareness of the reflex may bear on the determination of negligence. This constitutes a public health issue warranting future examination.</p>
+<h2>6. Related Non-Allergic Reflexes -- "Misfiring" in Response to Physical Stimuli</h2>
+<p>The photic sneeze reflex is one of a group of phenomena in which the autonomic nervous system mounts an excessive response to a physiologically "inappropriate stimulus." Related non-allergic reflexes include the following.</p>
+<h3>6.1 Snatiation Reflex</h3>
+<p>This is a phenomenon in which involuntary sneezing occurs in rapid succession upon satiation. Teebi &amp; Al-Saleh (1989) first described its autosomal dominant inheritance pattern, and Hall (1990) coined the portmanteau "snatiation" from "sneeze" and "satiation" in the <em>Journal of Medical Genetics</em>. The trigger is <strong>physical gastric distension</strong> rather than the type or temperature of food, and the absence of rhinorrhea clearly distinguishes it from gustatory rhinitis. The proposed mechanism involves a gastro-nasal reflex arc mediated by the vagus nerve, though the details remain unclear.</p>
+<h3>6.2 Cold-Induced Rhinorrhea (Skier's Nose)</h3>
+<p>This phenomenon involves the rapid secretion of watery nasal discharge from the nasal mucosa upon inhalation of cold air. The reported prevalence among skiers reaches 96% (Silvers, 1991). The proposed mechanism involves cold air activating TRP (transient receptor potential) channels (particularly TRPM8) in the nasal mucosa, with sensory nerve stimulation triggering a cholinergic reflex that enhances serous gland secretion. Near-complete suppression by topical atropine pretreatment confirms that the primary pathway involves a parasympathetic (muscarinic receptor-mediated) reflex arc.</p>
+<h3>6.3 Gustatory Rhinitis</h3>
+<p>This is watery rhinorrhea that occurs immediately after consuming spicy foods and is not typically accompanied by sneezing. Raphael et al. (1989) demonstrated that pungent compounds stimulate muscarinic receptors (presumably on submucosal glands) and that the secretory response is blocked by topical atropine pretreatment. The currently most supported mechanism involves capsaicin and other TRPV1 agonists exciting sensory nerve endings and triggering a parasympathetic reflex.</p>
+<p>These three reflexes are all understood within a common pathophysiological framework of <strong>excessive autonomic (predominantly parasympathetic) responses to specific physical stimuli</strong>. Whereas the photic sneeze reflex involves crosstalk from "visual input to trigeminal nerve," snatiation involves "gastric distension to vagus nerve to sneeze center," cold-induced rhinorrhea involves "TRP channel to trigeminal nerve to cholinergic secretion," and gustatory rhinitis involves "TRPV1 to muscarinic secretory reflex" -- each converging from distinct afferent pathways onto similar efferent pathways (the medullary sneeze center or nasal secretory reflex).</p>
+<h2>7. Summary</h2>
+<p>The photic sneeze reflex is an autosomal dominant trait with a prevalence of 18--35% (though values range from 2% to 57% depending on population and methodology), with its primary neurophysiological mechanisms being crosstalk between the visual pathway and trigeminal nuclei or parasympathetic generalization. Pronounced racial differences in prevalence exist (White &gt; East Asian &gt; Black), but GWAS studies indicate that its genetic basis is polygenic and shared across ethnic groups.</p>
+<p>Although ordinarily harmless, involuntary eye closure accompanying sneezing can lead to serious accidents in situations such as driving through tunnel exits or piloting aircraft. The photic sneeze reflex, together with snatiation, cold-induced rhinorrhea, and gustatory rhinitis, is one of a group of autonomic reflexes understood within the common framework of "excessive autonomic responses to inappropriate physical stimuli," and its evolutionary significance and clinical importance warrant further investigation.</p>
+<h2>References</h2>
+<ol>
+<li>Senthilkumaran, S., Arathisenthil, S. V., Girija, S., Sanjay, P., &amp; Thirumalaikolundusubramanian, P. (2026). Photic Sneeze Reflex: When Light Becomes Lethal. <em>American Journal of Emergency Medicine</em>, 102, 170–172. DOI: <a href="https://doi.org/10.1016/j.ajem.2026.01.042">10.1016/j.ajem.2026.01.042</a>. PMID: 41619396.</li>
+<li>Beckman, L., &amp; Nordenson, I. (1983). Individual Differences with Respect to the Sneezing Reflex: An Inherited Physiological Trait in Man? <em>Human Heredity</em>, 33(6), 390–391. DOI: <a href="https://doi.org/10.1159/000153402">10.1159/000153402</a>. PMID: 6674114.</li>
+<li>Breitenbach, R. A., Swisher, P. K., Kim, M. K., &amp; Patel, B. S. (1993). The Photic Sneeze Reflex as a Risk Factor to Combat Pilots. <em>Military Medicine</em>, 158(12), 806–809. DOI: <a href="https://doi.org/10.1093/milmed/158.12.806">10.1093/milmed/158.12.806</a>. PMID: 8108024.</li>
+<li>Chowdhury, T., Sternberg, Z., Golanov, E., Gelpi, R., Rosemann, T., &amp; Schaller, B. J. (2019). Photic Sneeze Reflex: Another Variant of the Trigeminocardiac Reflex? <em>Future Neurology</em>, 14(4), FNL32. DOI: <a href="https://doi.org/10.2217/fnl-2019-0007">10.2217/fnl-2019-0007</a>.</li>
+<li>Collie, W. R., Pagon, R. A., Hall, J. G., &amp; Shokeir, M. H. K. (1978). ACHOO Syndrome (Autosomal Dominant Compelling Helio-Ophthalmic Outburst Syndrome). <em>Birth Defects Original Article Series</em>, 14(6B), 361–363.</li>
+<li>Everett, H. C. (1964). Sneezing in Response to Light. <em>Neurology</em>, 14(5), 483–490. DOI: <a href="https://doi.org/10.1212/WNL.14.5.483">10.1212/WNL.14.5.483</a>. PMID: 14144120.</li>
+<li>Forrester, J. M. (1985). Sneezing on Exposure to Bright Light as an Inherited Response. <em>Human Heredity</em>, 35(2), 113–114. DOI: <a href="https://doi.org/10.1159/000153528">10.1159/000153528</a>. PMID: 3988295.</li>
+<li>Hall, J. G. (1990). The SNATIATION Reflex. <em>Journal of Medical Genetics</em>, 27(4), 275. DOI: <a href="https://doi.org/10.1136/jmg.27.4.275">10.1136/jmg.27.4.275</a>. PMID: 2325106.</li>
+<li>Ikeda, M., et al. (2018). A Genome-Wide Association Study on Photic Sneeze Syndrome in a Japanese Population. <em>Journal of Human Genetics</em>, 63(6), 735–737. DOI: <a href="https://doi.org/10.1038/s10038-018-0441-z">10.1038/s10038-018-0441-z</a>. PMID: 29559738.</li>
+<li>Kulas, P., Hecker, D., Schick, B., &amp; Bozzato, A. (2017). Investigations on the Prevalence of the Photo-Induced Sneezing Reflex in the German Population, a Representative Cross-Sectional Study. <em>European Archives of Oto-Rhino-Laryngology</em>, 274(3), 1721–1725. DOI: <a href="https://doi.org/10.1007/s00405-016-4256-2">10.1007/s00405-016-4256-2</a>. PMID: 27568353.</li>
+<li>Morris, H. H. III (1987). ACHOO Syndrome: Prevalence and Inheritance. <em>Cleveland Clinic Journal of Medicine</em>, 54(5), 431–433. DOI: <a href="https://doi.org/10.3949/ccjm.54.5.431">10.3949/ccjm.54.5.431</a>.</li>
+<li>Raphael, G. D., Hauptschein-Raphael, M., &amp; Kaliner, M. A. (1989). Gustatory Rhinitis: A Syndrome of Food-Induced Rhinorrhea. <em>Journal of Allergy and Clinical Immunology</em>, 83(1), 110–115. DOI: <a href="https://doi.org/10.1016/0091-6749(89)90484-3">10.1016/0091-6749(89)90484-3</a>. PMID: 2643657.</li>
+<li>Sasayama, D., Asano, S., &amp; Kunugi, H. (2019). Possible Association between Photic Sneeze Syndrome and Migraine and Psychological Distress. <em>Neuropsychopharmacology Reports</em>, 39(4), 325–328. DOI: <a href="https://doi.org/10.1002/npr2.12067">10.1002/npr2.12067</a>. PMID: 31287245.</li>
+<li>Semes, L. P., Amos, J. F., &amp; Waterbor, J. W. (1995). The Photic Sneeze Response: A Descriptive Report of a Clinic Population. <em>Journal of the American Optometric Association</em>, 66(6), 372–377. PMID: 7673597.</li>
+<li>Silvers, W. S. (1991). The Skier's Nose: A Model of Cold-Induced Rhinorrhea. <em>Annals of Allergy</em>, 67(1), 32–36. PMID: 1859038.</li>
+<li>Songu, M., &amp; Cingi, C. (2009). Sneeze Reflex: Facts and Fiction. <em>Therapeutic Advances in Respiratory Disease</em>, 3(3), 131–141. DOI: <a href="https://doi.org/10.1177/1753465809340571">10.1177/1753465809340571</a>. PMID: 19617285.</li>
+<li>Teebi, A. S., &amp; Al-Saleh, Q. A. (1989). Autosomal Dominant Sneezing Disorder Provoked by Fullness of Stomach. <em>Journal of Medical Genetics</em>, 26(8), 539–540. DOI: <a href="https://doi.org/10.1136/jmg.26.8.539">10.1136/jmg.26.8.539</a>. PMID: 2769729.</li>
+<li>Wang, M., Sun, X., Shi, Y., Song, X., &amp; Mi, H. (2019). A Genome-Wide Association Study on Photic Sneeze Reflex in the Chinese Population. <em>Scientific Reports</em>, 9, 4993. DOI: <a href="https://doi.org/10.1038/s41598-019-41551-0">10.1038/s41598-019-41551-0</a>. PMID: 30899065.</li>
+</ol>
+<div class="disclaimer"><p>This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p></div>
+</article>
+
+<article id="content-zh-Hans" class="content-section" dir="ltr" lang="zh-Hans">
+<h1>光喷嚏反射（ACHOO综合征）——太阳光诱发喷嚏的机制、流行病学特征及事故风险</h1>
+<h2>1. 什么是光喷嚏反射</h2>
+<p>从暗处走到户外的瞬间，或眼科检查时眼底受到光照的瞬间，会不自主地连续打喷嚏。这种现象被称为<strong>光喷嚏反射</strong>（photic sneeze reflex），1978年由Collie et al.命名为<strong>ACHOO综合征</strong>（Autosomal dominant Compelling Helio-Ophthalmic Outburst syndrome）（Collie et al., 1978）。</p>
+<p>本反射呈<strong>常染色体显性遗传</strong>模式，若父母一方为携带者，则子女中50%会表现该性状。喷嚏通常以1至10次的连发（burst）形式出现，之后进入最长24小时的不应期。实验已证实，诱发因素并非特定波长，而是<strong>光强度的急剧变化</strong>（Breitenbach et al., 1993）。</p>
+<h2>2. 流行病学——患病率与种族差异</h2>
+<h3>2.1 白人群体的患病率</h3>
+<p>光喷嚏反射的患病率因调查方法和目标群体的不同而差异显著。作为早期的重要研究，Everett（1964）在约翰斯·霍普金斯大学报告了白人男性28%、白人女性16%的患病率。Beckman &amp; Nordenson（1983）在瑞典群体中报告为24%，Forrester（1985）在英格兰群体中报告为25%，Morris（1987）报告克利夫兰诊所20名神经内科医生中有4名（20%）具有该反射。Semes et al.（1995）以验光诊所就诊者为对象，发现白人患病率为38.2%。</p>
+<p>值得特别关注的是，Kulas et al.（2017）对德国群体1,042名进行的横断面研究中，基于自我报告的患病率高达<strong>57%</strong>。该数值远超以往报告的18%至35%，但问卷灵敏度差异和受试者偏倚可能是影响因素。</p>
+<h3>2.2 种族差异</h3>
+<p>不同种族间的患病率差异显著。Everett（1964）在同一机构报告了<strong>黑人男性2%、黑人女性2%</strong>的患病率，与白人群体（男性28%、女性16%）的差异超过10倍。Semes et al.（1995）同样报告黑人群体为8.2%，远低于白人群体（38.2%）。</p>
+<p>关于日本人群体，Ikeda et al.（2018）的全基因组关联分析（GWAS）以11,409名为对象，报告患病率为3.2%。Sasayama et al.（2019）在11,840名一般人群调查中获得了3.1%的一致结果。但由于光喷嚏反射属于日常且无害的现象，基于自我报告的数据可能存在低估。</p>
+<h3>2.3 遗传学发现——多基因性且非族群特异性</h3>
+<p>GWAS研究逐步揭示，光喷嚏反射的遗传基础比"单基因常染色体显性"这一经典认识更为复杂。</p>
+<p>Ikeda et al.（2018）在日本人群体中发现3p12.1的SNP达到全基因组显著水平，2q22.3和9q33.2的SNP也显示出支持性关联。Wang et al.（2019）以3,417名中国人群体（患病率25.6%）为对象，鉴定出2q22.3的rs10427255（比值比1.68）和3p12.1的rs1032507（比值比0.65）。这些结果表明，光喷嚏反射的遗传基础是<strong>多基因（polygenic）</strong>的，且相关基因座在<strong>跨族群间共享</strong>（Wang et al., 2019）。</p>
+<p>患病率的种族差异很可能由相关遗传多态性的等位基因频率在群体间的差异所解释。</p>
+<h2>3. 生理学机制——为什么光会诱发喷嚏</h2>
+<p>光喷嚏反射的神经生理学机制尚未完全阐明，但迄今已提出三种主要假说。</p>
+<h3>3.1 视神经-三叉神经串扰假说（Optic-Trigeminal Summation）</h3>
+<p>这是被引用最广泛的假说。视神经（CN II）受到强光刺激后，在中脑水平降低三叉神经（CN V）的兴奋阈值，眼神经支（V1）的活动扩散至上颌神经支（V2）——即鼻腔黏膜喷嚏传入通路（Everett, 1964; Songu &amp; Cingi, 2009）。</p>
+<p>Songu &amp; Cingi（2009）指出，视觉通路（上丘, colliculus superior）与三叉神经中脑核之间的解剖学距离存在个体差异和种族差异，这可能解释家族聚集性和种族差异。由于反射潜伏期较长（2.5至15秒），推测其并非前膝状体水平的直接反射弧，而是涉及更高位的间接信息传递（Morris, 1987）。</p>
+<h3>3.2 副交感神经泛化假说（Parasympathetic Generalization）</h3>
+<p>光刺激引起的瞳孔收缩通过副交感神经（动眼神经的Edinger-Westphal核）介导，该假说认为这种副交感神经活动发生"泛化"，导致鼻腔黏膜分泌增加和喷嚏中枢（延髓）兴奋阈值降低（Everett, 1964）。光喷嚏反射携带者的副交感神经系统整体反应性可能高于非携带者。</p>
+<h3>3.3 三叉神经心脏反射亚型假说</h3>
+<p>Chowdhury et al.（2019）提出了将光喷嚏反射定位为<strong>三叉神经心脏反射（trigeminocardiac reflex, TCR）亚型</strong>的假说。TCR以三叉神经感觉支刺激引起的突发性副交感性心动过缓和低血压为特征，与光喷嚏反射的共同点包括副交感神经活动亢进和脑干水平的三叉神经整合。</p>
+<p>上述假说均未得到完全的实验验证，多种机制叠加的可能性也不能排除。</p>
+<h2>4. 其他动物中的光喷嚏反射</h2>
+<p>光喷嚏反射<strong>是否为人类特有现象</strong>是一个尚未充分研究的问题。犬和猫也常见喷嚏，但其诱因主要是鼻腔黏膜受到的物理或化学刺激（粉尘、过敏原、异物），在PubMed和CrossRef的检索范围内，系统性描述光刺激诱发喷嚏的兽医学研究极为有限。</p>
+<p>光喷嚏反射的神经解剖学基础——视觉通路与三叉神经核的邻近性以及副交感神经的泛化——并非人类脑干结构所特有，但反射弧是否完整取决于物种特异性的神经回路构成。就目前而言，合理的结论是<strong>尚无高质量证据证实光喷嚏反射存在于人类以外的物种</strong>。</p>
+<h2>5. 事故风险——隧道出口与战斗机驾驶舱</h2>
+<p>光喷嚏反射通常是无害的现象，但喷嚏伴随的<strong>不自主闭眼</strong>（约0.5秒/次）连续数次出现时，在特定环境下可构成严重的安全风险。</p>
+<h3>5.1 汽车驾驶</h3>
+<p>隧道出口处从暗到明的急剧光强度变化是光喷嚏反射的典型诱因。Senthilkumaran et al.（2026）报告了一例26岁摩托车配送员从室内停车场驶入阳光下时被诱发光喷嚏反射、导致交通事故并造成左眼眶底骨折（伴下直肌嵌顿）的病例。值得注意的是，该患者在<strong>3个月内经历了3次</strong>交通事故，每次均因光环境急变（photic transition）所致。作者将该病例题为"When light becomes lethal"，强调光喷嚏反射是<strong>可能危及生命</strong>的事故风险因素。</p>
+<h3>5.2 军用航空</h3>
+<p>Breitenbach et al.（1993）在美国空军预备役诊所研究了光喷嚏反射对战斗机飞行员的风险。他们指出：光强度变化（特别是水面的太阳反射）可在飞行中诱发喷嚏；空战中发生喷嚏发作时，飞行员在最需要态势感知的时刻会丧失功能；进场着陆时的喷嚏可能导致飞机失控。该研究还使用窄带干涉滤光片进行了波长别诱发试验，并评估了各种军用和民用航空护目镜的防护效果。</p>
+<h3>5.3 事故责任的法律层面</h3>
+<p>因光喷嚏反射导致事故的法律责任（liability）问题，目前系统性论述的法学和流行病学文献仍然匮乏。然而，如Senthilkumaran et al.（2026）的病例所示，当反射携带者反复发生事故时，驾驶执照制度中的申报义务以及在已知反射存在的情况下未采取防护措施（如未佩戴太阳镜等）是否构成过失责任，是今后需要从公共卫生角度加以探讨的问题。</p>
+<h2>6. 类似的非过敏性反射——对物理刺激的"误触发"</h2>
+<p>光喷嚏反射是自主神经系统对生理学上"不适当刺激"产生过度反应的现象群之一。类似的非过敏性反射包括以下几种。</p>
+<h3>6.1 饱腹喷嚏反射（Snatiation Reflex）</h3>
+<p>饱腹时不自主地连续打喷嚏的现象。Teebi &amp; Al-Saleh（1989）首次描述了其常染色体显性遗传模式，Hall（1990）在 <em>Journal of Medical Genetics</em> 上将sneeze与satiation的混成词命名为"snatiation"。诱因不是食物的种类或温度，而是<strong>胃的物理性膨胀</strong>，且不伴随鼻漏，这一点与味觉性鼻炎有明确区别。推测其机制为通过迷走神经介导的胃-鼻腔间反射弧，但详细机制尚不明确。</p>
+<h3>6.2 冷诱导性鼻漏（Cold-Induced Rhinorrhea / Skier's Nose）</h3>
+<p>吸入冷空气后鼻黏膜迅速分泌水样鼻涕的现象，有报告称滑雪者的患病率高达96%（Silvers, 1991）。冷空气激活鼻黏膜的TRP（transient receptor potential）通道（特别是TRPM8），感觉神经刺激引发胆碱能反射，从而增强浆液腺分泌。由于局部阿托品预处理可几乎完全抑制该反应，副交感神经（毒蕈碱受体）介导的反射弧被认为是主要通路。</p>
+<h3>6.3 味觉性鼻炎（Gustatory Rhinitis）</h3>
+<p>摄入辛辣食物后立即出现的水样鼻漏，通常不伴随喷嚏。Raphael et al.（1989）证实，辛辣成分刺激毒蕈碱受体（可能位于黏膜下腺），其分泌反应可被阿托品局部预处理阻断。目前最受支持的机制是：辣椒素等TRPV1激动剂兴奋感觉神经末梢，引发副交感神经反射。</p>
+<p>这三种反射均可在<strong>特定物理刺激引起自主神经（主要是副交感神经）过度反应</strong>这一共同的病理生理学框架下理解。光喷嚏反射是"视觉→三叉神经"的串扰，snatiation是"胃膨胀→迷走神经→喷嚏中枢"，冷诱导性鼻漏是"TRP通道→三叉神经→胆碱能分泌"，味觉性鼻炎是"TRPV1→毒蕈碱性分泌反射"，各自通过不同的传入通路汇聚于相似的传出通路（延髓喷嚏中枢或鼻腔分泌反射）。</p>
+<h2>7. 总结</h2>
+<p>光喷嚏反射是一种患病率为18%至35%（但因群体和方法不同，范围可从2%到57%）的常染色体显性遗传性状，其主要神经生理学机制为视觉通路与三叉神经核的串扰或副交感神经的泛化。患病率存在显著的种族差异（白人 &gt; 东亚人 &gt; 黑人），但GWAS研究表明其遗传基础是多基因性的且跨族群共享。</p>
+<p>通常无害，但在隧道出口驾驶或航空操纵等情境下，喷嚏伴随的不自主闭眼可能导致重大事故。光喷嚏反射与snatiation、冷诱导性鼻漏、味觉性鼻炎一同，被归入"对不适当物理刺激的自主神经过度反应"这一共同框架下的自主神经反射群，其进化意义和临床重要性有待今后进一步探讨。</p>
+<h2>References</h2>
+<ol>
+<li>Senthilkumaran, S., Arathisenthil, S. V., Girija, S., Sanjay, P., &amp; Thirumalaikolundusubramanian, P. (2026). Photic Sneeze Reflex: When Light Becomes Lethal. <em>American Journal of Emergency Medicine</em>, 102, 170–172. DOI: <a href="https://doi.org/10.1016/j.ajem.2026.01.042">10.1016/j.ajem.2026.01.042</a>. PMID: 41619396.</li>
+<li>Beckman, L., &amp; Nordenson, I. (1983). Individual Differences with Respect to the Sneezing Reflex: An Inherited Physiological Trait in Man? <em>Human Heredity</em>, 33(6), 390–391. DOI: <a href="https://doi.org/10.1159/000153402">10.1159/000153402</a>. PMID: 6674114.</li>
+<li>Breitenbach, R. A., Swisher, P. K., Kim, M. K., &amp; Patel, B. S. (1993). The Photic Sneeze Reflex as a Risk Factor to Combat Pilots. <em>Military Medicine</em>, 158(12), 806–809. DOI: <a href="https://doi.org/10.1093/milmed/158.12.806">10.1093/milmed/158.12.806</a>. PMID: 8108024.</li>
+<li>Chowdhury, T., Sternberg, Z., Golanov, E., Gelpi, R., Rosemann, T., &amp; Schaller, B. J. (2019). Photic Sneeze Reflex: Another Variant of the Trigeminocardiac Reflex? <em>Future Neurology</em>, 14(4), FNL32. DOI: <a href="https://doi.org/10.2217/fnl-2019-0007">10.2217/fnl-2019-0007</a>.</li>
+<li>Collie, W. R., Pagon, R. A., Hall, J. G., &amp; Shokeir, M. H. K. (1978). ACHOO Syndrome (Autosomal Dominant Compelling Helio-Ophthalmic Outburst Syndrome). <em>Birth Defects Original Article Series</em>, 14(6B), 361–363.</li>
+<li>Everett, H. C. (1964). Sneezing in Response to Light. <em>Neurology</em>, 14(5), 483–490. DOI: <a href="https://doi.org/10.1212/WNL.14.5.483">10.1212/WNL.14.5.483</a>. PMID: 14144120.</li>
+<li>Forrester, J. M. (1985). Sneezing on Exposure to Bright Light as an Inherited Response. <em>Human Heredity</em>, 35(2), 113–114. DOI: <a href="https://doi.org/10.1159/000153528">10.1159/000153528</a>. PMID: 3988295.</li>
+<li>Hall, J. G. (1990). The SNATIATION Reflex. <em>Journal of Medical Genetics</em>, 27(4), 275. DOI: <a href="https://doi.org/10.1136/jmg.27.4.275">10.1136/jmg.27.4.275</a>. PMID: 2325106.</li>
+<li>Ikeda, M., et al. (2018). A Genome-Wide Association Study on Photic Sneeze Syndrome in a Japanese Population. <em>Journal of Human Genetics</em>, 63(6), 735–737. DOI: <a href="https://doi.org/10.1038/s10038-018-0441-z">10.1038/s10038-018-0441-z</a>. PMID: 29559738.</li>
+<li>Kulas, P., Hecker, D., Schick, B., &amp; Bozzato, A. (2017). Investigations on the Prevalence of the Photo-Induced Sneezing Reflex in the German Population, a Representative Cross-Sectional Study. <em>European Archives of Oto-Rhino-Laryngology</em>, 274(3), 1721–1725. DOI: <a href="https://doi.org/10.1007/s00405-016-4256-2">10.1007/s00405-016-4256-2</a>. PMID: 27568353.</li>
+<li>Morris, H. H. III (1987). ACHOO Syndrome: Prevalence and Inheritance. <em>Cleveland Clinic Journal of Medicine</em>, 54(5), 431–433. DOI: <a href="https://doi.org/10.3949/ccjm.54.5.431">10.3949/ccjm.54.5.431</a>.</li>
+<li>Raphael, G. D., Hauptschein-Raphael, M., &amp; Kaliner, M. A. (1989). Gustatory Rhinitis: A Syndrome of Food-Induced Rhinorrhea. <em>Journal of Allergy and Clinical Immunology</em>, 83(1), 110–115. DOI: <a href="https://doi.org/10.1016/0091-6749(89)90484-3">10.1016/0091-6749(89)90484-3</a>. PMID: 2643657.</li>
+<li>Sasayama, D., Asano, S., &amp; Kunugi, H. (2019). Possible Association between Photic Sneeze Syndrome and Migraine and Psychological Distress. <em>Neuropsychopharmacology Reports</em>, 39(4), 325–328. DOI: <a href="https://doi.org/10.1002/npr2.12067">10.1002/npr2.12067</a>. PMID: 31287245.</li>
+<li>Semes, L. P., Amos, J. F., &amp; Waterbor, J. W. (1995). The Photic Sneeze Response: A Descriptive Report of a Clinic Population. <em>Journal of the American Optometric Association</em>, 66(6), 372–377. PMID: 7673597.</li>
+<li>Silvers, W. S. (1991). The Skier's Nose: A Model of Cold-Induced Rhinorrhea. <em>Annals of Allergy</em>, 67(1), 32–36. PMID: 1859038.</li>
+<li>Songu, M., &amp; Cingi, C. (2009). Sneeze Reflex: Facts and Fiction. <em>Therapeutic Advances in Respiratory Disease</em>, 3(3), 131–141. DOI: <a href="https://doi.org/10.1177/1753465809340571">10.1177/1753465809340571</a>. PMID: 19617285.</li>
+<li>Teebi, A. S., &amp; Al-Saleh, Q. A. (1989). Autosomal Dominant Sneezing Disorder Provoked by Fullness of Stomach. <em>Journal of Medical Genetics</em>, 26(8), 539–540. DOI: <a href="https://doi.org/10.1136/jmg.26.8.539">10.1136/jmg.26.8.539</a>. PMID: 2769729.</li>
+<li>Wang, M., Sun, X., Shi, Y., Song, X., &amp; Mi, H. (2019). A Genome-Wide Association Study on Photic Sneeze Reflex in the Chinese Population. <em>Scientific Reports</em>, 9, 4993. DOI: <a href="https://doi.org/10.1038/s41598-019-41551-0">10.1038/s41598-019-41551-0</a>. PMID: 30899065.</li>
+</ol>
+<div class="disclaimer"><p>本内容仅供参考，基于客观的学术证据和数据分析。本内容不构成医疗建议、诊断或政治评论。</p></div>
+</article>
+
+<article id="content-es" class="content-section" dir="ltr" lang="es">
+<h1>Reflejo de estornudo fótico (síndrome ACHOO): mecanismo por el cual la luz solar induce el estornudo, características epidemiológicas y riesgo de accidentes</h1>
+<h2>1. Qué es el reflejo de estornudo fótico</h2>
+<p>Al pasar de un lugar oscuro al exterior, o en el momento en que se ilumina el fondo de ojo durante un examen oftalmológico, se producen estornudos involuntarios consecutivos. Este fenómeno se denomina <strong>reflejo de estornudo fótico</strong> (photic sneeze reflex) y fue denominado en 1978 por Collie et al. como <strong>síndrome ACHOO</strong> (Autosomal dominant Compelling Helio-Ophthalmic Outburst syndrome) (Collie et al., 1978).</p>
+<p>Este reflejo sigue un patrón de <strong>herencia autosómica dominante</strong>: si uno de los progenitores es portador, el 50% de la descendencia lo manifestará. Los estornudos suelen producirse en ráfagas (bursts) de 1 a 10, seguidas de un período refractario de hasta 24 horas. Se ha confirmado experimentalmente que el factor desencadenante no es una longitud de onda específica, sino el <strong>cambio abrupto en la intensidad lumínica</strong> (Breitenbach et al., 1993).</p>
+<h2>2. Epidemiología: prevalencia y diferencias entre grupos étnicos</h2>
+<h3>2.1 Prevalencia en poblaciones caucásicas</h3>
+<p>La prevalencia del reflejo de estornudo fótico varía considerablemente según la metodología de investigación y la población estudiada. Como estudio temprano de importancia, Everett (1964) reportó en la Universidad Johns Hopkins una prevalencia del 28% en varones caucásicos y del 16% en mujeres caucásicas. Beckman &amp; Nordenson (1983) reportaron un 24% en una población sueca, Forrester (1985) un 25% en una población inglesa y Morris (1987) informó que 4 de 20 neurólogos (20%) de la Clínica Cleveland eran portadores. Semes et al. (1995) encontraron una prevalencia del 38,2% entre pacientes caucásicos de una clínica de optometría.</p>
+<p>Es particularmente notable el estudio transversal de Kulas et al. (2017), que incluyó a 1.042 individuos de una población alemana y reportó una prevalencia autoinformada del <strong>57%</strong>. Este valor supera ampliamente el rango de 18-35% previamente reportado, aunque las diferencias en la sensibilidad de los cuestionarios y el sesgo de los participantes pueden haber influido.</p>
+<h3>2.2 Diferencias entre grupos étnicos</h3>
+<p>Las diferencias en la prevalencia entre grupos étnicos son notables. Everett (1964) reportó en la misma institución una prevalencia del <strong>2% en varones de ascendencia africana y del 2% en mujeres de ascendencia africana</strong>, una diferencia superior a 10 veces respecto a la población caucásica (varones 28%, mujeres 16%). Semes et al. (1995) reportaron igualmente un 8,2% en la población de ascendencia africana, cifra considerablemente inferior a la de la población caucásica (38,2%).</p>
+<p>En cuanto a la población japonesa, Ikeda et al. (2018) reportaron una prevalencia del 3,2% en un análisis de asociación de genoma completo (GWAS) con 11.409 participantes. Sasayama et al. (2019) obtuvieron un valor concordante del 3,1% en una encuesta poblacional general de 11.840 individuos. No obstante, dado que el reflejo de estornudo fótico es un fenómeno cotidiano e inocuo, es posible que exista un subregistro en los datos autoinformados.</p>
+<h3>2.3 Hallazgos genéticos: carácter poligénico y no específico de etnia</h3>
+<p>Los estudios GWAS están revelando progresivamente que la base genética del reflejo de estornudo fótico es más compleja que la concepción clásica de "gen único autosómico dominante".</p>
+<p>Ikeda et al. (2018) identificaron en la población japonesa un SNP en 3p12.1 que alcanzó significancia a nivel de genoma completo, y SNPs en 2q22.3 y 9q33.2 que también mostraron asociación. Wang et al. (2019), estudiando una población china de 3.417 individuos (prevalencia del 25,6%), identificaron rs10427255 en 2q22.3 (odds ratio 1,68) y rs1032507 en 3p12.1 (odds ratio 0,65). Estos resultados indican que la base genética del reflejo de estornudo fótico es <strong>poligénica</strong> y que los loci asociados son <strong>compartidos entre distintas etnias</strong> (Wang et al., 2019).</p>
+<p>Las diferencias de prevalencia entre grupos étnicos se explican probablemente por diferencias interpoblacionales en la frecuencia alélica de los polimorfismos genéticos asociados.</p>
+<h2>3. Mecanismo fisiológico: por qué la luz induce el estornudo</h2>
+<p>El mecanismo neurofisiológico del reflejo de estornudo fótico no se ha esclarecido por completo, pero hasta la fecha se han propuesto tres hipótesis principales.</p>
+<h3>3.1 Hipótesis de la interferencia entre el nervio óptico y el trigémino (Optic-Trigeminal Summation)</h3>
+<p>Es la hipótesis más ampliamente citada. La estimulación lumínica intensa del nervio óptico (NC II) reduce a nivel mesencefálico el umbral de excitación del nervio trigémino (NC V), y la actividad de la rama oftálmica (V1) se propaga a la rama maxilar (V2), que constituye la vía aferente del estornudo desde la mucosa nasal (Everett, 1964; Songu &amp; Cingi, 2009).</p>
+<p>Songu &amp; Cingi (2009) señalaron que la distancia anatómica entre la vía visual (colículo superior) y el núcleo mesencefálico del trigémino presenta variabilidad individual y entre grupos étnicos, lo que podría explicar la agregación familiar y las diferencias étnicas. Dado que la latencia del reflejo es relativamente larga (2,5 a 15 segundos), se estima que no se trata de un arco reflejo directo a nivel del cuerpo geniculado lateral, sino de una transmisión indirecta de información a un nivel superior (Morris, 1987).</p>
+<h3>3.2 Hipótesis de la generalización parasimpática (Parasympathetic Generalization)</h3>
+<p>La contracción pupilar inducida por la luz está mediada por el sistema nervioso parasimpático (núcleo de Edinger-Westphal del nervio oculomotor). Esta hipótesis postula que dicha actividad parasimpática se "generaliza", provocando un aumento de la secreción de la mucosa nasal y una reducción del umbral de excitación del centro del estornudo (bulbo raquídeo) (Everett, 1964). Es posible que los portadores del reflejo de estornudo fótico presenten una reactividad general del sistema nervioso parasimpático mayor que los no portadores.</p>
+<h3>3.3 Hipótesis del subtipo del reflejo trigeminocardíaco</h3>
+<p>Chowdhury et al. (2019) propusieron la hipótesis de que el reflejo de estornudo fótico constituye un <strong>subtipo del reflejo trigeminocardíaco (trigeminocardiac reflex, TCR)</strong>. El TCR se caracteriza por bradicardia parasimpática súbita e hipotensión inducidas por la estimulación de las ramas sensoriales del trigémino, y comparte con el reflejo de estornudo fótico la hiperactividad parasimpática y la integración trigémina a nivel del tronco encefálico.</p>
+<p>Ninguna de estas hipótesis ha sido completamente verificada experimentalmente, y no se descarta la posibilidad de que múltiples mecanismos actúen de manera superpuesta.</p>
+<h2>4. El reflejo de estornudo fótico en otros animales</h2>
+<p>La cuestión de si el reflejo de estornudo fótico es <strong>un fenómeno exclusivo del ser humano</strong> no ha sido suficientemente investigada. Si bien los estornudos se observan habitualmente en perros y gatos, sus desencadenantes son principalmente estímulos físicos o químicos sobre la mucosa nasal (polvo, alérgenos, cuerpos extraños). En el ámbito de búsqueda de PubMed y CrossRef, los estudios veterinarios que describan sistemáticamente el estornudo inducido por la luz son extremadamente limitados.</p>
+<p>La base neuroanatómica del reflejo de estornudo fótico —la proximidad entre las vías visuales y los núcleos del trigémino, así como la generalización parasimpática— no es exclusiva de la estructura del tronco encefálico humano; sin embargo, la completitud del arco reflejo depende de la configuración de los circuitos neuronales específicos de cada especie. En la actualidad, es razonable concluir que <strong>no existe evidencia de alta calidad que confirme el reflejo de estornudo fótico en especies distintas al ser humano</strong>.</p>
+<h2>5. Riesgo de accidentes: salidas de túneles y cabinas de aviones de combate</h2>
+<p>El reflejo de estornudo fótico es generalmente un fenómeno inocuo; sin embargo, el <strong>cierre involuntario de los ojos</strong> (aproximadamente 0,5 segundos por estornudo) que se repite varias veces consecutivas puede constituir un riesgo grave para la seguridad en determinados entornos.</p>
+<h3>5.1 Conducción de vehículos</h3>
+<p>El cambio abrupto de intensidad lumínica de oscuridad a claridad en las salidas de túneles es un desencadenante típico del reflejo de estornudo fótico. Senthilkumaran et al. (2026) reportaron el caso de un repartidor en motocicleta de 26 años que sufrió un accidente de tráfico al ser inducido el reflejo de estornudo fótico al salir de un estacionamiento cubierto a la luz solar, resultando en una fractura del suelo orbitario izquierdo (con atrapamiento del músculo recto inferior). Cabe destacar que este paciente experimentó <strong>3 accidentes de tráfico en 3 meses</strong>, todos atribuibles a transiciones fóticas abruptas (photic transition). Los autores titularon este caso "When light becomes lethal", subrayando que el reflejo de estornudo fótico es un factor de riesgo de accidentes <strong>potencialmente mortal</strong>.</p>
+<h3>5.2 Aviación militar</h3>
+<p>Breitenbach et al. (1993) examinaron en una clínica de reservistas de la Fuerza Aérea de EE.UU. el riesgo del reflejo de estornudo fótico para los pilotos de combate. Señalaron que los cambios de intensidad lumínica (especialmente los reflejos solares en superficies acuáticas) pueden inducir estornudos durante el vuelo; que un episodio de estornudos durante el combate aéreo puede producir una incapacidad funcional en el momento de mayor necesidad de conciencia situacional del piloto; y que un estornudo durante la aproximación al aterrizaje puede provocar la pérdida de control de la aeronave. El estudio también evaluó ensayos de inducción por longitud de onda mediante filtros de interferencia de banda estrecha y la eficacia protectora de diversas gafas de aviación militar y civil.</p>
+<h3>5.3 Aspectos legales de la responsabilidad por accidentes</h3>
+<p>La responsabilidad legal (liability) por accidentes causados por el reflejo de estornudo fótico carece aún de una literatura jurídica y epidemiológica sistemática. No obstante, como ilustra el caso de Senthilkumaran et al. (2026), cuando un portador del reflejo sufre accidentes recurrentes, la obligación de declaración en el sistema de licencias de conducir y la responsabilidad por negligencia derivada de la falta de medidas preventivas (como no usar gafas de sol) a pesar de conocer el reflejo son cuestiones que requieren futuro análisis desde la perspectiva de la salud pública.</p>
+<h2>6. Reflejos no alérgicos similares: "fallos de disparo" ante estímulos físicos</h2>
+<p>El reflejo de estornudo fótico forma parte de un grupo de fenómenos en los que el sistema nervioso autónomo produce una respuesta excesiva ante un "estímulo fisiológicamente inadecuado". Entre los reflejos no alérgicos similares se encuentran los siguientes.</p>
+<h3>6.1 Reflejo de estornudo por saciedad (Snatiation Reflex)</h3>
+<p>Fenómeno de estornudos involuntarios repetidos que se produce cuando el estómago está lleno. Teebi &amp; Al-Saleh (1989) describieron por primera vez su patrón de herencia autosómica dominante, y Hall (1990) lo denominó "snatiation" en el <em>Journal of Medical Genetics</em>, como acrónimo fusión de sneeze y satiation. El desencadenante no es el tipo ni la temperatura del alimento, sino la <strong>distensión física del estómago</strong>, y se distingue claramente de la rinitis gustatoria por la ausencia de rinorrea. Como mecanismo, se postula un arco reflejo gastro-nasal mediado por el nervio vago, aunque los detalles permanecen desconocidos.</p>
+<h3>6.2 Rinorrea inducida por frío (Cold-Induced Rhinorrhea / Skier's Nose)</h3>
+<p>Fenómeno de secreción rápida de rinorrea acuosa por la mucosa nasal al inhalar aire frío, con reportes de prevalencia de hasta el 96% entre esquiadores (Silvers, 1991). El aire frío activa los canales TRP (transient receptor potential) de la mucosa nasal (especialmente TRPM8), y la estimulación de los nervios sensoriales desencadena un reflejo colinérgico que incrementa la secreción de las glándulas serosas. Dado que el pretratamiento local con atropina lo suprime casi por completo, se considera que el arco reflejo mediado por el sistema nervioso parasimpático (receptores muscarínicos) constituye la vía principal.</p>
+<h3>6.3 Rinitis gustatoria (Gustatory Rhinitis)</h3>
+<p>Rinorrea acuosa que se produce inmediatamente después de ingerir alimentos picantes, generalmente sin estornudos acompañantes. Raphael et al. (1989) demostraron que los componentes picantes estimulan los receptores muscarínicos (probablemente sobre las glándulas submucosas) y que la respuesta secretora se bloquea con pretratamiento local de atropina. El mecanismo actualmente más aceptado es que agonistas de TRPV1 como la capsaicina excitan las terminaciones nerviosas sensoriales, desencadenando un reflejo parasimpático.</p>
+<p>Estos tres reflejos se comprenden dentro de un marco fisiopatológico común de <strong>respuesta excesiva del sistema nervioso autónomo (principalmente parasimpático) ante estímulos físicos específicos</strong>. Mientras que el reflejo de estornudo fótico constituye una interferencia "visión → trigémino", el snatiation opera como "distensión gástrica → nervio vago → centro del estornudo", la rinorrea inducida por frío como "canales TRP → trigémino → secreción colinérgica" y la rinitis gustatoria como "TRPV1 → reflejo secretor muscarínico", convergiendo cada uno desde distintas vías aferentes hacia vías eferentes similares (centro del estornudo en el bulbo raquídeo o reflejo de secreción nasal).</p>
+<h2>7. Conclusiones</h2>
+<p>El reflejo de estornudo fótico es un rasgo de herencia autosómica dominante con una prevalencia del 18-35% (aunque varía del 2 al 57% según la población y la metodología), cuyo principal mecanismo neurofisiológico es la interferencia entre las vías visuales y los núcleos del trigémino o la generalización parasimpática. Existe una notable diferencia de prevalencia entre grupos étnicos (caucásicos &gt; asiáticos orientales &gt; personas de ascendencia africana), pero los estudios GWAS indican que su base genética es poligénica y compartida entre etnias.</p>
+<p>Aunque generalmente es inocuo, en situaciones como la conducción a la salida de túneles o el pilotaje de aeronaves, el cierre involuntario de los ojos asociado al estornudo puede provocar accidentes graves. El reflejo de estornudo fótico, junto con el snatiation, la rinorrea inducida por frío y la rinitis gustatoria, forma parte de un grupo de reflejos autonómicos comprendidos dentro del marco común de "respuesta excesiva del sistema nervioso autónomo ante estímulos físicos inadecuados", cuya significación evolutiva e importancia clínica requieren mayor investigación en el futuro.</p>
+<h2>References</h2>
+<ol>
+<li>Senthilkumaran, S., Arathisenthil, S. V., Girija, S., Sanjay, P., &amp; Thirumalaikolundusubramanian, P. (2026). Photic Sneeze Reflex: When Light Becomes Lethal. <em>American Journal of Emergency Medicine</em>, 102, 170–172. DOI: <a href="https://doi.org/10.1016/j.ajem.2026.01.042">10.1016/j.ajem.2026.01.042</a>. PMID: 41619396.</li>
+<li>Beckman, L., &amp; Nordenson, I. (1983). Individual Differences with Respect to the Sneezing Reflex: An Inherited Physiological Trait in Man? <em>Human Heredity</em>, 33(6), 390–391. DOI: <a href="https://doi.org/10.1159/000153402">10.1159/000153402</a>. PMID: 6674114.</li>
+<li>Breitenbach, R. A., Swisher, P. K., Kim, M. K., &amp; Patel, B. S. (1993). The Photic Sneeze Reflex as a Risk Factor to Combat Pilots. <em>Military Medicine</em>, 158(12), 806–809. DOI: <a href="https://doi.org/10.1093/milmed/158.12.806">10.1093/milmed/158.12.806</a>. PMID: 8108024.</li>
+<li>Chowdhury, T., Sternberg, Z., Golanov, E., Gelpi, R., Rosemann, T., &amp; Schaller, B. J. (2019). Photic Sneeze Reflex: Another Variant of the Trigeminocardiac Reflex? <em>Future Neurology</em>, 14(4), FNL32. DOI: <a href="https://doi.org/10.2217/fnl-2019-0007">10.2217/fnl-2019-0007</a>.</li>
+<li>Collie, W. R., Pagon, R. A., Hall, J. G., &amp; Shokeir, M. H. K. (1978). ACHOO Syndrome (Autosomal Dominant Compelling Helio-Ophthalmic Outburst Syndrome). <em>Birth Defects Original Article Series</em>, 14(6B), 361–363.</li>
+<li>Everett, H. C. (1964). Sneezing in Response to Light. <em>Neurology</em>, 14(5), 483–490. DOI: <a href="https://doi.org/10.1212/WNL.14.5.483">10.1212/WNL.14.5.483</a>. PMID: 14144120.</li>
+<li>Forrester, J. M. (1985). Sneezing on Exposure to Bright Light as an Inherited Response. <em>Human Heredity</em>, 35(2), 113–114. DOI: <a href="https://doi.org/10.1159/000153528">10.1159/000153528</a>. PMID: 3988295.</li>
+<li>Hall, J. G. (1990). The SNATIATION Reflex. <em>Journal of Medical Genetics</em>, 27(4), 275. DOI: <a href="https://doi.org/10.1136/jmg.27.4.275">10.1136/jmg.27.4.275</a>. PMID: 2325106.</li>
+<li>Ikeda, M., et al. (2018). A Genome-Wide Association Study on Photic Sneeze Syndrome in a Japanese Population. <em>Journal of Human Genetics</em>, 63(6), 735–737. DOI: <a href="https://doi.org/10.1038/s10038-018-0441-z">10.1038/s10038-018-0441-z</a>. PMID: 29559738.</li>
+<li>Kulas, P., Hecker, D., Schick, B., &amp; Bozzato, A. (2017). Investigations on the Prevalence of the Photo-Induced Sneezing Reflex in the German Population, a Representative Cross-Sectional Study. <em>European Archives of Oto-Rhino-Laryngology</em>, 274(3), 1721–1725. DOI: <a href="https://doi.org/10.1007/s00405-016-4256-2">10.1007/s00405-016-4256-2</a>. PMID: 27568353.</li>
+<li>Morris, H. H. III (1987). ACHOO Syndrome: Prevalence and Inheritance. <em>Cleveland Clinic Journal of Medicine</em>, 54(5), 431–433. DOI: <a href="https://doi.org/10.3949/ccjm.54.5.431">10.3949/ccjm.54.5.431</a>.</li>
+<li>Raphael, G. D., Hauptschein-Raphael, M., &amp; Kaliner, M. A. (1989). Gustatory Rhinitis: A Syndrome of Food-Induced Rhinorrhea. <em>Journal of Allergy and Clinical Immunology</em>, 83(1), 110–115. DOI: <a href="https://doi.org/10.1016/0091-6749(89)90484-3">10.1016/0091-6749(89)90484-3</a>. PMID: 2643657.</li>
+<li>Sasayama, D., Asano, S., &amp; Kunugi, H. (2019). Possible Association between Photic Sneeze Syndrome and Migraine and Psychological Distress. <em>Neuropsychopharmacology Reports</em>, 39(4), 325–328. DOI: <a href="https://doi.org/10.1002/npr2.12067">10.1002/npr2.12067</a>. PMID: 31287245.</li>
+<li>Semes, L. P., Amos, J. F., &amp; Waterbor, J. W. (1995). The Photic Sneeze Response: A Descriptive Report of a Clinic Population. <em>Journal of the American Optometric Association</em>, 66(6), 372–377. PMID: 7673597.</li>
+<li>Silvers, W. S. (1991). The Skier's Nose: A Model of Cold-Induced Rhinorrhea. <em>Annals of Allergy</em>, 67(1), 32–36. PMID: 1859038.</li>
+<li>Songu, M., &amp; Cingi, C. (2009). Sneeze Reflex: Facts and Fiction. <em>Therapeutic Advances in Respiratory Disease</em>, 3(3), 131–141. DOI: <a href="https://doi.org/10.1177/1753465809340571">10.1177/1753465809340571</a>. PMID: 19617285.</li>
+<li>Teebi, A. S., &amp; Al-Saleh, Q. A. (1989). Autosomal Dominant Sneezing Disorder Provoked by Fullness of Stomach. <em>Journal of Medical Genetics</em>, 26(8), 539–540. DOI: <a href="https://doi.org/10.1136/jmg.26.8.539">10.1136/jmg.26.8.539</a>. PMID: 2769729.</li>
+<li>Wang, M., Sun, X., Shi, Y., Song, X., &amp; Mi, H. (2019). A Genome-Wide Association Study on Photic Sneeze Reflex in the Chinese Population. <em>Scientific Reports</em>, 9, 4993. DOI: <a href="https://doi.org/10.1038/s41598-019-41551-0">10.1038/s41598-019-41551-0</a>. PMID: 30899065.</li>
+</ol>
+<div class="disclaimer"><p>Este contenido es solo con fines informativos, basado en evidencia académica objetiva y análisis de datos. No pretende ser consejo médico, diagnóstico ni crítica política.</p></div>
+</article>
+
+<article id="content-hi" class="content-section" dir="ltr" lang="hi">
+<h1>प्रकाशिक छींक प्रतिवर्त (ACHOO सिंड्रोम)——सूर्यप्रकाश द्वारा छींक उत्प्रेरण की क्रियाविधि, महामारीविज्ञानीय विशेषताएँ, एवं दुर्घटना जोखिम</h1>
+<h2>1. प्रकाशिक छींक प्रतिवर्त क्या है</h2>
+<p>अंधेरे स्थान से बाहर निकलने के क्षण में, अथवा नेत्र परीक्षा के दौरान अक्षिपट पर प्रकाश डालने के क्षण में, अनैच्छिक छींकों की शृंखला उत्पन्न होने की घटना देखी जाती है। इसे <strong>प्रकाशिक छींक प्रतिवर्त</strong> (photic sneeze reflex) कहा जाता है, और 1978 में Collie et al. ने इसे <strong>ACHOO सिंड्रोम</strong> (Autosomal dominant Compelling Helio-Ophthalmic Outburst syndrome) नाम दिया (Collie et al., 1978)।</p>
+<p>यह प्रतिवर्त <strong>ऑटोसोमल प्रभावी वंशानुक्रम</strong> प्रतिरूप का अनुसरण करता है, और यदि एक जनक वाहक हो तो 50% संतानों में अभिव्यक्ति होती है। छींकें सामान्यतः 1-10 बार की क्रमिक शृंखला (बर्स्ट) में आती हैं, जिसके बाद अधिकतम 24 घंटे की अनुत्तरदायी अवधि होती है। उत्प्रेरक कारक किसी विशिष्ट तरंगदैर्ध्य नहीं, बल्कि <strong>प्रकाश तीव्रता में तीव्र परिवर्तन</strong> है, जो प्रायोगिक रूप से प्रमाणित किया जा चुका है (Breitenbach et al., 1993)।</p>
+<h2>2. महामारीविज्ञान——व्यापकता एवं प्रजातीय अंतर</h2>
+<h3>2.1 श्वेत जनसमूहों में व्यापकता</h3>
+<p>प्रकाशिक छींक प्रतिवर्त की व्यापकता सर्वेक्षण पद्धति एवं लक्षित जनसमूह के अनुसार व्यापक रूप से भिन्न होती है। प्रारंभिक महत्वपूर्ण अध्ययन के रूप में, Everett (1964) ने जॉन्स हॉपकिन्स विश्वविद्यालय में श्वेत पुरुषों में 28% और श्वेत महिलाओं में 16% की व्यापकता रिपोर्ट की। Beckman &amp; Nordenson (1983) ने स्वीडिश जनसमूह में 24%, Forrester (1985) ने इंग्लैंड के जनसमूह में 25%, और Morris (1987) ने क्लीवलैंड क्लिनिक के 20 तंत्रिकाविज्ञानियों में से 4 (20%) में इसकी उपस्थिति रिपोर्ट की। Semes et al. (1995) ने नेत्र परीक्षण क्लिनिक के रोगियों में श्वेत व्यक्तियों में 38.2% की व्यापकता पाई।</p>
+<p>विशेष रूप से उल्लेखनीय है Kulas et al. (2017) द्वारा जर्मन जनसमूह के 1,042 व्यक्तियों पर किया गया अनुप्रस्थ अध्ययन, जिसमें स्व-रिपोर्ट आधार पर <strong>57%</strong> की उच्च व्यापकता रिपोर्ट की गई। यह मान पूर्व रिपोर्टों के 18-35% से काफी अधिक है, किंतु प्रश्नावली की संवेदनशीलता भिन्नता एवं प्रतिभागी पूर्वाग्रह की संलिप्तता संभव है।</p>
+<h3>2.2 प्रजातीय अंतर</h3>
+<p>प्रजातियों के मध्य व्यापकता का अंतर उल्लेखनीय है। Everett (1964) ने उसी संस्थान में <strong>कृष्णवर्णीय पुरुषों में 2%, कृष्णवर्णीय महिलाओं में 2%</strong> की व्यापकता रिपोर्ट की, जो श्वेत जनसमूह (पुरुष 28%, महिलाएँ 16%) से 10 गुना से अधिक का अंतर दर्शाती है। Semes et al. (1995) ने भी इसी प्रकार, कृष्णवर्णीय जनसमूह में 8.2% रिपोर्ट किया जो श्वेत जनसमूह (38.2%) की तुलना में काफी कम है।</p>
+<p>जापानी जनसमूह के विषय में, Ikeda et al. (2018) के जीनोम-व्यापी संबंधन विश्लेषण (GWAS) में 11,409 व्यक्तियों को लक्षित कर 3.2% की व्यापकता रिपोर्ट की गई। Sasayama et al. (2019) ने 11,840 व्यक्तियों के सामान्य जनसमूह सर्वेक्षण में 3.1% का संगत मान प्राप्त किया। तथापि, प्रकाशिक छींक प्रतिवर्त एक दैनिक एवं हानिरहित घटना होने के कारण, स्व-रिपोर्ट आधार पर कम रिपोर्टिंग की संभावना है।</p>
+<h3>2.3 आनुवंशिकीय निष्कर्ष——बहुजीनी एवं गैर-जातीय-विशिष्ट</h3>
+<p>प्रकाशिक छींक प्रतिवर्त का आनुवंशिक आधार "एकल जीन ऑटोसोमल प्रभावी" की शास्त्रीय समझ से अधिक जटिल है, जो GWAS अध्ययनों द्वारा स्पष्ट होता जा रहा है।</p>
+<p>Ikeda et al. (2018) ने जापानी जनसमूह में 3p12.1 पर SNP को जीनोम-व्यापी सार्थकता तक पहुँचते पाया, और 2q22.3 तथा 9q33.2 पर SNP ने भी संबंधन का समर्थन किया। Wang et al. (2019) ने चीनी जनसमूह के 3,417 व्यक्तियों (व्यापकता 25.6%) में 2q22.3 पर rs10427255 (विषम अनुपात 1.68) और 3p12.1 पर rs1032507 (विषम अनुपात 0.65) की पहचान की। इन परिणामों से यह प्रदर्शित हुआ कि प्रकाशिक छींक प्रतिवर्त का आनुवंशिक आधार <strong>बहुजीनी (पॉलीजेनिक)</strong> है, और इसके संबंधन जीन स्थल <strong>जातीय समूहों के पार साझा</strong> हैं (Wang et al., 2019)।</p>
+<p>व्यापकता का प्रजातीय अंतर, संबंधित आनुवंशिक बहुरूपताओं के एलील आवृत्ति के जनसमूह-अंतर द्वारा स्पष्ट होने की उच्च संभावना है।</p>
+<h2>3. शरीरक्रियात्मक क्रियाविधि——प्रकाश छींक क्यों उत्प्रेरित करता है</h2>
+<p>प्रकाशिक छींक प्रतिवर्त की तंत्रिका-शरीरक्रियात्मक क्रियाविधि पूर्णतः स्पष्ट नहीं हुई है, किंतु अब तक तीन प्रमुख परिकल्पनाएँ प्रस्तुत की गई हैं।</p>
+<h3>3.1 दृक् तंत्रिका-त्रिशाखा तंत्रिका अंतःक्रिया परिकल्पना (Optic-Trigeminal Summation)</h3>
+<p>यह सर्वाधिक व्यापक रूप से उद्धृत परिकल्पना है। दृक् तंत्रिका (CN II) पर तीव्र प्रकाश उद्दीपन मध्यमस्तिष्क स्तर पर त्रिशाखा तंत्रिका (CN V) की उत्तेजना सीमा को कम करता है, और नेत्र शाखा (V1) की सक्रियता ऊर्ध्वहनु शाखा (V2)——नासिका गुहा श्लेष्मकला की छींक अभिवाही पथ——तक प्रसारित होती है (Everett, 1964; Songu &amp; Cingi, 2009)।</p>
+<p>Songu &amp; Cingi (2009) ने बताया कि दृष्टि पथ (ऊर्ध्व टीला, colliculus superior) और त्रिशाखा तंत्रिका के मध्यमस्तिष्क केंद्रक के मध्य शारीरिक दूरी में व्यक्तिगत एवं प्रजातीय भिन्नता होती है, जो पारिवारिक संकलन एवं प्रजातीय अंतर को स्पष्ट कर सकती है। प्रतिवर्त की विलंबता 2.5-15 सेकंड की अपेक्षाकृत लंबी अवधि इंगित करती है कि प्री-जेनिक्युलेट स्तर पर प्रत्यक्ष प्रतिवर्त चाप की बजाय, उच्चतर स्तर पर अप्रत्यक्ष सूचना संप्रेषण संलिप्त है (Morris, 1987)।</p>
+<h3>3.2 परानुकंपी सामान्यीकरण परिकल्पना (Parasympathetic Generalization)</h3>
+<p>प्रकाश उद्दीपन द्वारा पुतली संकुचन परानुकंपी तंत्रिका (नेत्रगामी तंत्रिका के Edinger-Westphal केंद्रक) के माध्यम से होता है, और यह परानुकंपी तंत्रिका सक्रियता "सामान्यीकृत" होकर नासिका गुहा श्लेष्मकला के स्राव में वृद्धि एवं छींक केंद्र (मेडुला) की उत्तेजना सीमा में कमी उत्पन्न करती है (Everett, 1964)। प्रकाशिक छींक प्रतिवर्त के वाहकों में, परानुकंपी तंत्रिका तंत्र की समग्र प्रतिक्रियाशीलता गैर-वाहकों की तुलना में बढ़ी हुई हो सकती है।</p>
+<h3>3.3 त्रिशाखा तंत्रिका-हृदय प्रतिवर्त का उपप्रकार परिकल्पना</h3>
+<p>Chowdhury et al. (2019) ने प्रकाशिक छींक प्रतिवर्त को <strong>त्रिशाखा तंत्रिका-हृदय प्रतिवर्त (trigeminocardiac reflex, TCR) का उपप्रकार</strong> के रूप में स्थापित करने वाली परिकल्पना प्रस्तुत की। TCR त्रिशाखा तंत्रिका संवेदी शाखा के उद्दीपन द्वारा आकस्मिक परानुकंपी मंदस्पंदन एवं निम्न रक्तचाप की विशेषता रखता है, और प्रकाशिक छींक प्रतिवर्त के साथ सामान्य बिंदुओं के रूप में परानुकंपी तंत्रिका सक्रियता में वृद्धि एवं मस्तिष्क स्तंभ स्तर पर त्रिशाखा तंत्रिका एकीकरण को इंगित किया।</p>
+<p>कोई भी परिकल्पना पूर्ण प्रायोगिक सत्यापन तक नहीं पहुँची है, और एकाधिक क्रियाविधियों के अध्यारोपण की संभावना भी अपवर्जित नहीं है।</p>
+<h2>4. अन्य प्राणियों में प्रकाशिक छींक प्रतिवर्त</h2>
+<p>प्रकाशिक छींक प्रतिवर्त <strong>मानव-विशिष्ट घटना है अथवा नहीं</strong>, यह पर्याप्त रूप से परीक्षित प्रश्न नहीं है। कुत्तों एवं बिल्लियों में भी छींक दैनिक रूप से देखी जाती है, किंतु उसके कारण मुख्यतः नासिका गुहा श्लेष्मकला पर भौतिक एवं रासायनिक उद्दीपन (धूल, एलर्जेन, विजातीय पदार्थ) हैं, और प्रकाश उद्दीपन द्वारा छींक का व्यवस्थित वर्णन करने वाले पशुचिकित्सा अध्ययन PubMed एवं CrossRef की खोज सीमा में अत्यंत सीमित हैं।</p>
+<p>प्रकाशिक छींक प्रतिवर्त का तंत्रिका-शारीरिक आधार——दृष्टि पथ एवं त्रिशाखा तंत्रिका केंद्रक की निकटता तथा परानुकंपी तंत्रिका का सामान्यीकरण——मानव मस्तिष्क स्तंभ संरचना के लिए विशिष्ट नहीं है, किंतु प्रतिवर्त चाप पूर्ण है अथवा नहीं, यह प्रजाति-विशिष्ट तंत्रिका परिपथ की संरचना पर निर्भर करता है। वर्तमान में, प्रकाशिक छींक प्रतिवर्त को <strong>मानवेतर प्रजातियों में प्रमाणित करने वाला उच्च गुणवत्ता का साक्ष्य उपलब्ध नहीं है</strong> यह निष्कर्ष उचित है।</p>
+<h2>5. दुर्घटना जोखिम——सुरंग निकास एवं लड़ाकू विमान कॉकपिट</h2>
+<p>प्रकाशिक छींक प्रतिवर्त सामान्यतः हानिरहित घटना है, किंतु छींक के साथ होने वाला <strong>अनैच्छिक नेत्र बंद होना</strong> (लगभग 0.5 सेकंड/बार) जब कई बार क्रमिक रूप से होता है, विशिष्ट परिस्थितियों में गंभीर सुरक्षा जोखिम उत्पन्न करता है।</p>
+<h3>5.1 वाहन चालन</h3>
+<p>सुरंग निकास पर अंधकार से प्रकाश में तीव्र प्रकाश तीव्रता परिवर्तन, प्रकाशिक छींक प्रतिवर्त का विशिष्ट उत्प्रेरक है। Senthilkumaran et al. (2026) ने एक 26 वर्षीय बाइक डिलीवरी कर्मी का प्रकरण रिपोर्ट किया जिसमें भवनांतर्गत पार्किंग से सूर्यप्रकाश में निकलने पर प्रकाशिक छींक प्रतिवर्त उत्प्रेरित हुआ और यातायात दुर्घटना हुई, जिसमें बाएँ नेत्रकोटर तल अस्थिभंग (निम्न सीधी पेशी के फँसाव सहित) हुआ। उल्लेखनीय बात यह है कि इस रोगी ने <strong>3 महीनों में 3 यातायात दुर्घटनाएँ</strong> अनुभव कीं, और सभी प्रकाश परिवेश के तीव्र परिवर्तन (photic transition) से उत्पन्न हुई थीं। लेखकों ने इस प्रकरण को "When light becomes lethal" शीर्षक दिया और बल दिया कि प्रकाशिक छींक प्रतिवर्त <strong>जीवन-संकटकारी</strong> दुर्घटना जोखिम कारक है।</p>
+<h3>5.2 सैन्य विमानन</h3>
+<p>Breitenbach et al. (1993) ने अमेरिकी वायुसेना रिज़र्व क्लिनिक में लड़ाकू विमान चालकों के लिए प्रकाशिक छींक प्रतिवर्त के जोखिम की जाँच की। उन्होंने बताया कि प्रकाश तीव्रता परिवर्तन (विशेषकर जल सतह से सूर्य प्रतिबिंब) उड़ान के दौरान छींक उत्प्रेरित कर सकता है, वायु युद्ध के समय छींक का दौरा आने पर चालक की स्थिति-बोध सर्वाधिक आवश्यक क्षण में अक्षम हो सकती है, तथा अवतरण उपगमन के दौरान छींक विमान नियंत्रण हानि का कारण बन सकती है। उसी अध्ययन में, संकीर्ण-पट्टी व्यतिकरण फिल्टर का उपयोग कर तरंगदैर्ध्य-विशिष्ट उत्प्रेरण परीक्षण एवं विभिन्न सैन्य तथा नागरिक विमानन गॉगल्स की सुरक्षा प्रभावशीलता का भी मूल्यांकन किया गया।</p>
+<h3>5.3 दुर्घटना दायित्व के विधिक पक्ष</h3>
+<p>प्रकाशिक छींक प्रतिवर्त से उत्पन्न दुर्घटनाओं की विधिक दायित्वता (liability) पर अभी तक व्यवस्थित विधिशास्त्रीय अथवा महामारीविज्ञानीय साहित्य अपर्याप्त है। तथापि, Senthilkumaran et al. (2026) के प्रकरण की भाँति जहाँ इस प्रतिवर्त के वाहक पुनरावृत्ति रूप से दुर्घटनाग्रस्त हो रहे हैं, वहाँ चालन अनुज्ञापत्र प्रणाली में घोषणा दायित्व, तथा प्रतिवर्त की जानकारी होते हुए भी प्रतिउपाय न अपनाने (जैसे धूपचश्मा न पहनना) की उपेक्षा दायित्व निर्धारण को प्रभावित कर सकती है——यह जन-स्वास्थ्य विषय के रूप में भविष्य में विचारणीय है।</p>
+<h2>6. समान गैर-एलर्जी प्रतिवर्त——भौतिक उद्दीपन के प्रति "दोषपूर्ण प्रतिक्रिया"</h2>
+<p>प्रकाशिक छींक प्रतिवर्त, शरीरक्रियात्मक रूप से "अनुचित उद्दीपन" के प्रति स्वायत्त तंत्रिका तंत्र की अत्यधिक प्रतिक्रिया करने वाली घटना-समूह में से एक है। समान गैर-एलर्जी प्रतिवर्तों में निम्नलिखित शामिल हैं।</p>
+<h3>6.1 तृप्ति छींक प्रतिवर्त (Snatiation Reflex)</h3>
+<p>पूर्ण तृप्ति के समय अनैच्छिक छींकों की शृंखला उत्पन्न होने की घटना है। Teebi &amp; Al-Saleh (1989) ने सर्वप्रथम ऑटोसोमल प्रभावी वंशानुक्रम प्रतिरूप का वर्णन किया, और Hall (1990) ने <em>Journal of Medical Genetics</em> पत्रिका में sneeze एवं satiation के मिश्रित शब्द के रूप में "snatiation" नाम दिया। उत्प्रेरक भोजन के प्रकार या तापमान नहीं, बल्कि <strong>आमाशय का भौतिक प्रसार</strong> है, और नासिका स्राव न होने के कारण यह स्वादजनित नासाशोथ से स्पष्ट रूप से भिन्न है। क्रियाविधि के रूप में, वेगस तंत्रिका के माध्यम से आमाशय-नासिका गुहा प्रतिवर्त चाप की परिकल्पना है, किंतु विवरण अज्ञात है।</p>
+<h3>6.2 शीत-प्रेरित नासिका स्राव (Cold-Induced Rhinorrhea / Skier's Nose)</h3>
+<p>शीतल वायु के अंतःश्वसन से नासिका श्लेष्मकला से जलीय नासिका स्राव का तीव्र स्राव होने की घटना है, और स्कीयरों में इसकी व्यापकता 96% तक पहुँचने की रिपोर्ट है (Silvers, 1991)। शीतल वायु नासिका श्लेष्मकला के TRP (transient receptor potential) चैनल (विशेषकर TRPM8) को सक्रिय करती है, और संवेदी तंत्रिका उद्दीपन कोलीनकर्मी प्रतिवर्त को प्रेरित कर सीरमी ग्रंथि स्राव को बढ़ाता है। स्थानीय एट्रोपिन पूर्वउपचार द्वारा लगभग पूर्ण दमन होने से, परानुकंपी तंत्रिका (मस्कैरिनिक ग्राही) के माध्यम से प्रतिवर्त चाप मुख्य पथ है।</p>
+<h3>6.3 स्वादजनित नासाशोथ (Gustatory Rhinitis)</h3>
+<p>तीक्ष्ण खाद्य पदार्थों के सेवन के तुरंत बाद होने वाला जलीय नासिका स्राव है, और छींक सामान्यतः इसके साथ नहीं आती। Raphael et al. (1989) ने प्रदर्शित किया कि तीक्ष्ण घटक मस्कैरिनिक ग्राहियों (संभवतः श्लेष्माधोग्रंथि पर) को उद्दीपित करते हैं, और उनकी स्रावी प्रतिक्रिया एट्रोपिन स्थानीय पूर्वउपचार द्वारा अवरुद्ध होती है। कैप्सेसिन आदि TRPV1 उत्प्रेरक संवेदी तंत्रिका अंतस्थों को उत्तेजित करते हैं और परानुकंपी तंत्रिका प्रतिवर्त उत्प्रेरित करते हैं——यह क्रियाविधि वर्तमान में सर्वाधिक समर्थित है।</p>
+<p>ये तीनों प्रतिवर्त, <strong>विशिष्ट भौतिक उद्दीपन के प्रति स्वायत्त तंत्रिका (मुख्यतः परानुकंपी तंत्रिका) की अत्यधिक प्रतिक्रिया</strong> की सामान्य रोगशरीरक्रियात्मक संरचना में समझे जाते हैं। प्रकाशिक छींक प्रतिवर्त "दृष्टि→त्रिशाखा तंत्रिका" की अंतःक्रिया है, जबकि snatiation "आमाशय प्रसार→वेगस तंत्रिका→छींक केंद्र", शीत-प्रेरित नासिका स्राव "TRP चैनल→त्रिशाखा तंत्रिका→कोलीनकर्मी स्राव", और स्वादजनित नासाशोथ "TRPV1→मस्कैरिनिक स्रावी प्रतिवर्त" है——प्रत्येक भिन्न अभिवाही पथ से समान अपवाही पथ (मेडुला का छींक केंद्र अथवा नासिका गुहा स्रावी प्रतिवर्त) में अभिसरित होता है।</p>
+<h2>7. सारांश</h2>
+<p>प्रकाशिक छींक प्रतिवर्त, 18-35% की व्यापकता (यद्यपि जनसमूह एवं पद्धति के अनुसार 2-57% तक भिन्न) प्रदर्शित करने वाला ऑटोसोमल प्रभावी वंशानुगत लक्षण है, जिसका प्रमुख तंत्रिका-शरीरक्रियात्मक तंत्र दृष्टि पथ एवं त्रिशाखा तंत्रिका केंद्रक की अंतःक्रिया अथवा परानुकंपी तंत्रिका का सामान्यीकरण है। व्यापकता में उल्लेखनीय प्रजातीय अंतर (श्वेत &gt; पूर्वी एशियाई &gt; कृष्णवर्णीय) विद्यमान है, किंतु GWAS अध्ययनों ने प्रदर्शित किया है कि इसका आनुवंशिक आधार बहुजीनी एवं जातीय समूहों के पार साझा है।</p>
+<p>सामान्यतः हानिरहित होते हुए भी, सुरंग निकास पर वाहन चालन या विमान संचालन जैसी स्थितियों में, छींक के साथ होने वाला अनैच्छिक नेत्र बंद होना गंभीर दुर्घटना का कारण बन सकता है। प्रकाशिक छींक प्रतिवर्त, snatiation, शीत-प्रेरित नासिका स्राव एवं स्वादजनित नासाशोथ के साथ मिलकर, "अनुचित भौतिक उद्दीपन के प्रति स्वायत्त तंत्रिका की अत्यधिक प्रतिक्रिया" की सामान्य संरचना में समझी जाने वाली स्वायत्त तंत्रिका प्रतिवर्त समूह में से एक है, और इसका विकासवादी महत्व एवं नैदानिक गंभीरता भविष्य में और अधिक परीक्षण की अपेक्षा रखते हैं।</p>
+<h2>References</h2>
+<ol>
+<li>Senthilkumaran, S., Arathisenthil, S. V., Girija, S., Sanjay, P., &amp; Thirumalaikolundusubramanian, P. (2026). Photic Sneeze Reflex: When Light Becomes Lethal. <em>American Journal of Emergency Medicine</em>, 102, 170–172. DOI: <a href="https://doi.org/10.1016/j.ajem.2026.01.042">10.1016/j.ajem.2026.01.042</a>. PMID: 41619396.</li>
+<li>Beckman, L., &amp; Nordenson, I. (1983). Individual Differences with Respect to the Sneezing Reflex: An Inherited Physiological Trait in Man? <em>Human Heredity</em>, 33(6), 390–391. DOI: <a href="https://doi.org/10.1159/000153402">10.1159/000153402</a>. PMID: 6674114.</li>
+<li>Breitenbach, R. A., Swisher, P. K., Kim, M. K., &amp; Patel, B. S. (1993). The Photic Sneeze Reflex as a Risk Factor to Combat Pilots. <em>Military Medicine</em>, 158(12), 806–809. DOI: <a href="https://doi.org/10.1093/milmed/158.12.806">10.1093/milmed/158.12.806</a>. PMID: 8108024.</li>
+<li>Chowdhury, T., Sternberg, Z., Golanov, E., Gelpi, R., Rosemann, T., &amp; Schaller, B. J. (2019). Photic Sneeze Reflex: Another Variant of the Trigeminocardiac Reflex? <em>Future Neurology</em>, 14(4), FNL32. DOI: <a href="https://doi.org/10.2217/fnl-2019-0007">10.2217/fnl-2019-0007</a>.</li>
+<li>Collie, W. R., Pagon, R. A., Hall, J. G., &amp; Shokeir, M. H. K. (1978). ACHOO Syndrome (Autosomal Dominant Compelling Helio-Ophthalmic Outburst Syndrome). <em>Birth Defects Original Article Series</em>, 14(6B), 361–363.</li>
+<li>Everett, H. C. (1964). Sneezing in Response to Light. <em>Neurology</em>, 14(5), 483–490. DOI: <a href="https://doi.org/10.1212/WNL.14.5.483">10.1212/WNL.14.5.483</a>. PMID: 14144120.</li>
+<li>Forrester, J. M. (1985). Sneezing on Exposure to Bright Light as an Inherited Response. <em>Human Heredity</em>, 35(2), 113–114. DOI: <a href="https://doi.org/10.1159/000153528">10.1159/000153528</a>. PMID: 3988295.</li>
+<li>Hall, J. G. (1990). The SNATIATION Reflex. <em>Journal of Medical Genetics</em>, 27(4), 275. DOI: <a href="https://doi.org/10.1136/jmg.27.4.275">10.1136/jmg.27.4.275</a>. PMID: 2325106.</li>
+<li>Ikeda, M., et al. (2018). A Genome-Wide Association Study on Photic Sneeze Syndrome in a Japanese Population. <em>Journal of Human Genetics</em>, 63(6), 735–737. DOI: <a href="https://doi.org/10.1038/s10038-018-0441-z">10.1038/s10038-018-0441-z</a>. PMID: 29559738.</li>
+<li>Kulas, P., Hecker, D., Schick, B., &amp; Bozzato, A. (2017). Investigations on the Prevalence of the Photo-Induced Sneezing Reflex in the German Population, a Representative Cross-Sectional Study. <em>European Archives of Oto-Rhino-Laryngology</em>, 274(3), 1721–1725. DOI: <a href="https://doi.org/10.1007/s00405-016-4256-2">10.1007/s00405-016-4256-2</a>. PMID: 27568353.</li>
+<li>Morris, H. H. III (1987). ACHOO Syndrome: Prevalence and Inheritance. <em>Cleveland Clinic Journal of Medicine</em>, 54(5), 431–433. DOI: <a href="https://doi.org/10.3949/ccjm.54.5.431">10.3949/ccjm.54.5.431</a>.</li>
+<li>Raphael, G. D., Hauptschein-Raphael, M., &amp; Kaliner, M. A. (1989). Gustatory Rhinitis: A Syndrome of Food-Induced Rhinorrhea. <em>Journal of Allergy and Clinical Immunology</em>, 83(1), 110–115. DOI: <a href="https://doi.org/10.1016/0091-6749(89)90484-3">10.1016/0091-6749(89)90484-3</a>. PMID: 2643657.</li>
+<li>Sasayama, D., Asano, S., &amp; Kunugi, H. (2019). Possible Association between Photic Sneeze Syndrome and Migraine and Psychological Distress. <em>Neuropsychopharmacology Reports</em>, 39(4), 325–328. DOI: <a href="https://doi.org/10.1002/npr2.12067">10.1002/npr2.12067</a>. PMID: 31287245.</li>
+<li>Semes, L. P., Amos, J. F., &amp; Waterbor, J. W. (1995). The Photic Sneeze Response: A Descriptive Report of a Clinic Population. <em>Journal of the American Optometric Association</em>, 66(6), 372–377. PMID: 7673597.</li>
+<li>Silvers, W. S. (1991). The Skier's Nose: A Model of Cold-Induced Rhinorrhea. <em>Annals of Allergy</em>, 67(1), 32–36. PMID: 1859038.</li>
+<li>Songu, M., &amp; Cingi, C. (2009). Sneeze Reflex: Facts and Fiction. <em>Therapeutic Advances in Respiratory Disease</em>, 3(3), 131–141. DOI: <a href="https://doi.org/10.1177/1753465809340571">10.1177/1753465809340571</a>. PMID: 19617285.</li>
+<li>Teebi, A. S., &amp; Al-Saleh, Q. A. (1989). Autosomal Dominant Sneezing Disorder Provoked by Fullness of Stomach. <em>Journal of Medical Genetics</em>, 26(8), 539–540. DOI: <a href="https://doi.org/10.1136/jmg.26.8.539">10.1136/jmg.26.8.539</a>. PMID: 2769729.</li>
+<li>Wang, M., Sun, X., Shi, Y., Song, X., &amp; Mi, H. (2019). A Genome-Wide Association Study on Photic Sneeze Reflex in the Chinese Population. <em>Scientific Reports</em>, 9, 4993. DOI: <a href="https://doi.org/10.1038/s41598-019-41551-0">10.1038/s41598-019-41551-0</a>. PMID: 30899065.</li>
+</ol>
+<div class="disclaimer"><p>यह सामग्री केवल सूचनात्मक उद्देश्यों के लिए है, जो वस्तुनिष्ठ शैक्षणिक साक्ष्य और डेटा विश्लेषण पर आधारित है। यह चिकित्सा सलाह, निदान या राजनीतिक आलोचना के रूप में अभिप्रेत नहीं है।</p></div>
+</article>
+
+<article id="content-ar" class="content-section" dir="rtl" lang="ar">
+<h1>منعكس العطاس الضوئي (متلازمة ACHOO)——آلية تحفيز العطاس بضوء الشمس، والخصائص الوبائية، ومخاطر الحوادث</h1>
+<h2>1. ما هو منعكس العطاس الضوئي</h2>
+<p>عند الخروج من مكان مظلم إلى الخارج، أو عند توجيه الضوء نحو قاع العين أثناء فحص طب العيون، تحدث ظاهرة تتمثل في سلسلة من العطسات اللاإرادية المتتالية. يُعرف هذا بـ<strong>منعكس العطاس الضوئي</strong> (photic sneeze reflex)، وقد أطلق عليه Collie et al. عام 1978 اسم <strong>متلازمة ACHOO</strong> (Autosomal dominant Compelling Helio-Ophthalmic Outburst syndrome)‏ (Collie et al., 1978).</p>
+<p>يتبع هذا المنعكس نمط <strong>الوراثة الجسدية السائدة</strong>، وإذا كان أحد الوالدين حاملاً للصفة فإن 50% من الأبناء يُظهرونها. تحدث العطسات عادةً في سلسلة متتالية (burst) من 1 إلى 10 عطسات، يعقبها فترة عدم استجابة تصل إلى 24 ساعة كحد أقصى. وقد تأكد تجريبياً أن العامل المحفِّز ليس طولاً موجياً محدداً بل <strong>التغيّر المفاجئ في شدة الضوء</strong> (Breitenbach et al., 1993).</p>
+<h2>2. علم الأوبئة——معدل الانتشار والفروق العرقية</h2>
+<h3>2.1 معدل الانتشار في المجموعات القوقازية</h3>
+<p>يتفاوت معدل انتشار منعكس العطاس الضوئي تفاوتاً كبيراً وفقاً لمنهجية المسح والمجموعة المستهدفة. من الدراسات المبكرة المهمة، أفاد Everett (1964) في جامعة جونز هوبكنز بمعدل انتشار 28% بين الذكور القوقازيين و16% بين الإناث القوقازيات. وأفاد Beckman &amp; Nordenson (1983) بنسبة 24% في المجموعة السويدية، وForrester (1985) بنسبة 25% في المجموعة الإنجليزية، وMorris (1987) بوجودها لدى 4 من أصل 20 طبيب أعصاب في عيادة كليفلاند (20%). ووجد Semes et al. (1995) معدل انتشار 38.2% بين القوقازيين من مراجعي عيادات فحص البصر.</p>
+<p>والجدير بالملاحظة بشكل خاص هو الدراسة المقطعية التي أجراها Kulas et al. (2017) على 1,042 شخصاً من المجموعة الألمانية، حيث أُبلغ عن معدل انتشار مرتفع بلغ <strong>57%</strong> بناءً على التقرير الذاتي. وتتجاوز هذه القيمة بشكل ملحوظ النسب المبلَّغ عنها سابقاً (18-35%)، إلا أن اختلاف حساسية الاستبيان وتحيّز المشاركين قد يكونان ضالعين في ذلك.</p>
+<h3>2.2 الفروق العرقية</h3>
+<p>الفروق في معدل الانتشار بين الأعراق بارزة. أفاد Everett (1964) في المؤسسة ذاتها بمعدل انتشار <strong>2% بين الذكور من ذوي البشرة الداكنة و2% بين الإناث من ذوات البشرة الداكنة</strong>، وهو فارق يتجاوز عشرة أضعاف مقارنةً بالمجموعة القوقازية (ذكور 28%، إناث 16%). كما أفاد Semes et al. (1995) بالمثل بنسبة 8.2% في مجموعة ذوي البشرة الداكنة مقابل المجموعة القوقازية (38.2%).</p>
+<p>أما بالنسبة للمجموعة اليابانية، فقد أفاد Ikeda et al. (2018) في دراسة الارتباط على مستوى الجينوم (GWAS) التي شملت 11,409 شخصاً بمعدل انتشار 3.2%. وحصل Sasayama et al. (2019) على قيمة متوافقة بلغت 3.1% في مسح للسكان العاديين شمل 11,840 شخصاً. غير أنه نظراً لكون منعكس العطاس الضوئي ظاهرة يومية وغير ضارة، فإن احتمال نقص الإبلاغ في التقارير الذاتية قائم.</p>
+<h3>2.3 النتائج الوراثية——متعدد الجينات وغير خاص بعرق بعينه</h3>
+<p>الأساس الوراثي لمنعكس العطاس الضوئي أكثر تعقيداً من الفهم الكلاسيكي القائل بـ"جين واحد جسدي سائد"، وهو ما تكشفه دراسات GWAS بشكل متزايد.</p>
+<p>وجد Ikeda et al. (2018) في المجموعة اليابانية أن تعدد أشكال النوكليوتيد المفرد (SNP) على الموضع 3p12.1 بلغ مستوى الدلالة على مستوى الجينوم، كما دعمت تعددات الأشكال على الموضعين 2q22.3 و9q33.2 وجود ارتباط. وحدّد Wang et al. (2019) في مجموعة صينية من 3,417 شخصاً (معدل الانتشار 25.6%) كلاً من rs10427255 على الموضع 2q22.3 (نسبة الأرجحية 1.68) وrs1032507 على الموضع 3p12.1 (نسبة الأرجحية 0.65). وأظهرت هذه النتائج أن الأساس الوراثي لمنعكس العطاس الضوئي <strong>متعدد الجينات (بوليجيني)</strong>، وأن المواضع الجينية المرتبطة به <strong>مشتركة عبر المجموعات العرقية</strong> (Wang et al., 2019).</p>
+<p>ومن المرجح أن تُفسَّر الفروق العرقية في معدل الانتشار بالاختلافات بين المجموعات السكانية في ترددات الأليلات للتعددات الشكلية الوراثية المرتبطة.</p>
+<h2>3. الآلية الفسيولوجية——لماذا يحفّز الضوء العطاس</h2>
+<p>لم تُوضَّح الآلية الفسيولوجية العصبية لمنعكس العطاس الضوئي بالكامل بعد، لكن ثلاث فرضيات رئيسية قد طُرحت حتى الآن.</p>
+<h3>3.1 فرضية التداخل بين العصب البصري والعصب الثلاثي التوائم (Optic-Trigeminal Summation)</h3>
+<p>هي الفرضية الأكثر استشهاداً على نطاق واسع. يقوم التنبيه الضوئي القوي للعصب البصري (CN II) بخفض عتبة إثارة العصب الثلاثي التوائم (CN V) على مستوى الدماغ المتوسط، وينتشر نشاط الفرع العيني (V1) إلى الفرع الفكي العلوي (V2)——المسار الوارد للعطاس من الغشاء المخاطي للتجويف الأنفي (Everett, 1964; Songu &amp; Cingi, 2009).</p>
+<p>وأشار Songu &amp; Cingi (2009) إلى أن المسافة التشريحية بين المسار البصري (الأكيمة العلوية، colliculus superior) ونواة الدماغ المتوسط للعصب الثلاثي التوائم تتفاوت بين الأفراد وبين الأعراق، مما قد يفسر التجمّع العائلي والفروق العرقية. ويشير زمن الكمون الطويل نسبياً للمنعكس (2.5-15 ثانية) إلى أن القوس المنعكسة المباشرة على مستوى ما قبل الجسم الركبي ليست المسار المعني، بل يتدخل نقل معلومات غير مباشر على مستوى أعلى (Morris, 1987).</p>
+<h3>3.2 فرضية التعميم نظير الودّي (Parasympathetic Generalization)</h3>
+<p>يتم تقبّض الحدقة بالتنبيه الضوئي عبر الجهاز نظير الودّي (نواة Edinger-Westphal في العصب المحرّك للعين)، وتفترض هذه الفرضية أن هذا النشاط نظير الودّي "يتعمم" ليُحدث زيادة في إفرازات الغشاء المخاطي للتجويف الأنفي وانخفاضاً في عتبة إثارة مركز العطاس (النخاع المستطيل)‏ (Everett, 1964). وقد تكون الاستجابية العامة للجهاز نظير الودّي مرتفعة لدى حاملي منعكس العطاس الضوئي مقارنةً بغير الحاملين.</p>
+<h3>3.3 فرضية النمط الفرعي للمنعكس القلبي الثلاثي التوائم</h3>
+<p>طرح Chowdhury et al. (2019) فرضية تضع منعكس العطاس الضوئي بوصفه <strong>نمطاً فرعياً للمنعكس القلبي الثلاثي التوائم (trigeminocardiac reflex, TCR)</strong>. يتميز TCR ببطء القلب نظير الودّي المفاجئ وانخفاض ضغط الدم الناتجين عن تنبيه الفرع الحسي للعصب الثلاثي التوائم، وأشاروا إلى نقاط مشتركة مع منعكس العطاس الضوئي تتمثل في ارتفاع النشاط نظير الودّي وتكامل العصب الثلاثي التوائم على مستوى جذع الدماغ.</p>
+<p>لم تبلغ أيٌّ من الفرضيات مرحلة التحقق التجريبي الكامل، ولا يمكن استبعاد احتمال تراكب آليات متعددة.</p>
+<h2>4. منعكس العطاس الضوئي في الحيوانات الأخرى</h2>
+<p><strong>ما إذا كان منعكس العطاس الضوئي ظاهرة خاصة بالإنسان أم لا</strong> هو سؤال لم يُبحث بشكل كافٍ. يُلاحَظ العطاس يومياً لدى الكلاب والقطط أيضاً، إلا أن محفزاته الرئيسية هي المنبهات الفيزيائية والكيميائية للغشاء المخاطي الأنفي (الغبار، مسببات الحساسية، الأجسام الغريبة)، والدراسات البيطرية التي وصفت العطاس بالتنبيه الضوئي بشكل منهجي محدودة للغاية في نطاق البحث على PubMed وCrossRef.</p>
+<p>الأساس التشريحي العصبي لمنعكس العطاس الضوئي——قرب المسار البصري من نواة العصب الثلاثي التوائم وتعميم الجهاز نظير الودّي——ليس خاصاً ببنية جذع الدماغ البشري، لكن اكتمال القوس المنعكسة من عدمه يعتمد على تكوين الدوائر العصبية الخاصة بكل نوع. وفي الوقت الراهن، من الصواب الاستنتاج بأنه <strong>لا يوجد دليل عالي الجودة يؤكد وجود منعكس العطاس الضوئي في أنواع غير بشرية</strong>.</p>
+<h2>5. مخاطر الحوادث——مخارج الأنفاق وقمرات قيادة الطائرات المقاتلة</h2>
+<p>منعكس العطاس الضوئي ظاهرة غير ضارة في الأحوال العادية، إلا أن <strong>إغماض العينين اللاإرادي</strong> المصاحب للعطاس (حوالي 0.5 ثانية/مرة) عند تكراره عدة مرات متتالية يشكّل خطراً أمنياً جسيماً في ظروف معينة.</p>
+<h3>5.1 قيادة السيارات</h3>
+<p>التغيّر المفاجئ في شدة الضوء من الظلام إلى النور عند مخارج الأنفاق هو محفّز نموذجي لمنعكس العطاس الضوئي. أفاد Senthilkumaran et al. (2026) عن حالة سائق توصيل بدراجة نارية يبلغ من العمر 26 عاماً، تحفّز لديه منعكس العطاس الضوئي عند خروجه من موقف سيارات داخلي إلى ضوء الشمس فتسبب في حادث مروري، أسفر عن كسر في أرضية الحجاج الأيسر (مع انحباس العضلة المستقيمة السفلية). والجدير بالملاحظة أن هذا المريض عانى من <strong>3 حوادث مرورية خلال 3 أشهر</strong>، وكلها نتجت عن تغيّرات مفاجئة في البيئة الضوئية (photic transition). وعنون المؤلفون هذه الحالة بـ"When light becomes lethal"، مؤكدين أن منعكس العطاس الضوئي عامل خطر حوادث <strong>قد يهدد الحياة</strong>.</p>
+<h3>5.2 الطيران العسكري</h3>
+<p>درس Breitenbach et al. (1993) في عيادة الاحتياط بالقوات الجوية الأمريكية مخاطر منعكس العطاس الضوئي على طياري الطائرات المقاتلة. وأشاروا إلى أن تغيّرات شدة الضوء (خاصة انعكاس أشعة الشمس عن سطح الماء) قد تحفّز العطاس أثناء الطيران، وأن نوبة العطاس أثناء القتال الجوي قد تُعطّل الوعي الظرفي للطيار في اللحظة الأكثر حاجة إليه، وأن العطاس أثناء مرحلة الاقتراب للهبوط قد يؤدي إلى فقدان السيطرة على الطائرة. وقُيّمت في الدراسة ذاتها أيضاً اختبارات التحفيز وفق الطول الموجي باستخدام مرشّحات تداخل النطاق الضيق، وفعالية الحماية لنظارات الطيران العسكرية والمدنية المختلفة.</p>
+<h3>5.3 الجوانب القانونية للمسؤولية عن الحوادث</h3>
+<p>لا يزال الأدب القانوني والوبائي المنهجي حول المسؤولية القانونية (liability) عن الحوادث الناجمة عن منعكس العطاس الضوئي شحيحاً. غير أنه في حالات مثل حالة Senthilkumaran et al. (2026) حيث يتعرض حامل المنعكس لحوادث متكررة، فإن واجب الإفصاح ضمن نظام رخص القيادة، وعدم اتخاذ الإجراءات الوقائية (كعدم ارتداء النظارات الشمسية) رغم معرفة المنعكس، قد يؤثران في تحديد مسؤولية الإهمال——وهي مسألة صحة عامة تستدعي البحث مستقبلاً.</p>
+<h2>6. المنعكسات غير التحسسية المشابهة——"خلل وظيفي" استجابةً للمنبهات الفيزيائية</h2>
+<p>يُصنَّف منعكس العطاس الضوئي، من الناحية الفسيولوجية، ضمن مجموعة الظواهر التي يفرط فيها الجهاز العصبي الذاتي في الاستجابة لـ"منبهات غير ملائمة". وتشمل المنعكسات غير التحسسية المشابهة ما يلي.</p>
+<h3>6.1 منعكس عطاس الشبع (Snatiation Reflex)</h3>
+<p>هي ظاهرة تتمثل في حدوث سلسلة من العطسات اللاإرادية عند الشبع. وصف Teebi &amp; Al-Saleh (1989) لأول مرة نمط الوراثة الجسدية السائدة لها، وأطلق عليها Hall (1990) في مجلة <em>Journal of Medical Genetics</em> اسم "snatiation" كلفظ مزجي من sneeze وsatiation. العامل المحفّز ليس نوع الطعام أو حرارته بل <strong>التمدد الفيزيائي للمعدة</strong>، وتتميز بوضوح عن التهاب الأنف الذوقي بعدم مصاحبتها لسيلان أنفي. وتُفترض آلية تتضمن قوساً منعكسة بين المعدة والتجويف الأنفي عبر العصب المبهم، لكن التفاصيل لا تزال مجهولة.</p>
+<h3>6.2 سيلان الأنف المحرَّض بالبرد (Cold-Induced Rhinorrhea / Skier's Nose)</h3>
+<p>هي ظاهرة الإفراز السريع لسائل أنفي مائي من الغشاء المخاطي الأنفي عند استنشاق هواء بارد، وأُفيد بأن معدل انتشارها بين المتزلجين يصل إلى 96% (Silvers, 1991). يقوم الهواء البارد بتنشيط قنوات TRP (transient receptor potential) في الغشاء المخاطي الأنفي (خاصة TRPM8)، ويحفّز تنبيه الأعصاب الحسية منعكساً كولينياً يزيد إفراز الغدد المصلية. ونظراً لتثبيطها شبه الكامل بالمعالجة المسبقة بالأتروبين الموضعي، فإن القوس المنعكسة عبر الجهاز نظير الودّي (مستقبلات المسكارين) هي المسار الرئيسي.</p>
+<h3>6.3 التهاب الأنف الذوقي (Gustatory Rhinitis)</h3>
+<p>هو سيلان أنفي مائي يحدث فور تناول أطعمة حارّة، ولا يُصاحَب بالعطاس عادةً. أثبت Raphael et al. (1989) أن المكونات الحارّة تنبّه مستقبلات المسكارين (على الأرجح على الغدد تحت المخاطية)، وأن استجابتها الإفرازية تُحبط بالمعالجة المسبقة الموضعية بالأتروبين. والآلية الأكثر دعماً حالياً هي أن منبهات TRPV1 كالكابسايسين تثير النهايات العصبية الحسية وتحفّز منعكساً نظير ودّي.</p>
+<p>تُفهم هذه المنعكسات الثلاثة جميعها ضمن إطار فيزيولوجيا مرضية مشترك يتمثل في <strong>الاستجابة المفرطة للجهاز العصبي الذاتي (نظير الودّي بشكل رئيسي) لمنبهات فيزيائية محددة</strong>. ففي حين أن منعكس العطاس الضوئي هو تداخل "بصري←ثلاثي التوائم"، فإن snatiation هو "تمدد المعدة←العصب المبهم←مركز العطاس"، وسيلان الأنف المحرَّض بالبرد هو "قناة TRP←العصب الثلاثي التوائم←إفراز كوليني"، والتهاب الأنف الذوقي هو "TRPV1←منعكس إفرازي مسكاريني"——وكل منها يتقارب من مسارات واردة مختلفة نحو مسار صادر مماثل (مركز العطاس في النخاع المستطيل أو منعكس الإفراز الأنفي).</p>
+<h2>7. الخلاصة</h2>
+<p>منعكس العطاس الضوئي صفة وراثية جسدية سائدة تُظهر معدل انتشار 18-35% (وإن كان يتراوح بين 2-57% وفقاً للمجموعة السكانية والمنهجية)، وآليته الفسيولوجية العصبية الرئيسية هي التداخل بين المسار البصري ونواة العصب الثلاثي التوائم أو تعميم الجهاز نظير الودّي. وتوجد فروق عرقية بارزة في معدل الانتشار (قوقازيون &gt; شرق آسيويون &gt; ذوو بشرة داكنة)، إلا أن دراسات GWAS أظهرت أن أساسه الوراثي متعدد الجينات ومشترك عبر المجموعات العرقية.</p>
+<p>وبالرغم من كونه غير ضار في الأحوال العادية، فإن إغماض العينين اللاإرادي المصاحب للعطاس في ظروف كالقيادة عند مخارج الأنفاق أو الطيران قد يؤدي إلى حوادث جسيمة. ويُعدّ منعكس العطاس الضوئي، إلى جانب snatiation وسيلان الأنف المحرَّض بالبرد والتهاب الأنف الذوقي، واحداً من مجموعة المنعكسات العصبية الذاتية التي تُفهم ضمن الإطار المشترك المتمثل في "الاستجابة المفرطة للجهاز العصبي الذاتي لمنبهات فيزيائية غير ملائمة"، وتستدعي أهميته التطورية والسريرية مزيداً من البحث مستقبلاً.</p>
+<h2>References</h2>
+<ol>
+<li>Senthilkumaran, S., Arathisenthil, S. V., Girija, S., Sanjay, P., &amp; Thirumalaikolundusubramanian, P. (2026). Photic Sneeze Reflex: When Light Becomes Lethal. <em>American Journal of Emergency Medicine</em>, 102, 170–172. DOI: <a href="https://doi.org/10.1016/j.ajem.2026.01.042">10.1016/j.ajem.2026.01.042</a>. PMID: 41619396.</li>
+<li>Beckman, L., &amp; Nordenson, I. (1983). Individual Differences with Respect to the Sneezing Reflex: An Inherited Physiological Trait in Man? <em>Human Heredity</em>, 33(6), 390–391. DOI: <a href="https://doi.org/10.1159/000153402">10.1159/000153402</a>. PMID: 6674114.</li>
+<li>Breitenbach, R. A., Swisher, P. K., Kim, M. K., &amp; Patel, B. S. (1993). The Photic Sneeze Reflex as a Risk Factor to Combat Pilots. <em>Military Medicine</em>, 158(12), 806–809. DOI: <a href="https://doi.org/10.1093/milmed/158.12.806">10.1093/milmed/158.12.806</a>. PMID: 8108024.</li>
+<li>Chowdhury, T., Sternberg, Z., Golanov, E., Gelpi, R., Rosemann, T., &amp; Schaller, B. J. (2019). Photic Sneeze Reflex: Another Variant of the Trigeminocardiac Reflex? <em>Future Neurology</em>, 14(4), FNL32. DOI: <a href="https://doi.org/10.2217/fnl-2019-0007">10.2217/fnl-2019-0007</a>.</li>
+<li>Collie, W. R., Pagon, R. A., Hall, J. G., &amp; Shokeir, M. H. K. (1978). ACHOO Syndrome (Autosomal Dominant Compelling Helio-Ophthalmic Outburst Syndrome). <em>Birth Defects Original Article Series</em>, 14(6B), 361–363.</li>
+<li>Everett, H. C. (1964). Sneezing in Response to Light. <em>Neurology</em>, 14(5), 483–490. DOI: <a href="https://doi.org/10.1212/WNL.14.5.483">10.1212/WNL.14.5.483</a>. PMID: 14144120.</li>
+<li>Forrester, J. M. (1985). Sneezing on Exposure to Bright Light as an Inherited Response. <em>Human Heredity</em>, 35(2), 113–114. DOI: <a href="https://doi.org/10.1159/000153528">10.1159/000153528</a>. PMID: 3988295.</li>
+<li>Hall, J. G. (1990). The SNATIATION Reflex. <em>Journal of Medical Genetics</em>, 27(4), 275. DOI: <a href="https://doi.org/10.1136/jmg.27.4.275">10.1136/jmg.27.4.275</a>. PMID: 2325106.</li>
+<li>Ikeda, M., et al. (2018). A Genome-Wide Association Study on Photic Sneeze Syndrome in a Japanese Population. <em>Journal of Human Genetics</em>, 63(6), 735–737. DOI: <a href="https://doi.org/10.1038/s10038-018-0441-z">10.1038/s10038-018-0441-z</a>. PMID: 29559738.</li>
+<li>Kulas, P., Hecker, D., Schick, B., &amp; Bozzato, A. (2017). Investigations on the Prevalence of the Photo-Induced Sneezing Reflex in the German Population, a Representative Cross-Sectional Study. <em>European Archives of Oto-Rhino-Laryngology</em>, 274(3), 1721–1725. DOI: <a href="https://doi.org/10.1007/s00405-016-4256-2">10.1007/s00405-016-4256-2</a>. PMID: 27568353.</li>
+<li>Morris, H. H. III (1987). ACHOO Syndrome: Prevalence and Inheritance. <em>Cleveland Clinic Journal of Medicine</em>, 54(5), 431–433. DOI: <a href="https://doi.org/10.3949/ccjm.54.5.431">10.3949/ccjm.54.5.431</a>.</li>
+<li>Raphael, G. D., Hauptschein-Raphael, M., &amp; Kaliner, M. A. (1989). Gustatory Rhinitis: A Syndrome of Food-Induced Rhinorrhea. <em>Journal of Allergy and Clinical Immunology</em>, 83(1), 110–115. DOI: <a href="https://doi.org/10.1016/0091-6749(89)90484-3">10.1016/0091-6749(89)90484-3</a>. PMID: 2643657.</li>
+<li>Sasayama, D., Asano, S., &amp; Kunugi, H. (2019). Possible Association between Photic Sneeze Syndrome and Migraine and Psychological Distress. <em>Neuropsychopharmacology Reports</em>, 39(4), 325–328. DOI: <a href="https://doi.org/10.1002/npr2.12067">10.1002/npr2.12067</a>. PMID: 31287245.</li>
+<li>Semes, L. P., Amos, J. F., &amp; Waterbor, J. W. (1995). The Photic Sneeze Response: A Descriptive Report of a Clinic Population. <em>Journal of the American Optometric Association</em>, 66(6), 372–377. PMID: 7673597.</li>
+<li>Silvers, W. S. (1991). The Skier's Nose: A Model of Cold-Induced Rhinorrhea. <em>Annals of Allergy</em>, 67(1), 32–36. PMID: 1859038.</li>
+<li>Songu, M., &amp; Cingi, C. (2009). Sneeze Reflex: Facts and Fiction. <em>Therapeutic Advances in Respiratory Disease</em>, 3(3), 131–141. DOI: <a href="https://doi.org/10.1177/1753465809340571">10.1177/1753465809340571</a>. PMID: 19617285.</li>
+<li>Teebi, A. S., &amp; Al-Saleh, Q. A. (1989). Autosomal Dominant Sneezing Disorder Provoked by Fullness of Stomach. <em>Journal of Medical Genetics</em>, 26(8), 539–540. DOI: <a href="https://doi.org/10.1136/jmg.26.8.539">10.1136/jmg.26.8.539</a>. PMID: 2769729.</li>
+<li>Wang, M., Sun, X., Shi, Y., Song, X., &amp; Mi, H. (2019). A Genome-Wide Association Study on Photic Sneeze Reflex in the Chinese Population. <em>Scientific Reports</em>, 9, 4993. DOI: <a href="https://doi.org/10.1038/s41598-019-41551-0">10.1038/s41598-019-41551-0</a>. PMID: 30899065.</li>
+</ol>
+<div class="disclaimer"><p>هذا المحتوى لأغراض إعلامية فقط، استناداً إلى أدلة أكاديمية موضوعية وتحليل بيانات. وهو غير مخصص كاستشارة طبية أو تشخيص أو نقد سياسي.</p></div>
+</article>
+
+<footer class="site-footer">
+  Project Asymptote &mdash; Bridging mathematics, data science, and public health.
+</footer>
+
+</div>
+
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+  const section = document.getElementById('content-' + lang);
+  const btn = document.querySelector('[data-lang="' + lang + '"]');
+  if (section) section.classList.add('active');
+  if (btn) btn.classList.add('active');
+  document.documentElement.lang = lang.split('-')[0];
+  // Re-render math in newly visible section.
+  if (typeof renderMathInElement !== 'undefined') {
+    renderMathInElement(section, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+  // Update URL hash.
+  history.replaceState(null, '', '#' + lang);
+}
+
+// Initialize from hash or default to 'ja'.
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = location.hash.slice(1);
+  const validLangs = ['ja', 'en', 'zh-Hans', 'es', 'hi', 'ar'];
+  switchLang(validLangs.includes(hash) ? hash : 'ja');
+});
+</script>
+</body>
+</html>
