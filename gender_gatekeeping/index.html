@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>見えざるゲートキーパー：医学部入試差別から「女子枠」への制度的転換と国際比較</title>
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --accent: #2563eb;
+  --border: #e5e7eb;
+  --code-bg: #f3f4f6;
+  --max-w: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Serif", "Source Han Serif", "Georgia", serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.8;
+  padding: 2rem 1rem;
+}
+.container { max-width: var(--max-w); margin: 0 auto; }
+
+/* Language selector */
+.lang-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+.lang-btn {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px 4px 0 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--fg);
+  transition: all 0.15s;
+}
+.lang-btn:hover { background: var(--code-bg); }
+.lang-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Content sections */
+.content-section { display: none; }
+.content-section.active { display: block; }
+.content-section[dir="rtl"] { direction: rtl; text-align: right; }
+
+/* Typography */
+h1 { font-size: 1.8rem; margin: 1.5rem 0 1rem; line-height: 1.3; }
+h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.15rem; margin: 1.2rem 0 0.6rem; }
+p { margin: 0.8rem 0; }
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+[dir="rtl"] blockquote { border-left: none; border-right: 3px solid var(--accent); }
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+pre { background: var(--code-bg); padding: 1rem; overflow-x: auto; border-radius: 6px; margin: 1rem 0; }
+pre code { background: none; padding: 0; }
+table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.8rem; text-align: left; }
+[dir="rtl"] th, [dir="rtl"] td { text-align: right; }
+th { background: var(--code-bg); font-weight: 600; }
+a { color: var(--accent); }
+sup { font-size: 0.75em; }
+
+/* Math */
+.math.display { display: block; text-align: center; margin: 1.2rem 0; overflow-x: auto; }
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: 3rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: #999;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h1 { font-size: 1.4rem; }
+  body { padding: 1rem 0.75rem; }
+  .lang-btn { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<nav class="lang-selector" role="tablist" aria-label="Language">
+  <button class="lang-btn" data-lang="ja" role="tab" onclick="switchLang('ja')">日本語</button>
+  <button class="lang-btn" data-lang="en" role="tab" onclick="switchLang('en')">English</button>
+  <button class="lang-btn" data-lang="zh-Hans" role="tab" onclick="switchLang('zh-Hans')">简体中文</button>
+  <button class="lang-btn" data-lang="es" role="tab" onclick="switchLang('es')">Español</button>
+  <button class="lang-btn" data-lang="hi" role="tab" onclick="switchLang('hi')">हिन्दी</button>
+  <button class="lang-btn" data-lang="ar" role="tab" onclick="switchLang('ar')">العربية</button>
+</nav>
+
+<article id="content-ja" class="content-section" dir="ltr" lang="ja">
+<h1>見えざるゲートキーパー：医学部入試差別から「女子枠」への制度的転換と国際比較</h1>
+<h1>数値の門番：医学部得点操作から理工系「女子枠」へ — ジェンダー・ゲートキーピングの疫学的構造分析</h1>
+<h1>入口の設計者たち：高等教育におけるジェンダー選抜の国際比較と構造的処方箋</h1>
+<hr />
+<h2>1. 導入：制度的差別の顕在化 — 医学部入試問題</h2>
+<p>2018年7月、文部科学省の私立大学支援事業をめぐる汚職事件の捜査過程で、東京医科大学が医学部医学科の一般入試において女子受験者の得点を組織的に操作していた事実が発覚した。内部調査委員会の報告によれば、この操作は遅くとも2006年度入試から実施されており、1次試験の全受験者の得点を一律に0.8倍に圧縮した上で、男子受験者に最大20点の加点を行うという手法がとられていた [1]。操作の目的は、2010年に約40%に達していた女子入学者比率を約30%にまで抑制することにあった。</p>
+<p>大学首脳陣がこの差別を正当化した論理は、「女性医師は妊娠・出産を機に離職する割合が高く、大学病院の過酷な当直体制の維持が困難になる」というものであった。しかしこの論理は、医療提供体制の構造的欠陥 — すなわち医師の絶対数の不足と過剰な長時間労働 — を個々の女性医師の属性に帰責する転倒した因果推論に他ならない。日本の病院勤務医の労働実態調査によれば、男性医師の41%、女性医師の28%が週60時間以上の勤務に従事しており [2]、女性医師の離職の70%は出産、38.3%は育児を契機としている [3]。問題の本質は女性の「離職傾向」ではなく、出産・育児と両立不可能な労働環境の設計にある。</p>
+<p>文部科学省はこの事件を受け、全国81の医学部を擁する大学に対する緊急調査を実施し、最終的に東京医科大学を含む計10大学で募集要項に記載のない不適切な得点調整が行われていたことを確認した。具体的には、順天堂大学、北里大学、聖マリアンナ医科大学、昭和大学、日本大学、福岡大学、岩手医科大学、金沢医科大学などが該当した [1, 4]。文部科学省は東京医科大学に対して2018年度の私学助成金の全額不交付を決定し、他の問題大学に対しても助成金の減額措置を講じた [5]。東京医科大学は事後的に、不正により不合格とされた67名の女子受験者の追加合格を発表した。</p>
+<p>この事件が提起した本質的な問いは明確である。入試における得点操作は、受験者個人の権利侵害にとどまらず、「誰が医師になるべきか」という専門職への参入を制度的に統制するゲートキーピング（門番機能）が、透明性を欠いたまま恣意的に運用されていた事実を示している。</p>
+<h2>2. アンチジェンダー的選抜の世界的俯瞰</h2>
+<p>教育機関へのアクセスにおけるジェンダーを理由とした排除は、日本に特有の現象ではない。歴史的に見れば、高等教育そのものが男性の占有領域として制度設計されてきた経緯がある。</p>
+<p>1678年にElena Cornaro Piscopiaがパドヴァ大学で女性として初めて博士号（哲学）を取得した際、当初希望した神学の学位は性別を理由に拒否された。パドヴァ大学が次に女性に博士号を授与したのは、それから約300年後のことである [6]。米国においても、Title IX（教育改正法第9編、1972年）の制定以前は、多くの大学や専門職大学院が女子の入学定員を明示的に制限するか、男子より高い成績基準を課していた [7]。</p>
+<p>こうした明示的排除は20世紀後半に法的に是正されたものの、ジェンダーに基づく教育アクセスの制限は現在も特定の地域で継続している。アフガニスタンでは2021年のタリバン政権復帰後、女子の大学教育が全面的に禁止された。カブール大学における女子学生比率は禁止直前の時点で複数の学部において男女同等に達していたことが報告されており [8]、この禁止措置は教育達成度とは無関連に、純粋にジェンダー規範に基づく制度的排除である。</p>
+<p>医学教育に限定しても、入学選抜におけるジェンダー・バイアスは複数の国で文献化されている。ある医学部が面接試験を選抜過程から除外した2004–2008年の期間において、入学者に占める男子学生の比率は51.4%から57.7%に上昇したとの報告がある [9]。また、専門分野の選択においても、女性医学生は差別的経験、社会化、女性ロールモデルの不在などの要因により、特定の診療科（家庭医療、小児科、産婦人科）に集中する傾向が系統的レビューにおいて確認されている [10]。これらの知見は、明示的な得点操作のような「ハード」なゲートキーピングのみならず、構造的・文化的な「ソフト」なゲートキーピングが広範に機能していることを示唆する。</p>
+<h2>3. 日本における「女子枠」導入の実行主体と意図</h2>
+<p>医学部入試差別の発覚からわずか数年後、日本の高等教育は一見すると正反対のベクトルの制度変更に着手した。理工系学部を中心とする「女子枠」（女子学生を対象とした特別選抜枠）の急速な導入である。</p>
+<h3>3.1 政策的背景</h3>
+<p>日本のSTEM分野におけるジェンダー不均衡は、国際的に見ても突出して深刻である。OECDの統計によれば、日本の自然科学・数学・統計学分野における女子学生比率は27%（OECD平均52%）、工学・製造・建設分野では16%（OECD平均26%）であり、いずれもOECD加盟国中最下位である [11]。女性研究者の比率も17.5%にとどまり、OECD諸国の平均の約半分に過ぎない [12]。内閣府の「男女共同参画白書」（令和6年版）によれば、理学系学部の女子学生比率は27.9%、修士課程23.4%、博士課程20.9%であり、上位の教育段階ほど女性比率が低下する「リーキー・パイプライン」現象が顕著である [13]。</p>
+<h3>3.2 女子枠導入の加速</h3>
+<p>2022年6月、文部科学省は「令和5年度大学入学者選抜実施要項」の通知において、「多様な背景を持った者を対象とする選抜」の設計を推奨し、特に「理工系分野における女性」への配慮を明示した [14]。この通知が直接的な契機となり、女子枠の導入は急速に拡大した。</p>
+<p>山田進太郎D&amp;I財団が24大学を対象に実施した実態調査（2024年）によれば、2020年以前に女子枠を設けていた大学はわずか3校であったのに対し、2023年度以降に導入した大学が全体の87.5%を占める [15]。導入大学数の推移は以下の通りである:</p>
+<ul>
+<li>2024年度入試: 18大学</li>
+<li>2025年度入試: 30大学・37学部</li>
+<li>2026年度入試: 38大学（京都大学、大阪大学が新規参入）[16]</li>
+</ul>
+<p>2026年度時点で、理工系学部を持つ国立大学の半数以上が何らかの女子枠を設けることになる。東京科学大学（旧東京工業大学）は2025年度入試において工学部だけで149名の女子枠を設定し、女子学生比率を13%から20%超へ引き上げる目標を掲げた [17]。</p>
+<h3>3.3 実行主体の多層性</h3>
+<p>女子枠導入の実行主体は単一ではない。文部科学省の政策的意図（ダイバーシティ推進に向けたトップダウンのインセンティブ設計）と、大学側の自律的動機が交差している。大学側の動機としては、以下が文献および報道から指摘されている:</p>
+<ol>
+<li><strong>競争的研究資金の獲得</strong>: 科学研究費補助金やJST事業等の申請において、ダイバーシティ推進体制の整備が評価項目に含まれるケースが増加</li>
+<li><strong>世界大学ランキングにおける多様性指標</strong>: Times Higher EducationやQSのランキングにおいて、ジェンダー・バランスがスコアリング要素に含まれる</li>
+<li><strong>18歳人口の減少への対応</strong>: 理工系学部の志願者確保のため、女子という「未開拓市場」へのリーチを拡大する戦略的判断</li>
+</ol>
+<p>この構造を要約すれば、女子枠の導入は純粋な公正性の追求というよりも、政策的インセンティブと大学経営上の合理性が合致した結果として理解されるべきものである。</p>
+<h2>4. ジェンダー・アファーマティブ・アクションの国際比較</h2>
+<p>日本の女子枠は国際的に見てどのような位置にあるのか。教育・研究者採用におけるジェンダーに基づくアファーマティブ・アクション（積極的格差是正措置）の主要な類型を比較する。なお、本節では議論の拡散を防ぐため、人種・民族に基づく枠組みは対象外とし、厳密にジェンダー枠に絞って論じる。</p>
+<h3>4.1 ノルウェー：専用ポストの違法化と穏当なクオータの容認</h3>
+<p>2003年、EFTA裁判所はノルウェーの大学が特定のアカデミック・ポストを女性専用として留保していた慣行について、EEA協定およびEU指令76/207/EECに違反するとの判決を下した（Case E-1/02）[18]。ただし同判決は、同等の資格を持つ候補者間で女性を優先する「穏当なクオータ（moderate quota）」の合法性は否定していない。2005年以降、ノルウェー研究会議は卓越研究拠点（Centres of Excellence）の申請において、女性センター長の検討と穏当なクオータの使用を機関に求めている [19]。</p>
+<h3>4.2 スウェーデン：導入と撤廃の往復</h3>
+<p>スウェーデンは2003年に高等教育機関の入学選抜においてジェンダーに基づくアファーマティブ・アクションを法的に容認したが、2010年8月にこれを廃止した [20]。廃止の背景には、男子が多数派である看護学等のプログラムで男子が優先入学する逆転現象が生じ、政治的議論を呼んだことがある。ただし、スウェーデン政府は大学レベルでの女性教授採用目標（数値目標）は維持しており、2017–2019年の期間についても大学別の女性教授採用比率目標を設定している [21]。</p>
+<h3>4.3 英国：Athena SWANチャーター</h3>
+<p>英国のアプローチは、クオータ制ではなくインセンティブ連動型のフレームワークに特徴がある。2005年に設立されたAthena SWANチャーターは、研究機関におけるジェンダー平等の取り組みを評価し、ブロンズ・シルバー・ゴールドの認定を付与する制度である。2011年以降、英国国立衛生研究所（NIHR）はAthena SWAN Silverの認定を特定の研究助成金の申請要件とした [22]。</p>
+<p>このファンディング連動メカニズムは、「研究資金の配分をジェンダー表象の改善実績に紐づける」という点で、世界でも最も強力なインセンティブ構造の一つである。Ovseiko et al.（2017）は、Athena SWANへの参画が女性のキャリア支援、ケア責任への理解の深化、差別・バイアスへの対処など、構造的・文化的変容をもたらしたと報告している [23]。ただし英国の平等法（Equality Act 2010）の下では、クオータ制は「積極的差別（positive discrimination）」として違法となりうるため、Athena SWANは入学定員や雇用枠の直接的な数値割当は推奨していない。</p>
+<h3>4.4 EU全域：ジェンダー平等計画の制度化</h3>
+<p>2021年以降、欧州委員会はHorizon Europe（EU研究・イノベーション枠組みプログラム）への申請要件として、申請機関がジェンダー平等計画（Gender Equality Plan: GEP）を策定・実施していることを義務化した。GEPの具体的内容は機関の裁量に委ねられるが、ジェンダー・バランスの数値目標設定、採用・昇進過程の透明化、ワークライフ・バランス施策の整備などが一般的な構成要素となっている。</p>
+<h3>4.5 類型整理</h3>
+<p>以上を整理すると、ジェンダー・アファーマティブ・アクションは大きく以下の3類型に分類できる:</p>
+<span class="math display">\[\text{AA類型} = \begin{cases}
+\text{ハード・クオータ} & \text{（入学定員・ポストの直接割当）} \\
+\text{ソフト・ターゲット} & \text{（数値目標の設定、同等資格者間の優先）} \\
+\text{インセンティブ連動} & \text{（資金配分・認証とジェンダー指標の紐づけ）}
+\end{cases}\]</span>
+<p>日本の「女子枠」は入学定員の直接割当であり、ハード・クオータに分類される。これはノルウェーで違法と判断された「専用ポスト」と構造的に類似しており、EFTA裁判所が容認した「穏当なクオータ」（同等資格者間での優先）よりも強い措置である。スウェーデンが2010年に撤廃した入学選抜でのジェンダーAAとも同型であり、日本の女子枠が国際的に見て積極的な部類に位置することは認識されるべきである。</p>
+<h2>5. 結語：数値目標から構造改革へ</h2>
+<p>本稿は、日本の高等教育におけるジェンダー・ゲートキーピングの二つの局面 — 医学部入試における排除的ゲートキーピングと、理工系入試における包摂的ゲートキーピング（女子枠）— を国際比較の文脈で検討した。</p>
+<p>東京医科大学事件は、入口における選抜が透明性を欠くとき、それが特定のジェンダーの組織的排除に直結しうることを実証した。一方、女子枠の急速な導入は、同じ「入口の設計」によって不均衡を是正しようとする試みである。両者は表面上は逆のベクトルを持つが、「誰を入れるか／入れないか」という入口段階の操作によって構造的問題に対処しようとする点では同型である。</p>
+<p>しかし、入口での数値調整は対症療法に過ぎない。女子枠によって理工系学部に入学した女性が、その後の大学院進学、研究職就任、テニュア取得に至る過程（パイプライン）の各段階で直面する構造的障壁が除去されなければ、入学時の数値改善は持続可能な変化につながらない。日本の女性研究者比率17.5%という数値は、入学段階のみならずキャリア全体を通じた離脱の累積的結果である。</p>
+<p>2024年4月に施行された医師の働き方改革（時間外労働の上限規制: 年960時間、A水準）[24] は、東京医科大学事件の背景にあった構造的問題 — 女性医師の離職を不可避とするような過酷な労働環境 — への直接的な制度対応である。女性医師のキャリア中断の主因が出産（70%）と育児（38.3%）であるという疫学的エビデンス [3] が示すのは、個人の選好ではなく、制度の不備である。</p>
+<p>STEM分野においても、入口の数値調整と並行して、以下の構造改革が不可欠である:</p>
+<ul>
+<li>研究者の業績評価基準の再設計（出版数偏重から多面的評価へ）</li>
+<li>育児休業・短時間勤務制度の実効的運用とテニュアクロックの停止</li>
+<li>メンタリング・ロールモデルの制度的整備</li>
+</ul>
+<p>英国のAthena SWANが示すように、入口の数値目標（ハード・クオータ）ではなく、機関全体のジェンダー平等への取り組みを研究資金の配分に連動させるインセンティブ設計は、より持続可能な構造変革のモデルとなりうる。</p>
+<p>入口の「門番」を入れ替えることは、必要条件ではあっても十分条件ではない。問われるべきは、門の先にある建物の設計そのものである。</p>
+<hr />
+<h2>参考文献</h2>
+<ol>
+<li>
+<p>Takeda Y. The Tokyo Medical University entrance exam scandal: lessons learned. <em>International Journal for Educational Integrity</em>. 2018;14:11. DOI: <a href="https://doi.org/10.1007/s40979-018-0039-4">10.1007/s40979-018-0039-4</a></p>
+</li>
+<li>
+<p>Wada K, Yoshikawa T, Goto T, et al. Working hours of full-time hospital physicians in Japan: a cross-sectional nationwide survey. <em>BMJ Open</em>. 2024;14(1):e076600. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/38191251/">38191251</a></p>
+</li>
+<li>
+<p>Izumi M, Nomura K, Higaki Y. Increase in the number of female doctors and the challenges that Japan's medical system must face. <em>Global Health &amp; Medicine</em>. 2024;6(6):375-381. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/39741994/">39741994</a></p>
+</li>
+<li>
+<p>Ramanan T, Bhatt N. Gender bias in the medical school admission system in Japan. <em>SN Social Sciences</em>. 2022;2:89. DOI: <a href="https://doi.org/10.1007/s43545-022-00378-9">10.1007/s43545-022-00378-9</a></p>
+</li>
+<li>
+<p>文部科学省. 東京医科大学に対する私学助成の取扱いについて. 2019年1月.</p>
+</li>
+<li>
+<p>Schiebinger L. <em>The Mind Has No Sex?: Women in the Origins of Modern Science</em>. Harvard University Press; 1989.</p>
+</li>
+<li>
+<p>National Geographic. Title IX at 50: How the U.S. law transformed education for women. 2022.</p>
+</li>
+<li>
+<p>Babury MO, Hayeri N. Female Student Population at Kabul University Before the 2021 Ban: Trends, Gender Parity, and Faculty-Level Dynamics. arXiv:2509.20406. 2025.</p>
+</li>
+<li>
+<p>O'Neill LD, Hartvigsen J, Wallstedt B, et al. Removing the interview for medical school selection is associated with gender bias among enrolled students. <em>Medical Teacher</em>. 2014;36(7):579-585. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/24484112/">24484112</a></p>
+</li>
+<li>
+<p>Kim HY, Kim J, Lee S. The impact of gendered experiences on female medical students' specialty choice: A systematic review. <em>American Journal of Surgery</em>. 2023;225(5):814-822. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/36435655/">36435655</a></p>
+</li>
+<li>
+<p>OECD. <em>Education at a Glance 2023: OECD Indicators</em>. OECD Publishing; 2023. DOI: <a href="https://doi.org/10.1787/e13bef63-en">10.1787/e13bef63-en</a></p>
+</li>
+<li>
+<p>内閣府男女共同参画局.「女性研究者の現状」. 男女共同参画白書 令和6年版. 2024.</p>
+</li>
+<li>
+<p>内閣府男女共同参画局. 男女共同参画白書 令和6年版「教育・研究分野」. 2024.</p>
+</li>
+<li>
+<p>文部科学省.「令和5年度大学入学者選抜実施要項について（通知）」. 2022年6月.</p>
+</li>
+<li>
+<p>山田進太郎D&amp;I財団. 理工系学部の「女子枠」実態調査2024. 2024.</p>
+</li>
+<li>
+<p>リセマム.「【大学受験2026】理工系『女子枠』京大や阪大など8大学増の38大学」. 2025年10月1日.</p>
+</li>
+<li>
+<p>東京科学大学（旧東京工業大学）. 2025年度入試における女子枠の設定について. 2024.</p>
+</li>
+<li>
+<p>EFTA Court. Case E-1/02, EFTA Surveillance Authority v Norway. 2003.</p>
+</li>
+<li>
+<p>Research Council of Norway. Gender equality measures for Centres of Excellence. 2005.</p>
+</li>
+<li>
+<p>The Local (Sweden). Sweden set to scrap university gender quotas. 2010年1月12日.</p>
+</li>
+<li>
+<p>European Institute for Gender Equality (EIGE). Sweden: Legislative and policy backgrounds. 2024.</p>
+</li>
+<li>
+<p>Ovseiko PV, Chapple A, Edmunds LD, et al. Advancing gender equality through the Athena SWAN Charter for Women in Science: an exploratory study of women's and men's perceptions. <em>Health Research Policy and Systems</em>. 2017;15:12. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/28222735/">28222735</a></p>
+</li>
+<li>
+<p>Munro L, O'Sullivan G. Understanding the Athena SWAN award scheme for gender equality as a complex social intervention in a complex system: analysis of Silver award action plans in a comparative European perspective. <em>Health Research Policy and Systems</em>. 2020;18:19. DOI: <a href="https://doi.org/10.1186/s12961-020-0527-x">10.1186/s12961-020-0527-x</a></p>
+</li>
+<li>
+<p>厚生労働省. 医師の働き方改革について — 時間外・休日労働の上限規制. 2024年4月施行.</p>
+</li>
+</ol>
+<hr />
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の政策や制度を推奨・批判するものではありません。記事中の情報は公開された学術文献および公的機関の報告書に基づいていますが、法的助言を構成するものではありません。</em></p>
+<p><em>This article was produced by Project Asymptote for educational purposes. The information presented is based on publicly available academic literature and official reports and does not constitute legal advice.</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的学术文献与官方报告，不构成法律建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica y reportes oficiales públicamente disponibles y no constituye asesoramiento legal.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध शैक्षणिक साहित्य और आधिकारिक रिपोर्टों पर आधारित है और यह कानूनी सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية والتقارير الرسمية المتاحة للعموم ولا تشكل استشارة قانونية.</em></p>
+<div class="disclaimer"><p>本コンテンツは、客観的な学術的エビデンスとデータ分析に基づく情報提供のみを目的としています。医学的助言、診断、または政治的批評を意図するものではありません。</p></div>
+</article>
+
+<article id="content-en" class="content-section" dir="ltr" lang="en">
+<h1>The Invisible Gatekeeper: From Medical School Admission Discrimination to "Women's Quotas" — An International Comparison of Institutional Transformation</h1>
+<h1>Gatekeepers by the Numbers: From Medical School Score Manipulation to STEM "Women's Quotas" — A Structural Analysis of Gender Gatekeeping in Higher Education</h1>
+<h1>Architects of the Entrance: Gender Selection in Higher Education — An International Comparison and Structural Prescription</h1>
+<hr />
+<h2>1. Introduction: The Surfacing of Institutional Discrimination — The Medical School Admission Scandal</h2>
+<p>In July 2018, during the investigation of a corruption case involving a Ministry of Education, Culture, Sports, Science and Technology (MEXT) support program for private universities, it was revealed that Tokyo Medical University had systematically manipulated the entrance examination scores of female applicants to its medical school. According to the internal investigation committee's report, this practice had been in place since at least the 2006 admissions cycle, employing a method in which all applicants' first-stage examination scores were uniformly compressed to 0.8 of their original value, after which male applicants received additional points of up to 20 [1]. The objective of this manipulation was to suppress the proportion of female enrollees from approximately 40% in 2010 to roughly 30%.</p>
+<p>The rationale invoked by university leadership to justify this discrimination was that "female physicians have a high rate of attrition due to pregnancy and childbirth, making it difficult to maintain the demanding on-call system at the university hospital." However, this logic constitutes an inverted causal inference that attributes structural deficiencies in the healthcare delivery system — namely an absolute shortage of physicians and excessive working hours — to the individual attributes of female physicians. According to a nationwide survey of hospital-based physicians' working conditions in Japan, 41% of male physicians and 28% of female physicians worked 60 or more hours per week [2], and 70% of female physicians' career interruptions were precipitated by childbirth, with 38.3% precipitated by childcare responsibilities [3]. The fundamental issue is not women's "tendency to leave" but the design of a working environment incompatible with childbirth and childcare.</p>
+<p>In response to the scandal, MEXT conducted an emergency investigation of all 81 universities with medical schools nationwide, ultimately confirming that a total of 10 universities, including Tokyo Medical University, had engaged in inappropriate score adjustments not disclosed in their admissions guidelines. Among those identified were Juntendo University, Kitasato University, St. Marianna University School of Medicine, Showa University, Nihon University, Fukuoka University, Iwate Medical University, and Kanazawa Medical University [1, 4]. MEXT decided to withhold all private school subsidies for Tokyo Medical University for fiscal year 2018 and imposed subsidy reductions on other implicated universities [5]. Tokyo Medical University subsequently announced the retroactive admission of 67 female applicants who had been wrongfully rejected.</p>
+<p>The fundamental question raised by this scandal is clear. Score manipulation in entrance examinations constitutes not merely an infringement on individual applicants' rights but demonstrates that the gatekeeping function — the institutional control over who enters the medical profession — had been exercised arbitrarily and without transparency.</p>
+<h2>2. A Global Overview of Anti-Gender Selection</h2>
+<p>Gender-based exclusion from access to educational institutions is not a phenomenon unique to Japan. Historically, higher education itself was designed as a domain occupied exclusively by men.</p>
+<p>When Elena Cornaro Piscopia became the first woman to receive a doctoral degree (in philosophy) at the University of Padua in 1678, her initial request for a degree in theology was denied on the basis of her sex. The University of Padua did not award another doctorate to a woman for approximately 300 years thereafter [6]. In the United States as well, prior to the enactment of Title IX (Title IX of the Education Amendments of 1972), many universities and professional schools either explicitly limited the number of female students admitted or imposed higher academic standards on women than on men [7].</p>
+<p>While such explicit exclusions were legally remedied in the latter half of the twentieth century, restrictions on educational access based on gender continue in specific regions to this day. In Afghanistan, following the Taliban's return to power in 2021, university education for women was banned entirely. Reports indicate that female student proportions at Kabul University had reached gender parity in multiple faculties just prior to the ban [8], demonstrating that this prohibition was an institutional exclusion based purely on gender norms, entirely unassociated with educational attainment.</p>
+<p>Even when limited to medical education, gender bias in admissions selection has been documented across multiple countries. One study reported that when a medical school removed the interview from its selection process during the 2004–2008 period, the proportion of male students among enrollees increased from 51.4% to 57.7% [9]. Additionally, systematic reviews have confirmed that female medical students tend to concentrate in specific specialties (family medicine, pediatrics, obstetrics and gynecology) due to factors including discriminatory experiences, socialization, and the absence of female role models [10]. These findings suggest that not only "hard" gatekeeping such as explicit score manipulation but also structural and cultural "soft" gatekeeping operates pervasively.</p>
+<h2>3. The Implementing Agents and Intentions Behind Japan's "Women's Quotas"</h2>
+<p>Just a few years after the revelation of medical school admission discrimination, Japanese higher education embarked on an institutional change that appears, at first glance, to operate in the opposite direction — the rapid introduction of "joshi-waku" (women's quotas; special admissions tracks targeting female students), primarily in science and engineering faculties.</p>
+<h3>3.1 Policy Background</h3>
+<p>The gender imbalance in Japan's STEM fields is conspicuously severe even by international standards. According to OECD statistics, the proportion of female students in Japan's natural sciences, mathematics, and statistics programs is 27% (OECD average: 52%), while in engineering, manufacturing, and construction it stands at 16% (OECD average: 26%) — both the lowest among all OECD member states [11]. The proportion of female researchers remains at just 17.5%, approximately half the OECD average [12]. According to the Cabinet Office's "White Paper on Gender Equality" (2024 edition), female student proportions in science faculties are 27.9% at the undergraduate level, 23.4% at the master's level, and 20.9% at the doctoral level — a pronounced "leaky pipeline" phenomenon in which female representation declines at each successive educational stage [13].</p>
+<h3>3.2 The Acceleration of Women's Quota Implementation</h3>
+<p>In June 2022, MEXT issued a notification regarding "Implementation Requirements for University Admissions in Fiscal Year 2023," recommending the design of "selection processes targeting individuals from diverse backgrounds," with particular emphasis on "women in science and engineering fields" [14]. This notification served as a direct catalyst, and the introduction of women's quotas expanded rapidly thereafter.</p>
+<p>A survey conducted by the Shinichiro Yamada D&amp;I Foundation covering 24 universities (2024) found that only three institutions had established women's quotas prior to 2020, whereas universities that introduced them from fiscal 2023 onward accounted for 87.5% of the total [15]. The progression in the number of adopting universities is as follows:</p>
+<ul>
+<li>FY 2024 admissions: 18 universities</li>
+<li>FY 2025 admissions: 30 universities across 37 faculties</li>
+<li>FY 2026 admissions: 38 universities (with Kyoto University and Osaka University joining) [16]</li>
+</ul>
+<p>As of fiscal 2026, more than half of all national universities with science and engineering faculties will have established some form of women's quota. The Institute of Science Tokyo (formerly Tokyo Institute of Technology) set a women's quota of 149 places in its engineering faculty alone for FY 2025 admissions, with the goal of raising the proportion of female students from 13% to over 20% [17].</p>
+<h3>3.3 The Multi-Layered Nature of Implementing Agents</h3>
+<p>The implementing agents behind women's quota introduction are not singular. MEXT's policy intentions (top-down incentive design for diversity promotion) and universities' autonomous motivations intersect. University-side motivations identified in the literature and media coverage include:</p>
+<ol>
+<li><strong>Acquisition of competitive research funding</strong>: Increasing instances where the establishment of diversity promotion structures is included as an evaluation criterion in applications for Grants-in-Aid for Scientific Research and JST programs</li>
+<li><strong>Diversity metrics in world university rankings</strong>: Gender balance is incorporated as a scoring element in rankings by Times Higher Education and QS</li>
+<li><strong>Response to the declining 18-year-old population</strong>: A strategic decision to expand outreach to female students as an "untapped market" to secure applicants for science and engineering faculties</li>
+</ol>
+<p>Summarizing this structure, the introduction of women's quotas should be understood not as a pure pursuit of equity but as a result of the convergence of policy incentives and institutional management rationality.</p>
+<h2>4. International Comparison of Gender-Based Affirmative Action</h2>
+<p>Where does Japan's women's quota stand in an international context? This section compares the principal typologies of gender-based affirmative action (positive discrimination measures) in education and researcher recruitment. To prevent scope dilution, this section excludes race- and ethnicity-based frameworks and addresses strictly gender-based quotas.</p>
+<h3>4.1 Norway: Prohibition of Exclusive Posts and Acceptance of Moderate Quotas</h3>
+<p>In 2003, the EFTA Court ruled that the practice at Norwegian universities of reserving certain academic posts exclusively for women violated the EEA Agreement and EU Directive 76/207/EEC (Case E-1/02) [18]. However, the ruling did not deny the legality of "moderate quotas" — giving priority to women among candidates with equivalent qualifications. Since 2005, the Research Council of Norway has required institutions to consider female center directors and employ moderate quotas in applications for Centres of Excellence [19].</p>
+<h3>4.2 Sweden: Introduction and Abolition</h3>
+<p>Sweden legally permitted gender-based affirmative action in higher education admissions selection in 2003 but abolished it in August 2010 [20]. The abolition was prompted by the emergence of a reversal phenomenon in which male students were preferentially admitted to programs such as nursing where men were in the majority, sparking political debate. However, the Swedish government has maintained professor recruitment targets (numerical goals) at the university level, setting university-specific targets for the proportion of female professor appointments for the 2017–2019 period [21].</p>
+<h3>4.3 United Kingdom: The Athena SWAN Charter</h3>
+<p>The British approach is characterized not by quota systems but by an incentive-linked framework. Established in 2005, the Athena SWAN Charter evaluates research institutions' efforts toward gender equality and confers Bronze, Silver, and Gold accreditations. Since 2011, the National Institute for Health Research (NIHR) has made Athena SWAN Silver accreditation a requirement for certain research grant applications [22].</p>
+<p>This funding-linked mechanism represents one of the world's most powerful incentive structures in that it ties research funding allocation to demonstrable improvements in gender representation. Ovseiko et al. (2017) reported that participation in Athena SWAN generated structural and cultural transformations including enhanced career support for women, greater appreciation of care responsibilities, and efforts to address discrimination and bias [23]. However, under the UK's Equality Act 2010, quota systems may be deemed unlawful as "positive discrimination," and accordingly, Athena SWAN does not promote direct numerical allocation of enrollment quotas or employment positions.</p>
+<h3>4.4 EU-Wide: Institutionalization of Gender Equality Plans</h3>
+<p>Since 2021, the European Commission has mandated that applicant institutions have formulated and implemented a Gender Equality Plan (GEP) as a requirement for applications to Horizon Europe (the EU's research and innovation framework programme). While the specific content of GEPs is left to institutional discretion, common components include numerical target setting for gender balance, transparency in recruitment and promotion processes, and work-life balance measures.</p>
+<h3>4.5 Typological Summary</h3>
+<p>Synthesizing the above, gender-based affirmative action can be classified into three principal typologies:</p>
+<span class="math display">\[\text{AA Typology} = \begin{cases}
+\text{Hard Quota} & \text{(direct allocation of enrollment slots or positions)} \\
+\text{Soft Target} & \text{(numerical goal setting; priority among equally qualified candidates)} \\
+\text{Incentive-Linked} & \text{(tying funding allocation/accreditation to gender metrics)}
+\end{cases}\]</span>
+<p>Japan's "women's quota" constitutes a direct allocation of enrollment slots and is classified as a hard quota. This is structurally similar to the "exclusive posts" judged unlawful in Norway and represents a stronger measure than the "moderate quota" (priority among equally qualified candidates) sanctioned by the EFTA Court. It is also of the same type as the gender-based affirmative action in admissions selection that Sweden abolished in 2010, and it should be recognized that Japan's women's quota occupies an aggressive position in the international landscape.</p>
+<h2>5. Conclusion: From Numerical Targets to Structural Reform</h2>
+<p>This article has examined two facets of gender gatekeeping in Japanese higher education — exclusionary gatekeeping in medical school admissions and inclusive gatekeeping (women's quotas) in science and engineering admissions — within the context of international comparison.</p>
+<p>The Tokyo Medical University scandal demonstrated that when entrance selection lacks transparency, it can directly result in the systematic exclusion of a specific gender. Conversely, the rapid introduction of women's quotas represents an attempt to redress imbalance through the same mechanism of "entrance design." While the two appear to operate in opposite directions, they are isomorphic in their attempt to address structural problems through manipulation at the point of entry — deciding "who gets in and who does not."</p>
+<p>However, numerical adjustment at the entrance is merely symptomatic treatment. Unless the structural barriers that women who enter science and engineering faculties through women's quotas face at each subsequent stage of the pipeline — graduate school advancement, research positions, tenure acquisition — are removed, improvements in enrollment numbers will not translate into sustainable change. Japan's female researcher proportion of 17.5% is the cumulative result of attrition not just at the enrollment stage but throughout the entire career trajectory.</p>
+<p>The physician work style reform enacted in April 2024 (overtime cap: 960 hours per year, Level A) [24] represents a direct institutional response to the structural problem underlying the Tokyo Medical University scandal — a working environment so grueling as to render female physicians' attrition inevitable. The epidemiological evidence indicating that childbirth (70%) and childcare (38.3%) are the primary precipitants of female physicians' career interruptions [3] points not to individual preferences but to institutional inadequacy.</p>
+<p>In STEM fields as well, structural reforms parallel to entrance-level numerical adjustments are indispensable:</p>
+<ul>
+<li>Redesign of researcher performance evaluation criteria (from publication count-centric to multidimensional assessment)</li>
+<li>Effective operationalization of parental leave and reduced-hour work arrangements, including tenure clock stoppage</li>
+<li>Institutional establishment of mentoring and role model programs</li>
+</ul>
+<p>As the UK's Athena SWAN demonstrates, an incentive design that ties institutional-level gender equality efforts to research funding allocation — rather than entrance-level numerical targets (hard quotas) — may serve as a more sustainable model for structural transformation.</p>
+<p>Replacing the "gatekeeper" at the entrance is a necessary but not sufficient condition. What must be questioned is the design of the building beyond the gate itself.</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>
+<p>Takeda Y. The Tokyo Medical University entrance exam scandal: lessons learned. <em>International Journal for Educational Integrity</em>. 2018;14:11. DOI: <a href="https://doi.org/10.1007/s40979-018-0039-4">10.1007/s40979-018-0039-4</a></p>
+</li>
+<li>
+<p>Wada K, Yoshikawa T, Goto T, et al. Working hours of full-time hospital physicians in Japan: a cross-sectional nationwide survey. <em>BMJ Open</em>. 2024;14(1):e076600. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/38191251/">38191251</a></p>
+</li>
+<li>
+<p>Izumi M, Nomura K, Higaki Y. Increase in the number of female doctors and the challenges that Japan's medical system must face. <em>Global Health &amp; Medicine</em>. 2024;6(6):375-381. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/39741994/">39741994</a></p>
+</li>
+<li>
+<p>Ramanan T, Bhatt N. Gender bias in the medical school admission system in Japan. <em>SN Social Sciences</em>. 2022;2:89. DOI: <a href="https://doi.org/10.1007/s43545-022-00378-9">10.1007/s43545-022-00378-9</a></p>
+</li>
+<li>
+<p>Ministry of Education, Culture, Sports, Science and Technology (MEXT). Regarding the handling of private school subsidies for Tokyo Medical University. January 2019.</p>
+</li>
+<li>
+<p>Schiebinger L. <em>The Mind Has No Sex?: Women in the Origins of Modern Science</em>. Harvard University Press; 1989.</p>
+</li>
+<li>
+<p>National Geographic. Title IX at 50: How the U.S. law transformed education for women. 2022.</p>
+</li>
+<li>
+<p>Babury MO, Hayeri N. Female Student Population at Kabul University Before the 2021 Ban: Trends, Gender Parity, and Faculty-Level Dynamics. arXiv:2509.20406. 2025.</p>
+</li>
+<li>
+<p>O'Neill LD, Hartvigsen J, Wallstedt B, et al. Removing the interview for medical school selection is associated with gender bias among enrolled students. <em>Medical Teacher</em>. 2014;36(7):579-585. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/24484112/">24484112</a></p>
+</li>
+<li>
+<p>Kim HY, Kim J, Lee S. The impact of gendered experiences on female medical students' specialty choice: A systematic review. <em>American Journal of Surgery</em>. 2023;225(5):814-822. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/36435655/">36435655</a></p>
+</li>
+<li>
+<p>OECD. <em>Education at a Glance 2023: OECD Indicators</em>. OECD Publishing; 2023. DOI: <a href="https://doi.org/10.1787/e13bef63-en">10.1787/e13bef63-en</a></p>
+</li>
+<li>
+<p>Cabinet Office, Gender Equality Bureau. "Current Status of Female Researchers." <em>White Paper on Gender Equality 2024</em>. 2024.</p>
+</li>
+<li>
+<p>Cabinet Office, Gender Equality Bureau. <em>White Paper on Gender Equality 2024: Education and Research Fields</em>. 2024.</p>
+</li>
+<li>
+<p>MEXT. "Notification Regarding Implementation Requirements for University Admissions in Fiscal Year 2023." June 2022.</p>
+</li>
+<li>
+<p>Shinichiro Yamada D&amp;I Foundation. Survey on the Current State of "Women's Quotas" in Science and Engineering Faculties 2024. 2024.</p>
+</li>
+<li>
+<p>Resemom. "University Admissions 2026: Women's Quotas in STEM Expand to 38 Universities Including Kyoto and Osaka." October 1, 2025.</p>
+</li>
+<li>
+<p>Institute of Science Tokyo (formerly Tokyo Institute of Technology). Regarding the establishment of women's quotas for FY 2025 admissions. 2024.</p>
+</li>
+<li>
+<p>EFTA Court. Case E-1/02, EFTA Surveillance Authority v Norway. 2003.</p>
+</li>
+<li>
+<p>Research Council of Norway. Gender equality measures for Centres of Excellence. 2005.</p>
+</li>
+<li>
+<p>The Local (Sweden). Sweden set to scrap university gender quotas. January 12, 2010.</p>
+</li>
+<li>
+<p>European Institute for Gender Equality (EIGE). Sweden: Legislative and policy backgrounds. 2024.</p>
+</li>
+<li>
+<p>Ovseiko PV, Chapple A, Edmunds LD, et al. Advancing gender equality through the Athena SWAN Charter for Women in Science: an exploratory study of women's and men's perceptions. <em>Health Research Policy and Systems</em>. 2017;15:12. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/28222735/">28222735</a></p>
+</li>
+<li>
+<p>Munro L, O'Sullivan G. Understanding the Athena SWAN award scheme for gender equality as a complex social intervention in a complex system: analysis of Silver award action plans in a comparative European perspective. <em>Health Research Policy and Systems</em>. 2020;18:19. DOI: <a href="https://doi.org/10.1186/s12961-020-0527-x">10.1186/s12961-020-0527-x</a></p>
+</li>
+<li>
+<p>Ministry of Health, Labour and Welfare. Regarding Physician Work Style Reform — Overtime and Holiday Work Caps. Enacted April 2024.</p>
+</li>
+</ol>
+<hr />
+<p><em>This article was produced by Project Asymptote for educational purposes. The information presented is based on publicly available academic literature and official reports and does not constitute legal advice.</em></p>
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の政策や制度を推奨・批判するものではありません。記事中の情報は公開された学術文献および公的機関の報告書に基づいていますが、法的助言を構成するものではありません。</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的学术文献与官方报告，不构成法律建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica y reportes oficiales públicamente disponibles y no constituye asesoramiento legal.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध शैक्षणिक साहित्य और आधिकारिक रिपोर्टों पर आधारित है और यह कानूनी सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية والتقارير الرسمية المتاحة للعموم ولا تشكل استشارة قانونية.</em></p>
+<div class="disclaimer"><p>This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p></div>
+</article>
+
+<article id="content-zh-Hans" class="content-section" dir="ltr" lang="zh-Hans">
+<h1>无形的守门人：从医学院入学考试歧视到"女生名额"的制度转型与国际比较</h1>
+<h1>数值的门卫：从医学院分数操控到理工科"女生名额" — 性别守门机制的流行病学结构分析</h1>
+<h1>入口的设计者们：高等教育中性别筛选的国际比较与结构性处方</h1>
+<hr />
+<h2>1. 引言：制度性歧视的显性化 — 医学院入学考试问题</h2>
+<p>2018年7月，在文部科学省私立大学资助项目腐败案的调查过程中，东京医科大学被揭露在医学部医学科的一般入学考试中系统性地操控女性考生的分数。据内部调查委员会报告，该操控至迟从2006年度入学考试起便已实施，其手法为将所有一试考生的分数统一压缩为0.8倍后，再对男性考生给予最高20分的加分 [1]。操控的目的在于将2010年一度达到约40%的女性入学比率压低至约30%。</p>
+<p>大学高层为这一歧视行为辩护的逻辑是："女性医生因怀孕、生产而离职的比例较高，难以维持大学附属医院严苛的值班体制。"然而，这一逻辑不过是将医疗服务体系的结构性缺陷 — 即医生绝对数量不足与过度的长时间劳动 — 归咎于个别女性医生的属性，是一种因果倒置的推论。日本医院工作医生的劳动实态调查显示，41%的男性医生和28%的女性医生每周工作时间超过60小时 [2]，而女性医生离职的原因中，70%与生产有关，38.3%与育儿有关 [3]。问题的本质不在于女性的"离职倾向"，而在于无法与生育和育儿兼容的劳动环境设计。</p>
+<p>文部科学省针对此事件对全国设有医学部的81所大学进行了紧急调查，最终确认包括东京医科大学在内的共10所大学存在招生简章中未记载的不当分数调整行为。涉事大学具体包括�的顺天堂大学、北里大学、圣玛丽安娜医科大学、�的昭和大学、日本大学、福冈大学、岩手医科大学、金�的金泽医科大学等 [1, 4]。文部科学省决定对东京医科大学全额扣除2018年度私立学校补助金，并对其他问题大学实施补助金削减措施 [5]。东京医科大学事后宣布对因舞弊而被不当淘汰的67名女性考生予以追加录取。</p>
+<p>这一事件提出的核心问题十分明确：入学考试中的分数操控不仅侵犯了考生个人的权利，更揭示了"谁应当成为医生"这一专业准入的制度性管控 — 守门机制（gatekeeping） — 在缺乏透明性的情况下被恣意运作的事实。</p>
+<h2>2. 反性别选拔机制的全球概览</h2>
+<p>教育机构准入中以性别为由的排斥并非日本特有的现象。从历史来看，高等教育本身便是作为男性的专属领域而被制度性设计的。</p>
+<p>1678年，Elena Cornaro Piscopia在帕多瓦大学成为首位获得博士学位（哲学）的女性，但她最初申请的神学学位因性别原因而被拒绝。帕多瓦大学再次授予女性博士学位，已是大约300年后的事了 [6]。在美国，Title IX（教育修正案第九条，1972年）颁布之前，许多大学和专业研究生院对女性设置了明确的入学名额限制，或要求女性达到比男性更高的成绩标准 [7]。</p>
+<p>这类明确的排斥行为在20世纪下半叶通过法律得到了纠正，但基于性别的教育准入限制至今仍在特定地区延续。阿富汗在2021年塔利班重新掌权后全面禁止了女性接受大学教育。据报告，在禁令实施前，喀布尔大学多个学院的女生比例已达到与男生基本持平的水平 [8]，这一禁令是与教育成就完全无关联的、纯粹基于性别规范的制度性排斥。</p>
+<p>即便仅限于医学教育领域，入学选拔中的性别偏见也在多个国家有文献记录。有报告指出，当某医学院在2004-2008年间将面试从选拔过程中去除后，入学者中男生的比例从51.4%上升至57.7% [9]。此外，系统综述已确认，在专业方向的选择上，女性医学生因歧视性经历、社会化以及女性榜样的缺失等因素，倾向于集中在特定科室（家庭医学、儿科、妇产科） [10]。这些发现表明，不仅是分数操控这类"硬性"守门机制，结构性和文化性的"软性"守门机制也在广泛地发挥作用。</p>
+<h2>3. 日本"女生名额"的引入：实施主体与意图</h2>
+<p>在医学院入学考试歧视事件被揭露后仅仅数年，日本高等教育便着手推行了看似完全相反方向的制度变革 — 以理工科院系为中心迅速引入"女生名额"（面向女性学生的特别选拔名额）。</p>
+<h3>3.1 政策背景</h3>
+<p>日本STEM领域的性别失衡在国际上尤为突出。据OECD统计，日本自然科学、数学与统计学领域的女生比例为27%（OECD平均52%），工程、制造与建筑领域为16%（OECD平均26%），均居OECD成员国末位 [11]。女性研究人员的比例也仅为17.5%，约为OECD各国平均水平的一半 [12]。据内阁府《男女共同参画白皮书》（令和6年版），理学系学部的女生比例为27.9%，硕士课程为23.4%，博士课程为20.9%，呈现出教育阶段越高女性比例越低的"漏管效应（Leaky Pipeline）"现象 [13]。</p>
+<h3>3.2 女生名额引入的加速</h3>
+<p>2022年6月，文部科学省在《令和5年度大学入学选拔实施纲要》的通知中，建议设计"面向具有多元背景者的选拔"，并明确提及对"理工科领域女性"的关注 [14]。这一通知成为直接契机，女生名额的引入迅速扩展。</p>
+<p>据山田进太郎D&amp;I基金会对24所大学进行的实态调查（2024年），2020年以前设置女生名额的大学仅有3所，而2023年度以后引入的大学占总数的87.5% [15]。引入大学数的变化趋势如下：</p>
+<ul>
+<li>2024年度入学考试：18所大学</li>
+<li>2025年度入学考试：30所大学、37个学部</li>
+<li>2026年度入学考试：38所大学（京都大学、大阪大学新加入）[16]</li>
+</ul>
+<p>截至2026年度，设有理工科学部的国立大学中，过半数将设置某种形式的女生名额。东京科学大学（原东京工业大学）在2025年度入学考试中仅工学部就设置了149个女生名额，提出将女生比例从13%提升至20%以上的目标 [17]。</p>
+<h3>3.3 实施主体的多层性</h3>
+<p>女生名额的引入并非由单一主体推动。文部科学省的政策意图（面向推进多样性的自上而下的激励机制设计）与大学自身的自主动机相互交织。据文献和报道，大学方面的动机包括以下几点：</p>
+<ol>
+<li><strong>竞争性科研经费的获取</strong>：在科学研究费补助金和JST项目等的申请中，多样性推进体制的建设被纳入评审指标的情况日益增多</li>
+<li><strong>世界大学排名中的多样性指标</strong>：在Times Higher Education和QS的排名中，性别平衡被纳入评分要素</li>
+<li><strong>应对18岁人口减少</strong>：为确保理工科学部的报考生源，将女性视为"未开发市场"以扩大招生覆盖面的战略决策</li>
+</ol>
+<p>概括这一结构可以说，女生名额的引入与其说是对公正性的纯粹追求，不如将其理解为政策激励与大学经营合理性趋于一致的结果。</p>
+<h2>4. 性别平权行动的国际比较</h2>
+<p>日本的女生名额在国际上处于何种位置？本节比较教育和研究人员招聘中基于性别的平权行动（积极差距纠正措施）的主要类型。需要说明的是，为避免讨论的发散，本节不涉及基于种族和民族的框架，严格聚焦于性别名额制度。</p>
+<h3>4.1 挪威：专用职位的违法化与温和配额制的容许</h3>
+<p>2003年，EFTA法院就挪威大学将特定学术职位保留为女性专用的惯例作出判决，认定其违反了EEA协定及EU指令76/207/EEC（Case E-1/02）[18]。然而，该判决并未否定在资质相同的候选人之间优先选择女性的"温和配额制（moderate quota）"的合法性。2005年起，挪威研究理事会在卓越研究中心（Centres of Excellence）的申请中，要求机构考虑任用女性中心主任并使用温和配额制 [19]。</p>
+<h3>4.2 瑞典：引入与废除的往返</h3>
+<p>瑞典于2003年在法律上允许高等教育机构在入学选拔中实施基于性别的平权行动，但于2010年8月将其废除 [20]。废除的背景是，在护理学等男生占多数的专业中出现了男生被优先录取的逆转现象，引发了政治争议。不过，瑞典政府在大学层面的女性教授聘用目标（数值目标）上仍予以维持，并在2017-2019年期间设定了各大学的女性教授聘用比例目标 [21]。</p>
+<h3>4.3 英国：Athena SWAN宪章</h3>
+<p>英国的做法特点在于采用激励挂钩型框架而非配额制。2005年设立的Athena SWAN宪章对研究机构在性别平等方面的工作进行评估，并授予铜奖、银奖和金奖认证。2011年起，英国国家卫生研究院（NIHR）将Athena SWAN银奖认证作为特定研究资助金的申请必要条件 [22]。</p>
+<p>这一与科研资助挂钩的机制以"将科研经费的分配与性别代表性的改善实绩相挂钩"为特征，是全球最强有力的激励结构之一。Ovseiko等人（2017）报告指出，参与Athena SWAN为女性职业支持、加深对照护责任的理解以及应对歧视与偏见等方面带来了结构性和文化性的转变 [23]。然而，在英国《平等法》（Equality Act 2010）框架下，配额制可能被视为"积极歧视（positive discrimination）"而违法，因此Athena SWAN并不建议直接对入学名额或雇用名额进行数值分配。</p>
+<h3>4.4 欧盟全域：性别平等计划的制度化</h3>
+<p>2021年起，欧盟委员会将申请机构制定并实施性别平等计划（Gender Equality Plan: GEP）作为申请Horizon Europe（欧盟研究与创新框架计划）的必要条件。GEP的具体内容由各机构自行裁量，但通常包括设定性别平衡的数值目标、提高招聘和晋升过程的透明度以及完善工作与生活平衡措施等要素。</p>
+<h3>4.5 类型整理</h3>
+<p>综上所述，性别平权行动可大致分为以下三种类型：</p>
+<span class="math display">\[\text{AA类型} = \begin{cases}
+\text{硬性配额} & \text{（入学名额与职位的直接分配）} \\
+\text{软性目标} & \text{（数值目标的设定、同等资质者间的优先）} \\
+\text{激励挂钩} & \text{（将资金分配与认证同性别指标挂钩）}
+\end{cases}\]</span>
+<p>日本的"女生名额"属于入学名额的直接分配，归类为硬性配额。这与在挪威被判定违法的"专用职位"在结构上相似，且是比EFTA法院所容许的"温和配额制"（同等资质者间的优先）更强力的措施。它也与瑞典于2010年废除的入学选拔中的性别平权行动属于同一类型，因此应当认识到，日本的女生名额在国际比较中属于较为积极的一类。</p>
+<h2>5. 结语：从数值目标迈向结构改革</h2>
+<p>本文在国际比较的语境下审视了日本高等教育中性别守门机制的两个面向 — 医学院入学考试中的排斥性守门机制与理工科入学考试中的包容性守门机制（女生名额）。</p>
+<p>东京医科大学事件实证了以下事实：当入口处的选拔缺乏透明性时，其可直接导致对特定性别的系统性排斥。另一方面，女生名额的快速引入则是试图通过同样的"入口设计"来纠正失衡。两者表面上方向相反，但在通过"让谁进入/不让谁进入"这一入口阶段的操控来应对结构性问题这一点上，实属同构。</p>
+<p>然而，在入口处进行数值调整不过是对症疗法。若通过女生名额进入理工科学部的女性在后续的研究生升学、研究职位就任、获得终身教职等过程（管道）的各个阶段所面临的结构性壁垒未被消除，则入学阶段的数值改善无法转化为可持续的变革。日本女性研究人员比例17.5%这一数值，是贯穿整个职业生涯各阶段离脱的累积结果，而非仅反映入学阶段的状况。</p>
+<p>2024年4月施行的医生工作方式改革（加班时间上限规制：年960小时，A标准）[24]，是对东京医科大学事件背后的结构性问题 — 使女性医生的离职不可避免的苛刻劳动环境 — 的直接制度回应。女性医生职业中断的主因为生产（70%）和育儿（38.3%）这一流行病学证据 [3] 所表明的，不是个人的偏好，而是制度的缺陷。</p>
+<p>在STEM领域，与入口处的数值调整并行，以下结构改革不可或缺：</p>
+<ul>
+<li>研究人员业绩评价标准的重新设计（从偏重发表数量转向多维度评价）</li>
+<li>育儿假和短时工作制度的切实运行以及终身教职时钟的暂停</li>
+<li>导师制度与榜样角色的制度性建设</li>
+</ul>
+<p>正如英国的Athena SWAN所示，将整个机构的性别平等工作与科研经费分配相挂钩的激励设计 — 而非入口处的数值目标（硬性配额） — 可成为更具可持续性的结构变革模型。</p>
+<p>替换入口处的"守门人"是必要条件，但绝非充分条件。真正需要追问的，是门后那座建筑本身的设计。</p>
+<hr />
+<h2>参考文献</h2>
+<ol>
+<li>
+<p>Takeda Y. The Tokyo Medical University entrance exam scandal: lessons learned. <em>International Journal for Educational Integrity</em>. 2018;14:11. DOI: <a href="https://doi.org/10.1007/s40979-018-0039-4">10.1007/s40979-018-0039-4</a></p>
+</li>
+<li>
+<p>Wada K, Yoshikawa T, Goto T, et al. Working hours of full-time hospital physicians in Japan: a cross-sectional nationwide survey. <em>BMJ Open</em>. 2024;14(1):e076600. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/38191251/">38191251</a></p>
+</li>
+<li>
+<p>Izumi M, Nomura K, Higaki Y. Increase in the number of female doctors and the challenges that Japan's medical system must face. <em>Global Health &amp; Medicine</em>. 2024;6(6):375-381. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/39741994/">39741994</a></p>
+</li>
+<li>
+<p>Ramanan T, Bhatt N. Gender bias in the medical school admission system in Japan. <em>SN Social Sciences</em>. 2022;2:89. DOI: <a href="https://doi.org/10.1007/s43545-022-00378-9">10.1007/s43545-022-00378-9</a></p>
+</li>
+<li>
+<p>文部科学省. 东京医科大学私立学校补助金处置事宜. 2019年1月.</p>
+</li>
+<li>
+<p>Schiebinger L. <em>The Mind Has No Sex?: Women in the Origins of Modern Science</em>. Harvard University Press; 1989.</p>
+</li>
+<li>
+<p>National Geographic. Title IX at 50: How the U.S. law transformed education for women. 2022.</p>
+</li>
+<li>
+<p>Babury MO, Hayeri N. Female Student Population at Kabul University Before the 2021 Ban: Trends, Gender Parity, and Faculty-Level Dynamics. arXiv:2509.20406. 2025.</p>
+</li>
+<li>
+<p>O'Neill LD, Hartvigsen J, Wallstedt B, et al. Removing the interview for medical school selection is associated with gender bias among enrolled students. <em>Medical Teacher</em>. 2014;36(7):579-585. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/24484112/">24484112</a></p>
+</li>
+<li>
+<p>Kim HY, Kim J, Lee S. The impact of gendered experiences on female medical students' specialty choice: A systematic review. <em>American Journal of Surgery</em>. 2023;225(5):814-822. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/36435655/">36435655</a></p>
+</li>
+<li>
+<p>OECD. <em>Education at a Glance 2023: OECD Indicators</em>. OECD Publishing; 2023. DOI: <a href="https://doi.org/10.1787/e13bef63-en">10.1787/e13bef63-en</a></p>
+</li>
+<li>
+<p>内阁府男女共同参画局.《女性研究人员的现状》. 男女共同参画白皮书 令和6年版. 2024.</p>
+</li>
+<li>
+<p>内阁府男女共同参画局. 男女共同参画白皮书 令和6年版"教育与研究领域". 2024.</p>
+</li>
+<li>
+<p>文部科学省.《令和5年度大学入学选拔实施纲要（通知）》. 2022年6月.</p>
+</li>
+<li>
+<p>山田进太郎D&amp;I基金会. 理工科学部"女生名额"实态调查2024. 2024.</p>
+</li>
+<li>
+<p>Resemom.《【大学入学考试2026】理工科"女生名额"京大、阪大等8所大学新增至38所大学》. 2025年10月1日.</p>
+</li>
+<li>
+<p>东京科学大学（原东京工业大学）. 关于2025年度入学考试中设置女生名额. 2024.</p>
+</li>
+<li>
+<p>EFTA Court. Case E-1/02, EFTA Surveillance Authority v Norway. 2003.</p>
+</li>
+<li>
+<p>Research Council of Norway. Gender equality measures for Centres of Excellence. 2005.</p>
+</li>
+<li>
+<p>The Local (Sweden). Sweden set to scrap university gender quotas. 2010年1月12日.</p>
+</li>
+<li>
+<p>European Institute for Gender Equality (EIGE). Sweden: Legislative and policy backgrounds. 2024.</p>
+</li>
+<li>
+<p>Ovseiko PV, Chapple A, Edmunds LD, et al. Advancing gender equality through the Athena SWAN Charter for Women in Science: an exploratory study of women's and men's perceptions. <em>Health Research Policy and Systems</em>. 2017;15:12. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/28222735/">28222735</a></p>
+</li>
+<li>
+<p>Munro L, O'Sullivan G. Understanding the Athena SWAN award scheme for gender equality as a complex social intervention in a complex system: analysis of Silver award action plans in a comparative European perspective. <em>Health Research Policy and Systems</em>. 2020;18:19. DOI: <a href="https://doi.org/10.1186/s12961-020-0527-x">10.1186/s12961-020-0527-x</a></p>
+</li>
+<li>
+<p>厚生劳动省. 关于医生工作方式改革 — 加班及节假日劳动的上限规制. 2024年4月施行.</p>
+</li>
+</ol>
+<hr />
+<p><em>本记事はProject Asymptoteが制作した科学解説記事であり、特定の政策や制度を推奨・批判するものではありません。記事中の情報は公開された学術文献および公的機関の報告書に基づいていますが、法的助言を構成するものではありません。</em></p>
+<p><em>This article was produced by Project Asymptote for educational purposes. The information presented is based on publicly available academic literature and official reports and does not constitute legal advice.</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的学术文献与官方报告，不构成法律建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica y reportes oficiales públicamente disponibles y no constituye asesoramiento legal.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध शैक्षणिक साहित्य और आधिकारिक रिपोर्टों पर आधारित है और यह कानूनी सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية والتقارير الرسمية المتاحة للعموم ولا تشكل استشارة قانونية.</em></p>
+<div class="disclaimer"><p>本内容仅供参考，基于客观的学术证据和数据分析。本内容不构成医疗建议、诊断或政治评论。</p></div>
+</article>
+
+<article id="content-es" class="content-section" dir="ltr" lang="es">
+<h1>El guardián invisible: de la discriminación en los exámenes de admisión a medicina a la transformación institucional de las "cuotas femeninas" — una comparación internacional</h1>
+<h1>El centinela numérico: de la manipulación de puntajes en medicina a las "cuotas femeninas" en ciencias e ingeniería — un análisis epidemiológico-estructural del gatekeeping de género</h1>
+<h1>Los arquitectos del acceso: comparación internacional de la selección de género en la educación superior y prescripciones estructurales</h1>
+<hr />
+<h2>1. Introducción: la manifestación de la discriminación institucional — el caso de los exámenes de admisión a medicina</h2>
+<p>En julio de 2018, durante la investigación de un caso de corrupción vinculado al programa de apoyo a universidades privadas del Ministerio de Educación, Cultura, Deportes, Ciencia y Tecnología (MEXT), se descubrió que la Universidad Médica de Tokio había manipulado sistemáticamente los puntajes de las aspirantes femeninas en los exámenes generales de admisión a la Facultad de Medicina. Según el informe del comité de investigación interna, esta manipulación se había llevado a cabo al menos desde el ciclo de admisión de 2006, aplicando un coeficiente de 0,8 a los puntajes de todos los examinados en la primera prueba, y posteriormente añadiendo hasta 20 puntos adicionales exclusivamente a los aspirantes masculinos [1]. El objetivo de esta manipulación era reducir la proporción de mujeres admitidas, que en 2010 había alcanzado aproximadamente el 40%, a cerca del 30%.</p>
+<p>La lógica con la que los directivos de la universidad justificaron esta discriminación fue que "las médicas abandonan la profesión en tasas más altas debido al embarazo y el parto, lo que dificulta el mantenimiento de los exigentes turnos de guardia en los hospitales universitarios". Sin embargo, esta lógica no es más que una inversión causal que atribuye a las características individuales de las médicas lo que en realidad son deficiencias estructurales del sistema de prestación de atención médica: la escasez absoluta de médicos y las jornadas laborales excesivamente prolongadas. Según una encuesta sobre las condiciones laborales de los médicos hospitalarios en Japón, el 41% de los médicos varones y el 28% de las médicas trabajan más de 60 horas semanales [2], y el 70% de los abandonos profesionales de las médicas están motivados por el parto, y el 38,3% por la crianza de los hijos [3]. La esencia del problema no reside en la "tendencia al abandono" de las mujeres, sino en el diseño de un entorno laboral incompatible con la maternidad y la crianza.</p>
+<p>En respuesta a este escándalo, el MEXT realizó una investigación de emergencia en las universidades que albergan las 81 facultades de medicina del país, confirmando finalmente que un total de 10 universidades, incluida la Universidad Médica de Tokio, habían realizado ajustes indebidos de puntajes no estipulados en sus convocatorias. Entre ellas se encontraban la Universidad Juntendo, la Universidad Kitasato, la Universidad Médica de Santa Mariana, la Universidad Showa, la Universidad Nihon, la Universidad de Fukuoka, la Universidad Médica de Iwate y la Universidad Médica de Kanazawa, entre otras [1, 4]. El MEXT decidió la suspensión total de la subvención para universidades privadas a la Universidad Médica de Tokio correspondiente al año fiscal 2018, e impuso reducciones de subvenciones a las demás universidades implicadas [5]. La Universidad Médica de Tokio anunció posteriormente la admisión retroactiva de 67 aspirantes femeninas que habían sido injustamente reprobadas.</p>
+<p>La cuestión fundamental que planteó este caso es clara. La manipulación de puntajes en los exámenes de admisión no se limita a la vulneración de los derechos individuales de los aspirantes, sino que demuestra que el gatekeeping (función de guardián) — el control institucional sobre quién puede acceder a la profesión médica — se había ejercido de manera arbitraria y carente de transparencia.</p>
+<h2>2. Panorama mundial de la selección anti-género</h2>
+<p>La exclusión por razón de género en el acceso a las instituciones educativas no es un fenómeno exclusivo de Japón. Históricamente, la educación superior fue diseñada institucionalmente como un ámbito de dominio exclusivamente masculino.</p>
+<p>Cuando Elena Cornaro Piscopia obtuvo el primer doctorado concedido a una mujer (en filosofía) en la Universidad de Padua en 1678, el título de teología que había solicitado inicialmente le fue denegado por razón de su sexo. La siguiente mujer en recibir un doctorado de la Universidad de Padua lo hizo aproximadamente 300 años después [6]. En Estados Unidos, antes de la promulgación del Título IX (Enmienda sobre Educación, 1972), muchas universidades y escuelas profesionales limitaban explícitamente las plazas de admisión para mujeres o les exigían estándares académicos más altos que a los hombres [7].</p>
+<p>Aunque estas exclusiones explícitas fueron corregidas legalmente en la segunda mitad del siglo XX, las restricciones al acceso educativo basadas en el género persisten en determinadas regiones. En Afganistán, tras el retorno del régimen talibán en 2021, se prohibió por completo la educación universitaria para las mujeres. Se ha informado que la proporción de estudiantes femeninas en la Universidad de Kabul había alcanzado la paridad de género en múltiples facultades justo antes de la prohibición [8], lo que evidencia que esta medida constituye una exclusión institucional basada puramente en normas de género, sin vínculo alguno con el rendimiento académico.</p>
+<p>Incluso limitándonos a la educación médica, el sesgo de género en la selección de ingreso ha sido documentado en múltiples países. Un informe señala que cuando una facultad de medicina eliminó la entrevista del proceso de selección durante el período 2004-2008, la proporción de estudiantes varones entre los admitidos aumentó del 51,4% al 57,7% [9]. Asimismo, revisiones sistemáticas han confirmado que, en la elección de especialidad, las estudiantes de medicina tienden a concentrarse en determinadas especialidades (medicina familiar, pediatría, obstetricia y ginecología) debido a factores como experiencias discriminatorias, socialización y la ausencia de modelos femeninos de referencia [10]. Estos hallazgos sugieren que no solo opera el gatekeeping "duro", como la manipulación explícita de puntajes, sino también un gatekeeping "blando" de carácter estructural y cultural, de alcance mucho más amplio.</p>
+<h2>3. Los agentes ejecutores y las intenciones detrás de la introducción de las "cuotas femeninas" en Japón</h2>
+<p>Apenas unos años después de la revelación de la discriminación en los exámenes de admisión a medicina, la educación superior japonesa emprendió un cambio institucional de vector aparentemente opuesto: la rápida introducción de "cuotas femeninas" (plazas de selección especial destinadas a estudiantes mujeres), centrada en las facultades de ciencias e ingeniería.</p>
+<h3>3.1 Contexto político</h3>
+<p>El desequilibrio de género en las áreas STEM de Japón es excepcionalmente grave en términos internacionales. Según las estadísticas de la OCDE, la proporción de estudiantes mujeres en ciencias naturales, matemáticas y estadística en Japón es del 27% (promedio OCDE: 52%), y en ingeniería, manufactura y construcción es del 16% (promedio OCDE: 26%), ocupando el último lugar entre los países miembros de la OCDE en ambos indicadores [11]. La proporción de investigadoras es apenas del 17,5%, aproximadamente la mitad del promedio de los países de la OCDE [12]. Según el "Libro Blanco sobre Igualdad de Género" de la Oficina del Gabinete (edición 2024), la proporción de estudiantes mujeres en las facultades de ciencias es del 27,9%, en programas de maestría del 23,4% y en programas de doctorado del 20,9%, evidenciando un marcado fenómeno de "tubería con fugas" (leaky pipeline) donde la proporción femenina disminuye en los niveles educativos superiores [13].</p>
+<h3>3.2 La aceleración en la introducción de las cuotas femeninas</h3>
+<p>En junio de 2022, el MEXT emitió una notificación sobre los "Lineamientos para la Implementación de la Selección de Ingreso Universitario para el Año Fiscal 2023", recomendando el diseño de "procesos de selección dirigidos a personas con diversos antecedentes" y mencionando explícitamente la consideración de "las mujeres en las áreas de ciencias e ingeniería" [14]. Esta notificación actuó como detonante directo, y la introducción de cuotas femeninas se expandió rápidamente.</p>
+<p>Según una encuesta de campo realizada por la Fundación D&amp;I Shintaro Yamada en 24 universidades (2024), solo 3 universidades contaban con cuotas femeninas antes de 2020, mientras que el 87,5% de las universidades las introdujeron a partir del año fiscal 2023 [15]. La evolución del número de universidades que las implementaron es la siguiente:</p>
+<ul>
+<li>Ciclo de admisión 2024: 18 universidades</li>
+<li>Ciclo de admisión 2025: 30 universidades, 37 facultades</li>
+<li>Ciclo de admisión 2026: 38 universidades (con la incorporación de la Universidad de Kioto y la Universidad de Osaka) [16]</li>
+</ul>
+<p>A partir del año fiscal 2026, más de la mitad de las universidades nacionales con facultades de ciencias e ingeniería contarán con algún tipo de cuota femenina. La Universidad de Ciencia de Tokio (antigua Universidad Tecnológica de Tokio) estableció 149 plazas de cuota femenina solo en su Facultad de Ingeniería para el ciclo de admisión 2025, con el objetivo de elevar la proporción de estudiantes mujeres del 13% a más del 20% [17].</p>
+<h3>3.3 La multiplicidad de agentes ejecutores</h3>
+<p>Los agentes ejecutores de la introducción de las cuotas femeninas no son únicos. Se cruzan la intención política del MEXT (un diseño de incentivos top-down orientado a la promoción de la diversidad) con las motivaciones autónomas de las universidades. Entre las motivaciones de las universidades, la literatura y los medios de comunicación señalan las siguientes:</p>
+<ol>
+<li><strong>Obtención de financiamiento competitivo para investigación</strong>: La integración de sistemas de promoción de la diversidad como criterio de evaluación en solicitudes de subsidios como los Kakenhi (Grants-in-Aid for Scientific Research) y programas de la JST ha ido en aumento</li>
+<li><strong>Indicadores de diversidad en rankings universitarios mundiales</strong>: Rankings como los de Times Higher Education y QS incluyen el equilibrio de género como elemento de puntuación</li>
+<li><strong>Respuesta a la disminución de la población de 18 años</strong>: Una decisión estratégica para ampliar el alcance hacia las mujeres como "mercado sin explotar" para asegurar aspirantes a las facultades de ciencias e ingeniería</li>
+</ol>
+<p>En resumen, la introducción de las cuotas femeninas debe entenderse no tanto como la búsqueda de la equidad pura, sino como el resultado de la convergencia entre los incentivos políticos y la racionalidad en la gestión universitaria.</p>
+<h2>4. Comparación internacional de las acciones afirmativas de género</h2>
+<p>¿Qué posición ocupa la cuota femenina japonesa en el contexto internacional? Comparamos los principales tipos de acción afirmativa (medidas de corrección activa de disparidades) basadas en el género en la educación y la contratación de investigadores. Cabe señalar que, para evitar la dispersión de la discusión, esta sección excluye los marcos basados en raza/etnicidad y se limita estrictamente a las cuotas de género.</p>
+<h3>4.1 Noruega: la ilegalización de los puestos exclusivos y la aceptación de cuotas moderadas</h3>
+<p>En 2003, el Tribunal de la AELC (EFTA) dictaminó que la práctica de las universidades noruegas de reservar determinados puestos académicos exclusivamente para mujeres violaba el Acuerdo EEE y la Directiva 76/207/CEE de la UE (Caso E-1/02) [18]. Sin embargo, la misma sentencia no negó la legalidad de las "cuotas moderadas" (moderate quota), que priorizan a las mujeres entre candidatos con cualificaciones equivalentes. Desde 2005, el Consejo de Investigación de Noruega exige a las instituciones, en las solicitudes para los Centros de Excelencia (Centres of Excellence), que consideren la designación de directoras mujeres y utilicen cuotas moderadas [19].</p>
+<h3>4.2 Suecia: entre la introducción y la abolición</h3>
+<p>Suecia autorizó legalmente la acción afirmativa basada en el género en la selección de ingreso a instituciones de educación superior en 2003, pero la abolió en agosto de 2010 [20]. El contexto de la abolición fue la aparición de un efecto inverso en el que los hombres eran admitidos preferentemente en programas donde eran mayoría, como enfermería, lo que generó un debate político. No obstante, el gobierno sueco mantuvo los objetivos numéricos de contratación de profesoras a nivel universitario, estableciendo metas de proporción de contratación de profesoras por universidad para el período 2017-2019 [21].</p>
+<h3>4.3 Reino Unido: el Athena SWAN Charter</h3>
+<p>El enfoque del Reino Unido se caracteriza por un marco vinculado a incentivos, en lugar de un sistema de cuotas. El Athena SWAN Charter, establecido en 2005, es un sistema que evalúa los esfuerzos de las instituciones de investigación en materia de igualdad de género, otorgándoles certificaciones de Bronce, Plata u Oro. Desde 2011, el Instituto Nacional de Investigación en Salud (NIHR) del Reino Unido estableció la certificación Athena SWAN Silver como requisito para solicitar determinadas subvenciones de investigación [22].</p>
+<p>Este mecanismo de vinculación con la financiación — que condiciona la distribución de fondos de investigación a los avances en la representación de género — constituye una de las estructuras de incentivos más potentes del mundo. Ovseiko et al. (2017) informaron que la participación en Athena SWAN generó transformaciones estructurales y culturales, incluyendo apoyo a las carreras de las mujeres, una comprensión más profunda de las responsabilidades de cuidado, y la atención a la discriminación y los sesgos [23]. Sin embargo, bajo la Ley de Igualdad del Reino Unido (Equality Act 2010), los sistemas de cuotas pueden considerarse ilegales como "discriminación positiva" (positive discrimination), por lo que Athena SWAN no recomienda la asignación directa de cuotas numéricas en plazas de admisión o empleo.</p>
+<h3>4.4 Toda la UE: la institucionalización de los planes de igualdad de género</h3>
+<p>Desde 2021, la Comisión Europea ha establecido como requisito para la solicitud de Horizon Europe (Programa Marco de Investigación e Innovación de la UE) que las instituciones solicitantes hayan elaborado e implementado un Plan de Igualdad de Género (Gender Equality Plan: GEP). Aunque el contenido específico del GEP queda a discreción de cada institución, entre sus componentes habituales se incluyen el establecimiento de objetivos numéricos de equilibrio de género, la transparencia en los procesos de contratación y promoción, y la implementación de medidas de conciliación de la vida laboral y familiar.</p>
+<h3>4.5 Clasificación tipológica</h3>
+<p>Resumiendo lo anterior, las acciones afirmativas de género pueden clasificarse en tres grandes tipos:</p>
+<span class="math display">\[\text{Tipos de AA} = \begin{cases}
+\text{Cuota dura} & \text{(asignación directa de plazas de admisión/puestos)} \\
+\text{Objetivo blando} & \text{(establecimiento de metas numéricas, prioridad entre candidatos con cualificaciones equivalentes)} \\
+\text{Vinculación a incentivos} & \text{(articulación entre distribución de fondos/certificación e indicadores de género)}
+\end{cases}\]</span>
+<p>La "cuota femenina" de Japón constituye una asignación directa de plazas de admisión y se clasifica como cuota dura. Esta es estructuralmente similar a los "puestos exclusivos" declarados ilegales en Noruega, y representa una medida más fuerte que la "cuota moderada" (prioridad entre candidatos con cualificaciones equivalentes) aceptada por el Tribunal de la AELC. También es del mismo tipo que la acción afirmativa de género en la selección de ingreso que Suecia abolió en 2010, y debe reconocerse que las cuotas femeninas japonesas se sitúan entre las más activas en el panorama internacional.</p>
+<h2>5. Conclusión: de los objetivos numéricos a la reforma estructural</h2>
+<p>El presente artículo ha examinado, en el contexto de una comparación internacional, dos facetas del gatekeeping de género en la educación superior japonesa: el gatekeeping excluyente en los exámenes de admisión a medicina y el gatekeeping incluyente (cuotas femeninas) en los exámenes de admisión a ciencias e ingeniería.</p>
+<p>El caso de la Universidad Médica de Tokio demostró que, cuando la selección en el punto de acceso carece de transparencia, esta puede derivar directamente en la exclusión sistemática de un determinado género. Por otro lado, la rápida introducción de las cuotas femeninas constituye un intento de corregir el desequilibrio mediante el mismo mecanismo: el "diseño del acceso". Aunque ambos presentan vectores superficialmente opuestos, son homólogos en cuanto buscan abordar problemas estructurales mediante la manipulación en la etapa de acceso — decidiendo "a quién se admite o no se admite".</p>
+<p>Sin embargo, el ajuste numérico en el punto de acceso no es más que un tratamiento sintomático. Si no se eliminan las barreras estructurales que enfrentan las mujeres que ingresan a facultades de ciencias e ingeniería mediante cuotas femeninas en cada etapa posterior del pipeline — acceso a posgrado, obtención de puestos de investigación, consecución de la titularidad —, la mejora numérica en el momento del ingreso no se traducirá en un cambio sostenible. La cifra del 17,5% de investigadoras en Japón es el resultado acumulativo de la deserción a lo largo de toda la carrera, no solo en la etapa de admisión.</p>
+<p>La reforma de las condiciones laborales de los médicos implementada en abril de 2024 (límite de horas extras: 960 horas anuales, Nivel A) [24] constituye una respuesta institucional directa al problema estructural que subyacía al caso de la Universidad Médica de Tokio: un entorno laboral tan exigente que hacía inevitable la deserción de las médicas. La evidencia epidemiológica que muestra que las principales causas de interrupción de la carrera de las médicas son el parto (70%) y la crianza (38,3%) [3] señala una deficiencia del sistema, no una preferencia individual.</p>
+<p>También en el ámbito STEM, paralelamente al ajuste numérico en el acceso, resultan imprescindibles las siguientes reformas estructurales:</p>
+<ul>
+<li>Rediseño de los criterios de evaluación del desempeño investigador (de la predominancia del número de publicaciones a una evaluación multidimensional)</li>
+<li>Implementación efectiva de licencias de maternidad/paternidad y reducción de jornada, con suspensión del tenure clock</li>
+<li>Establecimiento institucional de programas de mentoría y modelos de referencia</li>
+</ul>
+<p>Como demuestra el Athena SWAN del Reino Unido, un diseño de incentivos que vincule la distribución de fondos de investigación al compromiso institucional global con la igualdad de género — en lugar de los objetivos numéricos de acceso (cuotas duras) — puede constituir un modelo de transformación estructural más sostenible.</p>
+<p>Reemplazar al "guardián" de la puerta es una condición necesaria, pero no suficiente. Lo que debe cuestionarse es el diseño del edificio que se encuentra al otro lado de la puerta.</p>
+<hr />
+<h2>Referencias</h2>
+<ol>
+<li>
+<p>Takeda Y. The Tokyo Medical University entrance exam scandal: lessons learned. <em>International Journal for Educational Integrity</em>. 2018;14:11. DOI: <a href="https://doi.org/10.1007/s40979-018-0039-4">10.1007/s40979-018-0039-4</a></p>
+</li>
+<li>
+<p>Wada K, Yoshikawa T, Goto T, et al. Working hours of full-time hospital physicians in Japan: a cross-sectional nationwide survey. <em>BMJ Open</em>. 2024;14(1):e076600. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/38191251/">38191251</a></p>
+</li>
+<li>
+<p>Izumi M, Nomura K, Higaki Y. Increase in the number of female doctors and the challenges that Japan's medical system must face. <em>Global Health &amp; Medicine</em>. 2024;6(6):375-381. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/39741994/">39741994</a></p>
+</li>
+<li>
+<p>Ramanan T, Bhatt N. Gender bias in the medical school admission system in Japan. <em>SN Social Sciences</em>. 2022;2:89. DOI: <a href="https://doi.org/10.1007/s43545-022-00378-9">10.1007/s43545-022-00378-9</a></p>
+</li>
+<li>
+<p>文部科学省. 東京医科大学に対する私学助成の取扱いについて. 2019年1月.</p>
+</li>
+<li>
+<p>Schiebinger L. <em>The Mind Has No Sex?: Women in the Origins of Modern Science</em>. Harvard University Press; 1989.</p>
+</li>
+<li>
+<p>National Geographic. Title IX at 50: How the U.S. law transformed education for women. 2022.</p>
+</li>
+<li>
+<p>Babury MO, Hayeri N. Female Student Population at Kabul University Before the 2021 Ban: Trends, Gender Parity, and Faculty-Level Dynamics. arXiv:2509.20406. 2025.</p>
+</li>
+<li>
+<p>O'Neill LD, Hartvigsen J, Wallstedt B, et al. Removing the interview for medical school selection is associated with gender bias among enrolled students. <em>Medical Teacher</em>. 2014;36(7):579-585. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/24484112/">24484112</a></p>
+</li>
+<li>
+<p>Kim HY, Kim J, Lee S. The impact of gendered experiences on female medical students' specialty choice: A systematic review. <em>American Journal of Surgery</em>. 2023;225(5):814-822. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/36435655/">36435655</a></p>
+</li>
+<li>
+<p>OECD. <em>Education at a Glance 2023: OECD Indicators</em>. OECD Publishing; 2023. DOI: <a href="https://doi.org/10.1787/e13bef63-en">10.1787/e13bef63-en</a></p>
+</li>
+<li>
+<p>内閣府男女共同参画局.「女性研究者の現状」. 男女共同参画白書 令和6年版. 2024.</p>
+</li>
+<li>
+<p>内閣府男女共同参画局. 男女共同参画白書 令和6年版「教育・研究分野」. 2024.</p>
+</li>
+<li>
+<p>文部科学省.「令和5年度大学入学者選抜実施要項について（通知）」. 2022年6月.</p>
+</li>
+<li>
+<p>山田進太郎D&amp;I財団. 理工系学部の「女子枠」実態調査2024. 2024.</p>
+</li>
+<li>
+<p>リセマム.「【大学受験2026】理工系『女子枠』京大や阪大など8大学増の38大学」. 2025年10月1日.</p>
+</li>
+<li>
+<p>東京科学大学（旧東京工業大学）. 2025年度入試における女子枠の設定について. 2024.</p>
+</li>
+<li>
+<p>EFTA Court. Case E-1/02, EFTA Surveillance Authority v Norway. 2003.</p>
+</li>
+<li>
+<p>Research Council of Norway. Gender equality measures for Centres of Excellence. 2005.</p>
+</li>
+<li>
+<p>The Local (Sweden). Sweden set to scrap university gender quotas. 2010年1月12日.</p>
+</li>
+<li>
+<p>European Institute for Gender Equality (EIGE). Sweden: Legislative and policy backgrounds. 2024.</p>
+</li>
+<li>
+<p>Ovseiko PV, Chapple A, Edmunds LD, et al. Advancing gender equality through the Athena SWAN Charter for Women in Science: an exploratory study of women's and men's perceptions. <em>Health Research Policy and Systems</em>. 2017;15:12. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/28222735/">28222735</a></p>
+</li>
+<li>
+<p>Munro L, O'Sullivan G. Understanding the Athena SWAN award scheme for gender equality as a complex social intervention in a complex system: analysis of Silver award action plans in a comparative European perspective. <em>Health Research Policy and Systems</em>. 2020;18:19. DOI: <a href="https://doi.org/10.1186/s12961-020-0527-x">10.1186/s12961-020-0527-x</a></p>
+</li>
+<li>
+<p>厚生労働省. 医師の働き方改革について — 時間外・休日労働の上限規制. 2024年4月施行.</p>
+</li>
+</ol>
+<hr />
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の政策や制度を推奨・批判するものではありません。記事中の情報は公開された学術文献および公的機関の報告書に基づいていますが、法的助言を構成するものではありません。</em></p>
+<p><em>This article was produced by Project Asymptote for educational purposes. The information presented is based on publicly available academic literature and official reports and does not constitute legal advice.</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的学术文献与官方报告，不构成法律建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica y reportes oficiales públicamente disponibles y no constituye asesoramiento legal.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध शैक्षणिक साहित्य और आधिकारिक रिपोर्टों पर आधारित है और यह कानूनी सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية والتقارير الرسمية المتاحة للعموم ولا تشكل استشارة قانونية.</em></p>
+<div class="disclaimer"><p>Este contenido es solo con fines informativos, basado en evidencia académica objetiva y análisis de datos. No pretende ser consejo médico, diagnóstico ni crítica política.</p></div>
+</article>
+
+<article id="content-hi" class="content-section" dir="ltr" lang="hi">
+<h1>अदृश्य द्वारपाल: मेडिकल प्रवेश परीक्षा भेदभाव से "महिला कोटा" तक — संस्थागत परिवर्तन और अंतर्राष्ट्रीय तुलना</h1>
+<h1>अंकों के प्रहरी: मेडिकल स्कोर हेरफेर से विज्ञान-इंजीनियरिंग "महिला कोटा" तक — जेंडर गेटकीपिंग का महामारी-विज्ञानी संरचनात्मक विश्लेषण</h1>
+<h1>प्रवेश द्वार के अभिकल्पक: उच्च शिक्षा में जेंडर चयन की अंतर्राष्ट्रीय तुलना और संरचनात्मक समाधान</h1>
+<hr />
+<h2>1. प्रस्तावना: संस्थागत भेदभाव का उजागर होना — मेडिकल प्रवेश परीक्षा समस्या</h2>
+<p>जुलाई 2018 में, शिक्षा, संस्कृति, खेल, विज्ञान एवं प्रौद्योगिकी मंत्रालय (MEXT) की निजी विश्वविद्यालय सहायता परियोजना से जुड़े भ्रष्टाचार मामले की जाँच के दौरान यह तथ्य सामने आया कि टोक्यो मेडिकल यूनिवर्सिटी ने अपने मेडिकल फैकल्टी की सामान्य प्रवेश परीक्षा में महिला अभ्यर्थियों के अंकों में संगठित रूप से हेरफेर किया था। आंतरिक जाँच समिति की रिपोर्ट के अनुसार, यह हेरफेर कम से कम 2006 की प्रवेश परीक्षा से चल रहा था, जिसमें प्रथम परीक्षा के सभी अभ्यर्थियों के अंकों को एक समान 0.8 के गुणांक से संकुचित किया जाता था और फिर पुरुष अभ्यर्थियों को अधिकतम 20 अंकों की अतिरिक्त बढ़ोतरी दी जाती थी [1]। इस हेरफेर का उद्देश्य 2010 में लगभग 40% तक पहुँची महिला प्रवेश अनुपात को लगभग 30% तक कम करना था।</p>
+<p>विश्वविद्यालय के शीर्ष नेतृत्व ने इस भेदभाव को जिस तर्क से उचित ठहराया, वह यह था कि "महिला डॉक्टर गर्भावस्था और प्रसव के कारण अधिक दर पर सेवा छोड़ती हैं, जिससे विश्वविद्यालय अस्पतालों की कठोर ड्यूटी व्यवस्था बनाए रखना कठिन हो जाता है।" परंतु यह तर्क, चिकित्सा सेवा प्रणाली की संरचनात्मक खामियों — अर्थात चिकित्सकों की पूर्ण संख्या में कमी और अत्यधिक लंबे कार्य-घंटे — को व्यक्तिगत महिला चिकित्सकों की विशेषताओं पर आरोपित करने वाला एक विपरीत कारणात्मक अनुमान है। जापान में अस्पतालों में कार्यरत चिकित्सकों की कार्य-स्थिति सर्वेक्षण के अनुसार, 41% पुरुष चिकित्सक और 28% महिला चिकित्सक प्रति सप्ताह 60 घंटे से अधिक कार्य करते हैं [2], और महिला चिकित्सकों की सेवा-त्याग में 70% प्रसव तथा 38.3% शिशु-पालन से प्रेरित होती है [3]। समस्या का मूल महिलाओं की "सेवा-त्याग प्रवृत्ति" नहीं, बल्कि प्रसव और शिशु-पालन के साथ असंगत कार्य-वातावरण की संरचना है।</p>
+<p>MEXT ने इस घटना के बाद देश भर के 81 मेडिकल फैकल्टी वाले विश्वविद्यालयों का आपातकालीन सर्वेक्षण किया और अंततः टोक्यो मेडिकल यूनिवर्सिटी सहित कुल 10 विश्वविद्यालयों में ऐसी अनुचित अंक-समायोजन प्रक्रियाएँ पाई गईं जिनका उल्लेख भर्ती विवरणिका में नहीं था। विशेष रूप से, जुनटेंडो यूनिवर्सिटी, कितासातो यूनिवर्सिटी, सेंट मारियाना यूनिवर्सिटी स्कूल ऑफ मेडिसिन, शोवा यूनिवर्सिटी, निहोन यूनिवर्सिटी, फुकुओका यूनिवर्सिटी, इवाते मेडिकल यूनिवर्सिटी, कानाज़ावा मेडिकल यूनिवर्सिटी आदि इसमें शामिल थे [1, 4]। MEXT ने टोक्यो मेडिकल यूनिवर्सिटी के 2018 वित्तीय वर्ष के निजी विश्वविद्यालय अनुदान को पूरी तरह रोकने का निर्णय लिया और अन्य समस्याग्रस्त विश्वविद्यालयों के अनुदान में कटौती की [5]। टोक्यो मेडिकल यूनिवर्सिटी ने बाद में, अनुचित प्रक्रिया के कारण अनुत्तीर्ण की गई 67 महिला अभ्यर्थियों को अतिरिक्त उत्तीर्ण घोषित किया।</p>
+<p>इस घटना द्वारा उठाया गया मूलभूत प्रश्न स्पष्ट है। प्रवेश परीक्षा में अंक-हेरफेर केवल व्यक्तिगत अभ्यर्थियों के अधिकारों का उल्लंघन नहीं है, बल्कि यह इस तथ्य को उजागर करता है कि "कौन चिकित्सक बनना चाहिए" — अर्थात पेशेवर क्षेत्र में प्रवेश को संस्थागत रूप से नियंत्रित करने वाला गेटकीपिंग (द्वारपाल कार्य) — पारदर्शिता के बिना मनमाने ढंग से संचालित किया जा रहा था।</p>
+<h2>2. जेंडर-विरोधी चयन का वैश्विक अवलोकन</h2>
+<p>शैक्षणिक संस्थानों तक पहुँच में जेंडर आधारित बहिष्करण केवल जापान की विशिष्ट घटना नहीं है। ऐतिहासिक रूप से देखें तो उच्च शिक्षा को ही पुरुषों के एकाधिकार क्षेत्र के रूप में संस्थागत रूप से डिज़ाइन किया गया था।</p>
+<p>1678 में जब Elena Cornaro Piscopia ने पडुआ विश्वविद्यालय में एक महिला के रूप में पहली बार डॉक्टरेट (दर्शनशास्त्र) प्राप्त की, तो उनकी मूल इच्छा के अनुसार धर्मशास्त्र की उपाधि लिंग के आधार पर अस्वीकार कर दी गई थी। पडुआ विश्वविद्यालय ने अगली बार किसी महिला को डॉक्टरेट तब दिया जब इससे लगभग 300 वर्ष बीत चुके थे [6]। संयुक्त राज्य अमेरिका में भी, Title IX (शिक्षा संशोधन अधिनियम की धारा 9, 1972) के लागू होने से पहले, अनेक विश्वविद्यालयों और व्यावसायिक स्नातकोत्तर विद्यालयों ने महिलाओं की प्रवेश सीमा को स्पष्ट रूप से सीमित किया था या पुरुषों की तुलना में उच्च शैक्षणिक मानदंड लागू किए थे [7]।</p>
+<p>ऐसे स्पष्ट बहिष्करण 20वीं शताब्दी के उत्तरार्ध में कानूनी रूप से सुधारे गए, फिर भी जेंडर आधारित शैक्षणिक पहुँच का प्रतिबंध विशिष्ट क्षेत्रों में आज भी जारी है। अफगानिस्तान में 2021 में तालिबान सत्ता की वापसी के बाद, महिलाओं की विश्वविद्यालय शिक्षा पर पूर्ण प्रतिबंध लगा दिया गया। काबुल विश्वविद्यालय में प्रतिबंध से ठीक पहले महिला छात्रों का अनुपात अनेक विभागों में पुरुषों के समकक्ष पहुँच गया था [8], जो यह दर्शाता है कि यह प्रतिबंध शैक्षणिक उपलब्धि से पूर्णतः असंबद्ध, विशुद्ध रूप से जेंडर मानदंडों पर आधारित संस्थागत बहिष्करण है।</p>
+<p>चिकित्सा शिक्षा तक सीमित रहें तो भी, प्रवेश चयन में जेंडर पूर्वाग्रह कई देशों में प्रलेखित किया गया है। एक रिपोर्ट के अनुसार, जब एक मेडिकल स्कूल ने 2004–2008 की अवधि में साक्षात्कार परीक्षा को चयन प्रक्रिया से हटा दिया, तो प्रवेशित छात्रों में पुरुष छात्रों का अनुपात 51.4% से बढ़कर 57.7% हो गया [9]। इसके अतिरिक्त, विशेषज्ञता के चयन में भी, महिला मेडिकल छात्राएँ भेदभावपूर्ण अनुभवों, सामाजिकीकरण, और महिला रोल मॉडल की अनुपस्थिति जैसे कारकों के कारण विशिष्ट विभागों (पारिवारिक चिकित्सा, बाल चिकित्सा, प्रसूति एवं स्त्री रोग) में केंद्रित होने की प्रवृत्ति रखती हैं, जो व्यवस्थित समीक्षा में पुष्ट हुआ है [10]। ये निष्कर्ष दर्शाते हैं कि केवल स्पष्ट अंक-हेरफेर जैसे "कठोर" गेटकीपिंग ही नहीं, बल्कि संरचनात्मक और सांस्कृतिक "मृदु" गेटकीपिंग भी व्यापक रूप से कार्य कर रही है।</p>
+<h2>3. जापान में "महिला कोटा" की शुरुआत: कर्ता और उद्देश्य</h2>
+<p>मेडिकल प्रवेश परीक्षा भेदभाव के उजागर होने के मात्र कुछ वर्षों बाद, जापान की उच्च शिक्षा ने प्रत्यक्षतः विपरीत दिशा में एक संस्थागत परिवर्तन आरंभ किया — विज्ञान और इंजीनियरिंग विभागों में "महिला कोटा" (महिला छात्रों के लिए विशेष चयन कोटा) का तेज़ी से प्रचलन।</p>
+<h3>3.1 नीतिगत पृष्ठभूमि</h3>
+<p>STEM क्षेत्रों में जापान का जेंडर असंतुलन अंतर्राष्ट्रीय स्तर पर विशेष रूप से गंभीर है। OECD के आँकड़ों के अनुसार, जापान में प्राकृतिक विज्ञान, गणित और सांख्यिकी क्षेत्रों में महिला छात्रों का अनुपात 27% (OECD औसत 52%) है, और इंजीनियरिंग, विनिर्माण एवं निर्माण क्षेत्रों में 16% (OECD औसत 26%) है — दोनों OECD सदस्य देशों में सबसे निचले स्तर पर हैं [11]। महिला शोधकर्ताओं का अनुपात भी मात्र 17.5% है, जो OECD देशों के औसत का लगभग आधा है [12]। कैबिनेट कार्यालय की "जेंडर समानता श्वेत पत्र" (2024 संस्करण) के अनुसार, विज्ञान विभागों में महिला छात्रों का अनुपात 27.9%, मास्टर स्तर पर 23.4%, और डॉक्टरेट स्तर पर 20.9% है — शिक्षा के उच्चतर स्तरों पर महिला अनुपात में गिरावट की "लीकी पाइपलाइन" परिघटना स्पष्ट रूप से दिखाई देती है [13]।</p>
+<h3>3.2 महिला कोटा प्रचलन में तेज़ी</h3>
+<p>जून 2022 में, MEXT ने "2023 विश्वविद्यालय प्रवेश चयन कार्यान्वयन दिशानिर्देश" की अधिसूचना में "विविध पृष्ठभूमि वाले व्यक्तियों के लिए चयन" की रूपरेखा की सिफारिश की, और विशेष रूप से "विज्ञान-इंजीनियरिंग क्षेत्रों में महिलाओं" पर ध्यान देने को स्पष्ट किया [14]। इस अधिसूचना ने प्रत्यक्ष प्रेरक का कार्य किया और महिला कोटा का प्रचलन तेज़ी से विस्तारित हुआ।</p>
+<p>यामाडा शिंतारो D&amp;I फाउंडेशन द्वारा 24 विश्वविद्यालयों पर किए गए वास्तविक स्थिति सर्वेक्षण (2024) के अनुसार, 2020 से पहले महिला कोटा रखने वाले विश्वविद्यालय मात्र 3 थे, जबकि 2023 के बाद से इसे अपनाने वाले विश्वविद्यालय कुल का 87.5% हैं [15]। कोटा अपनाने वाले विश्वविद्यालयों की संख्या का क्रम इस प्रकार है:</p>
+<ul>
+<li>2024 प्रवेश परीक्षा: 18 विश्वविद्यालय</li>
+<li>2025 प्रवेश परीक्षा: 30 विश्वविद्यालय, 37 विभाग</li>
+<li>2026 प्रवेश परीक्षा: 38 विश्वविद्यालय (क्योटो विश्वविद्यालय, ओसाका विश्वविद्यालय नए सम्मिलित) [16]</li>
+</ul>
+<p>2026 तक, विज्ञान-इंजीनियरिंग विभाग वाले राष्ट्रीय विश्वविद्यालयों में से आधे से अधिक किसी न किसी प्रकार का महिला कोटा रखेंगे। टोक्यो साइंस यूनिवर्सिटी (पूर्व टोक्यो इंस्टीट्यूट ऑफ टेक्नोलॉजी) ने 2025 की प्रवेश परीक्षा में केवल इंजीनियरिंग विभाग में 149 महिला कोटा स्थान निर्धारित किए, और महिला छात्र अनुपात को 13% से 20% से ऊपर ले जाने का लक्ष्य रखा [17]।</p>
+<h3>3.3 कर्ताओं की बहुस्तरीयता</h3>
+<p>महिला कोटा की शुरुआत करने वाला कर्ता एकल नहीं है। MEXT की नीतिगत मंशा (विविधता संवर्धन हेतु ऊपर से नीचे की ओर प्रोत्साहन संरचना) और विश्वविद्यालयों की स्वायत्त प्रेरणाएँ परस्पर अंतर्सेचन करती हैं। विश्वविद्यालयों की प्रेरणाओं में निम्नलिखित साहित्य और समाचारों से इंगित की गई हैं:</p>
+<ol>
+<li><strong>प्रतिस्पर्धी अनुसंधान कोष की प्राप्ति</strong>: वैज्ञानिक अनुसंधान अनुदान और JST परियोजनाओं जैसी आवेदन प्रक्रियाओं में विविधता संवर्धन ढाँचे की स्थापना को मूल्यांकन मानदंड के रूप में शामिल करने के मामले बढ़े हैं</li>
+<li><strong>विश्व विश्वविद्यालय रैंकिंग में विविधता सूचकांक</strong>: Times Higher Education और QS रैंकिंग में जेंडर संतुलन स्कोरिंग तत्व के रूप में शामिल है</li>
+<li><strong>18 वर्ष की जनसंख्या में कमी का सामना</strong>: विज्ञान-इंजीनियरिंग विभागों में आवेदकों को सुरक्षित करने हेतु, महिलाओं — एक "अनछुए बाज़ार" — तक पहुँच बढ़ाने का रणनीतिक निर्णय</li>
+</ol>
+<p>इस संरचना का सार यह है कि महिला कोटा की शुरुआत विशुद्ध न्याय की खोज से अधिक, नीतिगत प्रोत्साहन और विश्वविद्यालय प्रबंधन की तर्कसंगतता के मेल के परिणामस्वरूप समझी जानी चाहिए।</p>
+<h2>4. जेंडर आधारित सकारात्मक कार्रवाई (Affirmative Action) की अंतर्राष्ट्रीय तुलना</h2>
+<p>जापान का महिला कोटा अंतर्राष्ट्रीय परिप्रेक्ष्य में कहाँ स्थित है? शिक्षा और शोधकर्ता भर्ती में जेंडर आधारित सकारात्मक कार्रवाई (Affirmative Action, सक्रिय असमानता-निवारण उपाय) के प्रमुख प्रकारों की तुलना करें। इस खंड में चर्चा के विस्तार को रोकने के लिए, नस्ल/जातीयता आधारित ढाँचे को बाहर रखा गया है और केवल जेंडर कोटा पर केंद्रित चर्चा की गई है।</p>
+<h3>4.1 नॉर्वे: समर्पित पदों का गैर-कानूनी घोषित होना और सौम्य कोटा की स्वीकार्यता</h3>
+<p>2003 में, EFTA न्यायालय ने नॉर्वे के विश्वविद्यालयों द्वारा विशिष्ट शैक्षणिक पदों को केवल महिलाओं के लिए आरक्षित रखने की प्रथा को EEA समझौते और EU निर्देश 76/207/EEC का उल्लंघन घोषित किया (Case E-1/02) [18]। हालाँकि, इसी निर्णय ने समान योग्यता वाले उम्मीदवारों में महिलाओं को प्राथमिकता देने वाले "सौम्य कोटा (moderate quota)" की वैधता को नकारा नहीं। 2005 के बाद से, नॉर्वे अनुसंधान परिषद ने उत्कृष्टता केंद्रों (Centres of Excellence) की आवेदन प्रक्रिया में संस्थानों से महिला केंद्र-प्रमुख पर विचार और सौम्य कोटा के उपयोग की अपेक्षा की है [19]।</p>
+<h3>4.2 स्वीडन: लागू करना और वापस लेना</h3>
+<p>स्वीडन ने 2003 में उच्च शिक्षा संस्थानों की प्रवेश चयन प्रक्रिया में जेंडर आधारित सकारात्मक कार्रवाई को कानूनी रूप से अनुमति दी, परंतु अगस्त 2010 में इसे समाप्त कर दिया [20]। समाप्ति का कारण यह था कि जहाँ पुरुष बहुसंख्यक थे ऐसे कार्यक्रमों (जैसे नर्सिंग) में पुरुषों को प्राथमिकता से प्रवेश मिलने लगा — एक विपरीत स्थिति जिसने राजनीतिक विवाद उत्पन्न किया। हालाँकि, स्वीडन सरकार ने विश्वविद्यालय स्तर पर महिला प्रोफेसर भर्ती लक्ष्य (संख्यात्मक लक्ष्य) बनाए रखे और 2017–2019 की अवधि के लिए भी विश्वविद्यालय-विशिष्ट महिला प्रोफेसर भर्ती अनुपात लक्ष्य निर्धारित किए [21]।</p>
+<h3>4.3 यूनाइटेड किंगडम: Athena SWAN चार्टर</h3>
+<p>यूनाइटेड किंगडम का दृष्टिकोण कोटा प्रणाली के बजाय प्रोत्साहन-संबद्ध ढाँचे में विशिष्ट है। 2005 में स्थापित Athena SWAN चार्टर, अनुसंधान संस्थानों में जेंडर समानता के प्रयासों का मूल्यांकन कर ब्रॉन्ज़, सिल्वर और गोल्ड प्रमाणन प्रदान करने की प्रणाली है। 2011 के बाद, UK नेशनल इंस्टीट्यूट फॉर हेल्थ रिसर्च (NIHR) ने Athena SWAN Silver प्रमाणन को विशिष्ट अनुसंधान अनुदान की आवेदन शर्त बना दिया [22]।</p>
+<p>यह वित्त-पोषण-संबद्ध तंत्र — "अनुसंधान कोष के वितरण को जेंडर प्रतिनिधित्व सुधार के प्रदर्शन से जोड़ना" — विश्व की सबसे शक्तिशाली प्रोत्साहन संरचनाओं में से एक है। Ovseiko et al. (2017) ने रिपोर्ट किया कि Athena SWAN में भागीदारी ने महिलाओं के कैरियर समर्थन, देखभाल-उत्तरदायित्वों की समझ में गहराई, और भेदभाव व पूर्वाग्रह के निवारण जैसे संरचनात्मक एवं सांस्कृतिक परिवर्तन लाए [23]। हालाँकि, UK के समानता अधिनियम (Equality Act 2010) के अंतर्गत कोटा प्रणाली "सक्रिय भेदभाव (positive discrimination)" के रूप में अवैध हो सकती है, इसलिए Athena SWAN प्रवेश सीमा या नियुक्ति पदों की प्रत्यक्ष संख्यात्मक आवंटन की सिफारिश नहीं करता।</p>
+<h3>4.4 संपूर्ण EU: जेंडर समानता योजना का संस्थागतकरण</h3>
+<p>2021 के बाद से, यूरोपीय आयोग ने Horizon Europe (EU अनुसंधान एवं नवाचार फ्रेमवर्क कार्यक्रम) में आवेदन की शर्त के रूप में यह अनिवार्य किया है कि आवेदक संस्थान जेंडर समानता योजना (Gender Equality Plan: GEP) तैयार और कार्यान्वित करे। GEP की विशिष्ट विषय-वस्तु संस्थान के विवेक पर छोड़ी गई है, परंतु जेंडर संतुलन के संख्यात्मक लक्ष्य निर्धारण, भर्ती और पदोन्नति प्रक्रियाओं की पारदर्शिता, तथा कार्य-जीवन संतुलन उपायों की व्यवस्था सामान्य घटक हैं।</p>
+<h3>4.5 प्रकार-वर्गीकरण</h3>
+<p>उपरोक्त को व्यवस्थित करने पर, जेंडर आधारित सकारात्मक कार्रवाई को मुख्यतः तीन प्रकारों में वर्गीकृत किया जा सकता है:</p>
+<span class="math display">\[\text{AA प्रकार} = \begin{cases}
+\text{कठोर कोटा} & \text{（प्रवेश सीमा/पदों का प्रत्यक्ष आवंटन）} \\
+\text{मृदु लक्ष्य} & \text{（संख्यात्मक लक्ष्य निर्धारण, समान योग्यता वालों में प्राथमिकता）} \\
+\text{प्रोत्साहन-संबद्ध} & \text{（कोष वितरण/प्रमाणन और जेंडर सूचकांक की कड़ी）}
+\end{cases}\]</span>
+<p>जापान का "महिला कोटा" प्रवेश सीमा का प्रत्यक्ष आवंटन है और कठोर कोटा में वर्गीकृत होता है। यह नॉर्वे में अवैध घोषित "समर्पित पदों" के संरचनात्मक रूप से समान है, और EFTA न्यायालय द्वारा स्वीकृत "सौम्य कोटा" (समान योग्यता वालों में प्राथमिकता) से अधिक कड़ा उपाय है। यह स्वीडन द्वारा 2010 में समाप्त की गई प्रवेश चयन में जेंडर AA के भी समरूप है, और यह पहचाना जाना चाहिए कि जापान का महिला कोटा अंतर्राष्ट्रीय दृष्टि से सक्रिय श्रेणी में स्थित है।</p>
+<h2>5. उपसंहार: संख्यात्मक लक्ष्यों से संरचनात्मक सुधार की ओर</h2>
+<p>इस लेख ने जापान की उच्च शिक्षा में जेंडर गेटकीपिंग के दो पहलुओं — मेडिकल प्रवेश परीक्षा में बहिष्करणात्मक गेटकीपिंग और विज्ञान-इंजीनियरिंग प्रवेश में समावेशी गेटकीपिंग (महिला कोटा) — की अंतर्राष्ट्रीय तुलना के संदर्भ में समीक्षा की है।</p>
+<p>टोक्यो मेडिकल यूनिवर्सिटी प्रकरण ने यह प्रमाणित किया कि जब प्रवेश-स्तर पर चयन में पारदर्शिता का अभाव हो, तो यह किसी विशिष्ट जेंडर के संगठित बहिष्करण में सीधे परिणत हो सकता है। दूसरी ओर, महिला कोटा का तेज़ प्रचलन उसी "प्रवेश-द्वार की अभिकल्पना" द्वारा असंतुलन को सुधारने का प्रयास है। दोनों सतह पर विपरीत दिशाओं की ओर प्रतीत होते हैं, किंतु "किसे प्रवेश देना है / किसे नहीं" — अर्थात प्रवेश-स्तर के हेरफेर द्वारा संरचनात्मक समस्या का समाधान खोजने — की दृष्टि से दोनों समरूप हैं।</p>
+<p>परंतु प्रवेश-स्तर पर संख्यात्मक समायोजन मात्र लक्षणोपचार है। यदि महिला कोटा के माध्यम से विज्ञान-इंजीनियरिंग विभागों में प्रवेश पाने वाली महिलाओं के आगे — स्नातकोत्तर प्रगति, अनुसंधान पद पर नियुक्ति, टेन्योर प्राप्ति — की प्रत्येक अवस्था (पाइपलाइन) में विद्यमान संरचनात्मक बाधाओं को दूर नहीं किया जाता, तो प्रवेश-समय का संख्यात्मक सुधार स्थायी परिवर्तन में नहीं बदलेगा। जापान में महिला शोधकर्ताओं का 17.5% अनुपात केवल प्रवेश स्तर पर नहीं, बल्कि संपूर्ण कैरियर में होने वाली संचयी विलगन का परिणाम है।</p>
+<p>अप्रैल 2024 में लागू चिकित्सक कार्य-व्यवस्था सुधार (अतिरिक्त कार्य-घंटों की ऊपरी सीमा: वार्षिक 960 घंटे, A मानक) [24] टोक्यो मेडिकल यूनिवर्सिटी प्रकरण की पृष्ठभूमि में व्याप्त संरचनात्मक समस्या — महिला चिकित्सकों की सेवा-त्याग को अपरिहार्य बनाने वाला कठोर कार्य-वातावरण — का प्रत्यक्ष संस्थागत समाधान है। महिला चिकित्सकों के कैरियर-विराम का मुख्य कारण प्रसव (70%) और शिशु-पालन (38.3%) है, यह महामारी-विज्ञानी साक्ष्य [3] व्यक्तिगत प्राथमिकता नहीं, बल्कि संस्थागत कमी को इंगित करता है।</p>
+<p>STEM क्षेत्रों में भी, प्रवेश-स्तर के संख्यात्मक समायोजन के समानांतर, निम्नलिखित संरचनात्मक सुधार अनिवार्य हैं:</p>
+<ul>
+<li>शोधकर्ताओं के प्रदर्शन मूल्यांकन मानदंडों का पुनर्निर्माण (प्रकाशन-संख्या केंद्रित से बहुआयामी मूल्यांकन की ओर)</li>
+<li>मातृत्व अवकाश/अंशकालिक कार्य व्यवस्था का प्रभावी संचालन और टेन्योर-कालगणना का ठहराव</li>
+<li>परामर्श (मेंटरिंग) एवं रोल मॉडल की संस्थागत व्यवस्था</li>
+</ul>
+<p>जैसा कि UK का Athena SWAN दर्शाता है, प्रवेश-स्तर के संख्यात्मक लक्ष्य (कठोर कोटा) के बजाय, संपूर्ण संस्थान की जेंडर समानता प्रतिबद्धता को अनुसंधान कोष वितरण से जोड़ने वाली प्रोत्साहन संरचना, अधिक स्थायी संरचनात्मक परिवर्तन का मॉडल हो सकती है।</p>
+<p>प्रवेश-द्वार के "द्वारपाल" को बदलना आवश्यक शर्त है, किंतु पर्याप्त शर्त नहीं। वास्तव में जो प्रश्न उठाया जाना चाहिए, वह उस द्वार के पीछे की इमारत की अभिकल्पना का है।</p>
+<hr />
+<h2>संदर्भ</h2>
+<ol>
+<li>
+<p>Takeda Y. The Tokyo Medical University entrance exam scandal: lessons learned. <em>International Journal for Educational Integrity</em>. 2018;14:11. DOI: <a href="https://doi.org/10.1007/s40979-018-0039-4">10.1007/s40979-018-0039-4</a></p>
+</li>
+<li>
+<p>Wada K, Yoshikawa T, Goto T, et al. Working hours of full-time hospital physicians in Japan: a cross-sectional nationwide survey. <em>BMJ Open</em>. 2024;14(1):e076600. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/38191251/">38191251</a></p>
+</li>
+<li>
+<p>Izumi M, Nomura K, Higaki Y. Increase in the number of female doctors and the challenges that Japan's medical system must face. <em>Global Health &amp; Medicine</em>. 2024;6(6):375-381. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/39741994/">39741994</a></p>
+</li>
+<li>
+<p>Ramanan T, Bhatt N. Gender bias in the medical school admission system in Japan. <em>SN Social Sciences</em>. 2022;2:89. DOI: <a href="https://doi.org/10.1007/s43545-022-00378-9">10.1007/s43545-022-00378-9</a></p>
+</li>
+<li>
+<p>文部科学省. 東京医科大学に対する私学助成の取扱いについて. 2019年1月.</p>
+</li>
+<li>
+<p>Schiebinger L. <em>The Mind Has No Sex?: Women in the Origins of Modern Science</em>. Harvard University Press; 1989.</p>
+</li>
+<li>
+<p>National Geographic. Title IX at 50: How the U.S. law transformed education for women. 2022.</p>
+</li>
+<li>
+<p>Babury MO, Hayeri N. Female Student Population at Kabul University Before the 2021 Ban: Trends, Gender Parity, and Faculty-Level Dynamics. arXiv:2509.20406. 2025.</p>
+</li>
+<li>
+<p>O'Neill LD, Hartvigsen J, Wallstedt B, et al. Removing the interview for medical school selection is associated with gender bias among enrolled students. <em>Medical Teacher</em>. 2014;36(7):579-585. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/24484112/">24484112</a></p>
+</li>
+<li>
+<p>Kim HY, Kim J, Lee S. The impact of gendered experiences on female medical students' specialty choice: A systematic review. <em>American Journal of Surgery</em>. 2023;225(5):814-822. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/36435655/">36435655</a></p>
+</li>
+<li>
+<p>OECD. <em>Education at a Glance 2023: OECD Indicators</em>. OECD Publishing; 2023. DOI: <a href="https://doi.org/10.1787/e13bef63-en">10.1787/e13bef63-en</a></p>
+</li>
+<li>
+<p>内閣府男女共同参画局.「女性研究者の現状」. 男女共同参画白書 令和6年版. 2024.</p>
+</li>
+<li>
+<p>内閣府男女共同参画局. 男女共同参画白書 令和6年版「教育・研究分野」. 2024.</p>
+</li>
+<li>
+<p>文部科学省.「令和5年度大学入学者選抜実施要項について（通知）」. 2022年6月.</p>
+</li>
+<li>
+<p>山田進太郎D&amp;I財団. 理工系学部の「女子枠」実態調査2024. 2024.</p>
+</li>
+<li>
+<p>リセマム.「【大学受験2026】理工系『女子枠』京大や阪大など8大学増の38大学」. 2025年10月1日.</p>
+</li>
+<li>
+<p>東京科学大学（旧東京工業大学）. 2025年度入試における女子枠の設定について. 2024.</p>
+</li>
+<li>
+<p>EFTA Court. Case E-1/02, EFTA Surveillance Authority v Norway. 2003.</p>
+</li>
+<li>
+<p>Research Council of Norway. Gender equality measures for Centres of Excellence. 2005.</p>
+</li>
+<li>
+<p>The Local (Sweden). Sweden set to scrap university gender quotas. 2010年1月12日.</p>
+</li>
+<li>
+<p>European Institute for Gender Equality (EIGE). Sweden: Legislative and policy backgrounds. 2024.</p>
+</li>
+<li>
+<p>Ovseiko PV, Chapple A, Edmunds LD, et al. Advancing gender equality through the Athena SWAN Charter for Women in Science: an exploratory study of women's and men's perceptions. <em>Health Research Policy and Systems</em>. 2017;15:12. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/28222735/">28222735</a></p>
+</li>
+<li>
+<p>Munro L, O'Sullivan G. Understanding the Athena SWAN award scheme for gender equality as a complex social intervention in a complex system: analysis of Silver award action plans in a comparative European perspective. <em>Health Research Policy and Systems</em>. 2020;18:19. DOI: <a href="https://doi.org/10.1186/s12961-020-0527-x">10.1186/s12961-020-0527-x</a></p>
+</li>
+<li>
+<p>厚生労働省. 医師の働き方改革について — 時間外・休日労働の上限規制. 2024年4月施行.</p>
+</li>
+</ol>
+<hr />
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の政策や制度を推奨・批判するものではありません。記事中の情報は公開された学術文献および公的機関の報告書に基づいていますが、法的助言を構成するものではありません。</em></p>
+<p><em>This article was produced by Project Asymptote for educational purposes. The information presented is based on publicly available academic literature and official reports and does not constitute legal advice.</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的学术文献与官方报告，不构成法律建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica y reportes oficiales públicamente disponibles y no constituye asesoramiento legal.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध शैक्षणिक साहित्य और आधिकारिक रिपोर्टों पर आधारित है और यह कानूनी सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية والتقارير الرسمية المتاحة للعموم ولا تشكل استشارة قانونية.</em></p>
+<div class="disclaimer"><p>यह सामग्री केवल सूचनात्मक उद्देश्यों के लिए है, जो वस्तुनिष्ठ शैक्षणिक साक्ष्य और डेटा विश्लेषण पर आधारित है। यह चिकित्सा सलाह, निदान या राजनीतिक आलोचना के रूप में अभिप्रेत नहीं है।</p></div>
+</article>
+
+<article id="content-ar" class="content-section" dir="rtl" lang="ar">
+<h1>حراس البوابة الخفيون: التحول المؤسسي من التمييز في امتحانات القبول بكليات الطب إلى «حصص الطالبات» — مقارنة دولية</h1>
+<h1>حراس الأرقام: من التلاعب بالدرجات في كليات الطب إلى «حصص الطالبات» في التخصصات العلمية والهندسية — تحليل وبائي لبنية حراسة البوابات الجندرية</h1>
+<h1>مصممو المداخل: مقارنة دولية للانتقاء الجندري في التعليم العالي ووصفات إصلاحية هيكلية</h1>
+<hr />
+<h2>1. المقدمة: تجلّي التمييز المؤسسي — مشكلة امتحانات القبول في كليات الطب</h2>
+<p>في يوليو 2018، كشفت تحقيقات قضية فساد تتعلق ببرنامج دعم الجامعات الخاصة التابع لوزارة التعليم والعلوم والتكنولوجيا اليابانية أن جامعة طوكيو الطبية قد تلاعبت بشكل منهجي بدرجات الطالبات المتقدمات في امتحان القبول العام لكلية الطب. وبحسب تقرير لجنة التحقيق الداخلية، كانت هذه الممارسة قائمة منذ امتحانات عام 2006 على الأقل، حيث كانت درجات جميع المتقدمين في الاختبار الأول تُضرب في معامل 0.8 بشكل موحد، ثم يُضاف للمتقدمين الذكور ما يصل إلى 20 نقطة إضافية [1]. وكان الهدف من هذا التلاعب خفض نسبة الطالبات المقبولات من نحو 40% التي بلغتها عام 2010 إلى نحو 30%.</p>
+<p>كان المنطق الذي استخدمته قيادة الجامعة لتبرير هذا التمييز هو أن «الطبيبات يتركن العمل بنسب أعلى بسبب الحمل والولادة، مما يُصعّب الحفاظ على نظام المناوبات القاسي في المستشفيات الجامعية». غير أن هذا المنطق ليس سوى استدلال سببي مقلوب يُحمّل الطبيبات فرادى مسؤولية العيوب الهيكلية في منظومة تقديم الرعاية الصحية — أي النقص المطلق في أعداد الأطباء وساعات العمل المفرطة. فوفقًا لمسح ظروف عمل أطباء المستشفيات في اليابان، يعمل 41% من الأطباء الذكور و28% من الطبيبات أكثر من 60 ساعة أسبوعيًا [2]، كما أن 70% من حالات ترك الطبيبات للعمل ناجمة عن الولادة و38.3% عن رعاية الأطفال [3]. إن جوهر المشكلة لا يكمن في «ميل النساء لترك العمل» بل في تصميم بيئة عمل لا تتوافق مع الحمل ورعاية الأطفال.</p>
+<p>إثر هذه الفضيحة، أجرت وزارة التعليم والعلوم والتكنولوجيا تحقيقًا طارئًا شمل الجامعات التي تضم 81 كلية طب في أنحاء البلاد، وأكدت في نهاية المطاف وجود تعديلات غير ملائمة في الدرجات — لم تُذكر في شروط القبول المعلنة — في عشر جامعات بما فيها جامعة طوكيو الطبية. وتشمل هذه الجامعات: جامعة جونتيندو، وجامعة كيتاساتو، وكلية الطب سانت ماريانا، وجامعة شووا، وجامعة نيهون، وجامعة فوكوكا، وكلية الطب إيواتي، وكلية الطب كانازاوا وغيرها [1, 4]. وقررت وزارة التعليم حجب كامل الإعانة المالية الحكومية عن جامعة طوكيو الطبية لعام 2018، كما اتخذت إجراءات بتخفيض الإعانات للجامعات الأخرى المعنية [5]. وأعلنت جامعة طوكيو الطبية لاحقًا عن قبول إضافي لـ67 طالبة كنّ قد رُفضن ظلمًا بسبب التلاعب.</p>
+<p>إن السؤال الجوهري الذي طرحته هذه القضية واضح: التلاعب بالدرجات في امتحانات القبول لا يقتصر على انتهاك حقوق المتقدمين الأفراد، بل يكشف أن حراسة البوابات (وظيفة التحكم في الدخول) — أي التحكم المؤسسي في «من يستحق أن يكون طبيبًا» — كانت تُمارَس بشكل تعسفي وبلا شفافية.</p>
+<h2>2. نظرة شاملة عالمية على الانتقاء المعادي للجندر</h2>
+<p>إن الإقصاء القائم على الجندر في الوصول إلى المؤسسات التعليمية ليس ظاهرة خاصة باليابان. فمن الناحية التاريخية، صُمّم التعليم العالي ذاته باعتباره حكرًا على الذكور.</p>
+<p>حين حصلت إيلينا كورنارو بيسكوبيا على أول درجة دكتوراه (في الفلسفة) تُمنح لامرأة من جامعة بادوفا عام 1678، رُفض طلبها الأصلي للحصول على درجة في اللاهوت بسبب جنسها. ولم تمنح جامعة بادوفا درجة دكتوراه لامرأة أخرى إلا بعد نحو 300 عام [6]. وفي الولايات المتحدة أيضًا، قبل صدور الباب التاسع (Title IX، تعديل قانون التعليم، 1972)، كانت كثير من الجامعات وكليات الدراسات العليا المهنية تضع صراحةً حدودًا لقبول الطالبات أو تفرض عليهن معايير أكاديمية أعلى من الذكور [7].</p>
+<p>وعلى الرغم من أن هذا الإقصاء الصريح قد صُحّح قانونيًا في النصف الثاني من القرن العشرين، فإن تقييد الوصول إلى التعليم على أساس الجندر لا يزال مستمرًا في مناطق بعينها. ففي أفغانستان، حُظر تعليم الإناث الجامعي بالكامل بعد عودة حكومة طالبان إلى السلطة عام 2021. وقد أُفيد بأن نسبة الطالبات في جامعة كابول كانت قد بلغت التكافؤ بين الجنسين في عدة كليات قبيل فرض الحظر مباشرة [8]، مما يعني أن هذا الحظر يمثل إقصاء مؤسسيًا قائمًا على معايير جندرية بحتة، بلا أي صلة بمستوى التحصيل التعليمي.</p>
+<p>وحتى عند الاقتصار على التعليم الطبي، فإن التحيز الجندري في عمليات القبول موثّق في عدة دول. فقد أظهرت إحدى الدراسات أنه في كلية طب استبعدت المقابلات الشخصية من عملية الانتقاء خلال الفترة 2004–2008، ارتفعت نسبة الطلاب الذكور بين المقبولين من 51.4% إلى 57.7% [9]. كما أكدت مراجعة منهجية أن طالبات الطب يملن إلى التركز في تخصصات بعينها (طب الأسرة، طب الأطفال، أمراض النساء والتوليد) بفعل عوامل كالتجارب التمييزية، والتنشئة الاجتماعية، وغياب نماذج نسائية يُحتذى بها [10]. تشير هذه النتائج إلى أن حراسة البوابات لا تقتصر على الأشكال «الصلبة» كالتلاعب المباشر بالدرجات، بل تشمل أيضًا أشكالًا «ناعمة» بنيوية وثقافية تعمل على نطاق واسع.</p>
+<h2>3. الجهات الفاعلة ودوافع إدخال «حصص الطالبات» في اليابان</h2>
+<p>بعد سنوات قليلة فقط من انكشاف التمييز في امتحانات القبول بكليات الطب، شرع التعليم العالي في اليابان في تغيير مؤسسي يبدو للوهلة الأولى عكسيًا تمامًا: الإدخال السريع لـ«حصص الطالبات» (مسارات قبول خاصة بالطالبات) في الكليات العلمية والهندسية بشكل رئيسي.</p>
+<h3>3.1 الخلفية السياساتية</h3>
+<p>يتّسم اختلال التوازن الجندري في مجالات العلوم والتكنولوجيا والهندسة والرياضيات (STEM) في اليابان بحدة استثنائية على المستوى الدولي. فوفقًا لإحصاءات منظمة التعاون الاقتصادي والتنمية (OECD)، تبلغ نسبة الطالبات في مجالات العلوم الطبيعية والرياضيات والإحصاء 27% في اليابان (مقابل متوسط OECD البالغ 52%)، وفي مجالات الهندسة والتصنيع والبناء 16% (مقابل متوسط OECD البالغ 26%)، وكلتاهما الأدنى بين دول OECD [11]. كما لا تتجاوز نسبة الباحثات 17.5%، أي نحو نصف متوسط دول OECD [12]. ووفقًا لـ«الكتاب الأبيض للمساواة بين الجنسين» (طبعة 2024) الصادر عن مكتب مجلس الوزراء، تبلغ نسبة الطالبات في كليات العلوم 27.9%، وفي الماجستير 23.4%، وفي الدكتوراه 20.9%، مما يُبرز ظاهرة «الأنبوب المسرّب» (leaky pipeline) حيث تنخفض نسبة النساء مع التقدم في المراحل التعليمية [13].</p>
+<h3>3.2 تسارع إدخال حصص الطالبات</h3>
+<p>في يونيو 2022، أصدرت وزارة التعليم والعلوم والتكنولوجيا إخطارًا بشأن «متطلبات تنفيذ عمليات القبول الجامعي للعام الأكاديمي 2023» أوصت فيه بتصميم مسارات انتقاء «تستهدف أصحاب الخلفيات المتنوعة»، مع إشارة صريحة إلى «النساء في التخصصات العلمية والهندسية» [14]. وشكّل هذا الإخطار المحفّز المباشر للتوسع السريع في حصص الطالبات.</p>
+<p>وبحسب دراسة ميدانية أجرتها مؤسسة شينتارو يامادا للتنوع والشمول على 24 جامعة (2024)، لم يكن سوى 3 جامعات قد أنشأت حصصًا للطالبات قبل عام 2020، في حين أن 87.5% من الجامعات التي أدخلت هذه الحصص فعلت ذلك اعتبارًا من العام الأكاديمي 2023 [15]. وتطوّرت أعداد الجامعات المُطبّقة كما يلي:</p>
+<ul>
+<li>امتحانات 2024: 18 جامعة</li>
+<li>امتحانات 2025: 30 جامعة و37 كلية</li>
+<li>امتحانات 2026: 38 جامعة (بانضمام جامعة كيوتو وجامعة أوساكا) [16]</li>
+</ul>
+<p>وبحلول عام 2026، سيكون أكثر من نصف الجامعات الوطنية التي تضم كليات علمية وهندسية قد أنشأ شكلًا من أشكال حصص الطالبات. وقد خصصت جامعة طوكيو للعلوم (جامعة طوكيو للتكنولوجيا سابقًا) 149 مقعدًا للطالبات في كلية الهندسة وحدها ضمن امتحانات 2025، بهدف رفع نسبة الطالبات من 13% إلى أكثر من 20% [17].</p>
+<h3>3.3 تعدد طبقات الجهات الفاعلة</h3>
+<p>ليست الجهة المنفذة لإدخال حصص الطالبات واحدة. فالنية السياساتية لوزارة التعليم (تصميم حوافز من أعلى إلى أسفل لتعزيز التنوع) تتقاطع مع الدوافع الذاتية للجامعات. وتشمل دوافع الجامعات — كما تشير الأدبيات والتقارير الإعلامية — ما يلي:</p>
+<ol>
+<li><strong>الحصول على تمويل بحثي تنافسي</strong>: تزايد إدراج متطلبات بناء أنظمة تعزيز التنوع ضمن معايير تقييم طلبات منح البحث العلمي ومشاريع وكالة العلوم والتكنولوجيا (JST)</li>
+<li><strong>مؤشرات التنوع في التصنيفات الجامعية العالمية</strong>: إدراج التوازن الجندري كعنصر تقييم في تصنيفات مثل Times Higher Education وQS</li>
+<li><strong>مواجهة تراجع عدد السكان في سن 18 عامًا</strong>: قرار استراتيجي بتوسيع نطاق الوصول إلى «سوق غير مستغلة» من الطالبات لضمان أعداد كافية من المتقدمين للكليات العلمية والهندسية</li>
+</ol>
+<p>وخلاصة هذا الهيكل أن إدخال حصص الطالبات ينبغي فهمه لا باعتباره سعيًا خالصًا نحو العدالة، بل باعتباره نتيجة لتوافق الحوافز السياساتية مع المنطق الإداري للجامعات.</p>
+<h2>4. مقارنة دولية للعمل الإيجابي الجندري</h2>
+<p>أين تقع «حصص الطالبات» اليابانية على الخريطة الدولية؟ نقارن هنا الأنماط الرئيسية للعمل الإيجابي (التمييز الإيجابي) القائم على الجندر في مجالي التعليم وتوظيف الباحثين. ولتجنب تشعب النقاش، يقتصر هذا القسم بدقة على الحصص الجندرية دون الأُطر القائمة على العرق أو الإثنية.</p>
+<h3>4.1 النرويج: تجريم المناصب الحصرية وإقرار الحصص المعتدلة</h3>
+<p>في عام 2003، أصدرت محكمة رابطة التجارة الحرة الأوروبية (EFTA) حكمًا بأن ممارسة الجامعات النرويجية في تخصيص مناصب أكاديمية معينة حصريًا للنساء تنتهك اتفاقية المنطقة الاقتصادية الأوروبية (EEA) والتوجيه الأوروبي 76/207/EEC (القضية E-1/02) [18]. غير أن الحكم ذاته لم ينفِ مشروعية «الحصص المعتدلة» التي تمنح الأولوية للنساء من بين مرشحين متساوي المؤهلات. ومنذ عام 2005، يطلب مجلس البحث النرويجي من المؤسسات المتقدمة لبرنامج مراكز التميز البحثي النظر في تعيين مديرات للمراكز واستخدام الحصص المعتدلة [19].</p>
+<h3>4.2 السويد: ذهاب وإياب بين التطبيق والإلغاء</h3>
+<p>أقرّت السويد قانونيًا العمل الإيجابي القائم على الجندر في قبول مؤسسات التعليم العالي عام 2003، لكنها ألغته في أغسطس 2010 [20]. وكان من أسباب الإلغاء حدوث ظاهرة عكسية حيث مُنح الذكور — الذين يشكلون الأغلبية في برامج كالتمريض — أولوية في القبول، مما أثار جدلًا سياسيًا. ومع ذلك، حافظت الحكومة السويدية على أهداف رقمية لتعيين أستاذات جامعيات على مستوى الجامعات، حيث حددت نسبًا مستهدفة لتعيين أستاذات لكل جامعة خلال الفترة 2017–2019 [21].</p>
+<h3>4.3 المملكة المتحدة: ميثاق أثينا سوان</h3>
+<p>يتميز النهج البريطاني بإطار قائم على ربط الحوافز بدلًا من نظام الحصص. أُنشئ ميثاق أثينا سوان (Athena SWAN) عام 2005 كنظام لتقييم جهود المؤسسات البحثية في تحقيق المساواة الجندرية ومنحها اعتمادات برونزية وفضية وذهبية. ومنذ عام 2011، جعل المعهد الوطني البريطاني لبحوث الصحة (NIHR) الحصول على اعتماد أثينا سوان الفضي شرطًا للتقدم لمنح بحثية معينة [22].</p>
+<p>يُعدّ هذا الآلية الرابطة بين التمويل والأداء — التي «تربط توزيع تمويل البحث بسجل تحسين التمثيل الجندري» — واحدة من أقوى هياكل الحوافز في العالم. وقد أفاد Ovseiko وآخرون (2017) بأن المشاركة في أثينا سوان أسهمت في إحداث تحولات بنيوية وثقافية تشمل دعم المسيرة المهنية للنساء، وتعميق فهم مسؤوليات الرعاية، والتصدي للتمييز والتحيز [23]. غير أنه بموجب قانون المساواة البريطاني (Equality Act 2010)، قد يُعتبر نظام الحصص «تمييزًا إيجابيًا (positive discrimination)» غير قانوني، ولذا لا يوصي ميثاق أثينا سوان بتخصيص حصص عددية مباشرة في مقاعد القبول أو الوظائف.</p>
+<h3>4.4 الاتحاد الأوروبي: مأسسة خطط المساواة الجندرية</h3>
+<p>منذ عام 2021، ألزمت المفوضية الأوروبية المؤسسات المتقدمة لبرنامج أفق أوروبا (Horizon Europe — البرنامج الإطاري للبحث والابتكار في الاتحاد الأوروبي) بوضع وتنفيذ خطة للمساواة الجندرية (Gender Equality Plan: GEP) كشرط للتقدم. ويُترك المحتوى التفصيلي لهذه الخطط لتقدير المؤسسات، لكنها تتضمن عادةً وضع أهداف رقمية للتوازن الجندري، وتعزيز شفافية عمليات التوظيف والترقية، وتطوير سياسات التوازن بين العمل والحياة.</p>
+<h3>4.5 تصنيف الأنماط</h3>
+<p>بناءً على ما سبق، يمكن تصنيف العمل الإيجابي الجندري إلى ثلاثة أنماط رئيسية:</p>
+<span class="math display">\[\text{AA類型} = \begin{cases}
+\text{ハード・クオータ} & \text{（入学定員・ポストの直接割当）} \\
+\text{ソフト・ターゲット} & \text{（数値目標の設定、同等資格者間の優先）} \\
+\text{インセンティブ連動} & \text{（資金配分・認証とジェンダー指標の紐づけ）}
+\end{cases}\]</span>
+<p>تُصنّف «حصص الطالبات» اليابانية كتخصيص مباشر لمقاعد القبول، أي أنها تندرج ضمن الحصص الصلبة (Hard Quota). وهي تتشابه هيكليًا مع «المناصب الحصرية» التي حُكم بعدم قانونيتها في النرويج، وتمثل إجراءً أقوى من «الحصص المعتدلة» (أي الأولوية بين متساوي المؤهلات) التي أقرتها محكمة EFTA. كما أنها مماثلة في نوعها للعمل الإيجابي الجندري في القبول الجامعي الذي ألغته السويد عام 2010. وينبغي الإدراك أن حصص الطالبات اليابانية تُعدّ من الفئة الأكثر تشددًا على المستوى الدولي.</p>
+<h2>5. الخاتمة: من الأهداف الرقمية إلى الإصلاح الهيكلي</h2>
+<p>تناول هذا المقال جانبين من حراسة البوابات الجندرية في التعليم العالي الياباني — حراسة البوابات الإقصائية في امتحانات القبول بكليات الطب، وحراسة البوابات الاستيعابية (حصص الطالبات) في القبول بالكليات العلمية والهندسية — وذلك في سياق المقارنة الدولية.</p>
+<p>أثبتت قضية جامعة طوكيو الطبية أن الانتقاء عند نقطة الدخول حين يفتقر إلى الشفافية يمكن أن يؤدي مباشرة إلى الإقصاء الممنهج لجندر بعينه. وفي المقابل، يمثل الإدخال السريع لحصص الطالبات محاولة لتصحيح الاختلال عبر «تصميم المدخل» ذاته. يبدو الاتجاهان متعاكسين ظاهريًا، لكنهما متماثلان بنيويًا من حيث سعيهما لمعالجة مشكلات هيكلية عبر التدخل في مرحلة الدخول — «من يُقبَل ومن يُرفَض».</p>
+<p>غير أن التعديل الرقمي عند المدخل ليس سوى علاج للأعراض. فما لم تُزَل الحواجز الهيكلية التي تواجهها النساء اللواتي دخلن الكليات العلمية والهندسية عبر حصص الطالبات في كل مرحلة من مراحل المسار اللاحق (pipeline) — الالتحاق بالدراسات العليا، والتعيين في مناصب بحثية، والحصول على التثبيت الأكاديمي — فإن تحسين الأرقام عند القبول لن يُفضي إلى تغيير مستدام. إن نسبة الباحثات في اليابان البالغة 17.5% هي نتاج تراكمي للتسرب عبر المسار المهني بأكمله، لا في مرحلة القبول وحدها.</p>
+<p>إن إصلاح نظام عمل الأطباء الذي دخل حيز التنفيذ في أبريل 2024 (تحديد سقف ساعات العمل الإضافية: 960 ساعة سنويًا، المستوى A) [24] يمثل استجابة مؤسسية مباشرة للمشكلة الهيكلية التي كانت خلفية قضية جامعة طوكيو الطبية — بيئة العمل القاسية التي تجعل ترك الطبيبات للعمل أمرًا حتميًا. إن الأدلة الوبائية التي تُظهر أن الأسباب الرئيسية لانقطاع المسيرة المهنية للطبيبات هي الولادة (70%) ورعاية الأطفال (38.3%) [3] تدل على قصور في النظام لا على تفضيلات فردية.</p>
+<p>وفي مجالات STEM أيضًا، لا بد بالتوازي مع التعديل الرقمي عند المدخل من إجراء الإصلاحات الهيكلية التالية:</p>
+<ul>
+<li>إعادة تصميم معايير تقييم أداء الباحثين (من التركيز المفرط على عدد المنشورات إلى التقييم المتعدد الأبعاد)</li>
+<li>التطبيق الفعلي لأنظمة إجازة رعاية الأطفال والعمل بدوام جزئي مع وقف ساعة التثبيت الأكاديمي (tenure clock)</li>
+<li>البناء المؤسسي لبرامج الإرشاد والنماذج المهنية النسائية</li>
+</ul>
+<p>وكما يُظهر ميثاق أثينا سوان البريطاني، فإن تصميم حوافز تربط تخصيص تمويل البحث بسجل المؤسسة في تعزيز المساواة الجندرية — بدلًا من الأهداف الرقمية عند المدخل (الحصص الصلبة) — يمكن أن يكون نموذجًا أكثر استدامة للتحول الهيكلي.</p>
+<p>إن تبديل «حراس البوابة» عند المدخل شرط ضروري لكنه ليس كافيًا. ما ينبغي مساءلته هو تصميم المبنى نفسه الذي يقع خلف تلك البوابة.</p>
+<hr />
+<h2>المراجع</h2>
+<ol>
+<li>
+<p>Takeda Y. The Tokyo Medical University entrance exam scandal: lessons learned. <em>International Journal for Educational Integrity</em>. 2018;14:11. DOI: <a href="https://doi.org/10.1007/s40979-018-0039-4">10.1007/s40979-018-0039-4</a></p>
+</li>
+<li>
+<p>Wada K, Yoshikawa T, Goto T, et al. Working hours of full-time hospital physicians in Japan: a cross-sectional nationwide survey. <em>BMJ Open</em>. 2024;14(1):e076600. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/38191251/">38191251</a></p>
+</li>
+<li>
+<p>Izumi M, Nomura K, Higaki Y. Increase in the number of female doctors and the challenges that Japan's medical system must face. <em>Global Health &amp; Medicine</em>. 2024;6(6):375-381. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/39741994/">39741994</a></p>
+</li>
+<li>
+<p>Ramanan T, Bhatt N. Gender bias in the medical school admission system in Japan. <em>SN Social Sciences</em>. 2022;2:89. DOI: <a href="https://doi.org/10.1007/s43545-022-00378-9">10.1007/s43545-022-00378-9</a></p>
+</li>
+<li>
+<p>文部科学省. 東京医科大学に対する私学助成の取扱いについて. 2019年1月.</p>
+</li>
+<li>
+<p>Schiebinger L. <em>The Mind Has No Sex?: Women in the Origins of Modern Science</em>. Harvard University Press; 1989.</p>
+</li>
+<li>
+<p>National Geographic. Title IX at 50: How the U.S. law transformed education for women. 2022.</p>
+</li>
+<li>
+<p>Babury MO, Hayeri N. Female Student Population at Kabul University Before the 2021 Ban: Trends, Gender Parity, and Faculty-Level Dynamics. arXiv:2509.20406. 2025.</p>
+</li>
+<li>
+<p>O'Neill LD, Hartvigsen J, Wallstedt B, et al. Removing the interview for medical school selection is associated with gender bias among enrolled students. <em>Medical Teacher</em>. 2014;36(7):579-585. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/24484112/">24484112</a></p>
+</li>
+<li>
+<p>Kim HY, Kim J, Lee S. The impact of gendered experiences on female medical students' specialty choice: A systematic review. <em>American Journal of Surgery</em>. 2023;225(5):814-822. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/36435655/">36435655</a></p>
+</li>
+<li>
+<p>OECD. <em>Education at a Glance 2023: OECD Indicators</em>. OECD Publishing; 2023. DOI: <a href="https://doi.org/10.1787/e13bef63-en">10.1787/e13bef63-en</a></p>
+</li>
+<li>
+<p>内閣府男女共同参画局.「女性研究者の現状」. 男女共同参画白書 令和6年版. 2024.</p>
+</li>
+<li>
+<p>内閣府男女共同参画局. 男女共同参画白書 令和6年版「教育・研究分野」. 2024.</p>
+</li>
+<li>
+<p>文部科学省.「令和5年度大学入学者選抜実施要項について（通知）」. 2022年6月.</p>
+</li>
+<li>
+<p>山田進太郎D&amp;I財団. 理工系学部の「女子枠」実態調査2024. 2024.</p>
+</li>
+<li>
+<p>リセマム.「【大学受験2026】理工系『女子枠』京大や阪大など8大学増の38大学」. 2025年10月1日.</p>
+</li>
+<li>
+<p>東京科学大学（旧東京工業大学）. 2025年度入試における女子枠の設定について. 2024.</p>
+</li>
+<li>
+<p>EFTA Court. Case E-1/02, EFTA Surveillance Authority v Norway. 2003.</p>
+</li>
+<li>
+<p>Research Council of Norway. Gender equality measures for Centres of Excellence. 2005.</p>
+</li>
+<li>
+<p>The Local (Sweden). Sweden set to scrap university gender quotas. 2010年1月12日.</p>
+</li>
+<li>
+<p>European Institute for Gender Equality (EIGE). Sweden: Legislative and policy backgrounds. 2024.</p>
+</li>
+<li>
+<p>Ovseiko PV, Chapple A, Edmunds LD, et al. Advancing gender equality through the Athena SWAN Charter for Women in Science: an exploratory study of women's and men's perceptions. <em>Health Research Policy and Systems</em>. 2017;15:12. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/28222735/">28222735</a></p>
+</li>
+<li>
+<p>Munro L, O'Sullivan G. Understanding the Athena SWAN award scheme for gender equality as a complex social intervention in a complex system: analysis of Silver award action plans in a comparative European perspective. <em>Health Research Policy and Systems</em>. 2020;18:19. DOI: <a href="https://doi.org/10.1186/s12961-020-0527-x">10.1186/s12961-020-0527-x</a></p>
+</li>
+<li>
+<p>厚生労働省. 医師の働き方改革について — 時間外・休日労働の上限規制. 2024年4月施行.</p>
+</li>
+</ol>
+<hr />
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の政策や制度を推奨・批判するものではありません。記事中の情報は公開された学術文献および公的機関の報告書に基づいていますが、法的助言を構成するものではありません。</em></p>
+<p><em>This article was produced by Project Asymptote for educational purposes. The information presented is based on publicly available academic literature and official reports and does not constitute legal advice.</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的学术文献与官方报告，不构成法律建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica y reportes oficiales públicamente disponibles y no constituye asesoramiento legal.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध शैक्षणिक साहित्य और आधिकारिक रिपोर्टों पर आधारित है और यह कानूनी सलाह नहीं।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية والتقارير الرسمية المتاحة للعموم ولا تشكل استشارة قانونية.</em></p>
+<div class="disclaimer"><p>هذا المحتوى لأغراض إعلامية فقط، استناداً إلى أدلة أكاديمية موضوعية وتحليل بيانات. وهو غير مخصص كاستشارة طبية أو تشخيص أو نقد سياسي.</p></div>
+</article>
+
+<footer class="site-footer">
+  Project Asymptote &mdash; Bridging mathematics, data science, and public health.
+</footer>
+
+</div>
+
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+  const section = document.getElementById('content-' + lang);
+  const btn = document.querySelector('[data-lang="' + lang + '"]');
+  if (section) section.classList.add('active');
+  if (btn) btn.classList.add('active');
+  document.documentElement.lang = lang.split('-')[0];
+  // Re-render math in newly visible section.
+  if (typeof renderMathInElement !== 'undefined') {
+    renderMathInElement(section, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+  // Update URL hash.
+  history.replaceState(null, '', '#' + lang);
+}
+
+// Initialize from hash or default to 'ja'.
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = location.hash.slice(1);
+  const validLangs = ['ja', 'en', 'zh-Hans', 'es', 'hi', 'ar'];
+  switchLang(validLangs.includes(hash) ? hash : 'ja');
+});
+</script>
+</body>
+</html>
