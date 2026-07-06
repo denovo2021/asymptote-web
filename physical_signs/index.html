@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>身体が語る疫学：外表の身体所見から読み解く全身疾患のシグナル</title>
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --accent: #2563eb;
+  --border: #e5e7eb;
+  --code-bg: #f3f4f6;
+  --max-w: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Serif", "Source Han Serif", "Georgia", serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.8;
+  padding: 2rem 1rem;
+}
+.container { max-width: var(--max-w); margin: 0 auto; }
+
+/* Language selector */
+.lang-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+.lang-btn {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px 4px 0 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--fg);
+  transition: all 0.15s;
+}
+.lang-btn:hover { background: var(--code-bg); }
+.lang-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Content sections */
+.content-section { display: none; }
+.content-section.active { display: block; }
+.content-section[dir="rtl"] { direction: rtl; text-align: right; }
+
+/* Typography */
+h1 { font-size: 1.8rem; margin: 1.5rem 0 1rem; line-height: 1.3; }
+h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.15rem; margin: 1.2rem 0 0.6rem; }
+p { margin: 0.8rem 0; }
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+[dir="rtl"] blockquote { border-left: none; border-right: 3px solid var(--accent); }
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+pre { background: var(--code-bg); padding: 1rem; overflow-x: auto; border-radius: 6px; margin: 1rem 0; }
+pre code { background: none; padding: 0; }
+table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.8rem; text-align: left; }
+[dir="rtl"] th, [dir="rtl"] td { text-align: right; }
+th { background: var(--code-bg); font-weight: 600; }
+a { color: var(--accent); }
+sup { font-size: 0.75em; }
+
+/* Math */
+.math.display { display: block; text-align: center; margin: 1.2rem 0; overflow-x: auto; }
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: 3rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: #999;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h1 { font-size: 1.4rem; }
+  body { padding: 1rem 0.75rem; }
+  .lang-btn { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<nav class="lang-selector" role="tablist" aria-label="Language">
+  <button class="lang-btn" data-lang="ja" role="tab" onclick="switchLang('ja')">日本語</button>
+  <button class="lang-btn" data-lang="en" role="tab" onclick="switchLang('en')">English</button>
+  <button class="lang-btn" data-lang="zh-Hans" role="tab" onclick="switchLang('zh-Hans')">简体中文</button>
+  <button class="lang-btn" data-lang="es" role="tab" onclick="switchLang('es')">Español</button>
+  <button class="lang-btn" data-lang="hi" role="tab" onclick="switchLang('hi')">हिन्दी</button>
+  <button class="lang-btn" data-lang="ar" role="tab" onclick="switchLang('ar')">العربية</button>
+</nav>
+
+<article id="content-ja" class="content-section" dir="ltr" lang="ja">
+<h1>身体が語る疫学：外表の身体所見から読み解く全身疾患のシグナル</h1>
+<h1>皮膚と指先の警告灯：Physical Signsの疫学的エビデンス</h1>
+<h1>視診の科学：耳たぶ、まぶた、指先が示す全身疾患との関連</h1>
+<hr />
+<h2>1. 導入：身体所見という医学の原点</h2>
+<p>CT、MRI、PET-CTといった画像診断技術、あるいは高感度バイオマーカーの出現以前から、臨床医は患者の外表を注意深く観察することによって全身の健康状態を推測してきた。紀元前5世紀のヒポクラテスは、指先の変形（ばち指）を膿胸の兆候として記載した。これは西洋医学における最古の身体所見の記録のひとつとされる [1]。</p>
+<p>現代の画像・検査技術が飛躍的に進歩した今日においても、視診や触診によって得られる身体所見は、無侵襲かつ即時に実施可能なスクリーニングの手がかりとして臨床的価値を保持している。重要な点は、以下に解説する各所見はいずれも疾患リスクとの統計的な<strong>関連（association）</strong>を示すサインであり、所見の存在が直ちに特定の疾患を確定するものではないということである。集団レベルでの疫学的エビデンスと、個人レベルでの臨床判断は区別される必要がある。</p>
+<p>本稿では、外表から観察可能な代表的な5つの身体所見について、その疫学的エビデンス、病態生理学的メカニズム、および臨床的意義を概説する。</p>
+<h2>2. 循環器・代謝系のサイン</h2>
+<h3>2.1 Frank sign（フランク徴候）：耳介の対角線状皺襞</h3>
+<p>1973年、米国の内科医Sanders T. Frankは、冠動脈疾患を有する20名の患者の耳介に共通して観察される対角線状の皺襞（diagonal earlobe crease: DELC）を報告した [2]。この所見は以後「Frank sign」と呼称され、虚血性心疾患（ischemic heart disease: IHD）との関連を示す身体所見として広く知られるようになった。</p>
+<p>Lucenteforteらによる2014年のメタアナリシスは、37件の研究、31,000例超の対象者を統合し、DELC保有者における冠動脈疾患のオッズ比を<span class="math inline">\(\text{OR} = 3.3\)</span>と算出した [3]。すなわち、DELCを有する個人はそうでない個人と比較して、冠動脈疾患の有病率が約3.3倍高いことが示された。ただし、この関連の診断精度については慎重な解釈が必要である。感度は研究により26〜90%、特異度は32〜96%と大きなばらつきがあり、陽性尤度比の多くは2未満にとどまる [3]。</p>
+<p>DELCの形成メカニズムについて、Stoyanovらの組織学的検討は、DELC部位の真皮における動脈の筋弾性線維症（myoelastofibrosis）、びまん性線維化、および末梢神経のWallerian様変性を報告した [4]。提唱されている仮説は、耳垂に分布する終末動脈（end artery）の微小血管レベルでの血流低下と、それに伴うエラスチンおよびコラーゲンの変性である。これらの組織学的変化は冠動脈における動脈硬化性変化と共通の病態基盤を有する可能性があり、Frank signが全身的な動脈硬化の皮膚表面における「窓」として機能しうることを示唆する。</p>
+<h3>2.2 眼瞼黄色腫（Xanthelasma palpebrarum）</h3>
+<p>眼瞼黄色腫は、上下眼瞼の内側に出現する境界明瞭な黄色の平坦な丘疹ないし局面であり、真皮内にコレステロールエステルを蓄積した泡沫化マクロファージ（foam cell）が集積することによって形成される。脂質異常症の皮膚徴候として古典的に知られているが、眼瞼黄色腫を有する患者の約半数は血清脂質値が正常範囲にあることが臨床的に重要である。</p>
+<p>Christoffersenらは、コペンハーゲン市民心臓研究（Copenhagen City Heart Study）に参加した12,745名を対象とする最大33年間の前向きコホート研究において、眼瞼黄色腫と虚血性血管疾患との関連を検討した [5]。多変量調整後のハザード比は、心筋梗塞について<span class="math inline">\(\text{HR} = 1.48\)</span>（95% CI: 1.23–1.79）、虚血性心疾患について<span class="math inline">\(\text{HR} = 1.39\)</span>（95% CI: 1.20–1.60）であった。この関連は年齢、性別、血清コレステロール、トリグリセリド、BMI、高血圧、糖尿病、喫煙などの既知のリスク因子で調整した後も有意に残存した。</p>
+<p>メカニズムとしては、血管壁と同様に、眼瞼組織においても酸化LDLがマクロファージに取り込まれ泡沫化する過程が進行していると考えられる。眼瞼黄色腫の出現は、臨床的に検出可能な脂質異常症がなくとも、リポ蛋白代謝の微細な異常や酸化ストレスが既に進行していることの外表における顕在化である可能性がある。</p>
+<h2>3. 悪性腫瘍のサイン</h2>
+<h3>3.1 Virchow's node（ウィルヒョウリンパ節）：左鎖骨上窩リンパ節腫大</h3>
+<p>1848年、ドイツの病理学者Rudolf Virchowは、左鎖骨上窩における腫大したリンパ節が腹部悪性腫瘍の転移の指標となることを記載した。この所見は後にVirchow's nodeと呼称され、フランスの内科医Charles Émile Troisierの名を冠して「Troisier sign」とも呼ばれる。</p>
+<p>左鎖骨上窩リンパ節が腹部悪性腫瘍の転移先として選択的に腫大する理由は、リンパ管の解剖学的走行に帰せられる [6]。胸管（thoracic duct）は、下半身および腹腔内臓器からのリンパ液を集め、横隔膜の大動脈裂孔を経由して縦隔を上行し、最終的に左静脈角（left venous angle; 左内頸静脈と左鎖骨下静脈の合流部）に注ぐ。胃癌をはじめとする腹腔内悪性腫瘍の腫瘍細胞がリンパ行性に転移する場合、胸管を経由してこの合流部近傍のリンパ節に到達する。したがって、左鎖骨上窩リンパ節は腹腔内悪性腫瘍のリンパ行性転移の「終着駅」として解剖学的に位置づけられる。</p>
+<p>Troupisらは、剖検例における胸管の詳細な解剖学的検討とVirchow's nodeの組織病理学的分析を報告し、肺腺癌の転移がこの経路を介して左鎖骨上窩リンパ節に到達した症例を文献化した [6]。臨床的には、無痛性で硬い左鎖骨上窩リンパ節の腫大は、胃癌のみならず、膵癌、大腸癌、卵巣癌、腎癌、さらには肺癌を含む広範な悪性腫瘍の転移を示唆しうる。</p>
+<h3>3.2 黒色表皮腫（Acanthosis nigricans）</h3>
+<p>黒色表皮腫は、頸部、腋窩、鼠径部などの間擦部に出現するビロード様の黒褐色の色素沈着と皮膚肥厚を特徴とする所見であり、主にインスリン抵抗性および悪性腫瘍との関連で臨床的意義を有する。</p>
+<p>1976年、Kahnらは<em>New England Journal of Medicine</em>において、黒色表皮腫とインスリン抵抗性との関連を初めて体系的に報告した [7]。その病態生理学的メカニズムは以下のように理解されている。インスリン抵抗性の状態では代償的に高インスリン血症が生じる。生理的条件下ではインスリンは主にインスリン受容体に高親和性で結合し代謝作用を発揮するが、高濃度のインスリンはインスリン様成長因子1受容体（IGF-1R）にも交差結合する。表皮のケラチノサイトおよび真皮の線維芽細胞に発現するIGF-1Rが活性化されると、細胞増殖が促進され、表皮の棘細胞増殖症（acanthosis）、角質増殖（hyperkeratosis）、乳頭腫症（papillomatosis）が惹起される。さらに、高インスリン血症はIGF-1をその結合蛋白から遊離させ、表皮増殖のシグナルを増幅する。</p>
+<p>一方、黒色表皮腫は稀に悪性腫瘍の傍腫瘍症候群（paraneoplastic syndrome）として出現する。悪性黒色表皮腫の55〜61%は胃腺癌に随伴すると報告されている [8]。悪性腫瘍随伴型の場合、腫瘍が産生するトランスフォーミング成長因子α（TGF-α）が血行性に皮膚に運搬され、ケラチノサイト上の上皮成長因子受容体（EGFR）に結合して表皮増殖を誘導するという内分泌的メカニズムが提唱されている [9]。悪性黒色表皮腫は腫瘍の経過と並行して増悪・軽快し、腫瘍の治療により改善することが臨床的に確認されている。</p>
+<h2>4. 呼吸器系のサイン</h2>
+<h3>4.1 ばち指（Digital clubbing）</h3>
+<p>ばち指は、指趾の末節が球根状に膨大し、爪が時計皿のように彎曲する所見であり、ヒポクラテスがその最初の記載者とされることから「Hippocratic finger」の異名を持つ。西洋医学における最古の身体所見のひとつであり、2,400年以上にわたって臨床医に観察されてきた [1]。</p>
+<p>ばち指が出現する代表的な基礎疾患には、肺癌（特に非小細胞肺癌）、間質性肺炎（特発性肺線維症）、気管支拡張症、膿胸、チアノーゼ型先天性心疾患、感染性心内膜炎、炎症性腸疾患（クローン病）、肝硬変などが含まれる [10]。これらの疾患に共通する病態生理学的因子は、慢性的な低酸素血症、あるいは肺血管床の構造的破壊である。</p>
+<p>ばち指の発生メカニズムとして現在最も支持されている仮説は、Dickinson &amp; Martinが1987年に<em>Lancet</em>で提唱した巨核球・血小板バイパス仮説である [11]。正常な循環において、骨髄から放出された巨核球およびその断片は肺毛細血管床で捕捉・断片化され、末梢循環に大きな血小板凝集塊が流出することはない。しかし、右左心内シャント、肺毛細血管床の破壊（肺癌、肺線維症）、あるいは肺血管のバイパスが生じる病態では、巨核球や大型の血小板凝集塊が肺のフィルターを通過し、末梢の指趾先端の細動脈に嵌入（impaction）する。嵌入した巨核球・血小板凝集塊は血小板由来成長因子（PDGF）を局所に放出し、線維芽細胞の増殖と結合組織の肥厚を誘導する。</p>
+<p>Atkinson &amp; Foxは2004年の組織学的研究において、ばち指を有する指の真皮において血管内皮成長因子（VEGF）-A、PDGF、および低酸素誘導因子（HIF-1α、HIF-2α）の発現が有意に亢進しており、微小血管密度（microvessel density）も増加していることを実証した [12]。VEGFは血小板嵌入後に放出され、毛細血管閉塞に伴う間質の低酸素により発現が増幅される。VEGFとPDGFは相乗的に作用し、ばち指に特徴的な間質および血管の肥厚性変化を惹起する。</p>
+<h2>5. 結語</h2>
+<p>本稿で概説した5つの身体所見 — Frank sign、眼瞼黄色腫、Virchow's node、黒色表皮腫、ばち指 — は、いずれも外表の観察から全身疾患の存在を示唆しうるサインである。画像診断や分子生物学的検査が高度に発展した現代医学においても、身体所見は非侵襲的かつ即時的な臨床情報源としての意義を失っていない。</p>
+<p>ただし、繰り返し強調すべき点として、これらの所見はいずれも疾患との統計的な関連を示すものであり、所見の存在をもって疾患を確定することはできない。例えば、Frank signの陽性尤度比の多くは2未満であり [3]、眼瞼黄色腫を有する患者の約半数は脂質異常症を伴わない [5]。身体からのサインに注意を払う自己観察の習慣は有用であるが、所見を発見した場合に自己診断に陥ることなく医療機関で適切な評価を受けることが、正確な診断と早期介入への唯一の道筋である。</p>
+<hr />
+<h2>臨床画像リンク（オープンアクセス査読付き論文）</h2>
+<p>以下に、本稿で取り上げた各所見の臨床画像が掲載されているオープンアクセスの査読付き論文を提示する。読者はこれらのリンクから各所見の外観を視覚的に確認できる。</p>
+<ul>
+<li><strong>Frank sign（耳介の対角線状皺襞）</strong></li>
+<li>Agarwal A, et al. Frank's sign: dermatological marker for coronary artery disease. <em>BMJ Case Reports</em>. 2021;14(9):e245595. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8451276/">PMC8451276</a></li>
+<li>
+<p>Mehta HB, et al. Frank's sign: a coronary artery disease predictor. <em>BMJ Case Reports</em>. 2014;2014:bcr2014205866. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4112337/">PMC4112337</a></p>
+</li>
+<li>
+<p><strong>眼瞼黄色腫（Xanthelasma palpebrarum）</strong></p>
+</li>
+<li>
+<p>Laftah Z, Al-Niaimi F. A practical review of the management of xanthelasma palpebrarum. <em>Journal of Cosmetic Dermatology</em>. 2023;22(6):1761-1769. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10208694/">PMC10208694</a></p>
+</li>
+<li>
+<p><strong>Virchow's node（左鎖骨上窩リンパ節腫大）</strong></p>
+</li>
+<li>
+<p>Troupis T, et al. Troisier sign and Virchow node: the anatomy and pathology of pulmonary adenocarcinoma metastasis to a supraclavicular lymph node. <em>Autopsy and Case Reports</em>. 2019;9(1):e2018053. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6394356/">PMC6394356</a></p>
+</li>
+<li>
+<p><strong>黒色表皮腫（Acanthosis nigricans）</strong></p>
+</li>
+<li>
+<p>Pentenero M, et al. Malignant acanthosis nigricans: a case report. <em>BMC Ophthalmology</em>. 2020;20:432. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7664083/">PMC7664083</a></p>
+</li>
+<li>
+<p><strong>ばち指（Digital clubbing）</strong></p>
+</li>
+<li>Kato K, et al. Digital clubbing is associated with higher serum KL-6 levels and lower pulmonary function in patients with interstitial lung disease. <em>Journal of Clinical Medicine Research</em>. 2018;10(4):355-361. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5828477/">PMC5828477</a></li>
+</ul>
+<hr />
+<h2>参考文献</h2>
+<ol>
+<li>
+<p>Spicknall KE, Zirwas MJ, English JC 3rd. Clubbing: an update on diagnosis, differential diagnosis, pathophysiology, and clinical relevance. <em>Journal of the American Academy of Dermatology</em>. 2005;52(6):1020-1028. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/15928621/">15928621</a></p>
+</li>
+<li>
+<p>Frank ST. Aural sign of coronary-artery disease. <em>New England Journal of Medicine</em>. 1973;289(6):327-328. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/4718047/">4718047</a></p>
+</li>
+<li>
+<p>Lucenteforte E, Romoli M, Zagli G, et al. Ear lobe crease as a marker of coronary artery disease: a meta-analysis. <em>International Journal of Cardiology</em>. 2014;175(1):171-175. DOI: <a href="https://doi.org/10.1016/j.ijcard.2014.04.025">10.1016/j.ijcard.2014.04.025</a></p>
+</li>
+<li>
+<p>Stoyanov GS, Dzhenkov D, Petkova L, et al. The histological basis of Frank's sign. <em>Head and Neck Pathology</em>. 2021;15(2):402-407. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32712879/">32712879</a></p>
+</li>
+<li>
+<p>Christoffersen M, Frikke-Schmidt R, Schnohr P, et al. Xanthelasmata, arcus corneae, and ischaemic vascular disease and death in general population: prospective cohort study. <em>BMJ</em>. 2011;343:d5497. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/21920887/">21920887</a></p>
+</li>
+<li>
+<p>Troupis T, Tsaraklis A, Michalinos A, et al. Troisier sign and Virchow node: the anatomy and pathology of pulmonary adenocarcinoma metastasis to a supraclavicular lymph node. <em>Autopsy and Case Reports</em>. 2019;9(1):e2018053. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6394356/">PMC6394356</a></p>
+</li>
+<li>
+<p>Kahn CR, Flier JS, Bar RS, et al. The syndromes of insulin resistance and acanthosis nigricans: insulin-receptor disorders in man. <em>New England Journal of Medicine</em>. 1976;294(14):739-745. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/176581/">176581</a></p>
+</li>
+<li>
+<p>Yun SJ, Kim SJ. Malignant acanthosis nigricans associated with gastric adenocarcinoma. <em>Annals of Dermatology</em>. 2011;23(Suppl 2):S176-S179. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3229067/">PMC3229067</a></p>
+</li>
+<li>
+<p>Koyama S, Ikeda K, Sato M, et al. Transforming growth factor-alpha (TGF-α)-producing gastric carcinoma with acanthosis nigricans: an endocrine effect of TGF-α in the pathogenesis of cutaneous paraneoplastic syndrome and epithelial hyperplasia of the esophagus. <em>Journal of Gastroenterology</em>. 1997;32(1):71-77. DOI: <a href="https://doi.org/10.1007/BF01213299">10.1007/BF01213299</a></p>
+</li>
+<li>
+<p>Myers KA, Farquhar DR. The rational clinical examination. Does this patient have clubbing? <em>JAMA</em>. 2001;286(3):341-347. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/11466101/">11466101</a></p>
+</li>
+<li>
+<p>Dickinson CJ, Martin JF. Megakaryocytes and platelet clumps as the cause of finger clubbing. <em>Lancet</em>. 1987;2(8572):1434-1435. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/2891996/">2891996</a></p>
+</li>
+<li>
+<p>Atkinson S, Fox SB. Vascular endothelial growth factor (VEGF)-A and platelet-derived growth factor (PDGF) play a central role in the pathogenesis of digital clubbing. <em>Journal of Pathology</em>. 2004;203(2):721-728. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/15141388/">15141388</a></p>
+</li>
+</ol>
+<hr />
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の疾患の診断や治療を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、医学的助言を構成するものではありません。</em></p>
+<p><em>This article was produced by Project Asymptote for educational purposes. The information presented is based on publicly available peer-reviewed literature and does not constitute medical advice.</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成医学建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento médico.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह चिकित्सा सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة طبية.</em></p>
+<div class="disclaimer"><p>本コンテンツは、客観的な学術的エビデンスとデータ分析に基づく情報提供のみを目的としています。医学的助言、診断、または政治的批評を意図するものではありません。</p></div>
+</article>
+
+<article id="content-en" class="content-section" dir="ltr" lang="en">
+<h1>The Epidemiology Your Body Tells: Signals of Systemic Disease Read from External Physical Signs</h1>
+<h1>Warning Lights on Skin and Fingertips: The Epidemiological Evidence for Physical Signs</h1>
+<h1>The Science of Inspection: What Earlobes, Eyelids, and Fingertips Reveal about Systemic Disease</h1>
+<hr />
+<h2>1. Introduction: Physical Examination as the Origin of Medicine</h2>
+<p>Long before the advent of CT, MRI, PET-CT, and high-sensitivity biomarkers, clinicians inferred systemic health by carefully observing the body's surface. In the fifth century BCE, Hippocrates described finger deformity (digital clubbing) as a sign of empyema — one of the earliest recorded physical findings in Western medicine [1].</p>
+<p>Even today, as imaging and laboratory technology have advanced dramatically, physical signs obtained through inspection and palpation retain clinical value as noninvasive, immediately available screening clues. A critical caveat is that each of the findings discussed below demonstrates a statistical <strong>association</strong> with disease risk; the presence of a finding does not, by itself, confirm a specific diagnosis. Population-level epidemiological evidence and individual-level clinical judgment must be distinguished.</p>
+<p>This article reviews five representative physical signs observable on the body's surface, covering their epidemiological evidence, pathophysiological mechanisms, and clinical significance.</p>
+<h2>2. Cardiovascular and Metabolic Signs</h2>
+<h3>2.1 Frank Sign: The Diagonal Earlobe Crease</h3>
+<p>In 1973, the American internist Sanders T. Frank reported a diagonal crease observed in the earlobes of 20 patients with coronary artery disease (CAD) [2]. This finding, subsequently termed "Frank sign," became widely recognized as a physical sign associated with ischemic heart disease (IHD).</p>
+<p>A 2014 meta-analysis by Lucenteforte et al., pooling 37 studies with over 31,000 subjects, calculated an odds ratio of <span class="math inline">\(\text{OR} = 3.3\)</span> for CAD among individuals with a diagonal earlobe crease (DELC) [3]. In other words, individuals with DELC had approximately 3.3 times the prevalence of CAD compared with those without it. However, diagnostic accuracy requires cautious interpretation: sensitivity ranged from 26% to 90% across studies, specificity from 32% to 96%, and positive likelihood ratios were mostly below 2 [3].</p>
+<p>Regarding the mechanism of DELC formation, Stoyanov et al. reported myoelastofibrosis in arteries at the crease site, diffuse dermal fibrosis, and Wallerian-like degeneration of peripheral nerves in histological examination [4]. The prevailing hypothesis attributes the crease to reduced blood flow at the microvascular level in the end arteries supplying the earlobe, with consequent degeneration of elastin and collagen. These histological changes may share a common pathological substrate with coronary atherosclerosis, suggesting that Frank sign may function as a cutaneous "window" into systemic arteriosclerosis.</p>
+<h3>2.2 Xanthelasma Palpebrarum</h3>
+<p>Xanthelasma palpebrarum consists of well-demarcated, flat, yellow papules or plaques on the medial aspects of the upper and lower eyelids, formed by the accumulation of cholesterol ester–laden foam cells (macrophages) in the dermis. Although classically known as a cutaneous marker of dyslipidemia, it is clinically important that approximately half of patients with xanthelasma have serum lipid levels within the normal range.</p>
+<p>Christoffersen et al. examined the association between xanthelasma and ischemic vascular disease in a prospective cohort study of 12,745 participants from the Copenhagen City Heart Study, with up to 33 years of follow-up [5]. Multivariable-adjusted hazard ratios were <span class="math inline">\(\text{HR} = 1.48\)</span> (95% CI: 1.23–1.79) for myocardial infarction and <span class="math inline">\(\text{HR} = 1.39\)</span> (95% CI: 1.20–1.60) for ischemic heart disease. This association remained significant after adjustment for age, sex, serum cholesterol, triglycerides, BMI, hypertension, diabetes, and smoking.</p>
+<p>The proposed mechanism parallels that of the vascular wall: oxidized LDL is taken up by macrophages in the eyelid tissue, triggering foam cell formation. The appearance of xanthelasma may represent a surface-level manifestation of subtle lipoprotein metabolic abnormalities and oxidative stress already underway, even in the absence of clinically detectable dyslipidemia.</p>
+<h2>3. Signs of Malignancy</h2>
+<h3>3.1 Virchow's Node: Left Supraclavicular Lymphadenopathy</h3>
+<p>In 1848, the German pathologist Rudolf Virchow described an enlarged lymph node in the left supraclavicular fossa as an indicator of abdominal malignancy metastasis. This finding was subsequently termed "Virchow's node" and is also known as "Troisier sign," after the French internist Charles Émile Troisier.</p>
+<p>The selective enlargement of the left supraclavicular lymph node in abdominal malignancy metastasis is attributable to the anatomical course of the lymphatic system [6]. The thoracic duct collects lymph from the lower body and abdominal viscera, ascends through the mediastinum via the aortic hiatus of the diaphragm, and ultimately drains into the left venous angle (the junction of the left internal jugular and left subclavian veins). When tumor cells from abdominal malignancies — gastric cancer foremost among them — metastasize via lymphatic routes, they travel through the thoracic duct to reach lymph nodes near this venous confluence. The left supraclavicular lymph node is thus anatomically positioned as the "terminal station" for lymphatic metastasis from abdominal malignancies.</p>
+<p>Troupis et al. reported a detailed anatomical examination of the thoracic duct and histopathological analysis of Virchow's node in autopsy specimens, documenting a case in which pulmonary adenocarcinoma metastasized to the left supraclavicular lymph node via this route [6]. Clinically, painless, firm enlargement of the left supraclavicular lymph node may suggest metastasis from a wide range of malignancies, including gastric, pancreatic, colorectal, ovarian, renal, and pulmonary cancers.</p>
+<h3>3.2 Acanthosis Nigricans</h3>
+<p>Acanthosis nigricans is characterized by velvety, dark brown hyperpigmentation and skin thickening in intertriginous areas such as the neck, axillae, and groin. It holds clinical significance primarily in its association with insulin resistance and malignancy.</p>
+<p>In 1976, Kahn et al. reported in the <em>New England Journal of Medicine</em> the first systematic documentation of the association between acanthosis nigricans and insulin resistance [7]. The pathophysiological mechanism is understood as follows: in insulin-resistant states, compensatory hyperinsulinemia develops. Under physiological conditions, insulin binds with high affinity to the insulin receptor, exerting metabolic effects; however, at elevated concentrations, insulin cross-binds to the insulin-like growth factor 1 receptor (IGF-1R). Activation of IGF-1R expressed on epidermal keratinocytes and dermal fibroblasts promotes cell proliferation, leading to acanthosis, hyperkeratosis, and papillomatosis. Furthermore, hyperinsulinemia displaces IGF-1 from its binding proteins, amplifying epidermal proliferative signaling.</p>
+<p>Separately, acanthosis nigricans rarely occurs as a paraneoplastic syndrome. Malignant acanthosis nigricans accompanies gastric adenocarcinoma in 55–61% of reported cases [8]. In malignancy-associated cases, an endocrine mechanism has been proposed in which transforming growth factor-alpha (TGF-α) produced by the tumor is transported hematogenously to the skin, where it binds to the epidermal growth factor receptor (EGFR) on keratinocytes and induces epidermal proliferation [9]. Malignant acanthosis nigricans parallels the clinical course of the tumor, worsening and improving in tandem, and resolving with successful tumor treatment.</p>
+<h2>4. Respiratory Signs</h2>
+<h3>4.1 Digital Clubbing</h3>
+<p>Digital clubbing is a finding in which the distal phalanges of the fingers or toes become bulbously enlarged and the nails curve in a watch-glass configuration. Because Hippocrates is credited as its first descriptor, it is also known as "Hippocratic finger" — one of the oldest physical signs in Western medicine, observed by clinicians for over 2,400 years [1].</p>
+<p>Representative underlying conditions in which clubbing occurs include lung cancer (particularly non-small cell lung cancer), interstitial lung disease (idiopathic pulmonary fibrosis), bronchiectasis, empyema, cyanotic congenital heart disease, infective endocarditis, inflammatory bowel disease (Crohn's disease), and cirrhosis [10]. The common pathophysiological denominator among these conditions is chronic hypoxemia or structural destruction of the pulmonary vascular bed.</p>
+<p>The most widely supported hypothesis for the mechanism of clubbing was proposed by Dickinson &amp; Martin in 1987 in <em>The Lancet</em>: the megakaryocyte–platelet bypass hypothesis [11]. In normal circulation, megakaryocytes and their fragments released from bone marrow are trapped and fragmented in the pulmonary capillary bed, preventing large platelet aggregates from entering the peripheral circulation. However, in conditions involving right-to-left intracardiac shunts, destruction of the pulmonary capillary bed (lung cancer, pulmonary fibrosis), or pulmonary vascular bypass, megakaryocytes and large platelet aggregates pass through the pulmonary filter and impact in the arterioles of the distal digits. These impacted megakaryocyte–platelet aggregates locally release platelet-derived growth factor (PDGF), inducing fibroblast proliferation and connective tissue hypertrophy.</p>
+<p>In a 2004 histological study, Atkinson &amp; Fox demonstrated that expression of vascular endothelial growth factor (VEGF)-A, PDGF, and hypoxia-inducible factors (HIF-1α and HIF-2α) was significantly upregulated in the dermis of clubbed digits, with increased microvessel density [12]. VEGF is released following platelet impaction, and its expression is amplified by stromal hypoxia resulting from capillary occlusion. VEGF and PDGF act synergistically to produce the stromal and vascular hypertrophic changes characteristic of digital clubbing.</p>
+<h2>5. Conclusion</h2>
+<p>The five physical signs reviewed in this article — Frank sign, xanthelasma palpebrarum, Virchow's node, acanthosis nigricans, and digital clubbing — are all findings whose observation on the body's surface may suggest the presence of systemic disease. Even in modern medicine, where imaging and molecular testing have achieved remarkable sophistication, physical signs retain their value as noninvasive, immediately available sources of clinical information.</p>
+<p>However, it bears repeating that each of these findings demonstrates a statistical association with disease; the presence of a finding cannot, by itself, establish a diagnosis. For example, the positive likelihood ratio for Frank sign is mostly below 2 [3], and approximately half of patients with xanthelasma have no dyslipidemia [5]. The habit of self-observation — paying attention to signals from the body — is useful, but when a finding is discovered, seeking appropriate evaluation at a medical facility rather than resorting to self-diagnosis is the only path to accurate diagnosis and early intervention.</p>
+<hr />
+<h2>Clinical Image Links (Open-Access Peer-Reviewed Literature)</h2>
+<p>The following open-access, peer-reviewed articles contain clinical images of each finding discussed in this article.</p>
+<ul>
+<li><strong>Frank sign (diagonal earlobe crease)</strong></li>
+<li>Agarwal A, et al. Frank's sign: dermatological marker for coronary artery disease. <em>BMJ Case Reports</em>. 2021;14(9):e245595. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8451276/">PMC8451276</a></li>
+<li>
+<p>Mehta HB, et al. Frank's sign: a coronary artery disease predictor. <em>BMJ Case Reports</em>. 2014;2014:bcr2014205866. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4112337/">PMC4112337</a></p>
+</li>
+<li>
+<p><strong>Xanthelasma palpebrarum</strong></p>
+</li>
+<li>
+<p>Laftah Z, Al-Niaimi F. A practical review of the management of xanthelasma palpebrarum. <em>Journal of Cosmetic Dermatology</em>. 2023;22(6):1761-1769. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10208694/">PMC10208694</a></p>
+</li>
+<li>
+<p><strong>Virchow's node (left supraclavicular lymphadenopathy)</strong></p>
+</li>
+<li>
+<p>Troupis T, et al. Troisier sign and Virchow node: the anatomy and pathology of pulmonary adenocarcinoma metastasis to a supraclavicular lymph node. <em>Autopsy and Case Reports</em>. 2019;9(1):e2018053. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6394356/">PMC6394356</a></p>
+</li>
+<li>
+<p><strong>Acanthosis nigricans</strong></p>
+</li>
+<li>
+<p>Pentenero M, et al. Malignant acanthosis nigricans: a case report. <em>BMC Ophthalmology</em>. 2020;20:432. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7664083/">PMC7664083</a></p>
+</li>
+<li>
+<p><strong>Digital clubbing</strong></p>
+</li>
+<li>Kato K, et al. Digital clubbing is associated with higher serum KL-6 levels and lower pulmonary function in patients with interstitial lung disease. <em>Journal of Clinical Medicine Research</em>. 2018;10(4):355-361. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5828477/">PMC5828477</a></li>
+</ul>
+<hr />
+<h2>References</h2>
+<ol>
+<li>
+<p>Spicknall KE, Zirwas MJ, English JC 3rd. Clubbing: an update on diagnosis, differential diagnosis, pathophysiology, and clinical relevance. <em>Journal of the American Academy of Dermatology</em>. 2005;52(6):1020-1028. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/15928621/">15928621</a></p>
+</li>
+<li>
+<p>Frank ST. Aural sign of coronary-artery disease. <em>New England Journal of Medicine</em>. 1973;289(6):327-328. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/4718047/">4718047</a></p>
+</li>
+<li>
+<p>Lucenteforte E, Romoli M, Zagli G, et al. Ear lobe crease as a marker of coronary artery disease: a meta-analysis. <em>International Journal of Cardiology</em>. 2014;175(1):171-175. DOI: <a href="https://doi.org/10.1016/j.ijcard.2014.04.025">10.1016/j.ijcard.2014.04.025</a></p>
+</li>
+<li>
+<p>Stoyanov GS, Dzhenkov D, Petkova L, et al. The histological basis of Frank's sign. <em>Head and Neck Pathology</em>. 2021;15(2):402-407. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32712879/">32712879</a></p>
+</li>
+<li>
+<p>Christoffersen M, Frikke-Schmidt R, Schnohr P, et al. Xanthelasmata, arcus corneae, and ischaemic vascular disease and death in general population: prospective cohort study. <em>BMJ</em>. 2011;343:d5497. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/21920887/">21920887</a></p>
+</li>
+<li>
+<p>Troupis T, Tsaraklis A, Michalinos A, et al. Troisier sign and Virchow node: the anatomy and pathology of pulmonary adenocarcinoma metastasis to a supraclavicular lymph node. <em>Autopsy and Case Reports</em>. 2019;9(1):e2018053. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6394356/">PMC6394356</a></p>
+</li>
+<li>
+<p>Kahn CR, Flier JS, Bar RS, et al. The syndromes of insulin resistance and acanthosis nigricans: insulin-receptor disorders in man. <em>New England Journal of Medicine</em>. 1976;294(14):739-745. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/176581/">176581</a></p>
+</li>
+<li>
+<p>Yun SJ, Kim SJ. Malignant acanthosis nigricans associated with gastric adenocarcinoma. <em>Annals of Dermatology</em>. 2011;23(Suppl 2):S176-S179. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3229067/">PMC3229067</a></p>
+</li>
+<li>
+<p>Koyama S, Ikeda K, Sato M, et al. Transforming growth factor-alpha (TGF-α)-producing gastric carcinoma with acanthosis nigricans: an endocrine effect of TGF-α in the pathogenesis of cutaneous paraneoplastic syndrome and epithelial hyperplasia of the esophagus. <em>Journal of Gastroenterology</em>. 1997;32(1):71-77. DOI: <a href="https://doi.org/10.1007/BF01213299">10.1007/BF01213299</a></p>
+</li>
+<li>
+<p>Myers KA, Farquhar DR. The rational clinical examination. Does this patient have clubbing? <em>JAMA</em>. 2001;286(3):341-347. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/11466101/">11466101</a></p>
+</li>
+<li>
+<p>Dickinson CJ, Martin JF. Megakaryocytes and platelet clumps as the cause of finger clubbing. <em>Lancet</em>. 1987;2(8572):1434-1435. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/2891996/">2891996</a></p>
+</li>
+<li>
+<p>Atkinson S, Fox SB. Vascular endothelial growth factor (VEGF)-A and platelet-derived growth factor (PDGF) play a central role in the pathogenesis of digital clubbing. <em>Journal of Pathology</em>. 2004;203(2):721-728. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/15141388/">15141388</a></p>
+</li>
+</ol>
+<hr />
+<p><em>This article was produced by Project Asymptote for educational purposes. The information presented is based on publicly available peer-reviewed literature and does not constitute medical advice.</em></p>
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の疾患の診断や治療を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、医学的助言を構成するものではありません。</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成医学建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento médico.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह चिकित्सा सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة طبية.</em></p>
+<div class="disclaimer"><p>This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p></div>
+</article>
+
+<article id="content-zh-Hans" class="content-section" dir="ltr" lang="zh-Hans">
+<h1>身体诉说的流行病学：从外表体征解读全身性疾病的信号</h1>
+<h1>皮肤与指尖的警示灯：Physical Signs的流行病学证据</h1>
+<h1>视诊的科学：耳垂、眼睑、指尖所揭示的与全身性疾病的关联</h1>
+<hr />
+<h2>1. 引言：体征 — 医学的原点</h2>
+<p>在CT、MRI、PET-CT等影像诊断技术以及高灵敏度生物标志物出现之前，临床医生便通过仔细观察患者的外表来推测全身健康状况。公元前5世纪，希波克拉底将指端变形（杵状指）记载为脓胸的征兆。这被认为是西方医学中最早的体征记录之一 [1]。</p>
+<p>即使在现代影像和检验技术取得飞跃性进步的今天，通过视诊和触诊获得的体征，作为无创且可即时实施的筛查线索，仍然保持着其临床价值。需要强调的是，以下所阐述的各项体征均为提示疾病风险的统计学<strong>关联（association）</strong>信号，所见的存在并不意味着可以立即确诊某种特定疾病。群体水平的流行病学证据与个体水平的临床判断需要加以区分。</p>
+<p>本文将对可从外表观察到的5种代表性体征，概述其流行病学证据、病理生理学机制及临床意义。</p>
+<h2>2. 心血管及代谢系统征象</h2>
+<h3>2.1 Frank sign（Frank征）：耳廓对角线皱褶</h3>
+<p>1973年，美国内科医生Sanders T. Frank报告了20例冠状动脉疾病患者耳廓上共同观察到的对角线皱褶（diagonal earlobe crease: DELC）[2]。此后该体征被称为"Frank sign"，并作为提示缺血性心脏病（ischemic heart disease: IHD）关联的体征而广为人知。</p>
+<p>Lucenteforte等于2014年发表的荟萃分析整合了37项研究、超过31,000例受试者的数据，计算出DELC携带者冠状动脉疾病的比值比为<span class="math inline">\(\text{OR} = 3.3\)</span> [3]。即具有DELC的个体与不具有DELC的个体相比，冠状动脉疾病的患病率约高3.3倍。然而，对该关联的诊断精度需要审慎解读。各研究报告的灵敏度为26%至90%，特异度为32%至96%，差异较大，阳性似然比大多低于2 [3]。</p>
+<p>关于DELC的形成机制，Stoyanov等的组织学研究报告了DELC部位真皮中动脉的肌弹性纤维症（myoelastofibrosis）、弥漫性纤维化以及外周神经的Wallerian样变性 [4]。所提出的假说认为，分布于耳垂的终末动脉（end artery）在微血管水平发生血流减少，伴随弹性蛋白和胶原蛋白的变性。这些组织学改变可能与冠状动脉中的动脉硬化性改变具有共同的病理基础，提示Frank sign可能作为全身性动脉硬化在皮肤表面的一个"窗口"。</p>
+<h3>2.2 眼睑黄色瘤（Xanthelasma palpebrarum）</h3>
+<p>眼睑黄色瘤是出现于上下眼睑内侧的边界清晰的黄色扁平丘疹或斑块，由真皮内蓄积胆固醇酯的泡沫化巨噬细胞（foam cell）聚集形成。虽然它作为脂质异常症的皮肤征象而经典地为人所知，但在临床上一个重要的事实是：约半数具有眼睑黄色瘤的患者血清脂质水平处于正常范围。</p>
+<p>Christoffersen等在哥本哈根市民心脏研究（Copenhagen City Heart Study）中，对12,745名参与者进行了最长达33年的前瞻性队列研究，考察了眼睑黄色瘤与缺血性血管疾病之间的关联 [5]。经多变量调整后的风险比为：心肌梗死<span class="math inline">\(\text{HR} = 1.48\)</span>（95% CI: 1.23–1.79），缺血性心脏病<span class="math inline">\(\text{HR} = 1.39\)</span>（95% CI: 1.20–1.60）。在对年龄、性别、血清胆固醇、甘油三酯、BMI、高血压、糖尿病、吸烟等已知风险因素进行调整后，该关联仍然具有统计学显著性。</p>
+<p>就机制而言，与血管壁类似，在眼睑组织中氧化LDL被巨噬细胞摄取并发生泡沫化的过程也在进行。眼睑黄色瘤的出现可能是即使在临床上尚未检测到脂质异常症的情况下，脂蛋白代谢的细微异常和氧化应激已经在进展中的外在表现。</p>
+<h2>3. 恶性肿瘤征象</h2>
+<h3>3.1 Virchow's node（Virchow淋巴结）：左锁骨上窝淋巴结肿大</h3>
+<p>1848年，德国病理学家Rudolf Virchow记载了左锁骨上窝肿大的淋巴结可作为腹部恶性肿瘤转移指标。该体征后来被称为Virchow's node，也以法国内科医生Charles Emile Troisier之名命名为"Troisier sign"。</p>
+<p>左锁骨上窝淋巴结选择性地因腹部恶性肿瘤转移而肿大的原因，归结于淋巴管的解剖学走行 [6]。胸导管（thoracic duct）收集来自下半身及腹腔内脏器的淋巴液，经膈肌主动脉裂孔上行通过纵隔，最终汇入左静脉角（left venous angle；左颈内静脉与左锁骨下静脉的汇合处）。当胃癌等腹腔内恶性肿瘤的肿瘤细胞经淋巴途径转移时，会经胸导管到达该汇合处附近的淋巴结。因此，左锁骨上窝淋巴结在解剖学上被定位为腹腔内恶性肿瘤淋巴行性转移的"终点站"。</p>
+<p>Troupis等报告了尸检病例中胸导管详细的解剖学考察以及Virchow's node的组织病理学分析，文献记录了肺腺癌转移经此途径到达左锁骨上窝淋巴结的病例 [6]。在临床上，无痛性、质硬的左锁骨上窝淋巴结肿大不仅可提示胃癌，还可提示胰腺癌、结直肠癌、卵巢癌、肾癌乃至肺癌等广泛恶性肿瘤的转移。</p>
+<h3>3.2 黑棘皮症（Acanthosis nigricans）</h3>
+<p>黑棘皮症是出现于颈部、腋窝、腹股沟等间擦部位的天鹅绒样黑褐色色素沉着伴皮肤增厚的体征，主要因与胰岛素抵抗及恶性肿瘤的关联而具有临床意义。</p>
+<p>1976年，Kahn等在<em>New England Journal of Medicine</em>上首次系统地报告了黑棘皮症与胰岛素抵抗之间的关联 [7]。其病理生理学机制如下所述。在胰岛素抵抗状态下，机体代偿性地产生高胰岛素血症。在生理条件下，胰岛素主要以高亲和力与胰岛素受体结合发挥代谢作用，但高浓度胰岛素也会交叉结合胰岛素样生长因子1受体（IGF-1R）。当表皮角质形成细胞和真皮成纤维细胞上表达的IGF-1R被激活时，细胞增殖被促进，引发表皮棘层肥厚（acanthosis）、角化过度（hyperkeratosis）和乳头瘤病（papillomatosis）。此外，高胰岛素血症使IGF-1从其结合蛋白中游离，放大了表皮增殖信号。</p>
+<p>另一方面，黑棘皮症少数情况下可作为恶性肿瘤的副肿瘤综合征（paraneoplastic syndrome）出现。据报告，恶性黑棘皮症的55%至61%伴随胃腺癌 [8]。在恶性肿瘤伴发型中，已有假说提出肿瘤产生的转化生长因子α（TGF-α）经血行运输至皮肤，与角质形成细胞上的表皮生长因子受体（EGFR）结合诱导表皮增殖的内分泌机制 [9]。恶性黑棘皮症与肿瘤病程平行地加重或减轻，且经肿瘤治疗后可获改善，这一点已在临床上得到证实。</p>
+<h2>4. 呼吸系统征象</h2>
+<h3>4.1 杵状指（Digital clubbing）</h3>
+<p>杵状指是指（趾）末节呈球根状膨大、指甲呈表玻璃样弯曲的体征。因希波克拉底被认为是其最早的记载者，故又名"Hippocratic finger"。它是西方医学中最古老的体征之一，已被临床医生观察了2,400年以上 [1]。</p>
+<p>杵状指出现的代表性基础疾病包括肺癌（尤其是非小细胞肺癌）、间质性肺炎（特发性肺纤维化）、支气管扩张症、脓胸、紫绀型先天性心脏病、感染性心内膜炎、炎症性肠病（克罗恩病）、肝硬化等 [10]。这些疾病共有的病理生理学因素是慢性低氧血症或肺血管床的结构性破坏。</p>
+<p>关于杵状指的发生机制，目前最受支持的假说是Dickinson和Martin于1987年在<em>Lancet</em>上提出的巨核细胞-血小板旁路假说 [11]。在正常循环中，骨髓释放的巨核细胞及其碎片在肺毛细血管床被捕获并碎片化，大的血小板聚集块不会流入外周循环。然而，在存在右向左心内分流、肺毛细血管床破坏（肺癌、肺纤维化）或肺血管旁路的病理状态下，巨核细胞和大型血小板聚集块可通过肺部的过滤屏障，嵌入（impaction）外周指（趾）尖端的细动脉。嵌入的巨核细胞-血小板聚集块在局部释放血小板源性生长因子（PDGF），诱导成纤维细胞增殖和结缔组织增厚。</p>
+<p>Atkinson和Fox在2004年的组织学研究中证实，具有杵状指的手指真皮中血管内皮生长因子（VEGF）-A、PDGF以及低氧诱导因子（HIF-1α、HIF-2α）的表达显著增强，微血管密度（microvessel density）也有所增加 [12]。VEGF在血小板嵌入后释放，其表达因毛细血管闭塞伴随的间质低氧而被放大。VEGF和PDGF协同作用，引发杵状指特征性的间质和血管增厚性改变。</p>
+<h2>5. 结语</h2>
+<p>本文概述的5种体征 — Frank sign、眼睑黄色瘤、Virchow's node、黑棘皮症、杵状指 — 均可通过外表观察来提示全身性疾病的存在。即使在影像诊断和分子生物学检查高度发展的现代医学中，体征作为无创且即时的临床信息来源，其意义依然未曾丧失。</p>
+<p>然而，需要反复强调的是，这些体征均为显示与疾病之间统计学关联的指标，不能仅凭所见的存在而确定诊断。例如，Frank sign的阳性似然比大多低于2 [3]，具有眼睑黄色瘤的患者约半数不伴有脂质异常症 [5]。关注来自身体的信号并养成自我观察的习惯是有益的，但在发现体征时不应陷入自我诊断，而应前往医疗机构接受适当的评估 — 这是通向准确诊断和早期干预的唯一途径。</p>
+<hr />
+<h2>临床影像链接（开放获取同行评审论文）</h2>
+<p>以下列出刊载有本文所讨论各体征临床影像的开放获取同行评审论文。读者可通过这些链接直观确认各体征的外观。</p>
+<ul>
+<li><strong>Frank sign（耳廓对角线皱褶）</strong></li>
+<li>Agarwal A, et al. Frank's sign: dermatological marker for coronary artery disease. <em>BMJ Case Reports</em>. 2021;14(9):e245595. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8451276/">PMC8451276</a></li>
+<li>
+<p>Mehta HB, et al. Frank's sign: a coronary artery disease predictor. <em>BMJ Case Reports</em>. 2014;2014:bcr2014205866. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4112337/">PMC4112337</a></p>
+</li>
+<li>
+<p><strong>眼睑黄色瘤（Xanthelasma palpebrarum）</strong></p>
+</li>
+<li>
+<p>Laftah Z, Al-Niaimi F. A practical review of the management of xanthelasma palpebrarum. <em>Journal of Cosmetic Dermatology</em>. 2023;22(6):1761-1769. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10208694/">PMC10208694</a></p>
+</li>
+<li>
+<p><strong>Virchow's node（左锁骨上窝淋巴结肿大）</strong></p>
+</li>
+<li>
+<p>Troupis T, et al. Troisier sign and Virchow node: the anatomy and pathology of pulmonary adenocarcinoma metastasis to a supraclavicular lymph node. <em>Autopsy and Case Reports</em>. 2019;9(1):e2018053. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6394356/">PMC6394356</a></p>
+</li>
+<li>
+<p><strong>黑棘皮症（Acanthosis nigricans）</strong></p>
+</li>
+<li>
+<p>Pentenero M, et al. Malignant acanthosis nigricans: a case report. <em>BMC Ophthalmology</em>. 2020;20:432. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7664083/">PMC7664083</a></p>
+</li>
+<li>
+<p><strong>杵状指（Digital clubbing）</strong></p>
+</li>
+<li>Kato K, et al. Digital clubbing is associated with higher serum KL-6 levels and lower pulmonary function in patients with interstitial lung disease. <em>Journal of Clinical Medicine Research</em>. 2018;10(4):355-361. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5828477/">PMC5828477</a></li>
+</ul>
+<hr />
+<h2>参考文献</h2>
+<ol>
+<li>
+<p>Spicknall KE, Zirwas MJ, English JC 3rd. Clubbing: an update on diagnosis, differential diagnosis, pathophysiology, and clinical relevance. <em>Journal of the American Academy of Dermatology</em>. 2005;52(6):1020-1028. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/15928621/">15928621</a></p>
+</li>
+<li>
+<p>Frank ST. Aural sign of coronary-artery disease. <em>New England Journal of Medicine</em>. 1973;289(6):327-328. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/4718047/">4718047</a></p>
+</li>
+<li>
+<p>Lucenteforte E, Romoli M, Zagli G, et al. Ear lobe crease as a marker of coronary artery disease: a meta-analysis. <em>International Journal of Cardiology</em>. 2014;175(1):171-175. DOI: <a href="https://doi.org/10.1016/j.ijcard.2014.04.025">10.1016/j.ijcard.2014.04.025</a></p>
+</li>
+<li>
+<p>Stoyanov GS, Dzhenkov D, Petkova L, et al. The histological basis of Frank's sign. <em>Head and Neck Pathology</em>. 2021;15(2):402-407. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32712879/">32712879</a></p>
+</li>
+<li>
+<p>Christoffersen M, Frikke-Schmidt R, Schnohr P, et al. Xanthelasmata, arcus corneae, and ischaemic vascular disease and death in general population: prospective cohort study. <em>BMJ</em>. 2011;343:d5497. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/21920887/">21920887</a></p>
+</li>
+<li>
+<p>Troupis T, Tsaraklis A, Michalinos A, et al. Troisier sign and Virchow node: the anatomy and pathology of pulmonary adenocarcinoma metastasis to a supraclavicular lymph node. <em>Autopsy and Case Reports</em>. 2019;9(1):e2018053. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6394356/">PMC6394356</a></p>
+</li>
+<li>
+<p>Kahn CR, Flier JS, Bar RS, et al. The syndromes of insulin resistance and acanthosis nigricans: insulin-receptor disorders in man. <em>New England Journal of Medicine</em>. 1976;294(14):739-745. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/176581/">176581</a></p>
+</li>
+<li>
+<p>Yun SJ, Kim SJ. Malignant acanthosis nigricans associated with gastric adenocarcinoma. <em>Annals of Dermatology</em>. 2011;23(Suppl 2):S176-S179. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3229067/">PMC3229067</a></p>
+</li>
+<li>
+<p>Koyama S, Ikeda K, Sato M, et al. Transforming growth factor-alpha (TGF-α)-producing gastric carcinoma with acanthosis nigricans: an endocrine effect of TGF-α in the pathogenesis of cutaneous paraneoplastic syndrome and epithelial hyperplasia of the esophagus. <em>Journal of Gastroenterology</em>. 1997;32(1):71-77. DOI: <a href="https://doi.org/10.1007/BF01213299">10.1007/BF01213299</a></p>
+</li>
+<li>
+<p>Myers KA, Farquhar DR. The rational clinical examination. Does this patient have clubbing? <em>JAMA</em>. 2001;286(3):341-347. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/11466101/">11466101</a></p>
+</li>
+<li>
+<p>Dickinson CJ, Martin JF. Megakaryocytes and platelet clumps as the cause of finger clubbing. <em>Lancet</em>. 1987;2(8572):1434-1435. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/2891996/">2891996</a></p>
+</li>
+<li>
+<p>Atkinson S, Fox SB. Vascular endothelial growth factor (VEGF)-A and platelet-derived growth factor (PDGF) play a central role in the pathogenesis of digital clubbing. <em>Journal of Pathology</em>. 2004;203(2):721-728. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/15141388/">15141388</a></p>
+</li>
+</ol>
+<hr />
+<p><em>本记事はProject Asymptoteが制作した科学解説記事であり、特定の疾患の診断や治療を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、医学的助言を構成するものではありません。</em></p>
+<p><em>This article was produced by Project Asymptote for educational purposes. The information presented is based on publicly available peer-reviewed literature and does not constitute medical advice.</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成医学建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento médico.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह चिकित्सा सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة طبية.</em></p>
+<div class="disclaimer"><p>本内容仅供参考，基于客观的学术证据和数据分析。本内容不构成医疗建议、诊断或政治评论。</p></div>
+</article>
+
+<article id="content-es" class="content-section" dir="ltr" lang="es">
+<h1>La epidemiología que cuenta el cuerpo: señales de enfermedad sistémica leídas a partir de signos físicos externos</h1>
+<h1>Luces de alerta en la piel y las yemas de los dedos: la evidencia epidemiológica de los signos físicos</h1>
+<h1>La ciencia de la inspección: lo que los lóbulos de las orejas, los párpados y las yemas de los dedos revelan sobre la enfermedad sistémica</h1>
+<hr />
+<h2>1. Introducción: la exploración física como origen de la medicina</h2>
+<p>Mucho antes de la aparición de la TC, la RM, la PET-TC y los biomarcadores de alta sensibilidad, los clínicos inferían el estado de salud sistémica mediante la observación cuidadosa de la superficie corporal. En el siglo V a. C., Hipócrates describió la deformidad de los dedos (digital clubbing) como signo de empiema, uno de los hallazgos físicos más antiguos registrados en la medicina occidental [1].</p>
+<p>Aún hoy, a pesar del extraordinario avance de la tecnología de imagen y de laboratorio, los signos físicos obtenidos mediante inspección y palpación conservan valor clínico como indicios de cribado no invasivos y disponibles de forma inmediata. Una advertencia fundamental es que cada uno de los hallazgos que se exponen a continuación demuestra una <strong>asociación</strong> estadística con el riesgo de enfermedad; la presencia de un hallazgo no confirma, por sí sola, un diagnóstico específico. Es preciso distinguir entre la evidencia epidemiológica a nivel poblacional y el juicio clínico a nivel individual.</p>
+<p>Este artículo revisa cinco signos físicos representativos observables en la superficie corporal, abarcando su evidencia epidemiológica, sus mecanismos fisiopatológicos y su relevancia clínica.</p>
+<h2>2. Signos cardiovasculares y metabólicos</h2>
+<h3>2.1 Frank sign: el pliegue diagonal del lóbulo de la oreja</h3>
+<p>En 1973, el internista estadounidense Sanders T. Frank describió un pliegue diagonal observado en los lóbulos auriculares de 20 pacientes con enfermedad arterial coronaria (EAC) [2]. Este hallazgo, denominado posteriormente "Frank sign", fue ampliamente reconocido como un signo físico asociado a la cardiopatía isquémica (CI).</p>
+<p>Un metaanálisis de 2014 realizado por Lucenteforte et al., que agrupó 37 estudios con más de 31 000 sujetos, calculó una razón de probabilidades de <span class="math inline">\(\text{OR} = 3{,}3\)</span> para la EAC entre individuos con pliegue diagonal del lóbulo auricular (DELC) [3]. En otras palabras, los individuos con DELC presentaban aproximadamente 3,3 veces la prevalencia de EAC en comparación con aquellos sin este signo. Sin embargo, la precisión diagnóstica requiere una interpretación cautelosa: la sensibilidad osciló entre el 26 % y el 90 % en los distintos estudios, la especificidad entre el 32 % y el 96 %, y las razones de verosimilitud positiva fueron en su mayoría inferiores a 2 [3].</p>
+<p>En cuanto al mecanismo de formación del DELC, Stoyanov et al. describieron mioelastofibrosis en las arterias de la zona del pliegue, fibrosis dérmica difusa y degeneración tipo walleriana de los nervios periféricos en el examen histológico [4]. La hipótesis predominante atribuye el pliegue a la reducción del flujo sanguíneo a nivel microvascular en las arterias terminales que irrigan el lóbulo auricular, con la consiguiente degeneración de la elastina y el colágeno. Estos cambios histológicos podrían compartir un sustrato patológico común con la aterosclerosis coronaria, lo que sugiere que Frank sign podría funcionar como una "ventana" cutánea hacia la arteriosclerosis sistémica.</p>
+<h3>2.2 Xanthelasma palpebrarum</h3>
+<p>El xanthelasma palpebrarum consiste en pápulas o placas amarillentas, planas y bien delimitadas en las zonas mediales de los párpados superior e inferior, formadas por la acumulación de células espumosas (macrófagos) cargadas de ésteres de colesterol en la dermis. Aunque clásicamente conocido como un marcador cutáneo de dislipidemia, es clínicamente relevante que aproximadamente la mitad de los pacientes con xanthelasma presentan niveles séricos de lípidos dentro del rango normal.</p>
+<p>Christoffersen et al. examinaron la asociación entre el xanthelasma y la enfermedad vascular isquémica en un estudio de cohorte prospectivo con 12 745 participantes del Copenhagen City Heart Study, con un seguimiento de hasta 33 años [5]. Las razones de riesgo ajustadas multivariablemente fueron <span class="math inline">\(\text{HR} = 1{,}48\)</span> (IC 95 %: 1,23–1,79) para el infarto de miocardio y <span class="math inline">\(\text{HR} = 1{,}39\)</span> (IC 95 %: 1,20–1,60) para la cardiopatía isquémica. Esta asociación se mantuvo significativa tras el ajuste por edad, sexo, colesterol sérico, triglicéridos, IMC, hipertensión, diabetes y tabaquismo.</p>
+<p>El mecanismo propuesto es paralelo al de la pared vascular: las LDL oxidadas son captadas por los macrófagos del tejido palpebral, desencadenando la formación de células espumosas. La aparición del xanthelasma puede representar una manifestación superficial de anomalías sutiles del metabolismo lipoproteico y del estrés oxidativo ya en curso, incluso en ausencia de dislipidemia clínicamente detectable.</p>
+<h2>3. Signos de malignidad</h2>
+<h3>3.1 Virchow's node: linfadenopatía supraclavicular izquierda</h3>
+<p>En 1848, el patólogo alemán Rudolf Virchow describió un ganglio linfático agrandado en la fosa supraclavicular izquierda como indicador de metástasis de neoplasia abdominal. Este hallazgo fue denominado posteriormente "Virchow's node" y también es conocido como "signo de Troisier", en honor al internista francés Charles Émile Troisier.</p>
+<p>El agrandamiento selectivo del ganglio linfático supraclavicular izquierdo en las metástasis de neoplasias abdominales se atribuye al trayecto anatómico del sistema linfático [6]. El conducto torácico recoge la linfa de la parte inferior del cuerpo y las vísceras abdominales, asciende a través del mediastino por el hiato aórtico del diafragma y drena finalmente en el ángulo venoso izquierdo (la confluencia de la vena yugular interna izquierda y la vena subclavia izquierda). Cuando las células tumorales de neoplasias abdominales —con el cáncer gástrico a la cabeza— metastatizan por vía linfática, recorren el conducto torácico hasta alcanzar los ganglios linfáticos próximos a esta confluencia venosa. El ganglio linfático supraclavicular izquierdo se encuentra así posicionado anatómicamente como la "estación terminal" de las metástasis linfáticas de neoplasias abdominales.</p>
+<p>Troupis et al. presentaron un examen anatómico detallado del conducto torácico y un análisis histopatológico de Virchow's node en especímenes de autopsia, documentando un caso en el que un adenocarcinoma pulmonar metastatizó al ganglio linfático supraclavicular izquierdo a través de esta vía [6]. Clínicamente, el agrandamiento indoloro y firme del ganglio linfático supraclavicular izquierdo puede sugerir metástasis de una amplia variedad de neoplasias, incluyendo cánceres gástrico, pancreático, colorrectal, ovárico, renal y pulmonar.</p>
+<h3>3.2 Acanthosis nigricans</h3>
+<p>La acanthosis nigricans se caracteriza por una hiperpigmentación aterciopelada de color marrón oscuro y un engrosamiento cutáneo en áreas intertriginosas como el cuello, las axilas y las ingles. Su relevancia clínica reside principalmente en su asociación con la resistencia a la insulina y las neoplasias malignas.</p>
+<p>En 1976, Kahn et al. publicaron en el <em>New England Journal of Medicine</em> la primera documentación sistemática de la asociación entre acanthosis nigricans y resistencia a la insulina [7]. El mecanismo fisiopatológico se entiende de la siguiente manera: en estados de resistencia a la insulina se desarrolla una hiperinsulinemia compensatoria. En condiciones fisiológicas, la insulina se une con alta afinidad al receptor de insulina y ejerce efectos metabólicos; sin embargo, a concentraciones elevadas, la insulina se une de forma cruzada al receptor del factor de crecimiento insulínico tipo 1 (IGF-1R). La activación del IGF-1R expresado en los queratinocitos epidérmicos y los fibroblastos dérmicos promueve la proliferación celular, dando lugar a acantosis, hiperqueratosis y papilomatosis. Además, la hiperinsulinemia desplaza al IGF-1 de sus proteínas de unión, amplificando la señalización proliferativa epidérmica.</p>
+<p>De forma independiente, la acanthosis nigricans se presenta en raras ocasiones como un síndrome paraneoplásico. La acanthosis nigricans maligna acompaña al adenocarcinoma gástrico en el 55–61 % de los casos reportados [8]. En los casos asociados a neoplasias malignas, se ha propuesto un mecanismo endocrino en el que el factor de crecimiento transformante alfa (TGF-α) producido por el tumor es transportado por vía hematógena hasta la piel, donde se une al receptor del factor de crecimiento epidérmico (EGFR) en los queratinocitos e induce la proliferación epidérmica [9]. La acanthosis nigricans maligna sigue un curso paralelo al del tumor, empeorando y mejorando en tándem, y resolviéndose con el tratamiento exitoso del tumor.</p>
+<h2>4. Signos respiratorios</h2>
+<h3>4.1 Digital clubbing</h3>
+<p>El digital clubbing es un hallazgo en el que las falanges distales de los dedos de las manos o los pies se agrandan de forma bulbosa y las uñas se curvan en configuración de vidrio de reloj. Dado que a Hipócrates se le atribuye su primera descripción, también se conoce como "dedo hipocrático", uno de los signos físicos más antiguos de la medicina occidental, observado por los clínicos durante más de 2400 años [1].</p>
+<p>Entre las enfermedades subyacentes representativas en las que se presenta el clubbing se incluyen el cáncer de pulmón (particularmente el carcinoma pulmonar de células no pequeñas), la enfermedad pulmonar intersticial (fibrosis pulmonar idiopática), las bronquiectasias, el empiema, la cardiopatía congénita cianótica, la endocarditis infecciosa, la enfermedad inflamatoria intestinal (enfermedad de Crohn) y la cirrosis [10]. El denominador fisiopatológico común entre estas afecciones es la hipoxemia crónica o la destrucción estructural del lecho vascular pulmonar.</p>
+<p>La hipótesis más ampliamente respaldada para el mecanismo del clubbing fue propuesta por Dickinson y Martin en 1987 en <em>The Lancet</em>: la hipótesis del bypass megacariocito-plaqueta [11]. En la circulación normal, los megacariocitos y sus fragmentos liberados de la médula ósea son atrapados y fragmentados en el lecho capilar pulmonar, impidiendo que los grandes agregados plaquetarios accedan a la circulación periférica. Sin embargo, en condiciones que implican cortocircuitos intracardíacos de derecha a izquierda, destrucción del lecho capilar pulmonar (cáncer de pulmón, fibrosis pulmonar) o bypass vascular pulmonar, los megacariocitos y los grandes agregados plaquetarios atraviesan el filtro pulmonar e impactan en las arteriolas de los dedos distales. Estos agregados megacariocito-plaqueta impactados liberan localmente factor de crecimiento derivado de plaquetas (PDGF), induciendo la proliferación fibroblástica y la hipertrofia del tejido conectivo.</p>
+<p>En un estudio histológico de 2004, Atkinson y Fox demostraron que la expresión del factor de crecimiento endotelial vascular (VEGF)-A, el PDGF y los factores inducibles por hipoxia (HIF-1α y HIF-2α) estaba significativamente regulada al alza en la dermis de los dedos con clubbing, con un aumento de la densidad microvascular [12]. El VEGF se libera tras el impacto plaquetario, y su expresión se amplifica por la hipoxia estromal resultante de la oclusión capilar. El VEGF y el PDGF actúan de forma sinérgica para producir los cambios hipertróficos estromales y vasculares característicos del digital clubbing.</p>
+<h2>5. Conclusión</h2>
+<p>Los cinco signos físicos revisados en este artículo —Frank sign, xanthelasma palpebrarum, Virchow's node, acanthosis nigricans y digital clubbing— son hallazgos cuya observación en la superficie corporal puede sugerir la presencia de una enfermedad sistémica. Incluso en la medicina moderna, donde la imagen diagnóstica y las pruebas moleculares han alcanzado una sofisticación notable, los signos físicos conservan su valor como fuentes de información clínica no invasivas y de disponibilidad inmediata.</p>
+<p>Sin embargo, conviene reiterar que cada uno de estos hallazgos demuestra una asociación estadística con la enfermedad; la presencia de un hallazgo no puede, por sí sola, establecer un diagnóstico. Por ejemplo, la razón de verosimilitud positiva para Frank sign es en su mayoría inferior a 2 [3], y aproximadamente la mitad de los pacientes con xanthelasma no presentan dislipidemia [5]. El hábito de la autoobservación —prestar atención a las señales del cuerpo— es útil, pero cuando se descubre un hallazgo, acudir a una evaluación apropiada en un centro médico en lugar de recurrir al autodiagnóstico es el único camino hacia un diagnóstico preciso y una intervención temprana.</p>
+<hr />
+<h2>Enlaces a imágenes clínicas (literatura revisada por pares de acceso abierto)</h2>
+<p>Los siguientes artículos revisados por pares y de acceso abierto contienen imágenes clínicas de cada hallazgo tratado en este artículo.</p>
+<ul>
+<li><strong>Frank sign (pliegue diagonal del lóbulo auricular)</strong></li>
+<li>Agarwal A, et al. Frank's sign: dermatological marker for coronary artery disease. <em>BMJ Case Reports</em>. 2021;14(9):e245595. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8451276/">PMC8451276</a></li>
+<li>
+<p>Mehta HB, et al. Frank's sign: a coronary artery disease predictor. <em>BMJ Case Reports</em>. 2014;2014:bcr2014205866. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4112337/">PMC4112337</a></p>
+</li>
+<li>
+<p><strong>Xanthelasma palpebrarum</strong></p>
+</li>
+<li>
+<p>Laftah Z, Al-Niaimi F. A practical review of the management of xanthelasma palpebrarum. <em>Journal of Cosmetic Dermatology</em>. 2023;22(6):1761-1769. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10208694/">PMC10208694</a></p>
+</li>
+<li>
+<p><strong>Virchow's node (linfadenopatía supraclavicular izquierda)</strong></p>
+</li>
+<li>
+<p>Troupis T, et al. Troisier sign and Virchow node: the anatomy and pathology of pulmonary adenocarcinoma metastasis to a supraclavicular lymph node. <em>Autopsy and Case Reports</em>. 2019;9(1):e2018053. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6394356/">PMC6394356</a></p>
+</li>
+<li>
+<p><strong>Acanthosis nigricans</strong></p>
+</li>
+<li>
+<p>Pentenero M, et al. Malignant acanthosis nigricans: a case report. <em>BMC Ophthalmology</em>. 2020;20:432. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7664083/">PMC7664083</a></p>
+</li>
+<li>
+<p><strong>Digital clubbing</strong></p>
+</li>
+<li>Kato K, et al. Digital clubbing is associated with higher serum KL-6 levels and lower pulmonary function in patients with interstitial lung disease. <em>Journal of Clinical Medicine Research</em>. 2018;10(4):355-361. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5828477/">PMC5828477</a></li>
+</ul>
+<hr />
+<h2>Referencias</h2>
+<ol>
+<li>
+<p>Spicknall KE, Zirwas MJ, English JC 3rd. Clubbing: an update on diagnosis, differential diagnosis, pathophysiology, and clinical relevance. <em>Journal of the American Academy of Dermatology</em>. 2005;52(6):1020-1028. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/15928621/">15928621</a></p>
+</li>
+<li>
+<p>Frank ST. Aural sign of coronary-artery disease. <em>New England Journal of Medicine</em>. 1973;289(6):327-328. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/4718047/">4718047</a></p>
+</li>
+<li>
+<p>Lucenteforte E, Romoli M, Zagli G, et al. Ear lobe crease as a marker of coronary artery disease: a meta-analysis. <em>International Journal of Cardiology</em>. 2014;175(1):171-175. DOI: <a href="https://doi.org/10.1016/j.ijcard.2014.04.025">10.1016/j.ijcard.2014.04.025</a></p>
+</li>
+<li>
+<p>Stoyanov GS, Dzhenkov D, Petkova L, et al. The histological basis of Frank's sign. <em>Head and Neck Pathology</em>. 2021;15(2):402-407. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32712879/">32712879</a></p>
+</li>
+<li>
+<p>Christoffersen M, Frikke-Schmidt R, Schnohr P, et al. Xanthelasmata, arcus corneae, and ischaemic vascular disease and death in general population: prospective cohort study. <em>BMJ</em>. 2011;343:d5497. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/21920887/">21920887</a></p>
+</li>
+<li>
+<p>Troupis T, Tsaraklis A, Michalinos A, et al. Troisier sign and Virchow node: the anatomy and pathology of pulmonary adenocarcinoma metastasis to a supraclavicular lymph node. <em>Autopsy and Case Reports</em>. 2019;9(1):e2018053. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6394356/">PMC6394356</a></p>
+</li>
+<li>
+<p>Kahn CR, Flier JS, Bar RS, et al. The syndromes of insulin resistance and acanthosis nigricans: insulin-receptor disorders in man. <em>New England Journal of Medicine</em>. 1976;294(14):739-745. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/176581/">176581</a></p>
+</li>
+<li>
+<p>Yun SJ, Kim SJ. Malignant acanthosis nigricans associated with gastric adenocarcinoma. <em>Annals of Dermatology</em>. 2011;23(Suppl 2):S176-S179. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3229067/">PMC3229067</a></p>
+</li>
+<li>
+<p>Koyama S, Ikeda K, Sato M, et al. Transforming growth factor-alpha (TGF-α)-producing gastric carcinoma with acanthosis nigricans: an endocrine effect of TGF-α in the pathogenesis of cutaneous paraneoplastic syndrome and epithelial hyperplasia of the esophagus. <em>Journal of Gastroenterology</em>. 1997;32(1):71-77. DOI: <a href="https://doi.org/10.1007/BF01213299">10.1007/BF01213299</a></p>
+</li>
+<li>
+<p>Myers KA, Farquhar DR. The rational clinical examination. Does this patient have clubbing? <em>JAMA</em>. 2001;286(3):341-347. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/11466101/">11466101</a></p>
+</li>
+<li>
+<p>Dickinson CJ, Martin JF. Megakaryocytes and platelet clumps as the cause of finger clubbing. <em>Lancet</em>. 1987;2(8572):1434-1435. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/2891996/">2891996</a></p>
+</li>
+<li>
+<p>Atkinson S, Fox SB. Vascular endothelial growth factor (VEGF)-A and platelet-derived growth factor (PDGF) play a central role in the pathogenesis of digital clubbing. <em>Journal of Pathology</em>. 2004;203(2):721-728. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/15141388/">15141388</a></p>
+</li>
+</ol>
+<hr />
+<p><em>This article was produced by Project Asymptote for educational purposes. The information presented is based on publicly available peer-reviewed literature and does not constitute medical advice.</em></p>
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の疾患の診断や治療を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、医学的助言を構成するものではありません。</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成医学建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento médico.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह चिकित्सा सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة طبية.</em></p>
+<div class="disclaimer"><p>Este contenido es solo con fines informativos, basado en evidencia académica objetiva y análisis de datos. No pretende ser consejo médico, diagnóstico ni crítica política.</p></div>
+</article>
+
+<article id="content-hi" class="content-section" dir="ltr" lang="hi">
+<h1>शरीर द्वारा बताई गई महामारी विज्ञान: बाहरी शारीरिक संकेतों से पढ़ी जाने वाली प्रणालीगत रोग की सूचनाएँ</h1>
+<h1>त्वचा और उंगलियों पर चेतावनी संकेत: शारीरिक संकेतों के लिए महामारी विज्ञानिक साक्ष्य</h1>
+<h1>निरीक्षण का विज्ञान: कान की लौ, पलकें और उंगलियाँ प्रणालीगत रोग के बारे में क्या प्रकट करती हैं</h1>
+<hr />
+<h2>1. प्रस्तावना: चिकित्सा की उत्पत्ति के रूप में शारीरिक परीक्षण</h2>
+<p>CT, MRI, PET-CT और उच्च-संवेदनशीलता बायोमार्करों के आगमन से बहुत पहले, चिकित्सकों ने शरीर की सतह का सावधानीपूर्वक अवलोकन करके प्रणालीगत स्वास्थ्य का अनुमान लगाया। ईसा पूर्व पाँचवीं शताब्दी में, हिप्पोक्रेट्स ने उंगलियों की विकृति (digital clubbing) को एम्पाइमा के संकेत के रूप में वर्णित किया — यह पश्चिमी चिकित्सा में दर्ज किए गए सबसे प्रारंभिक शारीरिक निष्कर्षों में से एक है [1]।</p>
+<p>आज भी, जबकि इमेजिंग और प्रयोगशाला प्रौद्योगिकी में नाटकीय प्रगति हुई है, निरीक्षण और स्पर्शन से प्राप्त शारीरिक संकेत गैर-आक्रामक, तत्काल उपलब्ध स्क्रीनिंग सुरागों के रूप में नैदानिक मूल्य बनाए रखते हैं। एक महत्वपूर्ण चेतावनी यह है कि नीचे चर्चित प्रत्येक निष्कर्ष रोग जोखिम के साथ एक सांख्यिकीय <strong>संबद्धता</strong> (association) प्रदर्शित करता है; किसी निष्कर्ष की उपस्थिति अपने आप में किसी विशिष्ट निदान की पुष्टि नहीं करती। जनसंख्या-स्तरीय महामारी विज्ञानिक साक्ष्य और व्यक्ति-स्तरीय नैदानिक निर्णय को अलग-अलग समझना आवश्यक है।</p>
+<p>यह लेख शरीर की सतह पर देखे जा सकने वाले पाँच प्रतिनिधि शारीरिक संकेतों की समीक्षा करता है, जिसमें उनके महामारी विज्ञानिक साक्ष्य, रोगजनक तंत्र और नैदानिक महत्व को शामिल किया गया है।</p>
+<h2>2. हृदय एवं चयापचय संकेत</h2>
+<h3>2.1 Frank Sign: कान की लौ पर विकर्ण सिलवट</h3>
+<p>1973 में, अमेरिकी आंतरिक चिकित्सा विशेषज्ञ Sanders T. Frank ने कोरोनरी धमनी रोग (CAD) वाले 20 रोगियों के कानों की लौ पर एक विकर्ण सिलवट (diagonal crease) की सूचना दी [2]। इस निष्कर्ष को बाद में "Frank sign" कहा गया और यह इस्केमिक हृदय रोग (IHD) से संबद्ध शारीरिक संकेत के रूप में व्यापक रूप से मान्यता प्राप्त हुआ।</p>
+<p>Lucenteforte et al. द्वारा 2014 के एक मेटा-विश्लेषण में, 31,000 से अधिक विषयों वाले 37 अध्ययनों को संयुक्त करते हुए, diagonal earlobe crease (DELC) वाले व्यक्तियों में CAD के लिए ऑड्स अनुपात <span class="math inline">\(\text{OR} = 3.3\)</span> की गणना की गई [3]। दूसरे शब्दों में, DELC वाले व्यक्तियों में बिना DELC वाले व्यक्तियों की तुलना में CAD की व्यापकता लगभग 3.3 गुना अधिक थी। हालाँकि, नैदानिक सटीकता के लिए सतर्क व्याख्या आवश्यक है: अध्ययनों में संवेदनशीलता 26% से 90% तक, विशिष्टता 32% से 96% तक थी, और सकारात्मक संभाव्यता अनुपात अधिकांशतः 2 से नीचे थे [3]।</p>
+<p>DELC निर्माण के तंत्र के विषय में, Stoyanov et al. ने ऊतकीय परीक्षण में सिलवट स्थल पर धमनियों में मायोइलास्टोफाइब्रोसिस, डिफ्यूज डर्मल फाइब्रोसिस, और परिधीय तंत्रिकाओं में Wallerian-जैसा अपक्षय (degeneration) की सूचना दी [4]। प्रचलित परिकल्पना इस सिलवट को कान की लौ की आपूर्ति करने वाली अंत-धमनियों (end arteries) में सूक्ष्मवाहिकीय स्तर पर रक्त प्रवाह में कमी और उसके परिणामस्वरूप इलास्टिन और कोलेजन के अपक्षय को जिम्मेदार ठहराती है। ये ऊतकीय परिवर्तन कोरोनरी एथेरोस्क्लेरोसिस के साथ एक समान रोगात्मक आधार साझा कर सकते हैं, जो यह सुझाव देता है कि Frank sign प्रणालीगत धमनीकाठिन्य (arteriosclerosis) के लिए एक त्वचीय "खिड़की" के रूप में कार्य कर सकता है।</p>
+<h3>2.2 Xanthelasma Palpebrarum</h3>
+<p>Xanthelasma palpebrarum ऊपरी और निचली पलकों के मध्य भाग पर सुस्पष्ट, सपाट, पीले पपल्स या प्लाक हैं, जो डर्मिस में कोलेस्ट्रॉल एस्टर से भरी फोम कोशिकाओं (मैक्रोफेज) के संचय से बनते हैं। यद्यपि यह परंपरागत रूप से डिस्लिपिडेमिया के त्वचीय मार्कर के रूप में जाना जाता है, नैदानिक दृष्टि से यह महत्वपूर्ण है कि xanthelasma वाले लगभग आधे रोगियों के सीरम लिपिड स्तर सामान्य सीमा के भीतर होते हैं।</p>
+<p>Christoffersen et al. ने Copenhagen City Heart Study के 12,745 प्रतिभागियों के एक प्रॉस्पेक्टिव कोहोर्ट अध्ययन में, 33 वर्षों तक के अनुवर्ती के साथ, xanthelasma और इस्केमिक संवहनी रोग के बीच संबद्धता की जाँच की [5]। बहुचर-समायोजित हैज़ार्ड अनुपात मायोकार्डियल इन्फार्क्शन के लिए <span class="math inline">\(\text{HR} = 1.48\)</span> (95% CI: 1.23–1.79) और इस्केमिक हृदय रोग के लिए <span class="math inline">\(\text{HR} = 1.39\)</span> (95% CI: 1.20–1.60) था। यह संबद्धता आयु, लिंग, सीरम कोलेस्ट्रॉल, ट्राइग्लिसराइड्स, BMI, उच्च रक्तचाप, मधुमेह और धूम्रपान के लिए समायोजन के बाद भी सार्थक बनी रही।</p>
+<p>प्रस्तावित तंत्र संवहनी भित्ति (vascular wall) के समानांतर है: ऑक्सीकृत LDL पलक के ऊतक में मैक्रोफेज द्वारा ग्रहण किया जाता है, जिससे फोम कोशिका निर्माण होता है। Xanthelasma की उपस्थिति सूक्ष्म लिपोप्रोटीन चयापचय असामान्यताओं और ऑक्सीडेटिव स्ट्रेस की सतही अभिव्यक्ति का प्रतिनिधित्व कर सकती है जो नैदानिक रूप से पता लगाने योग्य डिस्लिपिडेमिया की अनुपस्थिति में भी पहले से चल रही होती है।</p>
+<h2>3. दुर्दमता के संकेत</h2>
+<h3>3.1 Virchow's Node: बाएँ सुप्राक्लेविकुलर लिम्फैडेनोपैथी</h3>
+<p>1848 में, जर्मन रोगविज्ञानी Rudolf Virchow ने बाएँ सुप्राक्लेविकुलर गड्ढे (left supraclavicular fossa) में एक बढ़ी हुई लिम्फ नोड को उदरीय दुर्दमता (abdominal malignancy) के मेटास्टेसिस के सूचक के रूप में वर्णित किया। इस निष्कर्ष को बाद में "Virchow's node" कहा गया और फ्रांसीसी आंतरिक चिकित्सा विशेषज्ञ Charles Émile Troisier के नाम पर इसे "Troisier sign" भी कहा जाता है।</p>
+<p>उदरीय दुर्दमता मेटास्टेसिस में बाएँ सुप्राक्लेविकुलर लिम्फ नोड के चयनात्मक विवर्धन का कारण लसीका तंत्र (lymphatic system) का शारीरिक मार्ग है [6]। वक्षीय वाहिनी (thoracic duct) निचले शरीर और उदर अंतरांगों (abdominal viscera) से लसीका एकत्र करती है, डायफ्राम के महाधमनी छिद्र (aortic hiatus) के माध्यम से मीडियास्टिनम में ऊपर चढ़ती है, और अंततः बाएँ शिरापरक कोण (left venous angle) — बाएँ आंतरिक जुगुलर और बाएँ सबक्लेवियन शिराओं के संगम — में प्रवाहित होती है। जब उदरीय दुर्दमताओं — जिनमें गैस्ट्रिक कैंसर प्रमुख है — से ट्यूमर कोशिकाएँ लसीका मार्गों से मेटास्टेसाइज़ होती हैं, तो वे वक्षीय वाहिनी से होकर इस शिरापरक संगम के निकट लिम्फ नोड्स तक पहुँचती हैं। इस प्रकार बाएँ सुप्राक्लेविकुलर लिम्फ नोड शारीरिक रूप से उदरीय दुर्दमताओं से लसीका मेटास्टेसिस के लिए "अंतिम स्टेशन" के रूप में स्थित है।</p>
+<p>Troupis et al. ने शव-परीक्षा (autopsy) नमूनों में वक्षीय वाहिनी की विस्तृत शारीरिक परीक्षा और Virchow's node के ऊतकरोगविज्ञानिक (histopathological) विश्लेषण की सूचना दी, जिसमें एक ऐसे मामले का दस्तावेज़ीकरण किया गया जिसमें फुफ्फुसीय एडेनोकार्सिनोमा ने इस मार्ग से बाएँ सुप्राक्लेविकुलर लिम्फ नोड में मेटास्टेसाइज़ किया [6]। नैदानिक रूप से, बाएँ सुप्राक्लेविकुलर लिम्फ नोड का दर्दरहित, दृढ़ विवर्धन गैस्ट्रिक, अग्न्याशयी, कोलोरेक्टल, डिम्बग्रंथि, वृक्कीय और फुफ्फुसीय कैंसर सहित दुर्दमताओं की एक विस्तृत श्रृंखला से मेटास्टेसिस का सुझाव दे सकता है।</p>
+<h3>3.2 Acanthosis Nigricans</h3>
+<p>Acanthosis nigricans की विशेषता गर्दन, बगल (axillae) और कमर जैसे अंतरत्वचीय (intertriginous) क्षेत्रों में मखमली, गहरी भूरी अतिवर्णकता (hyperpigmentation) और त्वचा का मोटा होना है। यह मुख्य रूप से इंसुलिन प्रतिरोध और दुर्दमता के साथ अपनी संबद्धता में नैदानिक महत्व रखता है।</p>
+<p>1976 में, Kahn et al. ने <em>New England Journal of Medicine</em> में acanthosis nigricans और इंसुलिन प्रतिरोध के बीच संबद्धता का पहला व्यवस्थित दस्तावेज़ीकरण प्रकाशित किया [7]। रोगजनक तंत्र इस प्रकार समझा जाता है: इंसुलिन-प्रतिरोधी अवस्थाओं में, प्रतिपूरक हाइपरइंसुलिनेमिया विकसित होता है। शारीरिक परिस्थितियों में, इंसुलिन उच्च आत्मीयता (high affinity) के साथ इंसुलिन रिसेप्टर से जुड़कर चयापचय प्रभाव डालता है; हालाँकि, ऊँची सांद्रताओं पर, इंसुलिन insulin-like growth factor 1 receptor (IGF-1R) से क्रॉस-बाइंड करता है। एपिडर्मल केराटिनोसाइट्स और डर्मल फाइब्रोब्लास्ट्स पर व्यक्त IGF-1R का सक्रियण कोशिका प्रसार को बढ़ावा देता है, जिससे एकेन्थोसिस, हाइपरकेराटोसिस और पैपिलोमैटोसिस होता है। इसके अतिरिक्त, हाइपरइंसुलिनेमिया IGF-1 को उसके बाइंडिंग प्रोटीनों से विस्थापित करता है, जिससे एपिडर्मल प्रसार संकेतन (proliferative signaling) प्रवर्धित होता है।</p>
+<p>इसके अलावा, acanthosis nigricans विरले ही एक पैरानियोप्लास्टिक सिंड्रोम के रूप में प्रकट होता है। मैलिग्नेंट acanthosis nigricans रिपोर्ट किए गए 55–61% मामलों में गैस्ट्रिक एडेनोकार्सिनोमा के साथ होता है [8]। दुर्दमता-संबद्ध मामलों में, एक अंतःस्रावी (endocrine) तंत्र प्रस्तावित किया गया है जिसमें ट्यूमर द्वारा उत्पादित transforming growth factor-alpha (TGF-α) रक्तप्रवाह (hematogenously) के माध्यम से त्वचा तक पहुँचाया जाता है, जहाँ यह केराटिनोसाइट्स पर epidermal growth factor receptor (EGFR) से जुड़कर एपिडर्मल प्रसार को प्रेरित करता है [9]। मैलिग्नेंट acanthosis nigricans ट्यूमर के नैदानिक पाठ्यक्रम के समानांतर चलता है — ट्यूमर के साथ बिगड़ता और सुधरता है, और सफल ट्यूमर उपचार से ठीक हो जाता है।</p>
+<h2>4. श्वसन संकेत</h2>
+<h3>4.1 Digital Clubbing</h3>
+<p>Digital clubbing एक ऐसा निष्कर्ष है जिसमें उंगलियों या पैर की उंगलियों के दूरस्थ पर्व (distal phalanges) गोलाकार रूप से बड़े हो जाते हैं और नख (nails) वॉच-ग्लास विन्यास में मुड़ जाते हैं। चूँकि हिप्पोक्रेट्स को इसके पहले वर्णनकर्ता का श्रेय दिया जाता है, इसे "Hippocratic finger" भी कहा जाता है — यह पश्चिमी चिकित्सा के सबसे पुराने शारीरिक संकेतों में से एक है, जिसे चिकित्सक 2,400 से अधिक वर्षों से देखते आ रहे हैं [1]।</p>
+<p>जिन प्रतिनिधि अंतर्निहित स्थितियों में clubbing होती है उनमें फेफड़ों का कैंसर (विशेष रूप से non-small cell lung cancer), अंतरालीय फेफड़ा रोग (idiopathic pulmonary fibrosis), ब्रोन्किएक्टेसिस, एम्पाइमा, सायनोटिक जन्मजात हृदय रोग, संक्रामक अंतर्हृद्शोथ (infective endocarditis), सूजनकारी आंत्र रोग (Crohn's disease), और सिरोसिस शामिल हैं [10]। इन स्थितियों के बीच सामान्य रोगजनक भाजक (pathophysiological denominator) दीर्घकालिक हाइपोक्सिमिया या फुफ्फुसीय संवहनी तल (pulmonary vascular bed) का संरचनात्मक विनाश है।</p>
+<p>Clubbing के तंत्र के लिए सबसे व्यापक रूप से समर्थित परिकल्पना 1987 में Dickinson &amp; Martin द्वारा <em>The Lancet</em> में प्रस्तुत की गई: मेगाकैरियोसाइट–प्लेटलेट बाइपास परिकल्पना [11]। सामान्य रक्त परिसंचरण में, अस्थि मज्जा (bone marrow) से निकले मेगाकैरियोसाइट्स और उनके अंश फुफ्फुसीय केशिका तल (pulmonary capillary bed) में फँसकर खंडित हो जाते हैं, जिससे बड़े प्लेटलेट समुच्चय (aggregates) परिधीय परिसंचरण में प्रवेश नहीं कर पाते। हालाँकि, दाएँ-से-बाएँ इंट्राकार्डियक शंट, फुफ्फुसीय केशिका तल के विनाश (फेफड़ों का कैंसर, फुफ्फुसीय फाइब्रोसिस), या फुफ्फुसीय संवहनी बाइपास वाली स्थितियों में, मेगाकैरियोसाइट्स और बड़े प्लेटलेट समुच्चय फुफ्फुसीय फ़िल्टर को पार कर दूरस्थ अंकों (distal digits) की धमनिकाओं (arterioles) में प्रभावित होते हैं। ये प्रभावित मेगाकैरियोसाइट–प्लेटलेट समुच्चय स्थानीय रूप से platelet-derived growth factor (PDGF) छोड़ते हैं, जो फाइब्रोब्लास्ट प्रसार और संयोजी ऊतक अतिवृद्धि (connective tissue hypertrophy) को प्रेरित करता है।</p>
+<p>2004 के एक ऊतकीय अध्ययन में, Atkinson &amp; Fox ने प्रदर्शित किया कि clubbed digits के डर्मिस में vascular endothelial growth factor (VEGF)-A, PDGF, और hypoxia-inducible factors (HIF-1α और HIF-2α) की अभिव्यक्ति सार्थक रूप से उपनियमित (upregulated) थी, साथ ही सूक्ष्मवाहिका घनत्व (microvessel density) में वृद्धि थी [12]। VEGF प्लेटलेट प्रभावन (platelet impaction) के बाद मुक्त होता है, और इसकी अभिव्यक्ति केशिका अवरोध (capillary occlusion) से उत्पन्न स्ट्रोमल हाइपोक्सिया द्वारा प्रवर्धित होती है। VEGF और PDGF सहक्रियात्मक रूप से (synergistically) कार्य करके digital clubbing की विशिष्ट स्ट्रोमल और संवहनी अतिवृद्धि परिवर्तन उत्पन्न करते हैं।</p>
+<h2>5. निष्कर्ष</h2>
+<p>इस लेख में समीक्षित पाँच शारीरिक संकेत — Frank sign, xanthelasma palpebrarum, Virchow's node, acanthosis nigricans, और digital clubbing — सभी ऐसे निष्कर्ष हैं जिनका शरीर की सतह पर अवलोकन प्रणालीगत रोग की उपस्थिति का सुझाव दे सकता है। आधुनिक चिकित्सा में भी, जहाँ इमेजिंग और आणविक परीक्षण ने उल्लेखनीय परिष्कार प्राप्त किया है, शारीरिक संकेत गैर-आक्रामक, तत्काल उपलब्ध नैदानिक सूचना स्रोतों के रूप में अपना मूल्य बनाए रखते हैं।</p>
+<p>हालाँकि, यह दोहराना आवश्यक है कि इनमें से प्रत्येक निष्कर्ष रोग के साथ एक सांख्यिकीय संबद्धता प्रदर्शित करता है; किसी निष्कर्ष की उपस्थिति अपने आप में निदान स्थापित नहीं कर सकती। उदाहरण के लिए, Frank sign के लिए सकारात्मक संभाव्यता अनुपात अधिकांशतः 2 से नीचे है [3], और xanthelasma वाले लगभग आधे रोगियों में कोई डिस्लिपिडेमिया नहीं होता [5]। आत्म-अवलोकन की आदत — शरीर से आने वाले संकेतों पर ध्यान देना — उपयोगी है, लेकिन जब कोई निष्कर्ष पाया जाता है, तो स्व-निदान पर निर्भर रहने के बजाय चिकित्सा सुविधा में उचित मूल्यांकन प्राप्त करना ही सटीक निदान और प्रारंभिक हस्तक्षेप का एकमात्र मार्ग है।</p>
+<hr />
+<h2>नैदानिक छवि लिंक (ओपन-एक्सेस सहकर्मी-समीक्षित साहित्य)</h2>
+<p>निम्नलिखित ओपन-एक्सेस, सहकर्मी-समीक्षित लेखों में इस लेख में चर्चित प्रत्येक निष्कर्ष की नैदानिक छवियाँ हैं।</p>
+<ul>
+<li><strong>Frank sign (diagonal earlobe crease)</strong></li>
+<li>Agarwal A, et al. Frank's sign: dermatological marker for coronary artery disease. <em>BMJ Case Reports</em>. 2021;14(9):e245595. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8451276/">PMC8451276</a></li>
+<li>
+<p>Mehta HB, et al. Frank's sign: a coronary artery disease predictor. <em>BMJ Case Reports</em>. 2014;2014:bcr2014205866. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4112337/">PMC4112337</a></p>
+</li>
+<li>
+<p><strong>Xanthelasma palpebrarum</strong></p>
+</li>
+<li>
+<p>Laftah Z, Al-Niaimi F. A practical review of the management of xanthelasma palpebrarum. <em>Journal of Cosmetic Dermatology</em>. 2023;22(6):1761-1769. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10208694/">PMC10208694</a></p>
+</li>
+<li>
+<p><strong>Virchow's node (left supraclavicular lymphadenopathy)</strong></p>
+</li>
+<li>
+<p>Troupis T, et al. Troisier sign and Virchow node: the anatomy and pathology of pulmonary adenocarcinoma metastasis to a supraclavicular lymph node. <em>Autopsy and Case Reports</em>. 2019;9(1):e2018053. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6394356/">PMC6394356</a></p>
+</li>
+<li>
+<p><strong>Acanthosis nigricans</strong></p>
+</li>
+<li>
+<p>Pentenero M, et al. Malignant acanthosis nigricans: a case report. <em>BMC Ophthalmology</em>. 2020;20:432. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7664083/">PMC7664083</a></p>
+</li>
+<li>
+<p><strong>Digital clubbing</strong></p>
+</li>
+<li>Kato K, et al. Digital clubbing is associated with higher serum KL-6 levels and lower pulmonary function in patients with interstitial lung disease. <em>Journal of Clinical Medicine Research</em>. 2018;10(4):355-361. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5828477/">PMC5828477</a></li>
+</ul>
+<hr />
+<h2>संदर्भ</h2>
+<ol>
+<li>
+<p>Spicknall KE, Zirwas MJ, English JC 3rd. Clubbing: an update on diagnosis, differential diagnosis, pathophysiology, and clinical relevance. <em>Journal of the American Academy of Dermatology</em>. 2005;52(6):1020-1028. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/15928621/">15928621</a></p>
+</li>
+<li>
+<p>Frank ST. Aural sign of coronary-artery disease. <em>New England Journal of Medicine</em>. 1973;289(6):327-328. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/4718047/">4718047</a></p>
+</li>
+<li>
+<p>Lucenteforte E, Romoli M, Zagli G, et al. Ear lobe crease as a marker of coronary artery disease: a meta-analysis. <em>International Journal of Cardiology</em>. 2014;175(1):171-175. DOI: <a href="https://doi.org/10.1016/j.ijcard.2014.04.025">10.1016/j.ijcard.2014.04.025</a></p>
+</li>
+<li>
+<p>Stoyanov GS, Dzhenkov D, Petkova L, et al. The histological basis of Frank's sign. <em>Head and Neck Pathology</em>. 2021;15(2):402-407. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32712879/">32712879</a></p>
+</li>
+<li>
+<p>Christoffersen M, Frikke-Schmidt R, Schnohr P, et al. Xanthelasmata, arcus corneae, and ischaemic vascular disease and death in general population: prospective cohort study. <em>BMJ</em>. 2011;343:d5497. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/21920887/">21920887</a></p>
+</li>
+<li>
+<p>Troupis T, Tsaraklis A, Michalinos A, et al. Troisier sign and Virchow node: the anatomy and pathology of pulmonary adenocarcinoma metastasis to a supraclavicular lymph node. <em>Autopsy and Case Reports</em>. 2019;9(1):e2018053. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6394356/">PMC6394356</a></p>
+</li>
+<li>
+<p>Kahn CR, Flier JS, Bar RS, et al. The syndromes of insulin resistance and acanthosis nigricans: insulin-receptor disorders in man. <em>New England Journal of Medicine</em>. 1976;294(14):739-745. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/176581/">176581</a></p>
+</li>
+<li>
+<p>Yun SJ, Kim SJ. Malignant acanthosis nigricans associated with gastric adenocarcinoma. <em>Annals of Dermatology</em>. 2011;23(Suppl 2):S176-S179. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3229067/">PMC3229067</a></p>
+</li>
+<li>
+<p>Koyama S, Ikeda K, Sato M, et al. Transforming growth factor-alpha (TGF-α)-producing gastric carcinoma with acanthosis nigricans: an endocrine effect of TGF-α in the pathogenesis of cutaneous paraneoplastic syndrome and epithelial hyperplasia of the esophagus. <em>Journal of Gastroenterology</em>. 1997;32(1):71-77. DOI: <a href="https://doi.org/10.1007/BF01213299">10.1007/BF01213299</a></p>
+</li>
+<li>
+<p>Myers KA, Farquhar DR. The rational clinical examination. Does this patient have clubbing? <em>JAMA</em>. 2001;286(3):341-347. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/11466101/">11466101</a></p>
+</li>
+<li>
+<p>Dickinson CJ, Martin JF. Megakaryocytes and platelet clumps as the cause of finger clubbing. <em>Lancet</em>. 1987;2(8572):1434-1435. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/2891996/">2891996</a></p>
+</li>
+<li>
+<p>Atkinson S, Fox SB. Vascular endothelial growth factor (VEGF)-A and platelet-derived growth factor (PDGF) play a central role in the pathogenesis of digital clubbing. <em>Journal of Pathology</em>. 2004;203(2):721-728. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/15141388/">15141388</a></p>
+</li>
+</ol>
+<hr />
+<p><em>This article was produced by Project Asymptote for educational purposes. The information presented is based on publicly available peer-reviewed literature and does not constitute medical advice.</em></p>
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の疾患の診断や治療を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、医学的助言を構成するものではありません。</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成医学建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento médico.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह चिकित्सा सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة طبية.</em></p>
+<div class="disclaimer"><p>यह सामग्री केवल सूचनात्मक उद्देश्यों के लिए है, जो वस्तुनिष्ठ शैक्षणिक साक्ष्य और डेटा विश्लेषण पर आधारित है। यह चिकित्सा सलाह, निदान या राजनीतिक आलोचना के रूप में अभिप्रेत नहीं है।</p></div>
+</article>
+
+<article id="content-ar" class="content-section" dir="rtl" lang="ar">
+<h1>وبائيات يرويها الجسد: إشارات المرض الجهازي المقروءة من العلامات الجسدية الظاهرة</h1>
+<h1>أضواء تحذيرية على الجلد وأطراف الأصابع: الأدلة الوبائية على العلامات الجسدية</h1>
+<h1>علم المعاينة: ما تكشفه شحمة الأذن والجفون وأطراف الأصابع عن الأمراض الجهازية</h1>
+<hr />
+<h2>1. مقدمة: الفحص السريري بوصفه أصل الطب</h2>
+<p>قبل ظهور التصوير المقطعي المحوسب (CT) والتصوير بالرنين المغناطيسي (MRI) والتصوير المقطعي بالإصدار البوزيتروني (PET-CT) والمؤشرات الحيوية عالية الحساسية بزمن طويل، كان الأطباء يستدلون على الصحة الجهازية من خلال المراقبة الدقيقة لسطح الجسم. ففي القرن الخامس قبل الميلاد، وصف أبقراط تشوّه الأصابع (تعجّر الأصابع الرقمي) بوصفه علامة على الدُّبَيلة — وهي من أقدم الموجودات السريرية المسجّلة في تاريخ الطب الغربي [1].</p>
+<p>وحتى اليوم، رغم التقدم الهائل في تقنيات التصوير والمختبرات، لا تزال العلامات الجسدية المستخلصة من المعاينة والجس تحتفظ بقيمتها السريرية بوصفها قرائن فحص غير جراحية ومتاحة فورًا. غير أن ثمة تحفظًا جوهريًا لا بد من إبرازه: كل موجودة من الموجودات التي ستُناقَش أدناه تُظهر <strong>ارتباطًا</strong> إحصائيًا بخطر المرض؛ ووجود موجودة ما لا يؤكد بذاته تشخيصًا محددًا. ولا بد من التمييز بين الأدلة الوبائية على مستوى السكان والحكم السريري على مستوى الفرد.</p>
+<p>يستعرض هذا المقال خمس علامات جسدية تمثيلية يمكن ملاحظتها على سطح الجسم، مغطيًا أدلتها الوبائية وآلياتها المرضية الفيزيولوجية وأهميتها السريرية.</p>
+<h2>2. علامات القلب والأوعية الدموية والاستقلاب</h2>
+<h3>2.1 Frank sign: التجعّد القُطري لشحمة الأذن</h3>
+<p>في عام 1973، أبلغ طبيب الباطنة الأمريكي Sanders T. Frank عن تجعّد قُطري لوحظ في شحمة أذن 20 مريضًا بداء الشريان التاجي (CAD) [2]. وقد عُرفت هذه الموجودة لاحقًا باسم "Frank sign"، وباتت معترفًا بها على نطاق واسع بوصفها علامة جسدية مرتبطة بداء القلب الإقفاري (IHD).</p>
+<p>في تحليل تلوي أجراه Lucenteforte وآخرون عام 2014، جمع 37 دراسة بأكثر من 31,000 مشارك، حُسبت نسبة الأرجحية بقيمة <span class="math inline">\(\text{OR} = 3.3\)</span> لداء الشريان التاجي لدى الأفراد الذين يحملون تجعّد شحمة الأذن القُطري (DELC) [3]. بمعنى آخر، كان انتشار داء الشريان التاجي لدى حاملي DELC أعلى بنحو 3.3 أضعاف مقارنةً بمن لا يحملونه. إلا أن الدقة التشخيصية تستوجب تفسيرًا حذرًا: تراوحت الحساسية بين 26% و90% عبر الدراسات، والنوعية بين 32% و96%، وكانت نسب الاحتمال الإيجابي في معظمها أقل من 2 [3].</p>
+<p>أما فيما يخص آلية تكوّن DELC، فقد أفاد Stoyanov وآخرون بوجود تليّف عضلي مرن في شرايين موقع التجعّد، وتليّف أدمي منتشر، وتنكّس شبيه بتنكّس والر في الأعصاب المحيطية عند الفحص النسيجي [4]. وتنسب الفرضية السائدة التجعّد إلى انخفاض تدفق الدم على مستوى الأوعية الدقيقة في الشرايين الانتهائية المغذّية لشحمة الأذن، مع ما يترتب عليه من تنكّس الإيلاستين والكولاجين. وقد تتشارك هذه التغيرات النسيجية ركيزة مرضية مشتركة مع تصلب الشرايين التاجية، مما يشير إلى أن Frank sign قد تعمل بمثابة "نافذة" جلدية على التصلب الشرياني الجهازي.</p>
+<h3>2.2 Xanthelasma Palpebrarum</h3>
+<p>يتألف Xanthelasma palpebrarum من حطاطات أو لويحات صفراء مسطحة محددة الحواف على الجوانب الإنسية للجفنين العلوي والسفلي، تتكوّن من تراكم الخلايا الرغوية (البالعات الكبيرة) المحمّلة بإسترات الكوليسترول في الأدمة. ورغم شهرتها التقليدية بوصفها واسمًا جلديًا لاضطراب شحوم الدم، فمن المهم سريريًا أن ما يقرب من نصف المرضى المصابين بالزانثلازما لديهم مستويات شحوم مصلية ضمن النطاق الطبيعي.</p>
+<p>درس Christoffersen وآخرون الارتباط بين الزانثلازما والمرض الوعائي الإقفاري في دراسة أترابية استباقية شملت 12,745 مشاركًا من دراسة قلب مدينة كوبنهاغن، بمتابعة امتدت حتى 33 عامًا [5]. وبلغت نسب الخطر المعدّلة متعددة المتغيرات <span class="math inline">\(\text{HR} = 1.48\)</span> (فاصل ثقة 95%: 1.23–1.79) لاحتشاء عضلة القلب، و<span class="math inline">\(\text{HR} = 1.39\)</span> (فاصل ثقة 95%: 1.20–1.60) لداء القلب الإقفاري. وظل هذا الارتباط ذا دلالة إحصائية بعد التعديل حسب العمر والجنس وكوليسترول المصل والدهون الثلاثية ومؤشر كتلة الجسم وارتفاع ضغط الدم والسكري والتدخين.</p>
+<p>وتوازي الآلية المقترحة ما يحدث في جدار الأوعية الدموية: يُمتَص LDL المؤكسد بواسطة البالعات الكبيرة في نسيج الجفن، مما يُحفّز تكوّن الخلايا الرغوية. وقد يمثّل ظهور الزانثلازما تجليًا سطحيًا لاضطرابات دقيقة في استقلاب البروتينات الدهنية وإجهاد تأكسدي جارٍ بالفعل، حتى في غياب اضطراب شحوم الدم القابل للكشف سريريًا.</p>
+<h2>3. علامات الأورام الخبيثة</h2>
+<h3>3.1 Virchow's Node: اعتلال العقد اللمفاوية فوق الترقوية اليسرى</h3>
+<p>في عام 1848، وصف أخصائي علم الأمراض الألماني Rudolf Virchow عقدة لمفاوية متضخمة في الحفرة فوق الترقوية اليسرى بوصفها مؤشرًا على نقائل الأورام الخبيثة البطنية. وسُمّيت هذه الموجودة لاحقًا "Virchow's node"، وتُعرف أيضًا بـ "Troisier sign" نسبةً إلى طبيب الباطنة الفرنسي Charles Émile Troisier.</p>
+<p>يُعزى التضخم الانتقائي للعقدة اللمفاوية فوق الترقوية اليسرى في نقائل الأورام الخبيثة البطنية إلى المسار التشريحي للجهاز اللمفاوي [6]. تجمع القناة الصدرية اللمف من الجزء السفلي من الجسم والأحشاء البطنية، وتصعد عبر المنصف من خلال فرجة الأبهر في الحجاب الحاجز، لتصب في النهاية في الزاوية الوريدية اليسرى (ملتقى الوريد الوداجي الداخلي الأيسر والوريد تحت الترقوة الأيسر). وعندما تنتقل خلايا الأورام من السرطانات البطنية — وسرطان المعدة في مقدمتها — عبر المسارات اللمفاوية، فإنها تسلك القناة الصدرية لتصل إلى العقد اللمفاوية بالقرب من هذا الملتقى الوريدي. وبذلك تحتل العقدة اللمفاوية فوق الترقوية اليسرى موقعًا تشريحيًا يجعلها "المحطة الأخيرة" للنقائل اللمفاوية من الأورام الخبيثة البطنية.</p>
+<p>أفاد Troupis وآخرون بفحص تشريحي مفصّل للقناة الصدرية وتحليل نسيجي مرضي لـ Virchow's node في عينات التشريح، موثّقين حالة انتقل فيها سرطان الرئة الغدّي إلى العقدة اللمفاوية فوق الترقوية اليسرى عبر هذا المسار [6]. وسريريًا، قد يوحي التضخم غير المؤلم والصلب للعقدة اللمفاوية فوق الترقوية اليسرى بنقائل من طيف واسع من الأورام الخبيثة، بما في ذلك سرطانات المعدة والبنكرياس والقولون والمستقيم والمبيض والكلى والرئة.</p>
+<h3>3.2 Acanthosis Nigricans</h3>
+<p>يتميز Acanthosis nigricans بفرط تصبّغ مخملي بني داكن وثخانة جلدية في المناطق الثنيوية كالعنق والإبطين والمغبن. وتكمن أهميته السريرية أساسًا في ارتباطه بمقاومة الأنسولين والأورام الخبيثة.</p>
+<p>في عام 1976، نشر Kahn وآخرون في مجلة <em>New England Journal of Medicine</em> أول توثيق منهجي للارتباط بين acanthosis nigricans ومقاومة الأنسولين [7]. وتُفهم الآلية المرضية الفيزيولوجية على النحو التالي: في حالات مقاومة الأنسولين، يتطور فرط أنسولين الدم التعويضي. في الظروف الفيزيولوجية، يرتبط الأنسولين بألفة عالية بمستقبل الأنسولين مُحدثًا تأثيرات استقلابية؛ غير أنه عند التراكيز المرتفعة، يرتبط الأنسولين تصالبيًا بمستقبل عامل النمو الشبيه بالأنسولين-1 (IGF-1R). ويعزّز تفعيل IGF-1R المُعبَّر عنه على الخلايا الكيراتينية البشروية والأرومات الليفية الأدمية تكاثر الخلايا، مما يؤدي إلى الشواك وفرط التقرّن والورم الحليمي. علاوة على ذلك، يُزيح فرط أنسولين الدم IGF-1 من بروتيناته الرابطة، مما يُضخّم إشارات التكاثر البشروي.</p>
+<p>وبشكل منفصل، يحدث acanthosis nigricans نادرًا كمتلازمة ورمية مرافقة. يترافق acanthosis nigricans الخبيث مع سرطان المعدة الغدّي في 55–61% من الحالات المبلّغ عنها [8]. وفي الحالات المرتبطة بالأورام الخبيثة، اقتُرحت آلية غدد صمّاوية يُنتج فيها الورم عامل النمو المحوِّل-ألفا (TGF-α) الذي يُنقل دمويًا إلى الجلد، حيث يرتبط بمستقبل عامل النمو البشروي (EGFR) على الخلايا الكيراتينية ويحثّ التكاثر البشروي [9]. ويوازي acanthosis nigricans الخبيث المسار السريري للورم، متفاقمًا ومتحسنًا معه بالتوازي، ومتراجعًا عند نجاح علاج الورم.</p>
+<h2>4. العلامات التنفسية</h2>
+<h3>4.1 Digital Clubbing</h3>
+<p>يُعدّ Digital clubbing موجودة تتضخم فيها السلاميات القاصية للأصابع أو أصابع القدم بشكل بصلي وتنحني الأظافر بتقوّس يشبه زجاج الساعة. ولأن أبقراط يُنسب إليه أول وصف لها، تُعرف أيضًا بـ "إصبع أبقراط" — وهي من أقدم العلامات الجسدية في الطب الغربي، رصدها الأطباء على مدى أكثر من 2,400 عام [1].</p>
+<p>تشمل الحالات المسبّبة التمثيلية التي يحدث فيها التعجّر: سرطان الرئة (لا سيما سرطان الرئة غير صغير الخلايا)، ومرض الرئة الخلالي (التليف الرئوي مجهول السبب)، وتوسّع القصبات، والدُّبَيلة، وأمراض القلب الخلقية المُزرقّة، والتهاب الشغاف العدوائي، وداء الأمعاء الالتهابي (داء كرون)، والتشمّع [10]. والقاسم المرضي الفيزيولوجي المشترك بين هذه الحالات هو نقص الأكسجة المزمن أو التدمير البنيوي للسرير الوعائي الرئوي.</p>
+<p>الفرضية الأكثر دعمًا لآلية التعجّر اقترحها Dickinson و Martin عام 1987 في مجلة <em>The Lancet</em>: فرضية تجاوز النوّاءات والصفيحات [11]. في الدورة الدموية الطبيعية، تُحتجَز النوّاءات وشظاياها المُطلَقة من نقي العظم في السرير الشعيري الرئوي وتُجزَّأ، مما يمنع تجمعات الصفيحات الكبيرة من دخول الدورة الدموية المحيطية. غير أنه في الحالات التي تشمل تحويلات قلبية من اليمين إلى اليسار، أو تدمير السرير الشعيري الرئوي (سرطان الرئة، التليف الرئوي)، أو تجاوز الأوعية الرئوية، تمر النوّاءات وتجمعات الصفيحات الكبيرة عبر المرشح الرئوي وتنحشر في الشُّرينات القاصية للأصابع. وتُطلق هذه التجمعات المنحشرة من النوّاءات والصفيحات موضعيًا عامل النمو المشتق من الصفيحات (PDGF)، محفّزةً تكاثر الأرومات الليفية وتضخم النسيج الضام.</p>
+<p>في دراسة نسيجية أجراها Atkinson و Fox عام 2004، تبيّن أن التعبير عن عامل النمو البطاني الوعائي (VEGF)-A وPDGF وعوامل الاستجابة لنقص الأكسجة (HIF-1α وHIF-2α) كان مرتفعًا بشكل ملحوظ في أدمة الأصابع المتعجّرة، مع زيادة كثافة الأوعية الدقيقة [12]. ويُطلَق VEGF بعد انحشار الصفيحات، ويتضخّم تعبيره بفعل نقص الأكسجة اللحمي الناجم عن انسداد الشعيرات الدموية. ويعمل VEGF وPDGF بشكل تآزري لإحداث التغيرات التضخمية اللحمية والوعائية المميزة لتعجّر الأصابع الرقمي.</p>
+<h2>5. الخلاصة</h2>
+<p>العلامات الجسدية الخمس التي استعرضها هذا المقال — Frank sign وxanthelasma palpebrarum وVirchow's node وacanthosis nigricans وdigital clubbing — جميعها موجودات قد توحي ملاحظتها على سطح الجسم بوجود مرض جهازي. وحتى في الطب الحديث، حيث بلغ التصوير والاختبارات الجزيئية مستويات متقدمة بشكل ملحوظ، تحتفظ العلامات الجسدية بقيمتها بوصفها مصادر غير جراحية ومتاحة فورًا للمعلومات السريرية.</p>
+<p>غير أنه تجدر الإشارة مجددًا إلى أن كل موجودة من هذه الموجودات تُظهر ارتباطًا إحصائيًا بالمرض؛ ووجود موجودة ما لا يمكن أن يُثبت بذاته تشخيصًا. فعلى سبيل المثال، نسبة الاحتمال الإيجابي لـ Frank sign هي في معظمها أقل من 2 [3]، وما يقرب من نصف مرضى الزانثلازما لا يعانون من اضطراب شحوم الدم [5]. إن عادة المراقبة الذاتية — الانتباه لإشارات الجسم — مفيدة، لكن عند اكتشاف موجودة ما، فإن السعي للتقييم المناسب في مرفق طبي بدلًا من اللجوء إلى التشخيص الذاتي هو السبيل الوحيد للتشخيص الدقيق والتدخل المبكر.</p>
+<hr />
+<h2>روابط الصور السريرية (أدبيات محكّمة مفتوحة الوصول)</h2>
+<p>تحتوي المقالات المحكّمة مفتوحة الوصول التالية على صور سريرية لكل موجودة نوقشت في هذا المقال.</p>
+<ul>
+<li><strong>Frank sign (تجعّد شحمة الأذن القُطري)</strong></li>
+<li>Agarwal A, et al. Frank's sign: dermatological marker for coronary artery disease. <em>BMJ Case Reports</em>. 2021;14(9):e245595. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8451276/">PMC8451276</a></li>
+<li>
+<p>Mehta HB, et al. Frank's sign: a coronary artery disease predictor. <em>BMJ Case Reports</em>. 2014;2014:bcr2014205866. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4112337/">PMC4112337</a></p>
+</li>
+<li>
+<p><strong>Xanthelasma palpebrarum</strong></p>
+</li>
+<li>
+<p>Laftah Z, Al-Niaimi F. A practical review of the management of xanthelasma palpebrarum. <em>Journal of Cosmetic Dermatology</em>. 2023;22(6):1761-1769. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10208694/">PMC10208694</a></p>
+</li>
+<li>
+<p><strong>Virchow's node (اعتلال العقد اللمفاوية فوق الترقوية اليسرى)</strong></p>
+</li>
+<li>
+<p>Troupis T, et al. Troisier sign and Virchow node: the anatomy and pathology of pulmonary adenocarcinoma metastasis to a supraclavicular lymph node. <em>Autopsy and Case Reports</em>. 2019;9(1):e2018053. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6394356/">PMC6394356</a></p>
+</li>
+<li>
+<p><strong>Acanthosis nigricans</strong></p>
+</li>
+<li>
+<p>Pentenero M, et al. Malignant acanthosis nigricans: a case report. <em>BMC Ophthalmology</em>. 2020;20:432. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7664083/">PMC7664083</a></p>
+</li>
+<li>
+<p><strong>Digital clubbing</strong></p>
+</li>
+<li>Kato K, et al. Digital clubbing is associated with higher serum KL-6 levels and lower pulmonary function in patients with interstitial lung disease. <em>Journal of Clinical Medicine Research</em>. 2018;10(4):355-361. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5828477/">PMC5828477</a></li>
+</ul>
+<hr />
+<h2>المراجع</h2>
+<ol>
+<li>
+<p>Spicknall KE, Zirwas MJ, English JC 3rd. Clubbing: an update on diagnosis, differential diagnosis, pathophysiology, and clinical relevance. <em>Journal of the American Academy of Dermatology</em>. 2005;52(6):1020-1028. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/15928621/">15928621</a></p>
+</li>
+<li>
+<p>Frank ST. Aural sign of coronary-artery disease. <em>New England Journal of Medicine</em>. 1973;289(6):327-328. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/4718047/">4718047</a></p>
+</li>
+<li>
+<p>Lucenteforte E, Romoli M, Zagli G, et al. Ear lobe crease as a marker of coronary artery disease: a meta-analysis. <em>International Journal of Cardiology</em>. 2014;175(1):171-175. DOI: <a href="https://doi.org/10.1016/j.ijcard.2014.04.025">10.1016/j.ijcard.2014.04.025</a></p>
+</li>
+<li>
+<p>Stoyanov GS, Dzhenkov D, Petkova L, et al. The histological basis of Frank's sign. <em>Head and Neck Pathology</em>. 2021;15(2):402-407. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32712879/">32712879</a></p>
+</li>
+<li>
+<p>Christoffersen M, Frikke-Schmidt R, Schnohr P, et al. Xanthelasmata, arcus corneae, and ischaemic vascular disease and death in general population: prospective cohort study. <em>BMJ</em>. 2011;343:d5497. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/21920887/">21920887</a></p>
+</li>
+<li>
+<p>Troupis T, Tsaraklis A, Michalinos A, et al. Troisier sign and Virchow node: the anatomy and pathology of pulmonary adenocarcinoma metastasis to a supraclavicular lymph node. <em>Autopsy and Case Reports</em>. 2019;9(1):e2018053. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6394356/">PMC6394356</a></p>
+</li>
+<li>
+<p>Kahn CR, Flier JS, Bar RS, et al. The syndromes of insulin resistance and acanthosis nigricans: insulin-receptor disorders in man. <em>New England Journal of Medicine</em>. 1976;294(14):739-745. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/176581/">176581</a></p>
+</li>
+<li>
+<p>Yun SJ, Kim SJ. Malignant acanthosis nigricans associated with gastric adenocarcinoma. <em>Annals of Dermatology</em>. 2011;23(Suppl 2):S176-S179. PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3229067/">PMC3229067</a></p>
+</li>
+<li>
+<p>Koyama S, Ikeda K, Sato M, et al. Transforming growth factor-alpha (TGF-α)-producing gastric carcinoma with acanthosis nigricans: an endocrine effect of TGF-α in the pathogenesis of cutaneous paraneoplastic syndrome and epithelial hyperplasia of the esophagus. <em>Journal of Gastroenterology</em>. 1997;32(1):71-77. DOI: <a href="https://doi.org/10.1007/BF01213299">10.1007/BF01213299</a></p>
+</li>
+<li>
+<p>Myers KA, Farquhar DR. The rational clinical examination. Does this patient have clubbing? <em>JAMA</em>. 2001;286(3):341-347. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/11466101/">11466101</a></p>
+</li>
+<li>
+<p>Dickinson CJ, Martin JF. Megakaryocytes and platelet clumps as the cause of finger clubbing. <em>Lancet</em>. 1987;2(8572):1434-1435. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/2891996/">2891996</a></p>
+</li>
+<li>
+<p>Atkinson S, Fox SB. Vascular endothelial growth factor (VEGF)-A and platelet-derived growth factor (PDGF) play a central role in the pathogenesis of digital clubbing. <em>Journal of Pathology</em>. 2004;203(2):721-728. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/15141388/">15141388</a></p>
+</li>
+</ol>
+<hr />
+<p><em>This article was produced by Project Asymptote for educational purposes. The information presented is based on publicly available peer-reviewed literature and does not constitute medical advice.</em></p>
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の疾患の診断や治療を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、医学的助言を構成するものではありません。</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成医学建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento médico.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह चिकित्सा सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة طبية.</em></p>
+<div class="disclaimer"><p>هذا المحتوى لأغراض إعلامية فقط، استناداً إلى أدلة أكاديمية موضوعية وتحليل بيانات. وهو غير مخصص كاستشارة طبية أو تشخيص أو نقد سياسي.</p></div>
+</article>
+
+<footer class="site-footer">
+  Project Asymptote &mdash; Bridging mathematics, data science, and public health.
+</footer>
+
+</div>
+
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+  const section = document.getElementById('content-' + lang);
+  const btn = document.querySelector('[data-lang="' + lang + '"]');
+  if (section) section.classList.add('active');
+  if (btn) btn.classList.add('active');
+  document.documentElement.lang = lang.split('-')[0];
+  // Re-render math in newly visible section.
+  if (typeof renderMathInElement !== 'undefined') {
+    renderMathInElement(section, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+  // Update URL hash.
+  history.replaceState(null, '', '#' + lang);
+}
+
+// Initialize from hash or default to 'ja'.
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = location.hash.slice(1);
+  const validLangs = ['ja', 'en', 'zh-Hans', 'es', 'hi', 'ar'];
+  switchLang(validLangs.includes(hash) ? hash : 'ja');
+});
+</script>
+</body>
+</html>
