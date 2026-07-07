@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untitled</title>
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --accent: #2563eb;
+  --border: #e5e7eb;
+  --code-bg: #f3f4f6;
+  --max-w: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Serif", "Source Han Serif", "Georgia", serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.8;
+  padding: 2rem 1rem;
+}
+.container { max-width: var(--max-w); margin: 0 auto; }
+
+/* Language selector */
+.lang-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+.lang-btn {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px 4px 0 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--fg);
+  transition: all 0.15s;
+}
+.lang-btn:hover { background: var(--code-bg); }
+.lang-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Content sections */
+.content-section { display: none; }
+.content-section.active { display: block; }
+.content-section[dir="rtl"] { direction: rtl; text-align: right; }
+
+/* Typography */
+h1 { font-size: 1.8rem; margin: 1.5rem 0 1rem; line-height: 1.3; }
+h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.15rem; margin: 1.2rem 0 0.6rem; }
+p { margin: 0.8rem 0; }
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+[dir="rtl"] blockquote { border-left: none; border-right: 3px solid var(--accent); }
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+pre { background: var(--code-bg); padding: 1rem; overflow-x: auto; border-radius: 6px; margin: 1rem 0; }
+pre code { background: none; padding: 0; }
+table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.8rem; text-align: left; }
+[dir="rtl"] th, [dir="rtl"] td { text-align: right; }
+th { background: var(--code-bg); font-weight: 600; }
+a { color: var(--accent); }
+sup { font-size: 0.75em; }
+
+/* Math */
+.math.display { display: block; text-align: center; margin: 1.2rem 0; overflow-x: auto; }
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: 3rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: #999;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h1 { font-size: 1.4rem; }
+  body { padding: 1rem 0.75rem; }
+  .lang-btn { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<nav class="lang-selector" role="tablist" aria-label="Language">
+  <button class="lang-btn" data-lang="ja" role="tab" onclick="switchLang('ja')">日本語</button>
+  <button class="lang-btn" data-lang="en" role="tab" onclick="switchLang('en')">English</button>
+  <button class="lang-btn" data-lang="zh-Hans" role="tab" onclick="switchLang('zh-Hans')">简体中文</button>
+  <button class="lang-btn" data-lang="es" role="tab" onclick="switchLang('es')">Español</button>
+  <button class="lang-btn" data-lang="hi" role="tab" onclick="switchLang('hi')">हिन्दी</button>
+  <button class="lang-btn" data-lang="ar" role="tab" onclick="switchLang('ar')">العربية</button>
+</nav>
+
+<article id="content-ja" class="content-section" dir="ltr" lang="ja">
+<p>🧵「選択と集中」は科学を進化させるか、退化させるか？</p>
+<p>タスマニア島の先住民は本土から隔絶後、骨器・漁撈・防寒衣の技術を喪失。Henrichの数理モデルは「集団規模の縮小→知識の累積的劣化」を証明した。</p>
+<p>この論理は現代の科学政策にも適用可能：
+・日本：運営費交付金を毎年約1%削減（2004年〜）
+・Top 10%論文の世界順位が第4位→第12位に急落
+・40歳未満の研究者の大半が5年未満の任期付き
+・英国：大学職員13,300人が2024-25年度に整理解雇</p>
+<p>科学に必要なのは「誰に集中するか」ではなく「ネットワークの規模と多様性の維持」。</p>
+<p>詳細はSubstackで → https://projectasymptote.substack.com</p>
+<h1>科学政策 #選択と集中 #進化生物学 #大学改革 #ProjectAsymptote</h1>
+<div class="disclaimer"><p>本コンテンツは、客観的な学術的エビデンスとデータ分析に基づく情報提供のみを目的としています。医学的助言、診断、または政治的批評を意図するものではありません。</p></div>
+</article>
+
+<article id="content-en" class="content-section" dir="ltr" lang="en">
+<p>🧵 Does "Selection and Concentration" advance science — or cause it to regress?</p>
+<p>Tasmania's indigenous population lost bone tools, fishing, and cold-weather clothing after isolation. Henrich's model proved: shrink the group → cumulative knowledge degrades.</p>
+<p>Same logic applies to modern science policy:
+• Japan: block funding cut ~1%/yr since 2004
+• Top 10% cited papers ranking: 4th → 12th
+• Most researchers under 40 on &lt;5-year contracts
+• UK: 13,300 university staff severed in 2024-25 alone</p>
+<p>Science needs not "whom to concentrate on" but "how to maintain network scale and diversity."</p>
+<p>Full article on Substack → https://projectasymptote.substack.com</p>
+<h1>SciencePolicy #SelectionAndConcentration #EvolutionaryBiology #HigherEducation #ProjectAsymptote</h1>
+<div class="disclaimer"><p>This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p></div>
+</article>
+
+<article id="content-zh-Hans" class="content-section" dir="ltr" lang="zh-Hans">
+<h1>标题方案</h1>
+<h1>天才的孤独还是集体的智慧："选择与集中"正在摧毁科学的进化生态系统</h1>
+<h1>塔斯马尼亚的教训："选择与集中"型科学政策所面临的进化与结构性局限</h1>
+<h1>集体智慧的消失与科学基础的侵蚀：从进化生物学重新审视"选择与集中"</h1>
+<hr />
+<h2>引言：集体智慧胜于孤高天才</h2>
+<p>科学的飞跃性进步常被描述为某位杰出天才的个人成就。然而，进化生物学与文化人类学的研究成果对这一固有观念提出了根本性修正。驱动人类技术与智识发展的并非个体的卓越性，而是群体对知识的积累与传递 — 即累积性文化进化（cumulative cultural evolution）[1,2]。</p>
+<p>Henrich在2004年的数理模型中分析了塔斯马尼亚岛的案例 [1]。约12,000年前与澳大利亚大陆隔绝的塔斯马尼亚原住民群体（估计人口约4,000人），丧失了大陆群体一直维持并发展的多项技术，包括骨器制作、御寒衣物缝制、鱼钩捕鱼以及柄装石器等。Henrich的模型假设，每一代个体在试图模仿前代最熟练个体时，会产生随机偏差 <span class="math inline">\(\Delta\)</span>。当群体规模 <span class="math inline">\(N\)</span> 足够大时，出现正偏差的个体（即获得超越前代技能的个体）的概率增大，技术水平 <span class="math inline">\(z\)</span> 随世代递增而提升。反之，当 <span class="math inline">\(N\)</span> 降至临界值以下时，模仿误差的积累将导致技术逐代退化，最终消失。</p>
+<span class="math display">\[P(\text{skill gain}) = 1 - \Phi\left(\frac{z_{\max} - \bar{z}}{\sigma}\right)\]</span>
+<p>该概率是 <span class="math inline">\(N\)</span> 的递增函数，群体越大，出现刷新 <span class="math inline">\(z_{\max}\)</span> 的个体的可能性越高。</p>
+<p>Muthukrishna与Henrich在此框架基础上进一步发展，提出了"集体脑（collective brain）"的概念 [3]。创新的源泉并非个人的天赋，而是社会网络的规模、传递忠实度（transmission fidelity）以及文化多样性（cultural variance）三大因素。换言之，包括科学发现在内的智识创新，是大量头脑通过相互连接的网络所涌现出的特性（emergent property）。</p>
+<p>这一进化学前提对科学政策具有明确的启示意义。维持一个由众多研究者持续参与、并能相互交流知见的网络，乃是科学累积性发展的必要条件。将资源集中于少数"天才"，等同于缩减构成集体脑的节点数 <span class="math inline">\(N\)</span>，可能导致与塔斯马尼亚技术丧失同构的后果。</p>
+<h2>展开1：幸存者偏差与制度设计的陷阱</h2>
+<p>设计和运营现行科学政策的人士，大多是在残酷的竞争性经费争夺中胜出的"幸存者"。他们的政策判断中内含着结构性的认知偏差 — 幸存者偏差（survivorship bias）[4]。</p>
+<p>幸存者偏差是指仅观察通过筛选过程的样本、忽视被淘汰样本而产生的系统性推理偏误。在科学界，当获得终身教职并稳定获取研究经费的研究者主导制度设计时，"既然我能胜出，说明现行竞争体系运转良好"这一归纳谬误便被制度化。Alberts等人指出了美国生物医学研究中的同类结构性问题，认为"永无止境的快速增长"这一错误前提催生了一个不可持续的过度竞争体系，甚至将最优秀的学生也排斥在研究职业之外 [5]。</p>
+<p>这种竞争体系的后果可通过所谓"泄漏管道（leaky pipeline）"加以可视化。从博士学位获得者到终身教职轨道教员，再到终身教职的获取，每一阶段都有大量研究者放弃继续学术生涯。Stephan分析了大学通过提高非正式雇用教员比例来将风险外部化、同时要求终身教职教员也从外部资金中支付薪酬的结构 [6]。在这一淘汰过程中失去的，并非能力不足的研究者。往往包括那些具有高度潜力、但因结构性劣势（性别、种族、经济背景或纯粹的运气不足）而被淘汰的人才。</p>
+<p>从集体脑模型来看，这种"泄漏"不仅仅是个人职业发展的问题。每当一个节点从网络中脱落，集体脑的计算能力便呈非线性下降。特别是承担不同研究领域或方法论传统的研究者的流失，意味着文化多样性的丧失，直接降低了创新的概率本身。幸存者所设计的"更加严格的筛选"形成了进一步缩小集体脑容量的正反馈回路。</p>
+<h2>展开2：日本的"选择与集中"与结构性侵蚀</h2>
+<p>日本的科学政策提供了这一结构性问题的典型案例。自2004年国立大学法人化以来，日本政府将"选择与集中"作为科学政策的基本原则加以推进。其核心在于持续削减基础性经费（运营费交付金），并逐步以竞争性经费取而代之。</p>
+<p>国立大学法人的运营费交付金自法人化以来几乎每年削减约1%，实质性的研究基础在20年间持续萎缩。虽然竞争性经费（科学研究费补助金〔科研费〕等）以补填形式有所增加，但其结构性后果有二。第一，研究者的时间分配从研究本身转向经费申请书的撰写。第二，由于竞争性经费以项目制短期雇用为前提，大多数青年研究者被固定在定期合同岗位上。</p>
+<p><em>The Lancet</em> 2026年4月刊载的论文"Structural erosion of epidemiology and Japan's next generation"从流行病学视角精细分析了这一政策所造成的结构性侵蚀 [7]。该论文指出，日本在Top 10%被引论文中的全球份额，从2000年代初期的第4位急剧下滑至2023年的第12位。这一下降是"选择与集中"政策长期后果的症状（symptom）。</p>
+<p>流行病学研究本质上需要长期队列研究与持续的数据基础设施。然而，依赖短期竞争性经费的现行资金分配机制与此类长期研究根本不兼容。该论文进一步指出，40岁以下青年研究者的大多数被限制在5年以内的定期合同中，并建议从这种"科学的项目化（projectification of science）"转向可持续的整笔拨款制度 [7]。</p>
+<p>NISTEP的《科学技术指标2025》亦印证了同样的趋势。日本的论文总数虽维持在世界第5位，但Top 10%论文仅位列第13位，质量指标上的停滞尤为显著。用集体脑模型的术语来说，日本的科学政策在过去20年间持续朝着减少网络节点数 <span class="math inline">\(N\)</span> 和链接密度的方向发挥作用。</p>
+<h2>展开3：与OECD各国的比较及英国高等教育危机</h2>
+<p>将日本的问题置于国际背景下审视，其特殊性与普遍性同时浮现。</p>
+<p>OECD各国的研发总支出（GERD）在2024年维持在GDP的2.6%，其中73%由企业部门贡献。政府研发预算（GBARD）在2024年的多个领域遭到削减，例外的是国防支出（+1.2%）和一般大学基础资金（General University Funds: +2.1%）。最后这一项值得关注 — OECD各国大多至少在名义上维持或微增了对大学的基础性资金。日本运营费交付金逐年削减的事实，即便在OECD各国中也是突出的政策选择。</p>
+<p>美国同样面临生物医学研究可持续性的严重结构性问题。正如Alberts等人2014年所指出的 [5]，在NIH研究经费实质缩减的背景下，博士学位获得者的供给持续增加，经费获取率下降与博士后长期滞留已成常态。不过，美国拥有以NIH的R01经费为代表的相对长期（通常为5年）研究资助框架，且民间基金会和慈善事业提供的补充性资金来源在发挥作用，这一点在结构上与日本不同。</p>
+<p>提供更为严峻警示的是英国的案例。英国大学在过去数十年间依赖的财务模式，是以留学生 — 尤其是来自中国的留学生 — 的高额学费收入来弥补国内学生学费（£9,535，但按2012年实际价值计算已缩水至约£6,000）的不足。据报道，曼彻斯特大学留学生中中国学生占49.9%。</p>
+<p>然而，地缘政治紧张加剧、中国国内经济放缓、对海外学位价值的质疑上升，加之英国政府自身强化留学签证限制（如2024年1月实施的研究生硕士课程学生家属随行禁止措施），这一财务模式正在迅速瓦解。2024-25学年，英国留学生注册人数同比减少6%至685,565人，创下历史最大年度降幅。与峰值（2022-23学年）相比减少了10%。</p>
+<p>其后果极为严峻。仅2024-25学年便有13,300名大学教职员工通过裁员失去工作，遣散费支出同比增长71%，达到£3.033亿。三年累计约30,000个岗位流失。罗素集团的名校也未能幸免，爱丁堡大学提出裁减约1,800名教员，卡迪夫大学提出裁减400名教员。高等教育局（Office for Students）警告，到2025-26学年，英国四分之三的大学可能陷入赤字。</p>
+<p>英国案例揭示的是，试图以市场原理（留学生学费收入）填补基础性公共资金枯竭的政策脆弱性。面对地缘政治变动和人口结构变化等外生冲击，市场依赖型的大学财务体系极为脆弱。而教员的大规模裁减意味着集体脑节点的不可逆丧失 — 一旦解体的研究团队、消失的隐性知识网络，即使预算恢复也难以轻易重建。</p>
+<h2>结语：面向科学的可持续性</h2>
+<p>从塔斯马尼亚的技术丧失到英国大学的教员大规模裁减，本文考察的案例群具有一个共同结构。当构成集体脑的网络在规模和连接密度上降至临界值以下时，知识的累积性积蓄过程便会逆转，不可逆的退化随之开始。</p>
+<p>"选择与集中"基于资源有限这一不言自明的事实。然而，集中的代价往往不可见。被淘汰的研究者本可创造的创新、本可形成的跨学科合作、本可维持的长期队列研究 — 这些损失不会出现在统计数据中，也难以成为政策评估的对象。幸存者偏差恰恰在制度层面再生产了这种不可见性。</p>
+<p>进化生物学的知见所揭示的是，科学的飞跃性进步以"多元而广泛的研究者土壤"为前提 [2,3]。将资源极端集中于特定少数人，短期内或许看似高效，但实际上缩小了集体脑的节点数 <span class="math inline">\(N\)</span>，使创新的概率分布整体向左偏移。日本Top 10%论文排名的下滑 [7]、英国大学的崩溃、美国生物医学研究的过度竞争 [5] — 这些是同一结构性机制的不同表现形式。</p>
+<p>科学政策所需要的，并非"将资源集中于谁"，而是向"如何维持网络的规模与多样性"这一问题的转换。Lancet论文 [7] 所建议的回归整笔拨款制度、创设终身教职过渡项目以及完善临床研究双轨制，均是沿此方向提出的具体处方。科学的可持续发展，不在于等待天才的出现，而在于维护天才得以涌现的土壤。</p>
+<hr />
+<h2>参考文献</h2>
+<ol>
+<li>Henrich J. Demography and cultural evolution: how adaptive cultural processes can produce maladaptive losses—the Tasmanian case. <em>Am Antiq</em>. 2004;69(2):197-214. DOI: <a href="https://doi.org/10.2307/4128416">10.2307/4128416</a></li>
+<li>Henrich J. <em>The Secret of Our Success: How Culture Is Driving Human Evolution, Domesticating Our Species, and Making Us Smarter</em>. Princeton, NJ: Princeton University Press; 2015. ISBN: 978-0691166858</li>
+<li>Muthukrishna M, Henrich J. Innovation in the collective brain. <em>Philos Trans R Soc Lond B Biol Sci</em>. 2016;371(1690):20150192. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/26926282/">26926282</a></li>
+<li>Loissel E. Beware survivorship bias in advice on science careers. <em>Nature</em>. 2021;598:373. DOI: <a href="https://doi.org/10.1038/d41586-021-02634-z">10.1038/d41586-021-02634-z</a></li>
+<li>Alberts B, Kirschner MW, Tilghman S, Varmus H. Rescuing US biomedical research from its systemic flaws. <em>Proc Natl Acad Sci U S A</em>. 2014;111(16):5773-5777. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/24733905/">24733905</a></li>
+<li>Stephan PE. <em>How Economics Shapes Science</em>. Cambridge, MA: Harvard University Press; 2012. ISBN: 978-0674049710</li>
+<li>Structural erosion of epidemiology and Japan's next generation. <em>Lancet</em>. 2026. DOI: <a href="https://doi.org/10.1016/S0140-6736(26)00644-6">10.1016/S0140-6736(26)00644-6</a></li>
+</ol>
+<hr />
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の政策の支持や反対を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、政策的助言を構成するものではありません。</em></p>
+<p><em>This article was produced by Project Asymptote for educational purposes. The information presented is based on publicly available peer-reviewed literature and does not constitute policy advice.</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成政策建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento político.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह नीतिगत सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة سياسية.</em></p>
+<div class="disclaimer"><p>本内容仅供参考，基于客观的学术证据和数据分析。本内容不构成医疗建议、诊断或政治评论。</p></div>
+</article>
+
+<article id="content-es" class="content-section" dir="ltr" lang="es">
+<h1>Propuestas de título</h1>
+<h1>¿Soledad del genio o sabiduría colectiva? El ecosistema evolutivo de la ciencia que la "selección y concentración" destruye</h1>
+<h1>Lecciones de Tasmania: Límites evolutivos y estructurales que enfrenta la política científica de "selección y concentración"</h1>
+<h1>Desaparición de la inteligencia colectiva y erosión de las bases científicas: Reexaminando la "selección y concentración" desde la biología evolutiva</h1>
+<hr />
+<h2>Introducción: La sabiduría del colectivo, más que el genio solitario</h2>
+<p>Los avances revolucionarios en la ciencia se narran frecuentemente como hazañas de un genio individual excepcional. Sin embargo, los hallazgos de la biología evolutiva y la antropología cultural imponen una corrección fundamental a esta noción convencional. Lo que ha impulsado el desarrollo tecnológico e intelectual de la humanidad no es la excelencia individual, sino la acumulación y transmisión de conocimiento por parte de colectivos — es decir, la evolución cultural acumulativa (cumulative cultural evolution) [1,2].</p>
+<p>Henrich, en su modelo matemático de 2004, analizó el caso de la isla de Tasmania [1]. La población indígena de Tasmania (estimada en aproximadamente 4.000 personas), aislada del continente australiano hace unos 12.000 años, perdió múltiples tecnologías que las poblaciones continentales habían mantenido y desarrollado, incluyendo la fabricación de herramientas de hueso, la confección de vestimenta de abrigo, la pesca con anzuelos y las herramientas de piedra con mango. El modelo de Henrich supone que cuando los individuos de cada generación intentan imitar al individuo más competente de la generación anterior, se produce una desviación estocástica <span class="math inline">\(\Delta\)</span>. Si el tamaño de la población <span class="math inline">\(N\)</span> es suficientemente grande, aumenta la probabilidad de que aparezcan individuos con desviación positiva (es decir, individuos que adquieren habilidades superiores a las de la generación precedente), y el nivel tecnológico <span class="math inline">\(z\)</span> se eleva con cada generación sucesiva. Por el contrario, cuando <span class="math inline">\(N\)</span> cae por debajo de un valor crítico, la acumulación de errores de imitación provoca que la tecnología se deteriore generación tras generación, hasta desaparecer por completo.</p>
+<span class="math display">\[P(\text{skill gain}) = 1 - \Phi\left(\frac{z_{\max} - \bar{z}}{\sigma}\right)\]</span>
+<p>Esta probabilidad es una función creciente de <span class="math inline">\(N\)</span>: cuanto mayor es la población, más probable es que aparezca un individuo que actualice <span class="math inline">\(z_{\max}\)</span>.</p>
+<p>Muthukrishna y Henrich desarrollaron este marco conceptual y propusieron el concepto de "cerebro colectivo" (collective brain) [3]. La fuente de la innovación no es el genio individual, sino tres factores: la escala de las redes sociales, la fidelidad de transmisión (transmission fidelity) y la diversidad cultural (cultural variance). En otras palabras, la innovación intelectual, incluido el descubrimiento científico, es una propiedad emergente (emergent property) de una red en la que múltiples cerebros están interconectados.</p>
+<p>Esta premisa evolutiva tiene implicaciones claras para la política científica. El mantenimiento de una red en la que numerosos investigadores participen de forma sostenida y puedan intercambiar conocimientos constituye una condición necesaria para el desarrollo acumulativo de la ciencia. La concentración de recursos en unos pocos "genios" equivale a la reducción del número de nodos <span class="math inline">\(N\)</span> que componen el cerebro colectivo, y puede producir consecuencias análogas a la pérdida tecnológica de Tasmania.</p>
+<h2>Desarrollo 1: El sesgo de supervivencia y las trampas del diseño institucional</h2>
+<p>La mayoría de quienes diseñan y gestionan la política científica actual son "supervivientes" que han prevalecido en una feroz carrera por la obtención de financiamiento competitivo. Sus decisiones políticas albergan un sesgo cognitivo estructural: el sesgo de supervivencia (survivorship bias) [4].</p>
+<p>El sesgo de supervivencia es una distorsión sistemática del razonamiento que se produce al observar exclusivamente las muestras que superaron un proceso de selección, ignorando las que fueron descartadas. En el ámbito científico, cuando los investigadores que obtuvieron la titularidad y aseguraron financiamiento de forma estable son quienes diseñan el sistema, se institucionaliza una falacia inductiva: "dado que yo logré sobrevivir, el sistema competitivo vigente funciona". Alberts y colaboradores señalaron problemas estructurales análogos en la investigación biomédica de Estados Unidos, argumentando que la premisa errónea de un "crecimiento rápido sin fin" ha generado un sistema de competencia excesiva e insostenible que aleja de la carrera investigadora incluso a los estudiantes más capaces [5].</p>
+<p>Las consecuencias de este sistema competitivo se hacen visibles en lo que se conoce como "tubería con fugas" (leaky pipeline). En cada etapa — desde la obtención del doctorado hasta el puesto en vía de titularidad (tenure track), y de ahí a la titularidad misma — un gran número de investigadores abandona la continuidad de su carrera. Stephan analizó la estructura por la cual las universidades externalizan el riesgo aumentando la proporción de profesorado no permanente y exigiendo que incluso los profesores titulares financien sus salarios con fondos externos [6]. Lo que se pierde en este proceso de selección no son investigadores de menor capacidad. Con frecuencia, se incluyen talentos con alto potencial que abandonan debido a desventajas estructurales (género, raza, origen socioeconómico o simplemente mala suerte).</p>
+<p>A la luz del modelo de cerebro colectivo, esta "fuga" no se limita a un problema de carreras individuales. Cada vez que un nodo se desconecta de la red, la capacidad computacional del cerebro colectivo disminuye de forma no lineal. En particular, la pérdida de investigadores que representan diferentes disciplinas o tradiciones metodológicas significa una pérdida de diversidad cultural, lo que reduce la probabilidad misma de innovación. La "selección aún más rigurosa" que diseñan los supervivientes forma un bucle de retroalimentación positiva que reduce aún más la capacidad del cerebro colectivo.</p>
+<h2>Desarrollo 2: La "selección y concentración" en Japón y la erosión estructural</h2>
+<p>La política científica de Japón ofrece un ejemplo paradigmático de este problema estructural. Desde la transformación de las universidades nacionales en entidades corporativas (corporatización) en 2004, el gobierno japonés ha impulsado la "selección y concentración" como principio fundamental de su política científica. Su núcleo consiste en la reducción continua del financiamiento basal (subsidios para gastos de operación) y su reemplazo gradual por financiamiento competitivo.</p>
+<p>Los subsidios para gastos de operación de las universidades nacionales corporatizadas se han reducido aproximadamente un 1% anual desde la corporatización, lo que ha erosionado de facto la base investigadora durante dos décadas. Aunque el financiamiento competitivo (como las Subvenciones para Investigación Científica [Kakenhi]) se incrementó para compensar estas reducciones, sus consecuencias estructurales son dobles. En primer lugar, la asignación de tiempo de los investigadores se desplazó de la investigación en sí hacia la redacción de solicitudes de subvenciones. En segundo lugar, dado que el financiamiento competitivo presupone empleos a corto plazo por proyecto, la mayoría de los investigadores jóvenes quedaron atrapados en puestos con contratos de duración limitada.</p>
+<p>Un artículo de análisis publicado en <em>The Lancet</em> en abril de 2026, titulado "Structural erosion of epidemiology and Japan's next generation", analiza con precisión la erosión estructural provocada por esta política desde la perspectiva de la epidemiología [7]. Según dicho artículo, la participación de Japón en el Top 10% de artículos más citados a nivel mundial cayó abruptamente de la 4.ª posición a principios de la década de 2000 a la 12.ª posición en 2023. Este descenso es un síntoma (symptom) de las consecuencias a largo plazo de la política de "selección y concentración".</p>
+<p>La investigación epidemiológica requiere, por su propia naturaleza, estudios de cohorte a largo plazo e infraestructura de datos sostenida. Sin embargo, el mecanismo actual de asignación de fondos, dependiente de financiamiento competitivo a corto plazo, es fundamentalmente incompatible con este tipo de investigación a largo plazo. El artículo señala además que la mayoría de los investigadores jóvenes menores de 40 años están confinados en contratos de duración inferior a cinco años, y recomienda una transición de esta "proyectificación de la ciencia" (projectification of science) hacia subvenciones en bloque sostenibles [7].</p>
+<p>El informe <em>Indicadores de Ciencia y Tecnología 2025</em> del NISTEP corrobora la misma tendencia. Aunque Japón mantiene la 5.ª posición mundial en número total de publicaciones, se sitúa en el 13.º lugar en artículos del Top 10%, evidenciando un estancamiento notable en los indicadores cualitativos. En términos del modelo de cerebro colectivo, la política científica japonesa ha actuado durante veinte años en la dirección de reducir tanto el número de nodos <span class="math inline">\(N\)</span> como la densidad de conexiones de la red.</p>
+<h2>Desarrollo 3: Comparación con los países de la OCDE y la crisis de la educación superior en el Reino Unido</h2>
+<p>Situar el problema de Japón en un contexto internacional revela tanto su singularidad como su universalidad.</p>
+<p>El gasto total en investigación y desarrollo (GERD) del conjunto de los países de la OCDE se situó en el 2,6% del PIB en 2024, del cual el 73% correspondió al sector empresarial. El presupuesto gubernamental para investigación y desarrollo (GBARD) se redujo en 2024 en numerosas áreas, con la excepción del gasto en defensa (+1,2%) y los fondos generales para universidades (General University Funds: +2,1%). Este último dato merece atención: la mayoría de los países de la OCDE ha mantenido o incrementado ligeramente, al menos en términos nominales, el financiamiento basal destinado a las universidades. El hecho de que los subsidios para gastos de operación de Japón hayan sido recortados año tras año constituye una decisión política que destaca incluso entre los países de la OCDE.</p>
+<p>Estados Unidos también enfrenta problemas estructurales graves en torno a la sostenibilidad de la investigación biomédica. Como señalaron Alberts y colaboradores en 2014 [5], mientras el financiamiento del NIH se ha contraído en términos reales, la oferta de doctores ha continuado en aumento, y la caída de las tasas de obtención de subvenciones y la prolongada permanencia en puestos posdoctorales se han convertido en fenómenos habituales. No obstante, Estados Unidos dispone de marcos de apoyo a la investigación de duración relativamente prolongada (habitualmente cinco años), como el R01 del NIH, además de fuentes complementarias de financiamiento procedentes de fundaciones privadas y la filantropía, lo que configura una estructura diferente a la de Japón.</p>
+<p>El caso que ofrece una advertencia más severa es el del Reino Unido. Durante las últimas décadas, las universidades británicas han dependido de un modelo financiero que compensaba el déficit de las matrículas de estudiantes nacionales (£9.535, aunque depreciadas a aproximadamente £6.000 en valor real de 2012) con los elevados ingresos por matrículas de estudiantes internacionales — en particular, provenientes de China. Se ha informado que en la Universidad de Mánchester, el 49,9% de los estudiantes internacionales eran de nacionalidad china.</p>
+<p>Sin embargo, la intensificación de las tensiones geopolíticas, la desaceleración de la economía china, el creciente escepticismo sobre el valor de los títulos obtenidos en el extranjero, y el endurecimiento de las restricciones de visados por parte del propio gobierno británico (como la prohibición de acompañamiento familiar para estudiantes de maestría de posgrado, vigente desde enero de 2024) se han combinado para provocar el colapso acelerado de este modelo financiero. En el curso 2024–25, las inscripciones de estudiantes internacionales en el Reino Unido descendieron un 6% interanual, hasta 685.565, registrando la mayor caída anual de la historia. En comparación con el máximo alcanzado (curso 2022–23), el descenso es del 10%.</p>
+<p>Las consecuencias son severas. Solo en el curso 2024–25, 13.300 empleados universitarios perdieron sus puestos mediante despidos colectivos, y el gasto en indemnizaciones por cese aumentó un 71% interanual, alcanzando los 303,3 millones de libras esterlinas. En un período acumulado de tres años, se han perdido aproximadamente 30.000 empleos. Las universidades de prestigio del Russell Group no son la excepción: la Universidad de Edimburgo propuso la eliminación de aproximadamente 1.800 puestos docentes, y la Universidad de Cardiff, 400. La Office for Students (la autoridad reguladora de la educación superior) ha advertido de la posibilidad de que tres cuartas partes de las universidades del Reino Unido entren en déficit para el curso 2025–26.</p>
+<p>Lo que demuestra el caso del Reino Unido es la fragilidad de una política que intenta compensar el agotamiento del financiamiento público basal con mecanismos de mercado (ingresos por matrículas de estudiantes internacionales). Frente a choques exógenos como cambios geopolíticos o transiciones demográficas, las finanzas universitarias dependientes del mercado resultan extremadamente vulnerables. Y los despidos masivos de profesorado significan la pérdida irreversible de nodos del cerebro colectivo: los equipos de investigación desmantelados y las redes de conocimiento tácito que desaparecen no se reconstruyen fácilmente, aun cuando el presupuesto se recupere.</p>
+<h2>Conclusión: Hacia la sostenibilidad de la ciencia</h2>
+<p>Desde la pérdida tecnológica de Tasmania hasta los despidos masivos de docentes universitarios en el Reino Unido, los casos examinados en este artículo comparten una estructura común. Cuando la escala y la densidad de conexiones de la red que compone el cerebro colectivo caen por debajo de un umbral crítico, el proceso de acumulación de conocimiento se invierte y comienza una degradación irreversible.</p>
+<p>La "selección y concentración" se fundamenta en el hecho evidente de que los recursos son finitos. Sin embargo, el coste de la concentración es difícil de percibir. Las innovaciones que los investigadores descartados podrían haber generado, las colaboraciones interdisciplinarias que podrían haberse formado, los estudios de cohorte a largo plazo que podrían haberse mantenido — estas pérdidas no aparecen en las estadísticas y difícilmente se convierten en objeto de evaluación política. El sesgo de supervivencia reproduce institucionalmente, precisamente, esta invisibilidad.</p>
+<p>Lo que sugieren los hallazgos de la biología evolutiva es que los avances revolucionarios de la ciencia presuponen un "sustrato amplio y diverso de investigadores" [2,3]. La concentración extrema de recursos en unos pocos individuos selectos puede parecer eficiente a corto plazo, pero reduce el número de nodos <span class="math inline">\(N\)</span> del cerebro colectivo y desplaza hacia la izquierda la distribución de probabilidad de la innovación. El descenso de Japón en el ranking del Top 10% de publicaciones [7], el colapso de las universidades del Reino Unido y la competencia excesiva en la investigación biomédica de Estados Unidos [5] son manifestaciones distintas de un mismo mecanismo estructural.</p>
+<p>Lo que la política científica requiere no es la pregunta "¿en quién concentrarse?", sino una transformación hacia la pregunta "¿cómo mantener la escala y la diversidad de la red?". El retorno a las subvenciones en bloque propuesto en el artículo de Lancet [7], la creación de programas puente de titularidad y el establecimiento de un sistema de doble vía para la investigación clínica son prescripciones concretas que se alinean con esta dirección. El desarrollo sostenible de la ciencia no depende de esperar la aparición de genios, sino de mantener el sustrato en el que los genios puedan surgir.</p>
+<hr />
+<h2>Referencias</h2>
+<ol>
+<li>Henrich J. Demography and cultural evolution: how adaptive cultural processes can produce maladaptive losses—the Tasmanian case. <em>Am Antiq</em>. 2004;69(2):197-214. DOI: <a href="https://doi.org/10.2307/4128416">10.2307/4128416</a></li>
+<li>Henrich J. <em>The Secret of Our Success: How Culture Is Driving Human Evolution, Domesticating Our Species, and Making Us Smarter</em>. Princeton, NJ: Princeton University Press; 2015. ISBN: 978-0691166858</li>
+<li>Muthukrishna M, Henrich J. Innovation in the collective brain. <em>Philos Trans R Soc Lond B Biol Sci</em>. 2016;371(1690):20150192. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/26926282/">26926282</a></li>
+<li>Loissel E. Beware survivorship bias in advice on science careers. <em>Nature</em>. 2021;598:373. DOI: <a href="https://doi.org/10.1038/d41586-021-02634-z">10.1038/d41586-021-02634-z</a></li>
+<li>Alberts B, Kirschner MW, Tilghman S, Varmus H. Rescuing US biomedical research from its systemic flaws. <em>Proc Natl Acad Sci U S A</em>. 2014;111(16):5773-5777. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/24733905/">24733905</a></li>
+<li>Stephan PE. <em>How Economics Shapes Science</em>. Cambridge, MA: Harvard University Press; 2012. ISBN: 978-0674049710</li>
+<li>Structural erosion of epidemiology and Japan's next generation. <em>Lancet</em>. 2026. DOI: <a href="https://doi.org/10.1016/S0140-6736(26)00644-6">10.1016/S0140-6736(26)00644-6</a></li>
+</ol>
+<hr />
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の政策の支持や反対を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、政策的助言を構成するものではありません。</em></p>
+<p><em>This article was produced by Project Asymptote for educational purposes. The information presented is based on publicly available peer-reviewed literature and does not constitute policy advice.</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成政策建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento político.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह नीतिगत सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة سياسية.</em></p>
+<div class="disclaimer"><p>Este contenido es solo con fines informativos, basado en evidencia académica objetiva y análisis de datos. No pretende ser consejo médico, diagnóstico ni crítica política.</p></div>
+</article>
+
+<article id="content-hi" class="content-section" dir="ltr" lang="hi">
+<h1>शीर्षक प्रस्ताव</h1>
+<h1>एकाकी प्रतिभा या सामूहिक बुद्धि: "चयन और संकेंद्रण" द्वारा विज्ञान के विकासवादी पारिस्थितिकी तंत्र का विनाश</h1>
+<h1>तस्मानिया का सबक: "चयन और संकेंद्रण" प्रकार की विज्ञान नीति के समक्ष विकासवादी एवं संरचनात्मक सीमाएँ</h1>
+<h1>सामूहिक बुद्धि का लोप और वैज्ञानिक आधार का क्षरण: विकासवादी जीवविज्ञान के परिप्रेक्ष्य से "चयन और संकेंद्रण" का पुनर्मूल्यांकन</h1>
+<hr />
+<h2>प्रस्तावना: एकाकी प्रतिभा से अधिक महत्त्वपूर्ण है "सामूहिक बुद्धि"</h2>
+<p>विज्ञान में क्रांतिकारी प्रगति को प्रायः किसी एक असाधारण प्रतिभाशाली व्यक्ति की उपलब्धि के रूप में प्रस्तुत किया जाता है। किंतु विकासवादी जीवविज्ञान और सांस्कृतिक मानवविज्ञान से प्राप्त ज्ञान इस प्रचलित धारणा में मूलभूत संशोधन की माँग करता है। मानव की तकनीकी और बौद्धिक प्रगति का वास्तविक चालक व्यक्तिगत उत्कृष्टता नहीं, बल्कि समूह द्वारा ज्ञान का संचय और संचरण — अर्थात संचयी सांस्कृतिक विकास (cumulative cultural evolution) — रहा है [1,2]।</p>
+<p>Henrich ने 2004 के अपने गणितीय मॉडल में तस्मानिया द्वीप की घटना का विश्लेषण किया [1]। लगभग 12,000 वर्ष पूर्व ऑस्ट्रेलिया की मुख्य भूमि से पृथक हुए तस्मानिया के मूलनिवासी समूह (अनुमानित जनसंख्या लगभग 4,000) ने अस्थि-उपकरण निर्माण, शीत-प्रतिरोधी वस्त्र सिलाई, मत्स्य-कंटक द्वारा मत्स्य-आखेट, और हत्थेदार प्रस्तर-उपकरण जैसी अनेक तकनीकें खो दीं जिन्हें मुख्य भूमि के समूह बनाए और विकसित कर रहे थे। Henrich के मॉडल की परिकल्पना है कि प्रत्येक पीढ़ी के व्यक्ति पूर्ववर्ती पीढ़ी के सर्वाधिक दक्ष व्यक्ति का अनुकरण करने का प्रयास करते हैं, जिसमें एक प्रायिक विचलन <span class="math inline">\(\Delta\)</span> उत्पन्न होता है। जब समूह का आकार <span class="math inline">\(N\)</span> पर्याप्त रूप से बड़ा होता है, तो धनात्मक विचलन प्रदर्शित करने वाले व्यक्ति (अर्थात पूर्ववर्ती पीढ़ी से श्रेष्ठ कौशल अर्जित करने वाले व्यक्ति) के प्रकट होने की प्रायिकता बढ़ जाती है, और तकनीकी स्तर <span class="math inline">\(z\)</span> पीढ़ी-दर-पीढ़ी उन्नत होता जाता है। इसके विपरीत, जब <span class="math inline">\(N\)</span> एक संकट-सीमा से नीचे गिर जाता है, तो अनुकरण-त्रुटियों के संचय से तकनीक प्रत्येक पीढ़ी में क्षीण होती है और अंततः विलुप्त हो जाती है।</p>
+<span class="math display">\[P(\text{skill gain}) = 1 - \Phi\left(\frac{z_{\max} - \bar{z}}{\sigma}\right)\]</span>
+<p>यह प्रायिकता <span class="math inline">\(N\)</span> का वर्धमान फलन है, और समूह जितना बड़ा होता है, <span class="math inline">\(z_{\max}\)</span> को नवीनीकृत करने वाले व्यक्ति के प्रकट होने की संभावना उतनी ही अधिक होती है।</p>
+<p>Muthukrishna और Henrich ने इस ढाँचे को और विस्तारित करते हुए "सामूहिक मस्तिष्क (collective brain)" की अवधारणा प्रस्तुत की [3]। नवाचार का स्रोत व्यक्तिगत प्रतिभा नहीं, बल्कि सामाजिक नेटवर्क का आकार, संचरण की विश्वसनीयता (transmission fidelity), तथा सांस्कृतिक विविधता (cultural variance) — ये तीन कारक हैं। अर्थात, वैज्ञानिक खोजों सहित बौद्धिक नवाचार, बहुसंख्य मस्तिष्कों के परस्पर जुड़े नेटवर्क का एक उद्भूत गुणधर्म (emergent property) है।</p>
+<p>यह विकासवादी पूर्वधारणा विज्ञान नीति के लिए स्पष्ट निहितार्थ रखती है। बड़ी संख्या में शोधकर्ताओं की सतत भागीदारी और उनके बीच ज्ञान के आदान-प्रदान में सक्षम नेटवर्क का संरक्षण ही विज्ञान के संचयी विकास की अनिवार्य शर्त है। मुट्ठीभर "प्रतिभाशाली" व्यक्तियों पर संसाधनों का संकेंद्रण, सामूहिक मस्तिष्क के नोड संख्या <span class="math inline">\(N\)</span> के संकुचन के समतुल्य है, और यह तस्मानिया के तकनीकी ह्रास के समरूप परिणाम उत्पन्न कर सकता है।</p>
+<h2>विस्तार 1: उत्तरजीवी पूर्वाग्रह और संस्थागत संरचना की विसंगतियाँ</h2>
+<p>वर्तमान विज्ञान नीति के प्रारूपकार और संचालक अधिकांशतः कठोर प्रतिस्पर्धात्मक अनुदान-प्राप्ति की दौड़ में विजयी रहे "उत्तरजीवी" हैं। उनके नीतिगत निर्णयों में एक संरचनात्मक संज्ञानात्मक पूर्वाग्रह — उत्तरजीवी पूर्वाग्रह (survivorship bias) — अंतर्निहित है [4]।</p>
+<p>उत्तरजीवी पूर्वाग्रह वह व्यवस्थित अनुमान-विकृति है जो चयन प्रक्रिया से गुजरे हुए प्रतिदर्शों का ही अवलोकन करने और बाहर हुए प्रतिदर्शों की उपेक्षा करने से उत्पन्न होती है। वैज्ञानिक समुदाय में, टेन्योर प्राप्त और स्थिर अनुदान सुरक्षित कर चुके शोधकर्ता जब संस्थागत संरचना का निर्माण करते हैं, तो "मैं इस प्रतिस्पर्धा में सफल हुआ, अतः वर्तमान प्रतिस्पर्धात्मक प्रणाली कार्यक्षम है" — यह आगमनात्मक भ्रांति संस्थागत रूप ले लेती है। Alberts एवं सहलेखकों ने संयुक्त राज्य अमेरिका के जैव-चिकित्सा अनुसंधान में इसी प्रकार की संरचनात्मक समस्या को चिह्नित किया और तर्क दिया कि "अंतहीन तीव्र वृद्धि" की भ्रामक पूर्वधारणा ने एक ऐसी अस्थिर अतिप्रतिस्पर्धात्मक प्रणाली निर्मित की है जो सर्वाधिक प्रतिभाशाली छात्रों को भी शोध-वृत्ति से दूर करती है [5]।</p>
+<p>इस प्रतिस्पर्धात्मक प्रणाली का परिणाम तथाकथित "रिसती नलिका (leaky pipeline)" के रूप में दृष्टिगोचर होता है। डॉक्टरेट प्राप्ति से टेन्योर-ट्रैक शिक्षक-पद तक, और फिर टेन्योर प्राप्ति तक — प्रत्येक चरण में बड़ी संख्या में शोधकर्ता अपने वृत्तिक जीवन को जारी रखने का विकल्प त्याग देते हैं। Stephan ने विश्लेषण किया है कि विश्वविद्यालय जोखिम को बाह्य करने के साधन के रूप में अनियमित-रोजगार शिक्षकों का अनुपात बढ़ाते हैं और टेन्योर-प्राप्त शिक्षकों से भी बाह्य अनुदान से वेतन-वहन की अपेक्षा करते हैं [6]। इस छँटाई प्रक्रिया में जो शोधकर्ता बाहर होते हैं, वे अल्प-क्षमता वाले नहीं होते। प्रायः ऐसे व्यक्ति भी सम्मिलित होते हैं जिनमें उच्च संभाव्यता थी किंतु संरचनात्मक हानि (लिंग, प्रजाति, आर्थिक पृष्ठभूमि, अथवा केवल भाग्य की कमी) के कारण वे बाहर हो गए।</p>
+<p>सामूहिक मस्तिष्क मॉडल के परिप्रेक्ष्य में, यह "रिसाव" केवल व्यक्तिगत वृत्तिक समस्या नहीं है। नेटवर्क से प्रत्येक नोड के बाहर होने पर सामूहिक मस्तिष्क की संगणन-क्षमता अरेखीय रूप से घटती है। विशेष रूप से, भिन्न शोध-क्षेत्रों या पद्धतिगत परंपराओं के वाहक शोधकर्ताओं का बाहर होना सांस्कृतिक विविधता के लोप का द्योतक है और नवाचार की प्रायिकता को ही कम करता है। उत्तरजीवियों द्वारा रचित "और कठोर चयन" सामूहिक मस्तिष्क की क्षमता को और संकुचित करने वाला एक धनात्मक प्रतिपुष्टि पाश (positive feedback loop) निर्मित करता है।</p>
+<h2>विस्तार 2: जापान में "चयन और संकेंद्रण" तथा संरचनात्मक क्षरण</h2>
+<p>जापान की विज्ञान नीति इस संरचनात्मक समस्या का एक प्रतिनिधि उदाहरण प्रस्तुत करती है। 2004 में राष्ट्रीय विश्वविद्यालयों के निगमीकरण (incorporation) के पश्चात, जापान सरकार ने "चयन और संकेंद्रण" को विज्ञान नीति के मूल सिद्धांत के रूप में अपनाया है। इसका सारतत्त्व आधारभूत व्यय (प्रचालन अनुदान) की निरंतर कटौती और प्रतिस्पर्धात्मक अनुदान द्वारा उसके क्रमिक प्रतिस्थापन में निहित है।</p>
+<p>राष्ट्रीय विश्वविद्यालय निगमों का प्रचालन अनुदान, निगमीकरण के बाद से प्रायः प्रतिवर्ष लगभग 1% की दर से कटता रहा है, और वास्तविक शोध-आधार 20 वर्षों से क्रमशः क्षीण हो रहा है। इस कटौती की पूर्ति हेतु प्रतिस्पर्धात्मक अनुदान (वैज्ञानिक शोध अनुदान [काकेन-ही] आदि) में वृद्धि की गई, किंतु इसके संरचनात्मक परिणाम दो प्रकार के हैं। प्रथम, शोधकर्ताओं के समय का आवंटन स्वयं शोध से अनुदान-प्रस्ताव लेखन की ओर स्थानांतरित हो गया। द्वितीय, प्रतिस्पर्धात्मक अनुदान परियोजना-आधारित अल्पकालिक रोजगार को पूर्वनिर्धारित करता है, जिसके कारण अधिकांश युवा शोधकर्ता कार्यकाल-बद्ध पदों पर अटके रह गए हैं।</p>
+<p><em>The Lancet</em> में अप्रैल 2026 में प्रकाशित विमर्श "Structural erosion of epidemiology and Japan's next generation" ने इस नीति द्वारा उत्पन्न संरचनात्मक क्षरण का महामारी-विज्ञान के दृष्टिकोण से सूक्ष्म विश्लेषण प्रस्तुत किया है [7]। इस विमर्श के अनुसार, जापान के शीर्ष 10% उद्धृत शोधपत्रों का वैश्विक हिस्सा 2000 के दशक के आरंभ में चौथे स्थान से गिरकर 2023 में बारहवें स्थान पर आ गया है। यह गिरावट "चयन और संकेंद्रण" नीति के दीर्घकालिक परिणामों का एक लक्षण (symptom) है।</p>
+<p>महामारी-विज्ञान अनुसंधान के लिए स्वाभाविक रूप से दीर्घकालिक समूह-अध्ययन (cohort study) और सतत आँकड़ा-अवसंरचना आवश्यक है। किंतु अल्पकालिक प्रतिस्पर्धात्मक अनुदान पर निर्भर वर्तमान वित्तपोषण तंत्र ऐसे दीर्घकालिक अनुसंधान से मूलभूत रूप से असंगत है। उक्त विमर्श ने यह भी रेखांकित किया कि 40 वर्ष से कम आयु के अधिकांश युवा शोधकर्ता पाँच वर्ष से कम के कार्यकाल-बद्ध अनुबंधों में बंद हैं, और इस "विज्ञान के परियोजनाकरण (projectification of science)" से सतत ब्लॉक-ग्रांट व्यवस्था की ओर संक्रमण का प्रस्ताव किया है [7]।</p>
+<p>NISTEP की 'विज्ञान एवं प्रौद्योगिकी संकेतक 2025' भी इसी प्रवृत्ति की पुष्टि करती है। जापान की कुल शोधपत्र-संख्या विश्व में पाँचवें स्थान पर बनी हुई है, किंतु शीर्ष 10% शोधपत्रों में वह तेरहवें स्थान पर ही है, और गुणात्मक संकेतकों में ठहराव स्पष्ट है। सामूहिक मस्तिष्क मॉडल की शब्दावली में कहें तो, जापान की विज्ञान नीति ने नेटवर्क के नोड-संख्या <span class="math inline">\(N\)</span> और लिंक-घनत्व दोनों को 20 वर्षों तक कम करने की दिशा में कार्य किया है।</p>
+<h2>विस्तार 3: OECD देशों से तुलना और यूनाइटेड किंगडम का उच्च शिक्षा संकट</h2>
+<p>जापान की समस्या को अंतर्राष्ट्रीय संदर्भ में रखने पर उसकी विशिष्टता और सार्वभौमिकता दोनों उभरकर आती हैं।</p>
+<p>OECD देशों का समग्र अनुसंधान एवं विकास व्यय (GERD) 2024 में GDP के 2.6% पर रहा, जिसमें 73% उद्यम क्षेत्र का योगदान था। सरकारी अनुसंधान एवं विकास बजट (GBARD) में 2024 में अनेक क्षेत्रों में कटौती हुई, किंतु अपवाद थे रक्षा व्यय (+1.2%) और सामान्य विश्वविद्यालय आधारभूत निधि (General University Funds: +2.1%)। यह अंतिम मद ध्यान देने योग्य है — OECD के अधिकांश देश कम-से-कम विश्वविद्यालयों को आधारभूत निधि नाममात्र रूप से बनाए या मामूली रूप से बढ़ाए हुए हैं। जापान के प्रचालन अनुदान में प्रतिवर्ष कटौती जारी रहना OECD देशों में भी एक विशिष्ट नीतिगत चयन है।</p>
+<p>संयुक्त राज्य अमेरिका भी जैव-चिकित्सा अनुसंधान की दीर्घकालिकता को लेकर गंभीर संरचनात्मक समस्याओं से ग्रस्त है। जैसा कि Alberts एवं सहलेखकों ने 2014 में इंगित किया [5], NIH के शोध-अनुदान के वास्तविक मूल्य में संकुचन के बावजूद PhD धारकों की आपूर्ति बढ़ती रही, अनुदान-प्राप्ति दर में गिरावट और पोस्ट-डॉक्टरल शोधकर्ताओं का दीर्घकालिक ठहराव सामान्य स्थिति बन गई। तथापि, अमेरिका में NIH के R01 अनुदान जैसी अपेक्षाकृत दीर्घकालिक (सामान्यतः 5 वर्षीय) शोध-सहायता व्यवस्था विद्यमान है, साथ ही निजी प्रतिष्ठानों और परोपकारी संस्थाओं द्वारा पूरक वित्तपोषण स्रोत कार्यशील हैं, जो संरचनात्मक रूप से जापान से भिन्न है।</p>
+<p>अधिक गंभीर चेतावनी यूनाइटेड किंगडम का उदाहरण प्रस्तुत करता है। ब्रिटेन के विश्वविद्यालय पिछले कई दशकों से घरेलू छात्रों की शुल्क-राशि (£9,535, किंतु 2012 के वास्तविक मूल्य में लगभग £6,000 तक अवमूल्यित) की कमी को विदेशी छात्रों — विशेषतः चीन से आने वाले छात्रों — की उच्च शुल्क-आय से पूरा करने के वित्तीय मॉडल पर निर्भर रहे हैं। मैनचेस्टर विश्वविद्यालय में विदेशी छात्रों का 49.9% चीनी छात्र थे, ऐसा प्रतिवेदित किया गया है।</p>
+<p>किंतु भू-राजनीतिक तनाव में वृद्धि, चीन की घरेलू अर्थव्यवस्था में मंदी, विदेशी उपाधियों के मूल्य के प्रति संदेह का उदय, तथा ब्रिटिश सरकार द्वारा स्वयं अध्ययन-वीज़ा प्रतिबंधों को कड़ा करना (जैसे, जनवरी 2024 से लागू स्नातकोत्तर मास्टर-पाठ्यक्रम के छात्रों के परिवार-सहयात्रा पर प्रतिबंध) — इन सभी कारकों के संयोजन से यह वित्तीय मॉडल तीव्रता से ध्वस्त हो रहा है। 2024–25 शैक्षणिक वर्ष में ब्रिटेन में विदेशी छात्र-नामांकन पूर्व वर्ष की तुलना में 6% घटकर 685,565 हो गया, जो अब तक की सबसे बड़ी वार्षिक गिरावट थी। शिखर-काल (2022–23 शैक्षणिक वर्ष) की तुलना में यह 10% की कमी है।</p>
+<p>इसके परिणाम अत्यंत कठोर हैं। केवल 2024–25 वर्ष में 13,300 विश्वविद्यालय कर्मचारियों की छँटनी द्वारा नौकरी गई, और सेवानिवृत्ति-भत्ता व्यय पूर्व वर्ष की तुलना में 71% बढ़कर £303.3 मिलियन हो गया। तीन वर्षों के संचयी आँकड़े में लगभग 30,000 रोजगार समाप्त हुए हैं। रसेल ग्रुप के प्रतिष्ठित विश्वविद्यालय भी अपवाद नहीं हैं — एडिनबरा विश्वविद्यालय ने लगभग 1,800 और कार्डिफ़ विश्वविद्यालय ने 400 शिक्षकों की कटौती का प्रस्ताव दिया। उच्च शिक्षा कार्यालय (Office for Students) ने चेतावनी दी है कि 2025–26 तक ब्रिटेन के तीन-चौथाई विश्वविद्यालय घाटे में आ सकते हैं।</p>
+<p>ब्रिटेन का उदाहरण यह दर्शाता है कि आधारभूत सार्वजनिक वित्तपोषण की कमी को बाज़ार-तंत्र (विदेशी छात्रों की शुल्क-आय) से पूरा करने की नीति कितनी भंगुर है। भू-राजनीतिक उथल-पुथल या जनसांख्यिकीय परिवर्तन जैसे बाह्य आघातों के प्रति बाज़ार-निर्भर विश्वविद्यालय-वित्त अत्यंत संवेदनशील है। और शिक्षकों की सामूहिक छँटनी का अर्थ है सामूहिक मस्तिष्क के नोड्स का अपरिवर्तनीय लोप — एक बार विघटित हुए शोध-दल, विलुप्त हुए अंतर्निहित ज्ञान-तंत्र (tacit knowledge networks), बजट की बहाली होने पर भी सरलता से पुनर्निर्मित नहीं किए जा सकते।</p>
+<h2>उपसंहार: विज्ञान की दीर्घकालिकता की ओर</h2>
+<p>तस्मानिया के तकनीकी ह्रास से लेकर ब्रिटिश विश्वविद्यालयों में शिक्षकों की सामूहिक छँटनी तक — इस लेख में विश्लेषित सभी उदाहरणों में एक समान संरचना विद्यमान है। सामूहिक मस्तिष्क को गठित करने वाले नेटवर्क का आकार और संयोजन-घनत्व जब संकट-सीमा से नीचे गिरता है, तो ज्ञान का संचयी संग्रहण-प्रक्रम उलट जाती है और अपरिवर्तनीय क्षय आरंभ हो जाता है।</p>
+<p>"चयन और संकेंद्रण" इस स्वतःसिद्ध तथ्य पर आधारित है कि संसाधन सीमित हैं। किंतु संकेंद्रण की लागत अदृश्य होती है। बाहर हो चुके शोधकर्ता जो नवाचार उत्पन्न कर सकते थे, जो अंतरविषयक सहयोग निर्मित हो सकते थे, जो दीर्घकालिक समूह-अध्ययन बनाए रखे जा सकते थे — ये विलुप्त संभावनाएँ आँकड़ों में प्रकट नहीं होतीं और नीति-मूल्यांकन के दायरे में भी नहीं आतीं। उत्तरजीवी पूर्वाग्रह इसी अदृश्यता को संस्थागत रूप से पुनरुत्पादित करता है।</p>
+<p>विकासवादी जीवविज्ञान से प्राप्त ज्ञान यह संकेत करता है कि विज्ञान में क्रांतिकारी प्रगति "विविध और व्यापक शोधकर्ता-समुदाय की भूमि" को पूर्वशर्त मानती है [2,3]। विशिष्ट अल्पसंख्यकों पर अत्यधिक संसाधन-संकेंद्रण अल्पकालिक रूप से कुशल प्रतीत हो सकता है, किंतु यह सामूहिक मस्तिष्क के नोड-संख्या <span class="math inline">\(N\)</span> को संकुचित करता है और नवाचार के प्रायिकता-वितरण को ही वामावर्त स्थानांतरित कर देता है। जापान के शीर्ष 10% शोधपत्रों की रैंकिंग में गिरावट [7], ब्रिटेन का विश्वविद्यालय-संकट, अमेरिका के जैव-चिकित्सा अनुसंधान में अतिप्रतिस्पर्धा [5] — ये सभी एक ही संरचनात्मक तंत्र की भिन्न अभिव्यक्तियाँ हैं।</p>
+<p>विज्ञान नीति से अपेक्षित है कि "किस पर संकेंद्रण करें" से "नेटवर्क के आकार और विविधता को कैसे बनाए रखें" — इस प्रश्न की ओर दृष्टि-परिवर्तन हो। Lancet विमर्श [7] द्वारा प्रस्तावित ब्लॉक-ग्रांट व्यवस्था की ओर वापसी, टेन्योर-ब्रिज कार्यक्रम का सृजन, तथा नैदानिक अनुसंधान द्वि-पथ (dual track) की स्थापना — ये सभी इसी दिशा में ठोस उपचारात्मक उपाय हैं। विज्ञान का सतत विकास किसी प्रतिभा के प्रकट होने की प्रतीक्षा पर नहीं, बल्कि प्रतिभा के प्रकट होने में सक्षम भूमि के संरक्षण पर निर्भर है।</p>
+<hr />
+<h2>参考文献</h2>
+<ol>
+<li>Henrich J. Demography and cultural evolution: how adaptive cultural processes can produce maladaptive losses—the Tasmanian case. <em>Am Antiq</em>. 2004;69(2):197-214. DOI: <a href="https://doi.org/10.2307/4128416">10.2307/4128416</a></li>
+<li>Henrich J. <em>The Secret of Our Success: How Culture Is Driving Human Evolution, Domesticating Our Species, and Making Us Smarter</em>. Princeton, NJ: Princeton University Press; 2015. ISBN: 978-0691166858</li>
+<li>Muthukrishna M, Henrich J. Innovation in the collective brain. <em>Philos Trans R Soc Lond B Biol Sci</em>. 2016;371(1690):20150192. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/26926282/">26926282</a></li>
+<li>Loissel E. Beware survivorship bias in advice on science careers. <em>Nature</em>. 2021;598:373. DOI: <a href="https://doi.org/10.1038/d41586-021-02634-z">10.1038/d41586-021-02634-z</a></li>
+<li>Alberts B, Kirschner MW, Tilghman S, Varmus H. Rescuing US biomedical research from its systemic flaws. <em>Proc Natl Acad Sci U S A</em>. 2014;111(16):5773-5777. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/24733905/">24733905</a></li>
+<li>Stephan PE. <em>How Economics Shapes Science</em>. Cambridge, MA: Harvard University Press; 2012. ISBN: 978-0674049710</li>
+<li>Structural erosion of epidemiology and Japan's next generation. <em>Lancet</em>. 2026. DOI: <a href="https://doi.org/10.1016/S0140-6736(26)00644-6">10.1016/S0140-6736(26)00644-6</a></li>
+</ol>
+<hr />
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の政策の支持や反対を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、政策的助言を構成するものではありません。</em></p>
+<p><em>This article was produced by Project Asymptote for educational purposes. The information presented is based on publicly available peer-reviewed literature and does not constitute policy advice.</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成政策建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento político.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह नीतिगत सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة سياسية.</em></p>
+<div class="disclaimer"><p>यह सामग्री केवल सूचनात्मक उद्देश्यों के लिए है, जो वस्तुनिष्ठ शैक्षणिक साक्ष्य और डेटा विश्लेषण पर आधारित है। यह चिकित्सा सलाह, निदान या राजनीतिक आलोचना के रूप में अभिप्रेत नहीं है।</p></div>
+</article>
+
+<article id="content-ar" class="content-section" dir="rtl" lang="ar">
+<h1>عناوين مقترحة</h1>
+<h1>عزلة العبقري أم حكمة الجماعة: كيف تُدمِّر سياسة «الانتقاء والتركيز» النظام الإيكولوجي لتطوُّر العلم</h1>
+<h1>دروس تسمانيا: الحدود التطوُّرية والبنيوية التي تواجه سياسات «الانتقاء والتركيز» في مجال العلوم</h1>
+<h1>اندثار الذكاء الجمعي وتآكل البنية العلمية: إعادة مساءلة «الانتقاء والتركيز» من منظور البيولوجيا التطوُّرية</h1>
+<hr />
+<h2>المقدمة: حكمة الجماعة لا عبقرية الفرد المنعزل</h2>
+<p>كثيرًا ما تُروى القفزات العلمية الكبرى بوصفها إنجازات فردية لعباقرة استثنائيين. غير أن المعارف المستقاة من البيولوجيا التطوُّرية والأنثروبولوجيا الثقافية تفرض تصحيحًا جذريًّا لهذا التصوُّر السائد. إن القوة الدافعة وراء التقدُّم التقني والفكري للبشرية لم تكن تفوُّق الأفراد، بل تراكم المعرفة ونقلها ضمن الجماعات — أي ما يُعرف بالتطوُّر الثقافي التراكمي (cumulative cultural evolution) [1,2].</p>
+<p>حلَّل Henrich في نموذجه الرياضي عام 2004 حالة جزيرة تسمانيا [1]. فقد فقدت مجموعة السكان الأصليين في تسمانيا (التي قُدِّر تعدادها بنحو 4,000 نسمة)، والتي انعزلت عن البرِّ الأسترالي الرئيسي قبل نحو 12,000 سنة، تقنياتٍ متعددةً كانت المجموعات في البرِّ الرئيسي تحافظ عليها وتطوِّرها، منها: صناعة الأدوات العظمية، وخياطة الملابس الواقية من البرد، وصيد الأسماك بالصنارة، والأدوات الحجرية ذات المقابض. يفترض نموذج Henrich أن أفراد كل جيل حين يحاولون محاكاة أكثر أفراد الجيل السابق مهارةً، ينشأ انحرافٌ احتمالي <span class="math inline">\(\Delta\)</span>. فإذا كان حجم الجماعة <span class="math inline">\(N\)</span> كبيرًا بما يكفي، ارتفعت احتمالية ظهور أفراد يُبدون انحرافًا إيجابيًّا (أي يكتسبون مهارات تفوق الجيل السابق)، ويرتفع مستوى المهارة <span class="math inline">\(z\)</span> عبر الأجيال. وعلى العكس، حين ينخفض <span class="math inline">\(N\)</span> دون القيمة الحرجة، يتراكم خطأ المحاكاة جيلًا بعد جيل فتتدهور التقنيات وتندثر في نهاية المطاف.</p>
+<span class="math display">\[P(\text{skill gain}) = 1 - \Phi\left(\frac{z_{\max} - \bar{z}}{\sigma}\right)\]</span>
+<p>هذا الاحتمال دالة متزايدة في <span class="math inline">\(N\)</span>؛ فكلما كبُرت الجماعة ازدادت فرصة ظهور فرد يُحدِّث القيمة <span class="math inline">\(z_{\max}\)</span>.</p>
+<p>طوَّر Muthukrishna وHenrich هذا الإطار ليطرحا مفهوم «الدماغ الجمعي» (collective brain) [3]. ووفق هذا المفهوم، لا يكمن منبع الابتكار في عبقرية الأفراد، بل في ثلاثة عوامل: حجم الشبكة الاجتماعية، ودقة النقل (transmission fidelity)، والتنوُّع الثقافي (cultural variance). بعبارة أخرى، يُعَدُّ الابتكار الفكري — بما في ذلك الاكتشاف العلمي — خاصيةً ناشئة (emergent property) عن شبكة تتصل فيها أدمغة كثيرة بعضها ببعض.</p>
+<p>لهذه المقدمة التطوُّرية دلالاتٌ واضحة على السياسة العلمية: إن صون شبكةٍ يشارك فيها عدد كبير من الباحثين مشاركةً مستدامة ويتبادلون المعارف فيما بينهم هو الشرط الضروري للتقدُّم التراكمي للعلم. وتركيز الموارد على قلةٍ من «العباقرة» يُكافئ تقليص عدد العُقَد <span class="math inline">\(N\)</span> المكوِّنة للدماغ الجمعي، وقد يُفضي إلى نتائج مماثلة بنيويًّا لفقدان التقنيات في تسمانيا.</p>
+<h2>المحور الأول: انحياز الناجين ومَزالق التصميم المؤسسي</h2>
+<p>كثيرٌ ممن يصمِّمون السياسات العلمية الحالية ويديرونها هم أنفسهم «ناجون» اجتازوا سباق المنافسة الشرسة على التمويل التنافسي. وتنطوي أحكامهم السياساتية على انحيازٍ معرفي بنيوي — هو انحياز الناجين (survivorship bias) [4].</p>
+<p>يُعرَّف انحياز الناجين بأنه التشوُّه المنهجي في الاستدلال الناتج عن ملاحظة العيِّنات التي اجتازت عملية الانتقاء فحسب، مع تجاهل العيِّنات التي سقطت. في الوسط الأكاديمي، حين يتولَّى تصميمَ المنظومة باحثون حصلوا على التثبيت الوظيفي واستقرَّ تمويلهم، تتحوَّل المغالطة الاستقرائية «لقد نجوتُ أنا، إذن النظام التنافسي يعمل جيدًا» إلى ممارسة مؤسسية مُقنَّنة. وقد أشار Alberts وزملاؤه إلى مشكلات بنيوية مماثلة في البحث الطبي الحيوي بالولايات المتحدة، مُحاجِّين بأن الافتراض الخاطئ القائم على «نموٍّ سريع لا ينتهي» قد أنتج نظامًا تنافسيًّا مُفرطًا وغير مستدام يُبعد حتى ألمع الطلاب عن المسار البحثي [5].</p>
+<p>تتجلَّى عواقب هذا النظام التنافسي فيما يُعرف بـ«الأنبوب المتسرِّب» (leaky pipeline): في كل مرحلة من الحصول على الدكتوراه إلى الوظيفة القابلة للتثبيت ثم التثبيت الفعلي، يتخلَّى عدد كبير من الباحثين عن مواصلة مسيرتهم المهنية. وقد حلَّلت Stephan البنية التي تلجأ فيها الجامعات إلى تحويل المخاطر خارجيًّا عبر رفع نسبة أعضاء هيئة التدريس غير الدائمين، ومطالبة حتى الأساتذة المثبَّتين بتمويل رواتبهم من مصادر خارجية [6]. وما يُفقَد في عملية الغربلة هذه ليس الباحثين الأقل كفاءة بالضرورة، بل كثيرًا ما يشمل كفاءاتٍ ذات إمكانات عالية سقطت بسبب حرمان بنيوي (الجنس، أو العرق، أو الخلفية الاقتصادية، أو مجرد الحظ العاثر).</p>
+<p>في ضوء نموذج الدماغ الجمعي، لا يُعَدُّ هذا «التسرُّب» مجرد مشكلة مهنية فردية. فكلما سقطت عُقدة من الشبكة، تراجعت القدرة الحسابية للدماغ الجمعي تراجعًا لا خطيًّا. ويُمثِّل سقوط باحثين يحملون تقاليد بحثية ومنهجية مختلفة فقدانًا للتنوُّع الثقافي، ما يُقلِّص احتمال الابتكار ذاته. وهكذا فإن «الانتقاء الأشد صرامة» الذي يصمِّمه الناجون يُشكِّل حلقة تغذية راجعة موجبة تزيد من تقلُّص سعة الدماغ الجمعي.</p>
+<h2>المحور الثاني: سياسة «الانتقاء والتركيز» في اليابان والتآكل البنيوي</h2>
+<p>تُقدِّم السياسة العلمية اليابانية نموذجًا نمطيًّا لهذه المشكلة البنيوية. فمنذ تحويل الجامعات الوطنية إلى مؤسسات مستقلة قانونيًّا عام 2004، تبنَّت الحكومة اليابانية مبدأ «الانتقاء والتركيز» ركيزةً أساسية لسياستها العلمية. وجوهر هذا المبدأ هو الخفض المستمر للتمويل الأساسي (منح التشغيل) واستبداله تدريجيًّا بالتمويل التنافسي.</p>
+<p>خُفِضت منح تشغيل الجامعات الوطنية بمعدل يقارب 1% سنويًّا منذ التحويل إلى مؤسسات مستقلة، فتآكلت البنية البحثية الفعلية على مدى عشرين عامًا. وقد زِيد التمويل التنافسي (كمنح البحث العلمي «كاكِنهي» وغيرها) لتعويض هذا الخفض، لكن عواقبه البنيوية كانت مزدوجة: أولًا، تحوَّل توزيع وقت الباحثين من البحث ذاته إلى كتابة طلبات التمويل. ثانيًا، ولأن التمويل التنافسي يقوم على التوظيف قصير الأجل لكل مشروع، بات غالبية الباحثين الشباب محصورين في وظائف محددة المدة.</p>
+<p>حلَّلت دراسة نُشرت في <em>The Lancet</em> في أبريل 2026 بعنوان «Structural erosion of epidemiology and Japan's next generation» هذا التآكل البنيوي الناجم عن تلك السياسات من منظور علم الأوبئة تحليلًا دقيقًا [7]. ووفقًا لهذه الدراسة، تراجعت حصة اليابان العالمية من الأوراق البحثية ضمن أعلى 10% استشهادًا من المرتبة الرابعة في مطلع الألفية إلى المرتبة الثانية عشرة عام 2023. ويُعَدُّ هذا التراجع عَرَضًا (symptom) للعواقب طويلة الأمد لسياسة «الانتقاء والتركيز».</p>
+<p>يتطلب البحث الوبائي بطبيعته دراسات أتراب طويلة الأمد وبنيةً تحتية مستدامة للبيانات. بيد أن آلية تخصيص التمويل الحالية، القائمة على التمويل التنافسي قصير الأجل، تتعارض جوهريًّا مع هذا النوع من البحث طويل المدى. كما أشارت الدراسة إلى أن غالبية الباحثين الشباب دون الأربعين محصورون في عقود محددة المدة لا تتجاوز خمس سنوات، وأوصت بالتحوُّل من «تحويل العلم إلى مشاريع» (projectification of science) إلى منح شاملة مستدامة (block grants) [7].</p>
+<p>كما تؤكِّد «مؤشرات العلوم والتكنولوجيا 2025» الصادرة عن NISTEP الاتجاه ذاته: فبينما تحافظ اليابان على المرتبة الخامسة عالميًّا في إجمالي عدد الأوراق البحثية، فإنها لا تتعدى المرتبة الثالثة عشرة في أوراق أعلى 10% استشهادًا، مما يكشف عن ركود واضح في المؤشرات النوعية. وبمصطلحات نموذج الدماغ الجمعي، ظلت السياسة العلمية اليابانية تعمل طوال عشرين عامًا في اتجاه تقليص كلٍّ من عدد عُقَد الشبكة <span class="math inline">\(N\)</span> وكثافة روابطها.</p>
+<h2>المحور الثالث: المقارنة مع دول منظمة التعاون الاقتصادي والتنمية وأزمة التعليم العالي في المملكة المتحدة</h2>
+<p>حين تُوضع المشكلة اليابانية في سياقها الدولي، تتكشَّف خصوصيتها وشموليتها في آنٍ معًا.</p>
+<p>بلغ إجمالي الإنفاق على البحث والتطوير (GERD) في دول منظمة التعاون الاقتصادي والتنمية عام 2024 نحو 2.6% من الناتج المحلي الإجمالي، شكَّل قطاع الأعمال 73% منه. وقد خُفِضت الميزانيات الحكومية للبحث والتطوير (GBARD) في عام 2024 في معظم المجالات، باستثناء الإنفاق الدفاعي (+1.2%) والتمويل الأساسي العام للجامعات (General University Funds: +2.1%). وهذا البند الأخير جدير بالملاحظة — فمعظم دول المنظمة حافظت، اسميًّا على الأقل، على التمويل الأساسي للجامعات أو زادته زيادةً طفيفة. وتبرز حقيقة الخفض السنوي المتواصل لمنح التشغيل في اليابان بوصفها خيارًا سياساتيًّا استثنائيًّا حتى بين دول المنظمة.</p>
+<p>تعاني الولايات المتحدة أيضًا من مشكلات بنيوية خطيرة تتعلق باستدامة البحث الطبي الحيوي. فكما أشار Alberts وزملاؤه عام 2014 [5]، في ظل التقلُّص الفعلي لتمويل المعاهد الوطنية للصحة (NIH) مقابل استمرار تزايد أعداد حاملي الدكتوراه، باتت معدلات نجاح طلبات التمويل في انخفاض وبقاء الباحثين في مرحلة ما بعد الدكتوراه لفترات مطوَّلة ظاهرةً مزمنة. غير أن الولايات المتحدة تختلف بنيويًّا عن اليابان في وجود أُطُر دعم بحثي طويلة الأمد نسبيًّا (عادةً خمس سنوات) كمنح R01 من NIH، فضلًا عن مصادر تمويل تكميلية من المؤسسات الخاصة والعمل الخيري.</p>
+<p>أما التحذير الأشد خطورة فتقدِّمه التجربة البريطانية. اعتمدت الجامعات البريطانية على مدى عقود على نموذج مالي يسدُّ العجز في رسوم الطلاب المحليين (9,535 جنيه إسترليني، لكنها تآكلت بالقيمة الحقيقية إلى نحو 6,000 جنيه بأسعار 2012) من خلال الرسوم المرتفعة للطلاب الدوليين — ولا سيما الطلاب القادمين من الصين. وقد أُفيد بأن الطلاب الصينيين شكَّلوا 49.9% من الطلاب الدوليين في جامعة مانشستر.</p>
+<p>بيد أن تصاعد التوترات الجيوسياسية، وتباطؤ الاقتصاد الصيني المحلي، وتنامي التشكيك في قيمة الشهادات الأجنبية، فضلًا عن تشديد الحكومة البريطانية ذاتها لقيود تأشيرات الدراسة (كحظر اصطحاب عائلات طلاب الماجستير الذي دخل حيز التنفيذ في يناير 2024) — كل ذلك أسهم في انهيار سريع لهذا النموذج المالي. في العام الدراسي 2024–2025، انخفض عدد الطلاب الدوليين المسجَّلين في بريطانيا بنسبة 6% مقارنةً بالعام السابق ليبلغ 685,565 طالبًا، وهو أكبر انخفاض سنوي مُسجَّل. وبالمقارنة مع ذروة التسجيل (العام الدراسي 2022–2023)، بلغت نسبة التراجع 10%.</p>
+<p>جاءت العواقب وخيمة. ففي العام الدراسي 2024–2025 وحده، فقد 13,300 موظف جامعي وظائفهم عبر عمليات التسريح، وارتفعت نفقات مكافآت نهاية الخدمة بنسبة 71% مقارنة بالعام السابق لتبلغ 303.3 مليون جنيه إسترليني. وعلى مدى ثلاث سنوات، فُقد نحو 30,000 وظيفة. ولم تكن جامعات مجموعة راسل العريقة بمنأى عن ذلك؛ إذ اقترحت جامعة إدنبرة تقليص نحو 1,800 وظيفة أكاديمية، واقترحت جامعة كارديف تقليص 400 وظيفة. وحذَّرت هيئة الطلاب (Office for Students) من احتمال تحوُّل ثلاثة أرباع الجامعات البريطانية إلى عجز مالي بحلول العام الدراسي 2025–2026.</p>
+<p>ما تُظهره التجربة البريطانية هو هشاشة السياسات التي تسعى لتعويض نضوب التمويل العام الأساسي بآليات السوق (إيرادات رسوم الطلاب الدوليين). فالنموذج المالي الجامعي القائم على السوق شديد الهشاشة أمام الصدمات الخارجية كالتقلبات الجيوسياسية والتغيُّرات الديموغرافية. والتسريح الجماعي لأعضاء هيئة التدريس يعني فقدانًا لا رجعة فيه لعُقَد الدماغ الجمعي — فالفِرَق البحثية التي تُفكَّك وشبكات المعرفة الضمنية التي تتلاشى لا يمكن إعادة بنائها بسهولة حتى لو عاد التمويل إلى سابق عهده.</p>
+<h2>الخاتمة: نحو استدامة العلم</h2>
+<p>من فقدان التقنيات في تسمانيا إلى التسريح الجماعي لأعضاء هيئة التدريس في الجامعات البريطانية، تتقاسم الحالات التي استعرضها هذا المقال بنيةً مشتركة واحدة: حين ينخفض حجم الشبكة المكوِّنة للدماغ الجمعي وكثافة اتصالاتها دون قيمة حرجة، تنعكس عملية التراكم المعرفي ويبدأ تدهورٌ لا رجعة فيه.</p>
+<p>تستند سياسة «الانتقاء والتركيز» إلى حقيقة بديهية مفادها أن الموارد محدودة. غير أن كُلفة التركيز تظل خفية. فالابتكارات التي كان يمكن أن يُنتجها الباحثون الذين سقطوا، والتعاون بين التخصصات الذي كان يمكن أن يتشكَّل، ودراسات الأتراب طويلة الأمد التي كان يمكن الحفاظ عليها — كل هذه الخسائر لا تظهر في الإحصاءات ولا تخضع بسهولة للتقييم السياساتي. وانحياز الناجين هو ما يُعيد إنتاج هذا الإخفاء على نحو مؤسسي.</p>
+<p>ما تُشير إليه معارف البيولوجيا التطوُّرية هو أن القفزات العلمية الكبرى تفترض وجود «تُربة واسعة ومتنوِّعة من الباحثين» [2,3]. وقد يبدو التركيز المُفرط للموارد على قلة من الأفراد فعَّالًا على المدى القصير، لكنه يُقلِّص عدد عُقَد الدماغ الجمعي <span class="math inline">\(N\)</span> ويُزيح توزيع احتمال الابتكار نحو اليسار بأكمله. إن تراجع ترتيب اليابان في أوراق أعلى 10% استشهادًا [7]، وانهيار الجامعات البريطانية، والتنافسية المفرطة في البحث الطبي الحيوي الأمريكي [5] — كلها تجلِّيات مختلفة لآلية بنيوية واحدة.</p>
+<p>ما ينبغي أن تطرحه السياسة العلمية ليس سؤال «على مَن نركِّز؟» بل «كيف نحافظ على حجم الشبكة وتنوُّعها؟». إن العودة إلى المنح الشاملة (block grants)، وإنشاء برامج جسر التثبيت الوظيفي (tenure-bridge programmes)، وتطوير مسارات مزدوجة للبحث السريري — وهي التوصيات التي طرحتها دراسة <em>The Lancet</em> [7] — تُمثِّل جميعها وصفاتٍ عملية تسير في هذا الاتجاه. إن التقدُّم العلمي المستدام لا يتوقف على انتظار ظهور العباقرة، بل على صون التُّربة التي يمكن أن ينبُت فيها العباقرة.</p>
+<hr />
+<h2>参考文献</h2>
+<ol>
+<li>Henrich J. Demography and cultural evolution: how adaptive cultural processes can produce maladaptive losses—the Tasmanian case. <em>Am Antiq</em>. 2004;69(2):197-214. DOI: <a href="https://doi.org/10.2307/4128416">10.2307/4128416</a></li>
+<li>Henrich J. <em>The Secret of Our Success: How Culture Is Driving Human Evolution, Domesticating Our Species, and Making Us Smarter</em>. Princeton, NJ: Princeton University Press; 2015. ISBN: 978-0691166858</li>
+<li>Muthukrishna M, Henrich J. Innovation in the collective brain. <em>Philos Trans R Soc Lond B Biol Sci</em>. 2016;371(1690):20150192. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/26926282/">26926282</a></li>
+<li>Loissel E. Beware survivorship bias in advice on science careers. <em>Nature</em>. 2021;598:373. DOI: <a href="https://doi.org/10.1038/d41586-021-02634-z">10.1038/d41586-021-02634-z</a></li>
+<li>Alberts B, Kirschner MW, Tilghman S, Varmus H. Rescuing US biomedical research from its systemic flaws. <em>Proc Natl Acad Sci U S A</em>. 2014;111(16):5773-5777. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/24733905/">24733905</a></li>
+<li>Stephan PE. <em>How Economics Shapes Science</em>. Cambridge, MA: Harvard University Press; 2012. ISBN: 978-0674049710</li>
+<li>Structural erosion of epidemiology and Japan's next generation. <em>Lancet</em>. 2026. DOI: <a href="https://doi.org/10.1016/S0140-6736(26)00644-6">10.1016/S0140-6736(26)00644-6</a></li>
+</ol>
+<hr />
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の政策の支持や反対を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、政策的助言を構成するものではありません。</em></p>
+<p><em>This article was produced by Project Asymptote for educational purposes. The information presented is based on publicly available peer-reviewed literature and does not constitute policy advice.</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成政策建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento político.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह नीतिगत सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة سياسية.</em></p>
+<div class="disclaimer"><p>هذا المحتوى لأغراض إعلامية فقط، استناداً إلى أدلة أكاديمية موضوعية وتحليل بيانات. وهو غير مخصص كاستشارة طبية أو تشخيص أو نقد سياسي.</p></div>
+</article>
+
+<footer class="site-footer">
+  Project Asymptote &mdash; Bridging mathematics, data science, and public health.
+</footer>
+
+</div>
+
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+  const section = document.getElementById('content-' + lang);
+  const btn = document.querySelector('[data-lang="' + lang + '"]');
+  if (section) section.classList.add('active');
+  if (btn) btn.classList.add('active');
+  document.documentElement.lang = lang.split('-')[0];
+  // Re-render math in newly visible section.
+  if (typeof renderMathInElement !== 'undefined') {
+    renderMathInElement(section, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+  // Update URL hash.
+  history.replaceState(null, '', '#' + lang);
+}
+
+// Initialize from hash or default to 'ja'.
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = location.hash.slice(1);
+  const validLangs = ['ja', 'en', 'zh-Hans', 'es', 'hi', 'ar'];
+  switchLang(validLangs.includes(hash) ? hash : 'ja');
+});
+</script>
+</body>
+</html>
