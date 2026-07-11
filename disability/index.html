@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untitled</title>
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --accent: #2563eb;
+  --border: #e5e7eb;
+  --code-bg: #f3f4f6;
+  --max-w: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Serif", "Source Han Serif", "Georgia", serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.8;
+  padding: 2rem 1rem;
+}
+.container { max-width: var(--max-w); margin: 0 auto; }
+
+/* Language selector */
+.lang-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+.lang-btn {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px 4px 0 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--fg);
+  transition: all 0.15s;
+}
+.lang-btn:hover { background: var(--code-bg); }
+.lang-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Content sections */
+.content-section { display: none; }
+.content-section.active { display: block; }
+.content-section[dir="rtl"] { direction: rtl; text-align: right; }
+
+/* Typography */
+h1 { font-size: 1.8rem; margin: 1.5rem 0 1rem; line-height: 1.3; }
+h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.15rem; margin: 1.2rem 0 0.6rem; }
+p { margin: 0.8rem 0; }
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+[dir="rtl"] blockquote { border-left: none; border-right: 3px solid var(--accent); }
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+pre { background: var(--code-bg); padding: 1rem; overflow-x: auto; border-radius: 6px; margin: 1rem 0; }
+pre code { background: none; padding: 0; }
+table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.8rem; text-align: left; }
+[dir="rtl"] th, [dir="rtl"] td { text-align: right; }
+th { background: var(--code-bg); font-weight: 600; }
+a { color: var(--accent); }
+sup { font-size: 0.75em; }
+
+/* Math */
+.math.display { display: block; text-align: center; margin: 1.2rem 0; overflow-x: auto; }
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: 3rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: #999;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h1 { font-size: 1.4rem; }
+  body { padding: 1rem 0.75rem; }
+  .lang-btn { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<nav class="lang-selector" role="tablist" aria-label="Language">
+  <button class="lang-btn" data-lang="ja" role="tab" onclick="switchLang('ja')">日本語</button>
+  <button class="lang-btn" data-lang="en" role="tab" onclick="switchLang('en')">English</button>
+  <button class="lang-btn" data-lang="zh-Hans" role="tab" onclick="switchLang('zh-Hans')">简体中文</button>
+  <button class="lang-btn" data-lang="es" role="tab" onclick="switchLang('es')">Español</button>
+  <button class="lang-btn" data-lang="hi" role="tab" onclick="switchLang('hi')">हिन्दी</button>
+  <button class="lang-btn" data-lang="ar" role="tab" onclick="switchLang('ar')">العربية</button>
+</nav>
+
+<article id="content-ja" class="content-section" dir="ltr" lang="ja">
+<p>🧵 トリソミーの子は丁寧に埋葬された — 障害の人類史と「生産性」という暴力</p>
+<p>MPI研究所が約10,000体の古代人骨をスクリーニング。鉄器時代イベリア半島のダウン症児は全て副葬品付きで住居内に埋葬。排除ではなく包摂の証拠。</p>
+<p>2,500年後、T4作戦は「生産性のない命」を組織的に抹殺。80年後にやまゆり園事件。Oliverの社会モデル：「障害」は産業資本主義が発明した分類。</p>
+<p>ケア負担のデータ：ケアギバーの健康影響SMD=0.87。ASD児家庭の離婚率23.5% vs 対照群13.8%（RR≈1.70）。対照群は8歳以降リスク低下、ASD群は青年期まで高止まり。</p>
+<p>飛騨市長・都竹淳也は当事者家族として全国初の市立児童精神科クリニックを開設。乳幼児健診施設との併設でスティグマを構造的に除去。</p>
+<p>山海嘉之「強い社会とは、強い人間も弱い人間も一緒に暮らしていける社会」。鉄器時代の共同体はまさにそれだった。</p>
+<p>詳細 → https://projectasymptote.substack.com</p>
+<h1>Disability #PublicHealth #Epidemiology #Inclusion #ProjectAsymptote</h1>
+<div class="disclaimer"><p>本コンテンツは、客観的な学術的エビデンスとデータ分析に基づく情報提供のみを目的としています。医学的助言、診断、または政治的批評を意図するものではありません。</p></div>
+</article>
+
+<article id="content-en" class="content-section" dir="ltr" lang="en">
+<p>🧵 Children with trisomy were buried with care — disability in human history and the violence of "productivity"</p>
+<p>MPI screened ~10,000 ancient genomes. Iron Age Iberian children with Down syndrome were buried with grave goods inside dwellings — the highest burial honor. Evidence of inclusion, not exclusion.</p>
+<p>2,500 years later, Aktion T4 systematically killed "unproductive lives." 80 years after that, the Yamayuri-en attack. Oliver's social model: "disability" is a classification invented by industrial capitalism.</p>
+<p>Care burden data: caregiver health impact SMD=0.87. ASD family divorce rate 23.5% vs 13.8% controls (RR≈1.70). Control families see risk drop after age 8; ASD families don't.</p>
+<p>Hida City mayor Tsuzuku — whose son has severe intellectual disability + autism — opened Japan's first municipal child psychiatry clinic. Co-located with infant checkups to structurally eliminate stigma.</p>
+<p>Sankai: "A strong society is not one where only the strong survive. It's one where the strong and weak live together." Iron Age communities were strong precisely because they included diverse members.</p>
+<p>Full article → https://projectasymptote.substack.com</p>
+<h1>Disability #PublicHealth #Epidemiology #Inclusion #ProjectAsymptote</h1>
+<div class="disclaimer"><p>This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p></div>
+</article>
+
+<article id="content-zh-Hans" class="content-section" dir="ltr" lang="zh-Hans">
+<h1>三体综合征的孩子被妥善安葬了 — 人类残障史与"生产力"的暴力</h1>
+<hr />
+<h2>引言：排斥的谱系与包容的考古学证据</h2>
+<p>在日本神话中，蛭子（ヒルコ）是伊邪那岐与伊邪那美的第一个孩子，却因身体不完整而被放入芦苇舟中放逐（《古事记》《日本书纪》）。这一神话性的排斥，作为将残障视为"不洁"或"缺陷"而将其隔离于社会之外的意识形态原型，在东亚的文化无意识中沉淀了数千年。</p>
+<p>20世纪，这种排斥逻辑被制度化至国家层面。纳粹德国的T4行动（Aktion T4，1939-1941）以"不值得活的生命"（<em>lebensunwertes Leben</em>）为概念，对精神障碍者、智力障碍者和肢体障碍者实施了系统性的屠杀计划。尽管该计划于1941年被正式中止，但各地方机构的杀戮一直持续到战争结束，估计受害者人数达20万至35万人。T4行动充当了大屠杀的"预演" — 其毒气室技术和人员被直接转用于灭绝营。</p>
+<p>2016年7月26日，在神奈川县相模原市的残障者设施"津久井百合园"，前职员植松圣杀害了19名住院者，致伤26人。植松供述称"重度残障者没有活着的意义"。这一事件表明，T4行动的逻辑在80年后的日本社会中仍可被再生产。</p>
+<p>然而，考古学证据讲述了一个截然不同的故事。2024年，马克斯·普朗克进化人类学研究所的Rohrlach等人对约10,000具古代人骨进行了基因组筛查，鉴定出6例唐氏综合征（21三体）和1例爱德华氏综合征（18三体）[1]。值得关注的是集中于伊比利亚半岛铁器时代（公元前800-400年）的3例21三体和1例18三体的安葬方式。这些个体无一例外地伴有随葬品，并被安葬在住所内部 — 这是当时社会中最为隆重的安葬形式。</p>
+<span class="math display">\[P(\text{trisomy detection} \mid \text{ancient DNA}) = \frac{7}{N}, \quad N \approx 10{,}000\]</span>
+<p>这一检出概率远低于唐氏综合征的现代出生患病率（约 <span class="math inline">\(1/700\)</span>），反映的是古代DNA保存状态所施加的检测限制。重要的不是频率，而是所有被检出的病例都提供了包容而非排斥的证据。</p>
+<h2>展开1：资本主义"发明"了残障</h2>
+<p>将残障社会模型（social model of disability）体系化的Michael Oliver在其代表作《The Politics of Disablement》（1990）中论述道，"残障"这一概念本身就是工业资本主义的产物 [2]。</p>
+<p>Oliver的论点清晰明了。在工业革命前的农村经济中，劳动能够适应多样化的身体能力。无论是收获、畜牧还是手工业，都允许根据个人身体特征进行灵活的分工。然而，工厂制机械工业的引入强制推行了以"标准身体"为前提的劳动方式，将偏离这一标准的身体归类为"无法劳动"。这一分类正是现代意义上"残障"的起源。</p>
+<p>据WHO估计，全球约15%的人口（超过10亿人）有某种形式的残障 [6]。然而，这个"15%"的数字本身不过是对某一身体和认知标准的偏离测量。能力主义（ableism）是一种按"生产力"和"经济贡献"来排列人类价值的意识形态体系 — T4行动的"不值得活的生命"与百合园事件的"没有活着的意义"，都不过是这一逻辑的极端结果。</p>
+<p>铁器时代伊比利亚半岛的共同体没有以"生产力"来评价三体综合征的孩子 [1]。他们作为共同体的成员而生活，也作为共同体的成员而被安葬。将"残障"作为排斥依据的做法并非人类历史大部分时期的特征，而是工业资本主义以来极为晚近的现象。</p>
+<h2>展开2：照护负担的不可见化与性别结构</h2>
+<p>残障儿童的照护负担不成比例地集中于家庭 — 尤其是母亲身上，这一结构已被多项荟萃分析定量证实。Masefield等人2020年的荟萃分析（综合14项研究、23个估计值）将发育性残障儿童照护者的健康状况与对照组进行了比较，报告了如下效应量 [3]：</p>
+<span class="math display">\[\text{SMD} = 0.87 \quad (95\% \text{ CI: } 0.62 \text{--} 1.11)\]</span>
+<p>按Cohen标准，这一标准化均差属于大效应。照护者的健康状况比对照组约差一个标准差。鉴于这些照护者中绝大多数为母亲，这一数字构成了性别化健康差距的定量证据。</p>
+<p>对家庭结构的影响同样严重。Hartley等人2010年的研究比较了自闭症谱系障碍（ASD）儿童家庭与对照组的离婚率 [4]。</p>
+<span class="math display">\[\text{离婚率：ASD组} = 23.5\%, \quad \text{对照组} = 13.8\%\]</span>
+<span class="math display">\[\text{RR} = \frac{0.235}{0.138} \approx 1.70\]</span>
+<p>风险比1.70意味着ASD儿童家庭的离婚风险约为对照组的1.7倍。更值得注意的是时间模式：对照组在儿童8岁后离婚风险下降，而ASD组的离婚风险在整个青春期持续居高不下。这一发现表明，残障儿童的照护不是暂时的危机，而是慢性的结构性压力。</p>
+<p>在照护负担的极端结果中，存在残障儿童的亲子心中（filicide-suicide）现象。Coorg和Tournay分析了1982年至2010年的新闻报道，确认了26例残障儿童成为受害者的亲子心中案例 [5]。其中81%的受害儿童为男性，54%有自闭症诊断。30%的加害者有精神疾病报告。这些数字表明，公共支持的结构性缺失能够将最脆弱的家庭推向致命的结局。</p>
+<h2>展开3：飞驒市的实验 — 地方自治体的结构性干预</h2>
+<p>岐阜县飞驒市市长都竹�的也的次子患有重度智力残障和自闭症，他本人就是当事者家庭成员。都竹从自身经历出发，认识到发育性残障的早期发现和早期干预需要的不是个人努力而是社会的结构性应对，并将这一原则置于市政核心。</p>
+<p>飞驒市率先在全国开设了市立儿童精神科诊所。该诊所的设计融入了与Oliver社会模型相通的结构性巧思 [2]。诊所与婴幼儿健康检查设施设在同一栋建筑内，使家长无需经历"去精神科就诊"的心理障碍。这一将专业评估作为常规健检自然延伸的制度设计，旨在从结构上消除污名化。</p>
+<p>飞驒市还建设了日间支持设施、集体公寓和发育支援中心，构建了支持残障者终身社区生活的基础设施。这些政策是在自治体层面实践社会模型核心原则的案例 — 不依赖个人和家庭的"自助"，而是社会改变自身的结构，因为残障是社会障碍的问题，而非个人属性的问题。</p>
+<p>都竹在专栏文章《作为残障儿童的家长》中回顾了自己作为县政府职员从事重度身心残障者支持工作的原点体验，并写道：对弱势群体的支持是政治的最高优先事项，而自治体在全国率先推行的这些举措不过是刚刚站在起跑线上 [8]。</p>
+<h2>结语：把灯举得再高一些</h2>
+<p>铁器时代的伊比利亚半岛，三体综合征的孩子被安葬在住所内，伴有随葬品 [1]。2,500年后，T4行动系统性地抹杀了"没有生产力的生命"，其80年后发生了百合园事件。排斥的逻辑通过与工业资本主义"生产力"价值标准的结合而不断再生产 [2]。</p>
+<p>照护的结构性不平等已以数据的形式被可视化：<span class="math inline">\(\text{SMD} = 0.87\)</span> 的健康影响 [3]、1.70倍的离婚风险 [4]、以及26例亲子心中 [5]。这些数字所揭示的是，"共生"不是个人善意或宽容的问题，而是制度设计的问题。飞驒市的实验为这一制度设计提供了具体的答案。</p>
+<p>筑波大学的山海嘉之通过开发穿戴式机器人HAL（Hybrid Assistive Limb），反复阐述了这样的愿景 — 他的目标是建设一个"强大的社会"，而"强大的社会"绝不是只有强者才能生存的社会，而是强者与弱者能够共同生活的社会 [7]。这一定义与本文所追溯的历史和流行病学证据精确共鸣。铁器时代的共同体包容三体综合征的孩子，不是因为那个共同体"弱小"，恰恰因为它拥有包纳多样成员的结构，那个共同体才是"强大的"。</p>
+<p>1948年，海伦·凯勒在第二次访日时，在欢迎国民大会上如此说道 — "我所愿望的是，请将您们手中已有的灯火再举高一些，为看不见的人们照亮前行的道路"（收录于日本国立国会图书馆参考协作数据库）。凯勒所说的"灯"不是明眼人为盲人点燃的东西，而是每个人已经拥有的东西 — 只需再举高一点。在效率与生产力逻辑主导的社会中，举高灯火意味着拆除Oliver所论述的社会障碍，以制度承担起Masefield等人所可视化的照护不平等。</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Rohrlach AB, et al. Cases of trisomy 21 and trisomy 18 among historic and prehistoric individuals discovered from ancient DNA. <em>Nat Commun</em>. 2024;15:1294. DOI: <a href="https://doi.org/10.1038/s41467-024-45438-1">10.1038/s41467-024-45438-1</a></li>
+<li>Oliver M. <em>The Politics of Disablement</em>. London: Macmillan; 1990. ISBN: 978-0333432938</li>
+<li>Masefield SC, et al. The caregiver health effects of caring for young children with developmental disabilities: a meta-analysis. <em>Matern Child Health J</em>. 2020;24(5):561-574. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32048172/">32048172</a></li>
+<li>Hartley SL, et al. The relative risk and timing of divorce in families of children with an autism spectrum disorder. <em>J Fam Psychol</em>. 2010;24(4):449-457. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/20731491/">20731491</a></li>
+<li>Coorg R, Tournay A. Filicide-suicide involving children with disabilities. <em>J Child Neurol</em>. 2013;28(6):791-797. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/22826515/">22826515</a></li>
+<li>World Health Organization. <em>World Report on Disability 2011</em>. Geneva: WHO; 2011. ISBN: 978-92-4-156418-2</li>
+<li>山海嘉之. 访谈"诞生于控制论的机器人服装". <em>月刊正常化：残障者福祉</em>. 2006;26(301). 概括了该作者在公开演讲和采访中反复阐述的观点。</li>
+<li>都竹淳也. 作为残障儿童的家长（素描专栏）. 报纸专栏。</li>
+</ol>
+<hr />
+<p><em>This article was produced by Project Asymptote for educational purposes and does not aim to diagnose or treat any specific condition. The information presented is based on publicly available peer-reviewed literature and does not constitute medical advice.</em></p>
+<p><em>本记事はProject Asymptoteが制作した科学解説記事であり、特定の疾患の診断や治療を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、医学的助言を構成するものではありません。</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成医学建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento médico.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह चिकित्सा सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة طبية.</em></p>
+<div class="disclaimer"><p>本内容仅供参考，基于客观的学术证据和数据分析。本内容不构成医疗建议、诊断或政治评论。</p></div>
+</article>
+
+<article id="content-es" class="content-section" dir="ltr" lang="es">
+<h1>Los niños con trisomía fueron enterrados con esmero — Una historia humana de la discapacidad y la violencia de la "productividad"</h1>
+<hr />
+<h2>Introducción: Una genealogía de la exclusión y la evidencia arqueológica de la inclusión</h2>
+<p>En la mitología japonesa, Hiruko (蛭子) — el primer hijo de Izanagi e Izanami — fue puesto a la deriva en un bote de junco debido a su imperfección corporal (<em>Kojiki</em>, <em>Nihon Shoki</em>). Esta exclusión mitológica ha servido como arquetipo de la ideología que segrega la discapacidad como "impureza" o "deficiencia," sedimentándose en el inconsciente cultural de Asia Oriental durante miles de años.</p>
+<p>En el siglo XX, esta lógica de exclusión fue institucionalizada a escala nacional. El programa Aktion T4 del régimen nazi (1939–1941) fue una operación de exterminio sistemático dirigida contra personas con discapacidades psiquiátricas, intelectuales y físicas, bajo el concepto de "vida indigna de ser vivida" (<em>lebensunwertes Leben</em>). Aunque oficialmente suspendido en 1941, los asesinatos en instalaciones regionales continuaron hasta el final de la guerra, con un número estimado de víctimas de entre 200.000 y 350.000. Aktion T4 funcionó como un "ensayo general" del Holocausto: su tecnología de cámaras de gas y su personal fueron transferidos directamente a los campos de exterminio.</p>
+<p>El 26 de julio de 2016, en el centro de atención para personas con discapacidad Tsukui Yamayuri-en en Sagamihara, prefectura de Kanagawa, un exempleado llamado Satoshi Uematsu asesinó a 19 residentes e hirió a otros 26. Uematsu declaró que "las personas con discapacidad severa no tienen razón para vivir." Este incidente demostró que la lógica de Aktion T4 podía ser reproducida en la sociedad japonesa ochenta años después.</p>
+<p>Sin embargo, la evidencia arqueológica cuenta una historia completamente diferente. En 2024, Rohrlach y colaboradores del Instituto Max Planck de Antropología Evolutiva realizaron un cribado genómico de aproximadamente 10.000 restos óseos humanos antiguos e identificaron seis casos de síndrome de Down (trisomía 21) y un caso de síndrome de Edwards (trisomía 18) [1]. Especialmente notables son los tres casos de trisomía 21 y un caso de trisomía 18 procedentes de la Edad del Hierro en la Península Ibérica (800–400 a.C.). Cada uno de estos individuos fue enterrado con ajuar funerario y en el interior de viviendas — la práctica funeraria más honrosa de su sociedad.</p>
+<span class="math display">\[P(\text{trisomy detection} \mid \text{ancient DNA}) = \frac{7}{N}, \quad N \approx 10{,}000\]</span>
+<p>Esta probabilidad de detección es muy inferior a la prevalencia moderna al nacimiento del síndrome de Down (aproximadamente <span class="math inline">\(1/700\)</span>), lo que refleja los límites de detección impuestos por la preservación del ADN antiguo. Lo importante no es la frecuencia, sino el hecho de que todos los casos detectados proporcionaron evidencia de inclusión y no de exclusión.</p>
+<h2>Parte 1: El capitalismo inventó la "discapacidad"</h2>
+<p>Michael Oliver, quien sistematizó el modelo social de la discapacidad, argumentó en su obra fundamental <em>The Politics of Disablement</em> (1990) que el concepto mismo de "discapacidad" es un producto del capitalismo industrial [2].</p>
+<p>El argumento de Oliver es directo. En las economías agrarias preindustriales, el trabajo podía acomodar diversas capacidades físicas. La cosecha, la ganadería y la artesanía permitían divisiones flexibles del trabajo adaptadas a las características corporales individuales. Sin embargo, la introducción de la industria mecanizada fabril impuso un modo de trabajo basado en un "cuerpo estándar," clasificando los cuerpos que se desviaban de este estándar como "incapaces de trabajar." Esta clasificación es el origen de la "discapacidad" en su sentido moderno.</p>
+<p>Según estimaciones de la OMS, aproximadamente el 15% de la población mundial (más de mil millones de personas) vive con alguna forma de discapacidad [6]. Sin embargo, este "15%" no es más que una medición de la desviación respecto a un estándar físico y cognitivo particular. El capacitismo (ableism) — el sistema ideológico que jerarquiza el valor humano por "productividad" y "contribución económica" — subyace tanto al "vida indigna de ser vivida" de Aktion T4 como al "no tienen razón para vivir" del atacante de Yamayuri-en. Ambas son consecuencias extremas de la misma lógica.</p>
+<p>Las comunidades ibéricas de la Edad del Hierro no evaluaron a los niños con trisomía por su "productividad" [1]. Estos niños vivieron como miembros de sus comunidades y fueron enterrados como miembros de sus comunidades. El uso de la "discapacidad" como fundamento para la exclusión no es una característica de la mayor parte de la historia humana, sino un fenómeno muy reciente surgido con el capitalismo industrial.</p>
+<h2>Parte 2: La invisibilización de la carga de cuidado y su estructura de género</h2>
+<p>La concentración desproporcionada de la carga de cuidado de niños con discapacidad en las familias — y en las madres en particular — ha sido confirmada cuantitativamente por múltiples metaanálisis. El metaanálisis de Masefield y colaboradores de 2020 (sintetizando 23 estimaciones de 14 estudios) comparó el estado de salud de los cuidadores de niños con discapacidades del desarrollo con controles y reportó el siguiente tamaño del efecto [3]:</p>
+<span class="math display">\[\text{SMD} = 0.87 \quad (95\% \text{ CI: } 0.62 \text{--} 1.11)\]</span>
+<p>Esta diferencia de medias estandarizada se clasifica como un efecto grande según los criterios de Cohen. Los cuidadores mostraron resultados de salud aproximadamente una desviación estándar peores que los controles. Dado que la gran mayoría de estos cuidadores son madres, esta cifra constituye evidencia cuantitativa de una disparidad de salud generizada.</p>
+<p>El impacto en la estructura familiar es igualmente severo. El estudio de Hartley y colaboradores de 2010 comparó las tasas de divorcio entre familias de niños con trastorno del espectro autista (TEA) y controles [4].</p>
+<span class="math display">\[\text{Tasa de divorcio: grupo TEA} = 23.5\%, \quad \text{Grupo control} = 13.8\%\]</span>
+<span class="math display">\[\text{RR} = \frac{0.235}{0.138} \approx 1.70\]</span>
+<p>Una razón de riesgo de 1,70 significa que las familias de niños con TEA enfrentan aproximadamente 1,7 veces el riesgo de divorcio de los controles. Más notable aún es el patrón temporal: mientras que el riesgo de divorcio en las familias control disminuye después de que el niño alcanza los 8 años, en las familias con TEA permanece persistentemente elevado a lo largo de la adolescencia. Este hallazgo indica que el cuidado de un niño con discapacidad no es una crisis transitoria sino un estresor estructural crónico.</p>
+<p>En el extremo del continuo de la carga de cuidado se encuentra el filicidio-suicidio que involucra a niños con discapacidad. Coorg y Tournay analizaron noticias de 1982 a 2010 e identificaron 26 casos de filicidio-suicidio en los que niños con discapacidad fueron las víctimas [5]. De estos niños, el 81% eran varones y el 54% tenía un diagnóstico de autismo. Se reportó enfermedad mental en el 30% de los perpetradores. Estas cifras demuestran que las deficiencias estructurales en el apoyo público pueden empujar a las familias más vulnerables hacia desenlaces letales.</p>
+<h2>Parte 3: El experimento de Hida — Intervención estructural desde un gobierno municipal</h2>
+<p>Junya Tsuzuku, alcalde de la ciudad de Hida en la prefectura de Gifu, es él mismo padre de un segundo hijo con discapacidad intelectual severa y autismo. A partir de su propia experiencia, Tsuzuku reconoció que la detección y la intervención tempranas en las discapacidades del desarrollo requieren no esfuerzo individual sino una respuesta estructural de la sociedad, y situó este principio en el centro de su gobernanza municipal.</p>
+<p>Hida fue una de las primeras ciudades de Japón en establecer una clínica municipal de psiquiatría infantil. El diseño de la clínica incorpora innovaciones estructurales que resuenan con el modelo social de Oliver [2]. La clínica está ubicada dentro del mismo edificio que las instalaciones de revisión de salud infantil, creando un flujo en el que los padres no necesitan experimentar la barrera psicológica de "visitar una clínica psiquiátrica." Este sistema — en el que la evaluación especializada se accede como extensión natural de las revisiones de salud rutinarias — es una eliminación estructural intencional del estigma.</p>
+<p>Hida desarrolló además instalaciones de apoyo diurno, hogares grupales y un centro de apoyo al desarrollo, construyendo la infraestructura para la vida comunitaria de por vida de las personas con discapacidad. Estas medidas representan una implementación a nivel municipal del principio central del modelo social: en lugar de depender de la "autoayuda" de individuos y familias, es la sociedad la que debe cambiar sus estructuras — porque la discapacidad es un problema de barreras sociales, no de atributos individuales.</p>
+<p>En su columna periodística "Como padre de un niño con discapacidad," Tsuzuku reflexiona sobre su experiencia formativa trabajando en servicios de apoyo para personas con discapacidades físicas e intelectuales severas durante sus años como empleado del gobierno prefectural. Escribe que el apoyo a las personas en situaciones vulnerables es la prioridad máxima de la gobernanza, y que estas iniciativas municipales pioneras en el país representan apenas el punto de partida de ese compromiso [8].</p>
+<h2>Conclusión: Eleva tu lámpara un poco más alto</h2>
+<p>En la Edad del Hierro ibérica, los niños con trisomía fueron enterrados dentro de las viviendas con ajuar funerario [1]. Dos mil quinientos años después, Aktion T4 exterminó sistemáticamente las "vidas improductivas," y ochenta años después ocurrió el ataque de Yamayuri-en. La lógica de la exclusión se reproduce perpetuamente a través de su fusión con el estándar de "productividad" del capitalismo industrial [2].</p>
+<p>La desigualdad estructural del cuidado es visible en los datos: un impacto en la salud de <span class="math inline">\(\text{SMD} = 0.87\)</span> [3], un riesgo de divorcio 1,70 veces mayor [4] y 26 casos de filicidio-suicidio [5]. Lo que estos números demuestran es que la "coexistencia" no es una cuestión de buena voluntad individual o tolerancia, sino de diseño institucional. El experimento de Hida ofrece una respuesta concreta a ese desafío de diseño.</p>
+<p>Yoshiyuki Sankai, de la Universidad de Tsukuba, a través de su desarrollo del cíborg vestible HAL (Hybrid Assistive Limb), ha articulado repetidamente esta visión: su objetivo es construir una "sociedad fuerte" — y una "sociedad fuerte" no es en absoluto una en la que solo los fuertes puedan sobrevivir; es una en la que los fuertes y los débiles vivan juntos [7]. Esta definición resuena con precisión con la evidencia histórica y epidemiológica trazada en este artículo. Las comunidades de la Edad del Hierro que incluyeron a niños con trisomía no eran "débiles" por hacerlo. Eran "fuertes" precisamente porque poseían la estructura para abarcar a miembros diversos.</p>
+<p>En 1948, durante su segunda visita a Japón, Helen Keller se dirigió a una asamblea nacional de bienvenida: "Lo que pido es que eleven la lámpara que ya llevan un poco más alto, para que ilumine el camino de quienes no pueden ver" (documentado en la Base de Datos Colaborativa de Referencia de la Biblioteca Nacional de la Dieta de Japón). La "lámpara" de Keller no es algo que los videntes encienden para los ciegos. Es algo que todos ya poseen — solo necesita ser elevada un poco más. En una sociedad gobernada por la lógica de la eficiencia y la productividad, elevar la propia lámpara significa desmantelar las barreras sociales que Oliver teorizó y aceptar a través de las instituciones las desigualdades de cuidado que Masefield y colaboradores hicieron visibles.</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Rohrlach AB, et al. Cases of trisomy 21 and trisomy 18 among historic and prehistoric individuals discovered from ancient DNA. <em>Nat Commun</em>. 2024;15:1294. DOI: <a href="https://doi.org/10.1038/s41467-024-45438-1">10.1038/s41467-024-45438-1</a></li>
+<li>Oliver M. <em>The Politics of Disablement</em>. London: Macmillan; 1990. ISBN: 978-0333432938</li>
+<li>Masefield SC, et al. The caregiver health effects of caring for young children with developmental disabilities: a meta-analysis. <em>Matern Child Health J</em>. 2020;24(5):561-574. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32048172/">32048172</a></li>
+<li>Hartley SL, et al. The relative risk and timing of divorce in families of children with an autism spectrum disorder. <em>J Fam Psychol</em>. 2010;24(4):449-457. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/20731491/">20731491</a></li>
+<li>Coorg R, Tournay A. Filicide-suicide involving children with disabilities. <em>J Child Neurol</em>. 2013;28(6):791-797. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/22826515/">22826515</a></li>
+<li>World Health Organization. <em>World Report on Disability 2011</em>. Geneva: WHO; 2011. ISBN: 978-92-4-156418-2</li>
+<li>Sankai Y. Entrevista: "El traje robótico nacido de la cibernética." <em>Normalización Mensual: Bienestar para Personas con Discapacidad</em>. 2006;26(301). Síntesis de opiniones expresadas repetidamente por el autor en conferencias y entrevistas públicas.</li>
+<li>Tsuzuku J. Como padre de un niño con discapacidad (columna <em>Sobyō</em>). Columna periodística.</li>
+</ol>
+<hr />
+<p><em>This article was produced by Project Asymptote for educational purposes and does not aim to diagnose or treat any specific condition. The information presented is based on publicly available peer-reviewed literature and does not constitute medical advice.</em></p>
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の疾患の診断や治療を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、医学的助言を構成するものではありません。</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成医学建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento médico.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह चिकित्सा सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة طبية.</em></p>
+<div class="disclaimer"><p>Este contenido es solo con fines informativos, basado en evidencia académica objetiva y análisis de datos. No pretende ser consejo médico, diagnóstico ni crítica política.</p></div>
+</article>
+
+<article id="content-hi" class="content-section" dir="ltr" lang="hi">
+<h1>ट्राइसॉमी वाले बच्चों को सम्मानपूर्वक दफनाया गया — विकलांगता का मानव इतिहास और "उत्पादकता" की हिंसा</h1>
+<hr />
+<h2>प्रस्तावना: बहिष्करण की वंशावली और समावेशन के पुरातात्विक साक्ष्य</h2>
+<p>जापानी पौराणिक कथाओं में, हिरुको (蛭子) — इज़ानागी और इज़ानामी की पहली संतान — को शारीरिक अपूर्णता के कारण सरकंडे की नाव में बहा दिया गया था (<em>कोजिकी</em>, <em>निहोन शोकी</em>)। इस पौराणिक बहिष्करण ने विकलांगता को "अशुद्धता" या "दोष" के रूप में समाज से अलग करने की विचारधारा के आदिप्ररूप के रूप में हजारों वर्षों तक पूर्वी एशिया की सांस्कृतिक अचेतना में गहरी जड़ें जमाई हैं।</p>
+<p>बीसवीं शताब्दी में, इस बहिष्करण के तर्क को राष्ट्रीय स्तर पर संस्थागत बनाया गया। नाज़ी जर्मनी का एक्शन T4 कार्यक्रम (1939–1941) "जीवन के अयोग्य जीवन" (<em>lebensunwertes Leben</em>) की अवधारणा के तहत मानसिक, बौद्धिक और शारीरिक विकलांगता वाले व्यक्तियों को लक्षित करने वाला एक व्यवस्थित हत्या अभियान था। हालांकि 1941 में इसे आधिकारिक रूप से रोक दिया गया, क्षेत्रीय सुविधाओं में हत्याएं युद्ध के अंत तक जारी रहीं, और अनुमानित पीड़ितों की संख्या 200,000 से 350,000 तक पहुंची। एक्शन T4 ने होलोकॉस्ट की "ड्रेस रिहर्सल" के रूप में काम किया: इसकी गैस चैम्बर तकनीक और कर्मचारियों को सीधे विनाश शिविरों में स्थानांतरित कर दिया गया।</p>
+<p>26 जुलाई, 2016 को, कानागावा प्रान्त के सागामिहारा में त्सुकुई यामायुरी-एन देखभाल सुविधा में, एक पूर्व कर्मचारी सातोशी उएमात्सु ने 19 निवासियों की हत्या कर दी और 26 अन्य को घायल कर दिया। उएमात्सु ने कहा कि "गंभीर विकलांगता वाले लोगों के जीने का कोई कारण नहीं है।" इस घटना ने प्रदर्शित किया कि एक्शन T4 का तर्क अस्सी वर्ष बाद जापानी समाज में पुनरुत्पादित किया जा सकता है।</p>
+<p>फिर भी, पुरातात्विक साक्ष्य एक पूरी तरह से अलग कहानी बताते हैं। 2024 में, मैक्स प्लांक इंस्टीट्यूट फॉर इवोल्यूशनरी एंथ्रोपोलॉजी के Rohrlach और सहयोगियों ने लगभग 10,000 प्राचीन मानव अवशेषों का जीनोमिक स्क्रीनिंग किया और डाउन सिंड्रोम (ट्राइसॉमी 21) के छह मामले और एडवर्ड्स सिंड्रोम (ट्राइसॉमी 18) का एक मामला पहचाना [1]। विशेष रूप से उल्लेखनीय हैं आयरन एज इबेरिया (800–400 ईसा पूर्व) के तीन ट्राइसॉमी 21 और एक ट्राइसॉमी 18 व्यक्ति। इनमें से हर एक व्यक्ति को उपहारों के साथ और आवासों के भीतर दफनाया गया था — उनके समाज की सबसे सम्मानजनक दफन प्रथा।</p>
+<span class="math display">\[P(\text{trisomy detection} \mid \text{ancient DNA}) = \frac{7}{N}, \quad N \approx 10{,}000\]</span>
+<p>यह पता लगाने की संभावना डाउन सिंड्रोम की आधुनिक जन्म व्याप्ति (लगभग <span class="math inline">\(1/700\)</span>) से बहुत कम है, जो प्राचीन DNA संरक्षण की सीमाओं को दर्शाती है। महत्वपूर्ण बात आवृत्ति नहीं है, बल्कि यह तथ्य है कि पता चले हर मामले ने बहिष्करण के बजाय समावेशन का साक्ष्य प्रदान किया।</p>
+<h2>भाग 1: पूंजीवाद ने "विकलांगता" का आविष्कार किया</h2>
+<p>Michael Oliver, जिन्होंने विकलांगता के सामाजिक मॉडल को व्यवस्थित किया, ने अपनी मौलिक कृति <em>The Politics of Disablement</em> (1990) में तर्क दिया कि "विकलांगता" की अवधारणा स्वयं औद्योगिक पूंजीवाद की उपज है [2]।</p>
+<p>Oliver का तर्क स्पष्ट है। पूर्व-औद्योगिक कृषि अर्थव्यवस्थाओं में, श्रम विविध शारीरिक क्षमताओं को समायोजित कर सकता था। कटाई, पशुपालन और हस्तशिल्प सभी ने व्यक्तिगत शारीरिक विशेषताओं के अनुकूल लचीले श्रम विभाजन की अनुमति दी। हालांकि, कारखाना-आधारित यंत्रीकृत उद्योग की शुरूआत ने "मानक शरीर" पर आधारित श्रम पद्धति को थोपा, और इस मानक से विचलित शरीरों को "काम करने में असमर्थ" के रूप में वर्गीकृत किया। यह वर्गीकरण ही आधुनिक अर्थों में "विकलांगता" की उत्पत्ति है।</p>
+<p>WHO के अनुमान के अनुसार, विश्व की लगभग 15% जनसंख्या (एक अरब से अधिक लोग) किसी न किसी रूप में विकलांगता के साथ जीती है [6]। फिर भी, यह "15%" स्वयं एक विशेष शारीरिक और संज्ञानात्मक मानक से विचलन का माप मात्र है। सक्षमतावाद (ableism) — वह वैचारिक प्रणाली जो "उत्पादकता" और "आर्थिक योगदान" के आधार पर मानव मूल्य को श्रेणीबद्ध करती है — एक्शन T4 के "जीवन के अयोग्य जीवन" और यामायुरी-एन हमलावर के "जीने का कोई कारण नहीं" दोनों का आधार है। ये एक ही तर्क के चरम परिणाम हैं।</p>
+<p>आयरन एज इबेरियन समुदायों ने ट्राइसॉमी वाले बच्चों का मूल्यांकन उनकी "उत्पादकता" से नहीं किया [1]। ये बच्चे अपने समुदायों के सदस्यों के रूप में जिए और समुदायों के सदस्यों के रूप में दफनाए गए। बहिष्करण के आधार के रूप में "विकलांगता" का उपयोग मानव इतिहास के अधिकांश भाग की विशेषता नहीं है, बल्कि यह औद्योगिक पूंजीवाद के साथ उभरी एक अत्यंत हाल की घटना है।</p>
+<h2>भाग 2: देखभाल के बोझ की अदृश्यता और इसकी लैंगिक संरचना</h2>
+<p>विकलांग बच्चों की देखभाल का बोझ परिवारों — और विशेष रूप से माताओं — पर असंगत रूप से केंद्रित होने की संरचना को कई मेटा-विश्लेषणों द्वारा मात्रात्मक रूप से पुष्टि की गई है। Masefield और सहयोगियों के 2020 मेटा-विश्लेषण (14 अध्ययनों से 23 अनुमानों का संश्लेषण) ने विकासात्मक विकलांगता वाले बच्चों के देखभालकर्ताओं की स्वास्थ्य स्थिति की तुलना नियंत्रण समूह से की और निम्नलिखित प्रभाव आकार की रिपोर्ट दी [3]:</p>
+<span class="math display">\[\text{SMD} = 0.87 \quad (95\% \text{ CI: } 0.62 \text{--} 1.11)\]</span>
+<p>Cohen के मानदंडों के अनुसार यह मानकीकृत माध्य अंतर बड़े प्रभाव के रूप में वर्गीकृत है। देखभालकर्ताओं ने नियंत्रण समूह की तुलना में लगभग एक मानक विचलन खराब स्वास्थ्य परिणाम दिखाए। यह देखते हुए कि इन देखभालकर्ताओं में विशाल बहुमत माताओं का है, यह आंकड़ा लैंगिक स्वास्थ्य असमानता का मात्रात्मक साक्ष्य है।</p>
+<p>पारिवारिक संरचना पर प्रभाव भी उतना ही गंभीर है। Hartley और सहयोगियों के 2010 के अध्ययन ने ऑटिज्म स्पेक्ट्रम विकार (ASD) वाले बच्चों के परिवारों और नियंत्रण समूह के बीच तलाक दरों की तुलना की [4]।</p>
+<span class="math display">\[\text{तलाक दर: ASD समूह} = 23.5\%, \quad \text{नियंत्रण समूह} = 13.8\%\]</span>
+<span class="math display">\[\text{RR} = \frac{0.235}{0.138} \approx 1.70\]</span>
+<p>1.70 का जोखिम अनुपात का अर्थ है कि ASD वाले बच्चों के परिवारों को नियंत्रण समूह की तुलना में लगभग 1.7 गुना तलाक का जोखिम है। और भी उल्लेखनीय है समय का पैटर्न: जबकि नियंत्रण परिवारों में बच्चे के 8 वर्ष की आयु के बाद तलाक का जोखिम कम होता है, ASD परिवारों में यह किशोरावस्था भर लगातार ऊंचा बना रहता है। यह निष्कर्ष दर्शाता है कि विकलांग बच्चे की देखभाल एक क्षणिक संकट नहीं बल्कि एक दीर्घकालिक संरचनात्मक तनावकर्ता है।</p>
+<p>देखभाल बोझ की चरम सीमा पर विकलांग बच्चों से जुड़ा संतानहत्या-आत्महत्या (filicide-suicide) है। Coorg और Tournay ने 1982 से 2010 तक की समाचार रिपोर्टों का विश्लेषण किया और 26 ऐसे संतानहत्या-आत्महत्या के मामलों की पहचान की जिनमें विकलांग बच्चे पीड़ित थे [5]। इन बच्चों में 81% पुरुष थे और 54% में ऑटिज्म का निदान था। 30% अपराधियों में मानसिक बीमारी की सूचना थी। ये आंकड़े प्रदर्शित करते हैं कि सार्वजनिक सहायता में संरचनात्मक कमियां सबसे कमजोर परिवारों को घातक परिणामों की ओर धकेल सकती हैं।</p>
+<h2>भाग 3: हिदा शहर का प्रयोग — एक स्थानीय नगरपालिका द्वारा संरचनात्मक हस्तक्षेप</h2>
+<p>गिफू प्रान्त के हिदा शहर के महापौर जुन्या त्सुज़ुकु स्वयं एक ऐसे पिता हैं जिनका दूसरा बेटा गंभीर बौद्धिक विकलांगता और ऑटिज्म से ग्रस्त है। अपने स्वयं के अनुभव से, त्सुज़ुकु ने पहचाना कि विकासात्मक विकलांगताओं का शीघ्र पता लगाने और शीघ्र हस्तक्षेप के लिए व्यक्तिगत प्रयास नहीं बल्कि समाज की ओर से एक संरचनात्मक प्रतिक्रिया आवश्यक है, और उन्होंने इस सिद्धांत को अपने नगरपालिका शासन के केंद्र में रखा।</p>
+<p>हिदा जापान में नगरपालिका बाल मनोचिकित्सा क्लिनिक स्थापित करने वाले पहले शहरों में से एक बना। क्लिनिक का डिज़ाइन Oliver के सामाजिक मॉडल से गूंजने वाले संरचनात्मक नवाचारों को शामिल करता है [2]। क्लिनिक को शिशु स्वास्थ्य जांच सुविधा के साथ एक ही भवन में स्थापित किया गया है, जिससे माता-पिता को "मनोचिकित्सा क्लिनिक जाने" की मनोवैज्ञानिक बाधा का अनुभव नहीं होता। यह प्रणाली — जिसमें विशेषज्ञ मूल्यांकन नियमित स्वास्थ्य जांच के स्वाभाविक विस्तार के रूप में उपलब्ध होता है — कलंक का जानबूझकर किया गया संरचनात्मक उन्मूलन है।</p>
+<p>हिदा ने दिवा सहायता सुविधाएं, सामूहिक आवास और विकास सहायता केंद्र भी विकसित किए, विकलांग व्यक्तियों के आजीवन सामुदायिक जीवन के लिए बुनियादी ढांचा तैयार किया। ये उपाय सामाजिक मॉडल के मूल सिद्धांत का नगरपालिका स्तर पर कार्यान्वयन हैं: व्यक्तियों और परिवारों की "स्व-सहायता" पर निर्भर होने के बजाय, समाज को अपनी संरचनाएं बदलनी चाहिए — क्योंकि विकलांगता सामाजिक बाधाओं की समस्या है, व्यक्तिगत गुणों की नहीं।</p>
+<p>अपने समाचार पत्र कॉलम "एक विकलांग बच्चे के माता-पिता के रूप में" में, त्सुज़ुकु प्रान्तीय सरकारी कर्मचारी के रूप में गंभीर शारीरिक और बौद्धिक विकलांगता वाले व्यक्तियों के लिए सहायता सेवाओं में काम करने के अपने मूलभूत अनुभव पर चिंतन करते हैं। वे लिखते हैं कि कमजोर स्थिति में लोगों के लिए सहायता शासन की सर्वोच्च प्राथमिकता है, और ये देश में पहली नगरपालिका पहल उस प्रतिबद्धता के केवल प्रारंभ बिंदु हैं [8]।</p>
+<h2>निष्कर्ष: अपना दीपक थोड़ा और ऊंचा उठाओ</h2>
+<p>आयरन एज इबेरिया में, ट्राइसॉमी वाले बच्चों को आवासों के भीतर उपहारों के साथ दफनाया गया [1]। ढाई हजार साल बाद, एक्शन T4 ने "अनुत्पादक जीवन" को व्यवस्थित रूप से समाप्त कर दिया, और इसके अस्सी साल बाद यामायुरी-एन हमला हुआ। बहिष्करण का तर्क औद्योगिक पूंजीवाद के "उत्पादकता" मानक के साथ अपने संलयन के माध्यम से निरंतर पुनरुत्पादित होता है [2]।</p>
+<p>देखभाल की संरचनात्मक असमानता आंकड़ों में दिखाई देती है: <span class="math inline">\(\text{SMD} = 0.87\)</span> का स्वास्थ्य प्रभाव [3], 1.70 गुना तलाक जोखिम [4], और 26 संतानहत्या-आत्महत्या के मामले [5]। ये संख्याएं प्रदर्शित करती हैं कि "सह-अस्तित्व" व्यक्तिगत सद्भावना या सहिष्णुता का मामला नहीं बल्कि संस्थागत डिज़ाइन का मामला है। हिदा शहर का प्रयोग उस डिज़ाइन चुनौती का एक ठोस उत्तर प्रदान करता है।</p>
+<p>त्सुकुबा विश्वविद्यालय के योशियुकी सान्काई ने पहनने योग्य साइबोर्ग HAL (Hybrid Assistive Limb) के विकास के माध्यम से बार-बार यह दृष्टि व्यक्त की है: उनका लक्ष्य एक "मजबूत समाज" बनाना है — और "मजबूत समाज" कदापि वह नहीं है जिसमें केवल मजबूत ही जीवित रह सकें; यह वह है जिसमें मजबूत और कमजोर एक साथ रहें [7]। यह परिभाषा इस लेख में खोजे गए ऐतिहासिक और महामारी विज्ञान साक्ष्य के साथ सटीक रूप से प्रतिध्वनित होती है। आयरन एज के समुदायों ने ट्राइसॉमी वाले बच्चों को शामिल किया — इसलिए नहीं कि वे "कमजोर" थे, बल्कि इसलिए कि उनके पास विविध सदस्यों को समाहित करने की संरचना थी — ठीक इसीलिए वे "मजबूत" थे।</p>
+<p>1948 में, जापान की अपनी दूसरी यात्रा के दौरान, हेलेन केलर ने एक राष्ट्रीय स्वागत सभा में कहा: "मैं जो मांगती हूं वह यह है कि आप अपने हाथ में जो दीपक पहले से है उसे थोड़ा और ऊंचा उठाएं, ताकि वह उन लोगों के मार्ग को रोशन करे जो देख नहीं सकते" (जापान के राष्ट्रीय डाइट पुस्तकालय सहयोगी संदर्भ डेटाबेस में प्रलेखित)। केलर का "दीपक" वह नहीं है जो देखने वाले अंधों के लिए जलाते हैं। यह वह है जो हर कोई पहले से रखता है — इसे बस थोड़ा और ऊंचा उठाने की जरूरत है। दक्षता और उत्पादकता के तर्क से शासित समाज में, अपना दीपक ऊंचा उठाने का अर्थ है Oliver द्वारा सिद्धांतित सामाजिक बाधाओं को हटाना और Masefield और सहयोगियों द्वारा दृश्यमान की गई देखभाल असमानताओं को संस्थाओं के माध्यम से स्वीकार करना।</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Rohrlach AB, et al. Cases of trisomy 21 and trisomy 18 among historic and prehistoric individuals discovered from ancient DNA. <em>Nat Commun</em>. 2024;15:1294. DOI: <a href="https://doi.org/10.1038/s41467-024-45438-1">10.1038/s41467-024-45438-1</a></li>
+<li>Oliver M. <em>The Politics of Disablement</em>. London: Macmillan; 1990. ISBN: 978-0333432938</li>
+<li>Masefield SC, et al. The caregiver health effects of caring for young children with developmental disabilities: a meta-analysis. <em>Matern Child Health J</em>. 2020;24(5):561-574. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32048172/">32048172</a></li>
+<li>Hartley SL, et al. The relative risk and timing of divorce in families of children with an autism spectrum disorder. <em>J Fam Psychol</em>. 2010;24(4):449-457. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/20731491/">20731491</a></li>
+<li>Coorg R, Tournay A. Filicide-suicide involving children with disabilities. <em>J Child Neurol</em>. 2013;28(6):791-797. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/22826515/">22826515</a></li>
+<li>World Health Organization. <em>World Report on Disability 2011</em>. Geneva: WHO; 2011. ISBN: 978-92-4-156418-2</li>
+<li>Sankai Y. साक्षात्कार: "साइबरनिक्स से जन्मा रोबोट सूट". <em>मासिक सामान्यीकरण: विकलांग व्यक्तियों का कल्याण</em>. 2006;26(301). लेखक द्वारा सार्वजनिक व्याख्यानों और साक्षात्कारों में बार-बार व्यक्त विचारों का सारांश।</li>
+<li>Tsuzuku J. एक विकलांग बच्चे के माता-पिता के रूप में (<em>सोब्यो</em> कॉलम). समाचार पत्र कॉलम।</li>
+</ol>
+<hr />
+<p><em>This article was produced by Project Asymptote for educational purposes and does not aim to diagnose or treat any specific condition. The information presented is based on publicly available peer-reviewed literature and does not constitute medical advice.</em></p>
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の疾患の診断や治療を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、医学的助言を構成するものではありません。</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成医学建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento médico.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह चिकित्सा सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة طبية.</em></p>
+<div class="disclaimer"><p>यह सामग्री केवल सूचनात्मक उद्देश्यों के लिए है, जो वस्तुनिष्ठ शैक्षणिक साक्ष्य और डेटा विश्लेषण पर आधारित है। यह चिकित्सा सलाह, निदान या राजनीतिक आलोचना के रूप में अभिप्रेत नहीं है।</p></div>
+</article>
+
+<article id="content-ar" class="content-section" dir="rtl" lang="ar">
+<h1>دُفن أطفال التثلث الصبغي بعناية — تاريخ الإعاقة البشري وعنف "الإنتاجية"</h1>
+<hr />
+<h2>المقدمة: أنساب الإقصاء والأدلة الأثرية على الاحتواء</h2>
+<p>في الأساطير اليابانية، أُلقي هيروكو (蛭子) — الطفل الأول لإيزاناغي وإيزانامي — في قارب من القصب بسبب عدم اكتمال جسده (<em>كوجيكي</em>، <em>نيهون شوكي</em>). شكّل هذا الإقصاء الأسطوري نموذجاً أولياً لأيديولوجية عزل الإعاقة باعتبارها "نجاسة" أو "نقصاً"، وترسّخ في اللاوعي الثقافي لشرق آسيا على مدى آلاف السنين.</p>
+<p>في القرن العشرين، تمأسس منطق الإقصاء هذا على المستوى الوطني. كان برنامج أكسيون تي4 (Aktion T4, 1939–1941) في ألمانيا النازية عملية قتل منهجية استهدفت الأشخاص ذوي الإعاقات النفسية والذهنية والجسدية تحت مفهوم "الحياة غير الجديرة بالعيش" (<em>lebensunwertes Leben</em>). رغم إيقافه رسمياً عام 1941، استمر القتل في المرافق الإقليمية حتى نهاية الحرب، بعدد ضحايا يُقدّر بين 200,000 و350,000 شخص. عمل برنامج تي4 بمثابة "بروفة" للمحرقة: نُقلت تقنيات غرف الغاز وأفرادها مباشرةً إلى معسكرات الإبادة.</p>
+<p>في 26 يوليو 2016، في مرفق رعاية ذوي الإعاقة تسوكوي يامايوري-إن في ساغاميهارا بمحافظة كاناغاوا، قتل موظف سابق يُدعى ساتوشي أويماتسو 19 مقيماً وأصاب 26 آخرين. صرّح أويماتسو بأن "الأشخاص ذوي الإعاقة الشديدة ليس لديهم سبب للعيش." أظهرت هذه الحادثة أن منطق أكسيون تي4 يمكن إعادة إنتاجه في المجتمع الياباني بعد ثمانين عاماً.</p>
+<p>غير أن الأدلة الأثرية تروي قصة مختلفة تماماً. في عام 2024، أجرى Rohrlach وزملاؤه في معهد ماكس بلانك للأنثروبولوجيا التطورية فحصاً جينومياً لحوالي 10,000 بقايا بشرية قديمة وحدّدوا ست حالات من متلازمة داون (التثلث الصبغي 21) وحالة واحدة من متلازمة إدواردز (التثلث الصبغي 18) [1]. الجدير بالاهتمام بشكل خاص هم ثلاثة أفراد بالتثلث الصبغي 21 وفرد واحد بالتثلث الصبغي 18 من العصر الحديدي في شبه الجزيرة الأيبيرية (800–400 قبل الميلاد). دُفن كل فرد من هؤلاء مع مقتنيات جنائزية وداخل المساكن — وهي أكثر ممارسات الدفن تكريماً في مجتمعهم.</p>
+<span class="math display">\[P(\text{trisomy detection} \mid \text{ancient DNA}) = \frac{7}{N}, \quad N \approx 10{,}000\]</span>
+<p>هذا الاحتمال للكشف أقل بكثير من معدل انتشار متلازمة داون عند الولادة في العصر الحديث (حوالي <span class="math inline">\(1/700\)</span>)، مما يعكس حدود الكشف التي يفرضها حفظ الحمض النووي القديم. المهم ليس التكرار بل حقيقة أن كل حالة مكتشفة قدّمت دليلاً على الاحتواء لا الإقصاء.</p>
+<h2>الجزء الأول: الرأسمالية اخترعت "الإعاقة"</h2>
+<p>جادل مايكل أوليفر، الذي نظّم النموذج الاجتماعي للإعاقة، في عمله التأسيسي <em>The Politics of Disablement</em> (1990) بأن مفهوم "الإعاقة" ذاته هو نتاج الرأسمالية الصناعية [2].</p>
+<p>حجة أوليفر واضحة ومباشرة. في الاقتصادات الزراعية قبل الصناعية، كان العمل قادراً على استيعاب قدرات جسدية متنوعة. سمحت الزراعة ورعاية الماشية والحرف اليدوية بتقسيم مرن للعمل يتكيف مع الخصائص الجسدية الفردية. لكن إدخال الصناعة الميكانيكية القائمة على المصانع فرض نمط عمل يفترض "جسداً معيارياً"، مصنّفاً الأجساد التي تنحرف عن هذا المعيار بأنها "غير قادرة على العمل." هذا التصنيف هو أصل "الإعاقة" بمعناها الحديث.</p>
+<p>وفقاً لتقديرات منظمة الصحة العالمية، يعيش حوالي 15% من سكان العالم (أكثر من مليار شخص) مع شكل من أشكال الإعاقة [6]. غير أن هذه "15%" ليست سوى قياس للانحراف عن معيار جسدي ومعرفي معين. القدرتية (ableism) — النظام الأيديولوجي الذي يرتّب القيمة البشرية حسب "الإنتاجية" و"المساهمة الاقتصادية" — يكمن وراء كل من "الحياة غير الجديرة بالعيش" في أكسيون تي4 و"ليس لديهم سبب للعيش" لمهاجم يامايوري-إن. كلاهما نتيجتان متطرفتان لنفس المنطق.</p>
+<p>لم تُقيّم مجتمعات العصر الحديدي الأيبيرية الأطفال ذوي التثلث الصبغي بناءً على "إنتاجيتهم" [1]. عاش هؤلاء الأطفال كأعضاء في مجتمعاتهم ودُفنوا كأعضاء في مجتمعاتهم. استخدام "الإعاقة" كأساس للإقصاء ليس سمة من سمات معظم التاريخ البشري، بل هو ظاهرة حديثة جداً نشأت مع الرأسمالية الصناعية.</p>
+<h2>الجزء الثاني: إخفاء عبء الرعاية وبنيته الجندرية</h2>
+<p>تم تأكيد التركيز غير المتناسب لعبء رعاية الأطفال ذوي الإعاقة على الأسر — والأمهات بشكل خاص — كمياً بواسطة تحليلات تلوية متعددة. قارن التحليل التلوي لـ Masefield وزملائه عام 2020 (بتجميع 23 تقديراً من 14 دراسة) الحالة الصحية لمقدمي الرعاية لأطفال ذوي إعاقات نمائية مع مجموعات ضابطة وأفاد بحجم الأثر التالي [3]:</p>
+<span class="math display">\[\text{SMD} = 0.87 \quad (95\% \text{ CI: } 0.62 \text{--} 1.11)\]</span>
+<p>يُصنّف هذا الفرق المعياري للمتوسط كأثر كبير وفقاً لمعايير كوهين. أظهر مقدمو الرعاية نتائج صحية أسوأ بانحراف معياري واحد تقريباً مقارنة بالمجموعة الضابطة. بالنظر إلى أن الغالبية العظمى من مقدمي الرعاية هؤلاء هم أمهات، يشكّل هذا الرقم دليلاً كمياً على تفاوت صحي مبني على الجندر.</p>
+<p>التأثير على بنية الأسرة لا يقل خطورة. قارنت دراسة Hartley وزملائه عام 2010 معدلات الطلاق بين أسر أطفال اضطراب طيف التوحد (ASD) والمجموعات الضابطة [4].</p>
+<span class="math display">\[\text{معدل الطلاق: مجموعة ASD} = 23.5\%, \quad \text{المجموعة الضابطة} = 13.8\%\]</span>
+<span class="math display">\[\text{RR} = \frac{0.235}{0.138} \approx 1.70\]</span>
+<p>تعني نسبة الخطر 1.70 أن أسر أطفال ASD تواجه خطر طلاق أعلى بحوالي 1.7 مرة مقارنة بالمجموعة الضابطة. والأكثر لفتاً للانتباه هو النمط الزمني: بينما ينخفض خطر الطلاق في الأسر الضابطة بعد بلوغ الطفل 8 سنوات، يظل مرتفعاً باستمرار طوال فترة المراهقة في أسر ASD. يشير هذا إلى أن رعاية طفل ذي إعاقة ليست أزمة عابرة بل ضاغط هيكلي مزمن.</p>
+<p>في أقصى طرف عبء الرعاية يقع قتل الأبناء-الانتحار (filicide-suicide) الذي يشمل أطفالاً ذوي إعاقة. حلّل Coorg وTournay التقارير الإخبارية من 1982 إلى 2010 وحدّدا 26 حالة قتل أبناء-انتحار كان ضحاياها أطفالاً ذوي إعاقة [5]. من بين هؤلاء الأطفال، كان 81% ذكوراً و54% لديهم تشخيص بالتوحد. أُبلغ عن مرض نفسي لدى 30% من الجناة. تُظهر هذه الأرقام أن القصور الهيكلي في الدعم العام يمكن أن يدفع الأسر الأكثر ضعفاً نحو نتائج مميتة.</p>
+<h2>الجزء الثالث: تجربة مدينة هيدا — تدخل هيكلي من بلدية محلية</h2>
+<p>جونيا تسوزوكو، رئيس بلدية مدينة هيدا في محافظة غيفو، هو نفسه والد لابن ثانٍ يعاني من إعاقة ذهنية شديدة وتوحد. انطلاقاً من تجربته الخاصة، أدرك تسوزوكو أن الكشف المبكر والتدخل المبكر في الإعاقات النمائية يتطلبان لا جهداً فردياً بل استجابة هيكلية من المجتمع، ووضع هذا المبدأ في صميم حوكمته البلدية.</p>
+<p>كانت هيدا من أوائل البلديات في اليابان التي أنشأت عيادة بلدية للطب النفسي للأطفال. يتضمن تصميم العيادة ابتكارات هيكلية تتوافق مع النموذج الاجتماعي لأوليفر [2]. تقع العيادة في نفس المبنى مع مرفق الفحص الصحي للرضع، مما يخلق مساراً لا يحتاج فيه الآباء إلى تجربة الحاجز النفسي المتمثل في "زيارة عيادة نفسية." هذا النظام — الذي يُتاح فيه التقييم المتخصص كامتداد طبيعي للفحوصات الصحية الروتينية — هو إزالة هيكلية متعمدة للوصمة.</p>
+<p>كما طوّرت هيدا مرافق دعم نهارية ودور سكنية جماعية ومركزاً لدعم النمو، بانيةً البنية التحتية للحياة المجتمعية مدى الحياة للأشخاص ذوي الإعاقة. تمثّل هذه التدابير تطبيقاً للمبدأ الجوهري للنموذج الاجتماعي على مستوى البلدية: بدلاً من الاعتماد على "المساعدة الذاتية" للأفراد والأسر، يجب على المجتمع أن يغيّر هياكله — لأن الإعاقة مشكلة حواجز اجتماعية لا سمات فردية.</p>
+<p>في عموده الصحفي "بصفتي والداً لطفل ذي إعاقة"، يتأمل تسوزوكو في تجربته التكوينية خلال عمله كموظف حكومي في المحافظة في خدمات دعم الأشخاص ذوي الإعاقات الجسدية والذهنية الشديدة. يكتب أن دعم الأشخاص في الأوضاع الهشة هو الأولوية القصوى للحوكمة، وأن مبادرات البلدية الرائدة على مستوى البلاد هذه لا تمثل سوى نقطة البداية لذلك الالتزام [8].</p>
+<h2>الخاتمة: ارفع مصباحك أعلى قليلاً</h2>
+<p>في العصر الحديدي الأيبيري، دُفن أطفال التثلث الصبغي داخل المساكن مع مقتنيات جنائزية [1]. بعد ألفين وخمسمائة عام، أباد أكسيون تي4 "الأرواح غير المنتجة" بشكل منهجي، وبعد ثمانين عاماً وقع هجوم يامايوري-إن. يُعاد إنتاج منطق الإقصاء باستمرار من خلال اندماجه مع معيار "الإنتاجية" للرأسمالية الصناعية [2].</p>
+<p>اللامساواة الهيكلية في الرعاية ظاهرة في البيانات: تأثير صحي بقيمة <span class="math inline">\(\text{SMD} = 0.87\)</span> [3]، وخطر طلاق أعلى بـ 1.70 مرة [4]، و26 حالة قتل أبناء-انتحار [5]. ما تُظهره هذه الأرقام هو أن "التعايش" ليس مسألة حسن نية فردية أو تسامح، بل مسألة تصميم مؤسسي. تقدّم تجربة هيدا إجابة ملموسة لتحدي التصميم هذا.</p>
+<p>يوشيوكي سانكاي من جامعة تسوكوبا، من خلال تطويره للسايبورغ القابل للارتداء HAL (Hybrid Assistive Limb)، عبّر مراراً عن هذه الرؤية: هدفه بناء "مجتمع قوي" — و"المجتمع القوي" ليس بأي حال مجتمعاً لا يستطيع البقاء فيه إلا الأقوياء؛ بل هو مجتمع يعيش فيه الأقوياء والضعفاء معاً [7]. يتوافق هذا التعريف بدقة مع الأدلة التاريخية والوبائية التي تتبعها هذا المقال. مجتمعات العصر الحديدي التي احتوت أطفال التثلث الصبغي لم تكن "ضعيفة" لفعلها ذلك. كانت "قوية" تحديداً لأنها امتلكت البنية لاستيعاب أعضاء متنوعين.</p>
+<p>في عام 1948، خلال زيارتها الثانية لليابان، خاطبت هيلين كيلر جمعية ترحيب وطنية: "ما أطلبه هو أن ترفعوا المصباح الذي تحملونه بالفعل أعلى قليلاً، ليُنير الطريق لمن لا يستطيعون الرؤية" (موثّق في قاعدة البيانات المرجعية التعاونية لمكتبة البرلمان الوطني الياباني). "مصباح" كيلر ليس شيئاً يُشعله المبصرون للمكفوفين. إنه شيء يحمله الجميع بالفعل — يحتاج فقط أن يُرفع أعلى قليلاً. في مجتمع يحكمه منطق الكفاءة والإنتاجية، رفع المصباح يعني تفكيك الحواجز الاجتماعية التي نظّرها أوليفر، وتحمّل المؤسسات لعدم المساواة في الرعاية التي جعلها Masefield وزملاؤه مرئية.</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Rohrlach AB, et al. Cases of trisomy 21 and trisomy 18 among historic and prehistoric individuals discovered from ancient DNA. <em>Nat Commun</em>. 2024;15:1294. DOI: <a href="https://doi.org/10.1038/s41467-024-45438-1">10.1038/s41467-024-45438-1</a></li>
+<li>Oliver M. <em>The Politics of Disablement</em>. London: Macmillan; 1990. ISBN: 978-0333432938</li>
+<li>Masefield SC, et al. The caregiver health effects of caring for young children with developmental disabilities: a meta-analysis. <em>Matern Child Health J</em>. 2020;24(5):561-574. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32048172/">32048172</a></li>
+<li>Hartley SL, et al. The relative risk and timing of divorce in families of children with an autism spectrum disorder. <em>J Fam Psychol</em>. 2010;24(4):449-457. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/20731491/">20731491</a></li>
+<li>Coorg R, Tournay A. Filicide-suicide involving children with disabilities. <em>J Child Neurol</em>. 2013;28(6):791-797. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/22826515/">22826515</a></li>
+<li>World Health Organization. <em>World Report on Disability 2011</em>. Geneva: WHO; 2011. ISBN: 978-92-4-156418-2</li>
+<li>Sankai Y. مقابلة: "البدلة الروبوتية المولودة من علم السبرانيات". <em>التطبيع الشهري: رفاه الأشخاص ذوي الإعاقة</em>. 2006;26(301). ملخص لآراء عبّر عنها المؤلف مراراً في محاضرات ومقابلات عامة.</li>
+<li>Tsuzuku J. بصفتي والداً لطفل ذي إعاقة (عمود <em>سوبيو</em>). عمود صحفي.</li>
+</ol>
+<hr />
+<p><em>This article was produced by Project Asymptote for educational purposes and does not aim to diagnose or treat any specific condition. The information presented is based on publicly available peer-reviewed literature and does not constitute medical advice.</em></p>
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の疾患の診断や治療を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、医学的助言を構成するものではありません。</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成医学建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento médico.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह चिकित्सा सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة طبية.</em></p>
+<div class="disclaimer"><p>هذا المحتوى لأغراض إعلامية فقط، استناداً إلى أدلة أكاديمية موضوعية وتحليل بيانات. وهو غير مخصص كاستشارة طبية أو تشخيص أو نقد سياسي.</p></div>
+</article>
+
+<footer class="site-footer">
+  Project Asymptote &mdash; Bridging mathematics, data science, and public health.
+</footer>
+
+</div>
+
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+  const section = document.getElementById('content-' + lang);
+  const btn = document.querySelector('[data-lang="' + lang + '"]');
+  if (section) section.classList.add('active');
+  if (btn) btn.classList.add('active');
+  document.documentElement.lang = lang.split('-')[0];
+  // Re-render math in newly visible section.
+  if (typeof renderMathInElement !== 'undefined') {
+    renderMathInElement(section, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+  // Update URL hash.
+  history.replaceState(null, '', '#' + lang);
+}
+
+// Initialize from hash or default to 'ja'.
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = location.hash.slice(1);
+  const validLangs = ['ja', 'en', 'zh-Hans', 'es', 'hi', 'ar'];
+  switchLang(validLangs.includes(hash) ? hash : 'ja');
+});
+</script>
+</body>
+</html>
