@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>あなたの腎臓はまだ海を覚えている — 塩と人類の進化、疫学的介入の到達点、そして電気で味を変える未来</title>
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --accent: #2563eb;
+  --border: #e5e7eb;
+  --code-bg: #f3f4f6;
+  --max-w: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Serif", "Source Han Serif", "Georgia", serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.8;
+  padding: 2rem 1rem;
+}
+.container { max-width: var(--max-w); margin: 0 auto; }
+
+/* Language selector */
+.lang-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+.lang-btn {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px 4px 0 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--fg);
+  transition: all 0.15s;
+}
+.lang-btn:hover { background: var(--code-bg); }
+.lang-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Content sections */
+.content-section { display: none; }
+.content-section.active { display: block; }
+.content-section[dir="rtl"] { direction: rtl; text-align: right; }
+
+/* Typography */
+h1 { font-size: 1.8rem; margin: 1.5rem 0 1rem; line-height: 1.3; }
+h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.15rem; margin: 1.2rem 0 0.6rem; }
+p { margin: 0.8rem 0; }
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+[dir="rtl"] blockquote { border-left: none; border-right: 3px solid var(--accent); }
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+pre { background: var(--code-bg); padding: 1rem; overflow-x: auto; border-radius: 6px; margin: 1rem 0; }
+pre code { background: none; padding: 0; }
+table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.8rem; text-align: left; }
+[dir="rtl"] th, [dir="rtl"] td { text-align: right; }
+th { background: var(--code-bg); font-weight: 600; }
+a { color: var(--accent); }
+sup { font-size: 0.75em; }
+
+/* Math */
+.math.display { display: block; text-align: center; margin: 1.2rem 0; overflow-x: auto; }
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: 3rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: #999;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h1 { font-size: 1.4rem; }
+  body { padding: 1rem 0.75rem; }
+  .lang-btn { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<nav class="lang-selector" role="tablist" aria-label="Language">
+  <button class="lang-btn" data-lang="ja" role="tab" onclick="switchLang('ja')">日本語</button>
+  <button class="lang-btn" data-lang="en" role="tab" onclick="switchLang('en')">English</button>
+  <button class="lang-btn" data-lang="zh-Hans" role="tab" onclick="switchLang('zh-Hans')">简体中文</button>
+  <button class="lang-btn" data-lang="es" role="tab" onclick="switchLang('es')">Español</button>
+  <button class="lang-btn" data-lang="hi" role="tab" onclick="switchLang('hi')">हिन्दी</button>
+  <button class="lang-btn" data-lang="ar" role="tab" onclick="switchLang('ar')">العربية</button>
+</nav>
+
+<article id="content-ja" class="content-section" dir="ltr" lang="ja">
+<h1>あなたの腎臓はまだ海を覚えている — 塩と人類の進化、疫学的介入の到達点、そして電気で味を変える未来</h1>
+<hr />
+<h2>導入：海の記憶と進化的ミスマッチ</h2>
+<p>すべての脊椎動物の体液は、約0.9%の塩化ナトリウムを含む。生理食塩水のこの濃度は偶然ではない。約5億年前、脊椎動物の祖先が海水中で循環系を獲得した時点での海水組成の化石的反映である。我々の血液は、文字通り「希釈された海」を体内に閉じ込めたものだ。</p>
+<p>海から陸へ移行した脊椎動物は、ナトリウムを環境から自由に取得できなくなった。この生存上の危機に対する進化的回答が、レニン-アンジオテンシン-アルドステロン系（RAAS）である。RAASは硬骨魚類の段階ですでに出現しており、腎臓でのナトリウム再吸収を制御する内分泌系として、陸上脊椎動物の体液恒常性の中核を担ってきた [1]。アルドステロンは腎集合管でのNa<span class="math inline">\(^+\)</span>再吸収を促進する一方、K<span class="math inline">\(^+\)</span>排泄を増加させる。すなわち、Na<span class="math inline">\(^+\)</span>保持とK<span class="math inline">\(^+\)</span>排泄は進化的に連動している。</p>
+<p>1985年、Eaton &amp; Konnerは旧石器時代の祖先食を復元し、ヒトの進化的環境におけるナトリウム摂取量を推定した [2]。</p>
+<span class="math display">\[\text{Na}^+_{\text{ancestral}} \approx 690 \text{ mg/day} \quad (\text{NaCl換算} \approx 1.7 \text{ g/day})\]</span>
+<p>一方、現代の世界平均ナトリウム摂取量はWHOの推計で4,278 mg/日（食塩換算約11 g/日）である [3]。</p>
+<span class="math display">\[\frac{\text{Na}^+_{\text{modern}}}{\text{Na}^+_{\text{ancestral}}} = \frac{4{,}278}{690} \approx 6.2\]</span>
+<p>現代人は祖先の約6倍のナトリウムを摂取している。同時に、カリウム摂取量は祖先の約4分の1に減少した。この Na/K 比の逆転は進化史上に前例がなく、RAASは低ナトリウム・高カリウム環境向けに最適化されたシステムであるため、現代の高ナトリウム・低カリウム食はシステム設計と入力の根本的不整合 — すなわち進化的ミスマッチ — を生じさせている。</p>
+<h2>展開1：現代の塩分過剰と「隠れた塩分」</h2>
+<p>WHOは成人の食塩摂取量を1日5 g未満とすることを推奨している [3]。しかし、WHO加盟国でこの基準を達成している国はほぼ存在しない。日本人の平均食塩摂取量は約10 g/日であり、WHO推奨の2倍に相当する。</p>
+<p>日常的な食事がこの過剰にどれほど寄与するかは、具体例で明瞭になる。横浜発祥の家系ラーメン1杯（スープ込み）には約7 gの食塩が含まれる。</p>
+<span class="math display">\[\frac{7 \text{ g}}{5 \text{ g}} = 1.40\]</span>
+<p>つまり、ラーメン1杯でWHOの1日推奨量の140%を摂取する。日本人男性の1日目標値（7.5 g未満）と比較しても、1杯でほぼ全量に到達する。</p>
+<p>しかし、問題の本質は「塩辛い食品」にあるのではない。加工食品に含まれる「隠れた塩分（hidden salt）」が総摂取量の大部分を占める。パン、チーズ、ハム、シリアル、調味料 — これらは塩辛さを感じないにもかかわらず、大量のナトリウムを含有する。英国の分析では、食塩摂取量の約75%が加工食品由来であり、卓上塩や調理塩は全体の15%程度に過ぎない [4]。</p>
+<p>この構造的特性は、減塩の責任を個人の「食行動の改善」に帰するアプローチの限界を示唆する。消費者は自らが摂取している塩分量を正確に知覚できず、知覚できないものを制御することは困難である。</p>
+<h2>展開2：PURE試験のJカーブ論争 — 「塩を減らしすぎるのも危険」は本当か</h2>
+<p>2014年、O'Donnellらはプロスペクティブ都市農村疫学研究（PURE研究）の一環として、17カ国101,945人の早朝空腹時随時尿からナトリウム排泄量を推定し、心血管イベントおよび死亡との連関を検討した [5]。</p>
+<p>結果は、当時の公衆衛生ガイダンスに対する重大な挑戦であった。最もリスクが低かったのは推定ナトリウム排泄量3〜6 g/日（食塩換算7.5〜15 g/日）の群であり、それ以下でもリスクが上昇するJカーブが観察された。この知見は、WHO推奨（2 g Na/日）への厳格な減塩が逆にリスクを増大させる可能性を示唆するものとして、メディアで大きく取り上げられた。</p>
+<p>2018年、MenteらはPUREデータを369コミュニティ・95,767人で再解析し、コミュニティレベルの分析でも同様のパターンを報告した [6]。ナトリウム摂取量が5 g/日を超えるコミュニティでのみ、ナトリウムと心血管疾患の間に有意な連関が検出された。</p>
+<p>しかし、PUREの方法論には複数の根本的批判が存在する。</p>
+<p><strong>第一に、測定手法の問題。</strong> PURE研究は24時間蓄尿ではなく、早朝随時尿からのKawasaki式推定を用いている。随時尿によるナトリウム排泄量推定は、日内変動、食事内容、投薬状況を反映できず、個人レベルでの測定精度に重大な限界がある。</p>
+<p><strong>第二に、逆因果（reverse causality）。</strong> 低ナトリウム摂取群で心血管リスクが上昇した主たる要因として、すでに重病（心不全、がん、肝疾患など）であるために食欲が低下し、結果としてナトリウム摂取量が少ない患者が含まれている可能性が指摘されている。PUREの著者らはベースラインで心血管疾患既往のある者や追跡開始2年以内のイベントを除外する感度分析を行ったが、すべての交絡を排除することは観察研究の構造的限界として不可能である。</p>
+<span class="math display">\[\text{逆因果: 疾病} \xrightarrow{\text{食欲低下}} \text{低Na摂取} \xrightarrow{\text{見かけの連関}} \text{高死亡率}\]</span>
+<p>この因果の方向性の問題は、観察研究で「最適ナトリウム摂取量」を決定することの原理的困難を浮き彫りにする。PURE研究のJカーブは、「塩を減らしすぎるのは危険」という魅力的な物語を提供したが、その物語を支える方法論的基盤は脆弱である。</p>
+<h2>展開3：二つの介入 — 英国ステルス減塩とSSaSS試験</h2>
+<p>観察研究の限界を克服するのは介入研究である。塩と健康の議論において、最も説得力のあるエビデンスを提供した二つの大規模介入を検討する。</p>
+<h3>英国FSAの「ステルス減塩」</h3>
+<p>2003年、英国食品基準庁（FSA）は食品産業との協働による集団レベルの減塩プログラムを開始した。このプログラムの特徴は、消費者の行動変容に依存しない「ステルス（隠密）」戦略にある。FSAは食品カテゴリごとに塩分含有量の上限目標を設定し、食品メーカーに段階的な製品改良を要請した [4]。パンの塩分を数年かけて少しずつ下げれば、消費者は味の変化に気づかない。</p>
+<p>He, MacGregorらはHealth Survey for Englandのデータを用いて、このプログラムの効果を検討した [7]。</p>
+<span class="math display">\[\text{食塩摂取量: } 9.5 \text{ g/日 (2003)} \rightarrow 8.1 \text{ g/日 (2011)}\]</span>
+<span class="math display">\[\Delta = -1.4 \text{ g/日} \quad (-15\%)\]</span>
+<p>8年間で人口レベルの食塩摂取量が15%減少した。同期間の変化は以下のとおりである。</p>
+<span class="math display">\[\Delta \text{BP} = -3.0 / {-1.4} \text{ mmHg}\]</span>
+<span class="math display">\[\text{脳卒中死亡率: } -42\%, \quad \text{虚血性心疾患死亡率: } -40\%\]</span>
+<p>この研究は生態学的（ecological）デザインであり、減塩と死亡率低下の間の因果推論には限界がある（同期間の降圧薬処方増加、喫煙率低下、コレステロール低下を含む多因子の影響を分離できない）。しかし、国家規模の「ステルス減塩」が実行可能であり、人口レベルの血圧低下を伴うことを実証した点で、公衆衛生政策上の意義は大きい。</p>
+<h3>SSaSS試験：近100%追跡率のクラスターRCT</h3>
+<p>2021年、Nealらは中国農村部600村・20,995人を対象とした大規模クラスター無作為化比較試験（SSaSS: Salt Substitute and Stroke Study）の結果をNEJMに報告した [8]。</p>
+<p>介入は驚くほど単純である。介入群の参加者には、通常の食塩（100% NaCl）の代わりに、NaCl 75% + KCl 25%の代替塩を無償で提供した。対照群は通常の食塩を継続した。追跡期間は平均4.74年。</p>
+<span class="math display">\[\text{脳卒中: RR} = 0.86 \quad (95\% \text{ CI: } 0.77 \text{--} 0.96, \; p = 0.006)\]</span>
+<span class="math display">\[\text{主要心血管イベント: RR} = 0.87 \quad (95\% \text{ CI: } 0.80 \text{--} 0.94)\]</span>
+<span class="math display">\[\text{全死因死亡: RR} = 0.88 \quad (95\% \text{ CI: } 0.82 \text{--} 0.95)\]</span>
+<p>脳卒中14%減、主要心血管イベント13%減、全死因死亡12%減。そして最も重要な安全性データ：</p>
+<span class="math display">\[\text{臨床的高カリウム血症: RR} = 1.04 \quad (95\% \text{ CI: } 0.80 \text{--} 1.37)\]</span>
+<p>代替塩群と対照群の間で高カリウム血症の発生率に有意差はなかった。</p>
+<p>SSaSS試験は、食塩をNaCl/KClブレンドに置換するという単一の介入が、脳卒中・心血管イベント・全死因死亡のすべてを統計的に有意に減少させることを初めてRCTで実証した。その効果量は降圧薬の臨床試験と同等のオーダーであり、しかもコストは薬剤の数分の一である。</p>
+<h2>結語：代替塩の未来と電気味覚の挑戦</h2>
+<p>SSaSS試験のエビデンスは、KCl代替塩の集団レベルでの普及を強く支持する。しかし、普遍的な適用には一つの重要な制約がある — 慢性腎臓病（CKD）患者におけるカリウム排泄能の低下である。</p>
+<p>腎機能が低下した患者では、KClの追加摂取が高カリウム血症を惹起するリスクがある。モデリング研究は、KCl代替塩の世界的普及が心血管死亡を461,000件回避する一方、CKD患者において約11,000件の高カリウム血症関連死を引き起こす可能性を予測している [9]。</p>
+<span class="math display">\[\text{NNT}_{\text{CVD}} \gg \text{NNH}_{\text{hyperkalemia}}\]</span>
+<p>便益-リスク比は集団レベルでは圧倒的に便益側に傾くが、CKD stage 3b以降の患者においては個別のリスク評価が不可欠である。公衆衛生政策としての普及と、臨床医学としての個別化 — この二つのレベルを区別することが、代替塩の適切な社会実装の条件となる。</p>
+<p>化学的代替とは異なるアプローチも進展している。2011年、明治大学の宮下芳明と中村裕美は、微弱な電流で食品の味覚を変調する「電気味覚」の概念を提唱した [10]。この研究は2023年のイグ・ノーベル賞（栄養学部門）を受賞し、キリンホールディングスとの共同開発を経て、2024年に製品化された「エレキソルト」スプーンは、減塩食の塩味を約1.5倍に増強する [11]。</p>
+<span class="math display">\[\text{知覚される塩味} = f(\text{NaCl濃度}, \text{電気刺激}) \approx 1.5 \times \text{NaCl濃度のみの場合}\]</span>
+<p>ナトリウムを減らすのではなく、同じナトリウム量でより強い塩味を知覚させる。RAASの進化的制約を回避するのではなく、神経科学の知見を用いて知覚側のパラメータを操作する発想である。</p>
+<p>5億年前に海を離れた脊椎動物は、体内に海を閉じ込めるためにRAASを進化させた。その精緻なナトリウム保持機構は、塩が希少な環境では生存を保障したが、塩が過剰な環境では高血圧と脳卒中のリスク因子となった。PURE研究のJカーブ論争は、この問題の疫学的解答が単純ではないことを示し、英国のステルス減塩とSSaSS試験は、観察研究の限界を超えた介入エビデンスを提供した。そしてエレキソルトは、進化が設計した味覚系を工学的に再較正する試みである。</p>
+<p>我々の腎臓はまだ海を覚えている。問題は、その記憶をどう書き換えるかだ。</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Fournier D, et al. Emergence and evolution of the renin-angiotensin-aldosterone system. <em>J Mol Med</em>. 2012;90(5):495-508. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/22527880/">22527880</a></li>
+<li>Eaton SB, Konner M. Paleolithic nutrition: a consideration of its nature and current implications. <em>N Engl J Med</em>. 1985;312(5):283-289. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/2981409/">2981409</a></li>
+<li>World Health Organization. Sodium reduction (Fact sheet). Geneva: WHO; 2024. URL: <a href="https://www.who.int/news-room/fact-sheets/detail/sodium-reduction">https://www.who.int/news-room/fact-sheets/detail/sodium-reduction</a></li>
+<li>He FJ, MacGregor GA. Reducing population salt intake worldwide: from evidence to implementation. <em>Prog Cardiovasc Dis</em>. 2010;52(5):363-382. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/20226955/">20226955</a></li>
+<li>O'Donnell M, et al. Urinary sodium and potassium excretion, mortality, and cardiovascular events. <em>N Engl J Med</em>. 2014;371(7):612-623. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/25119607/">25119607</a></li>
+<li>Mente A, et al. Urinary sodium excretion, blood pressure, cardiovascular disease, and mortality: a community-level prospective epidemiological cohort study. <em>Lancet</em>. 2018;392(10146):496-506. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/30129465/">30129465</a></li>
+<li>He FJ, Pombo-Rodrigues S, MacGregor GA. Salt reduction in England from 2003 to 2011: its relationship to blood pressure, stroke and ischaemic heart disease mortality. <em>BMJ Open</em>. 2014;4(4):e004549. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/24732242/">24732242</a></li>
+<li>Neal B, et al. Effect of salt substitution on cardiovascular events and death. <em>N Engl J Med</em>. 2021;385(12):1067-1077. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/34459569/">34459569</a></li>
+<li>Marklund M, et al. Estimated population wide benefits and risks in China of lowering sodium through potassium enriched salt substitution: modelling study. <em>BMJ</em>. 2020;369:m824. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32321724/">32321724</a></li>
+<li>Nakamura H, Miyashita H. Augmented gustation using electricity. <em>Proceedings of the 2nd Augmented Human International Conference</em>. 2011; article 34. DOI: <a href="https://doi.org/10.1145/1959826.1959860">10.1145/1959826.1959860</a></li>
+<li>キリンホールディングス株式会社. エレキソルト スプーン発売プレスリリース. 2024年5月20日. URL: <a href="https://www.kirinholdings.com/en/newsroom/release/2024/0520_01.html">https://www.kirinholdings.com/en/newsroom/release/2024/0520_01.html</a></li>
+</ol>
+<hr />
+<p><em>This article was produced by Project Asymptote for educational purposes and does not aim to diagnose or treat any specific condition. The information presented is based on publicly available peer-reviewed literature and does not constitute medical advice.</em></p>
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の疾患の診断や治療を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、医学的助言を構成するものではありません。</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成医学建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento médico.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह चिकित्सा सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة طبية.</em></p>
+<div class="disclaimer"><p>本コンテンツは、客観的な学術的エビデンスとデータ分析に基づく情報提供のみを目的としています。医学的助言、診断、または政治的批評を意図するものではありません。</p></div>
+</article>
+
+<article id="content-en" class="content-section" dir="ltr" lang="en">
+<h1>Your Kidneys Still Remember the Sea — Salt and Human Evolution, the Frontier of Epidemiological Intervention, and a Future Where Electricity Changes Taste</h1>
+<hr />
+<h2>Introduction: Memories of the Sea and Evolutionary Mismatch</h2>
+<p>Every vertebrate's body fluid contains approximately 0.9% sodium chloride. This concentration in physiological saline is no coincidence. It is a fossil reflection of the ocean's composition at the time when vertebrate ancestors acquired circulatory systems roughly 500 million years ago. Our blood is, quite literally, a diluted sea imprisoned within our bodies.</p>
+<p>When vertebrates transitioned from sea to land, they lost the ability to freely obtain sodium from their environment. The evolutionary answer to this survival crisis was the renin-angiotensin-aldosterone system (RAAS). RAAS had already emerged at the bony fish stage and has served as the core endocrine system controlling renal sodium reabsorption and maintaining fluid homeostasis in terrestrial vertebrates [1]. Aldosterone promotes Na<span class="math inline">\(^+\)</span> reabsorption in the renal collecting duct while simultaneously increasing K<span class="math inline">\(^+\)</span> excretion. That is, Na<span class="math inline">\(^+\)</span> conservation and K<span class="math inline">\(^+\)</span> excretion are evolutionarily coupled.</p>
+<p>In 1985, Eaton and Konner reconstructed ancestral Paleolithic diets and estimated sodium intake in humans' evolutionary environment [2].</p>
+<span class="math display">\[\text{Na}^+_{\text{ancestral}} \approx 690 \text{ mg/day} \quad (\text{NaCl equivalent} \approx 1.7 \text{ g/day})\]</span>
+<p>Meanwhile, the current global mean sodium intake is 4,278 mg/day (approximately 11 g/day salt equivalent) according to WHO estimates [3].</p>
+<span class="math display">\[\frac{\text{Na}^+_{\text{modern}}}{\text{Na}^+_{\text{ancestral}}} = \frac{4{,}278}{690} \approx 6.2\]</span>
+<p>Modern humans consume roughly 6.2 times the sodium of their ancestors. Simultaneously, potassium intake has declined to approximately one-quarter of ancestral levels. This inversion of the Na/K ratio is unprecedented in evolutionary history, and because RAAS was optimized for a low-sodium, high-potassium environment, the modern high-sodium, low-potassium diet creates a fundamental mismatch between system design and input — an evolutionary mismatch.</p>
+<h2>Section 1: Modern Sodium Excess and "Hidden Salt"</h2>
+<p>The WHO recommends that adults consume less than 5 g of salt per day [3]. Yet virtually no WHO member state achieves this target. The average salt intake among Japanese adults is approximately 10 g/day — double the WHO recommendation.</p>
+<p>How routine meals contribute to this excess becomes vivid through concrete examples. A single serving of Yokohama-style Iekei ramen (including broth) contains approximately 7 g of salt.</p>
+<span class="math display">\[\frac{7 \text{ g}}{5 \text{ g}} = 1.40\]</span>
+<p>One bowl of ramen delivers 140% of the WHO's daily recommended limit. Even compared with the Japanese guideline for men (under 7.5 g/day), a single bowl nearly exhausts the entire daily allowance.</p>
+<p>However, the core of the problem lies not in overtly salty foods. "Hidden salt" in processed foods accounts for the majority of total intake. Bread, cheese, ham, cereal, condiments — none of these taste particularly salty, yet they contain substantial amounts of sodium. In the United Kingdom, approximately 75% of salt intake comes from processed foods, while table salt and cooking salt account for only about 15% of the total [4].</p>
+<p>This structural characteristic underscores the limitations of approaches that assign responsibility for sodium reduction to individuals' "dietary behavior modification." Consumers cannot accurately perceive how much salt they are consuming, and what cannot be perceived cannot be controlled.</p>
+<h2>Section 2: The PURE Trial's J-Curve Controversy — Is "Too Little Salt" Truly Dangerous?</h2>
+<p>In 2014, O'Donnell et al., as part of the Prospective Urban Rural Epidemiology (PURE) study, estimated sodium excretion from morning fasting spot urine samples of 101,945 individuals across 17 countries and examined its association with cardiovascular events and mortality [5].</p>
+<p>The results constituted a major challenge to prevailing public health guidance. The lowest risk was observed in the group with estimated sodium excretion of 3–6 g/day (salt equivalent 7.5–15 g/day), with risk also rising below that range — a J-curve. This finding, suggesting that strict adherence to the WHO recommendation (2 g Na/day) might paradoxically increase risk, received extensive media coverage.</p>
+<p>In 2018, Mente et al. reanalyzed PURE data across 369 communities and 95,767 individuals, reporting a similar pattern at the community level [6]. A significant association between sodium and cardiovascular disease was detected only in communities where mean intake exceeded 5 g/day.</p>
+<p>However, PURE's methodology has faced multiple fundamental criticisms.</p>
+<p><strong>First, the measurement issue.</strong> The PURE study used Kawasaki formula estimates from spot morning urine rather than 24-hour urine collection. Spot urine-based estimates of sodium excretion cannot account for diurnal variation, dietary content, or medication effects, imposing serious limitations on individual-level measurement accuracy.</p>
+<p><strong>Second, reverse causality.</strong> The primary explanation for elevated cardiovascular risk in the low-sodium intake group is that patients who are already severely ill (heart failure, cancer, liver disease, etc.) experience reduced appetite, resulting in lower sodium intake as a consequence — not cause — of their condition. The PURE investigators conducted sensitivity analyses excluding participants with baseline cardiovascular disease and events within the first two years of follow-up, but eliminating all confounding is a structural impossibility in observational studies.</p>
+<span class="math display">\[\text{Reverse causality: Disease} \xrightarrow{\text{appetite loss}} \text{Low Na intake} \xrightarrow{\text{apparent association}} \text{High mortality}\]</span>
+<p>This directionality problem highlights the principled difficulty of determining "optimal sodium intake" through observational studies. The PURE study's J-curve provided an appealing narrative — "reducing salt too much is dangerous" — but the methodological foundations supporting that narrative are fragile.</p>
+<h2>Section 3: Two Interventions — UK Stealth Salt Reduction and the SSaSS Trial</h2>
+<p>Intervention studies overcome the limitations of observational research. In the salt-and-health debate, two large-scale interventions have provided the most compelling evidence.</p>
+<h3>The UK FSA's "Stealth Salt Reduction"</h3>
+<p>In 2003, the UK Food Standards Agency (FSA) launched a population-level salt reduction program in collaboration with the food industry. The hallmark of this program was its "stealth" strategy — one that did not depend on consumer behavior change. The FSA set maximum salt content targets for each food category and required manufacturers to reformulate products incrementally [4]. Reduce the salt in bread gradually over several years, and consumers never notice the change.</p>
+<p>He, MacGregor, and colleagues examined the program's effects using Health Survey for England data [7].</p>
+<span class="math display">\[\text{Salt intake: } 9.5 \text{ g/day (2003)} \rightarrow 8.1 \text{ g/day (2011)}\]</span>
+<span class="math display">\[\Delta = -1.4 \text{ g/day} \quad (-15\%)\]</span>
+<p>Over eight years, population-level salt intake declined by 15%. The concurrent changes were as follows:</p>
+<span class="math display">\[\Delta \text{BP} = -3.0 / {-1.4} \text{ mmHg}\]</span>
+<span class="math display">\[\text{Stroke mortality: } -42\%, \quad \text{Ischemic heart disease mortality: } -40\%\]</span>
+<p>This study employed an ecological design, and causal inference between salt reduction and mortality decline has limitations (the concurrent period included increased antihypertensive prescribing, declining smoking rates, and cholesterol reductions — multifactorial influences that cannot be disaggregated). Nevertheless, it demonstrated that nationwide "stealth salt reduction" is feasible and accompanies population-level blood pressure reductions, conferring substantial public health policy significance.</p>
+<h3>The SSaSS Trial: A Cluster RCT with Near-100% Follow-Up</h3>
+<p>In 2021, Neal et al. reported in the NEJM the results of a large-scale cluster randomized controlled trial (SSaSS: Salt Substitute and Stroke Study) involving 20,995 participants across 600 villages in rural China [8].</p>
+<p>The intervention was remarkably simple. Participants in the intervention group received, free of charge, a salt substitute (75% NaCl + 25% KCl) in place of regular salt (100% NaCl). The control group continued using regular salt. Mean follow-up was 4.74 years.</p>
+<span class="math display">\[\text{Stroke: RR} = 0.86 \quad (95\% \text{ CI: } 0.77 \text{--} 0.96, \; p = 0.006)\]</span>
+<span class="math display">\[\text{Major cardiovascular events: RR} = 0.87 \quad (95\% \text{ CI: } 0.80 \text{--} 0.94)\]</span>
+<span class="math display">\[\text{All-cause mortality: RR} = 0.88 \quad (95\% \text{ CI: } 0.82 \text{--} 0.95)\]</span>
+<p>Stroke reduced by 14%, major cardiovascular events by 13%, all-cause mortality by 12%. And the most critical safety data:</p>
+<span class="math display">\[\text{Clinical hyperkalemia: RR} = 1.04 \quad (95\% \text{ CI: } 0.80 \text{--} 1.37)\]</span>
+<p>No significant difference in hyperkalemia incidence between the salt substitute and control groups.</p>
+<p>The SSaSS trial was the first RCT to demonstrate that a single intervention — substituting table salt with an NaCl/KCl blend — significantly reduces stroke, cardiovascular events, and all-cause mortality. The effect sizes are on the same order as those observed in antihypertensive drug trials, yet at a fraction of the cost.</p>
+<h2>Conclusion: The Future of Salt Substitutes and the Challenge of Electric Taste</h2>
+<p>The SSaSS trial's evidence strongly supports population-level adoption of KCl salt substitutes. However, universal application faces one important constraint — diminished potassium excretion capacity in patients with chronic kidney disease (CKD).</p>
+<p>In patients with reduced renal function, additional KCl intake can precipitate hyperkalemia. A modeling study predicts that global adoption of KCl salt substitutes would avert 461,000 cardiovascular deaths while potentially causing approximately 11,000 hyperkalemia-related deaths in CKD patients [9].</p>
+<span class="math display">\[\text{NNT}_{\text{CVD}} \gg \text{NNH}_{\text{hyperkalemia}}\]</span>
+<p>The benefit-risk ratio overwhelmingly favors benefit at the population level, but individual risk assessment is essential for patients with CKD stage 3b and beyond. Distinguishing between public health policy for population-level deployment and clinical medicine for individualized care is the prerequisite for appropriate social implementation of salt substitutes.</p>
+<p>An approach distinct from chemical substitution is also advancing. In 2011, Homei Miyashita and Hiromi Nakamura of Meiji University proposed the concept of "electric taste" — modulating the perception of food flavor through weak electrical currents [10]. This research received the 2023 Ig Nobel Prize in Nutrition, and the "Electric Salt" spoon, developed in collaboration with Kirin Holdings and commercialized in 2024, enhances the perceived saltiness of reduced-sodium food by approximately 1.5-fold [11].</p>
+<span class="math display">\[\text{Perceived saltiness} = f(\text{NaCl concentration}, \text{electrical stimulation}) \approx 1.5 \times \text{NaCl concentration alone}\]</span>
+<p>Rather than reducing sodium, the approach makes the same amount of sodium taste saltier. Instead of circumventing the evolutionary constraints of RAAS, it leverages neuroscience to manipulate the perceptual parameter.</p>
+<p>Five hundred million years ago, vertebrates that left the sea evolved RAAS to imprison the ocean within their bodies. That exquisite sodium-conservation machinery guaranteed survival in sodium-scarce environments, but in sodium-saturated environments it became a risk factor for hypertension and stroke. The PURE study's J-curve controversy demonstrated that the epidemiological answer to this problem is not simple, while the UK's stealth salt reduction and the SSaSS trial provided intervention evidence that transcends the limitations of observational studies. And the Electric Salt device is an attempt to recalibrate — through engineering — the taste system that evolution designed.</p>
+<p>Our kidneys still remember the sea. The question is how to rewrite that memory.</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Fournier D, et al. Emergence and evolution of the renin-angiotensin-aldosterone system. <em>J Mol Med</em>. 2012;90(5):495-508. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/22527880/">22527880</a></li>
+<li>Eaton SB, Konner M. Paleolithic nutrition: a consideration of its nature and current implications. <em>N Engl J Med</em>. 1985;312(5):283-289. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/2981409/">2981409</a></li>
+<li>World Health Organization. Sodium reduction (Fact sheet). Geneva: WHO; 2024. URL: <a href="https://www.who.int/news-room/fact-sheets/detail/sodium-reduction">https://www.who.int/news-room/fact-sheets/detail/sodium-reduction</a></li>
+<li>He FJ, MacGregor GA. Reducing population salt intake worldwide: from evidence to implementation. <em>Prog Cardiovasc Dis</em>. 2010;52(5):363-382. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/20226955/">20226955</a></li>
+<li>O'Donnell M, et al. Urinary sodium and potassium excretion, mortality, and cardiovascular events. <em>N Engl J Med</em>. 2014;371(7):612-623. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/25119607/">25119607</a></li>
+<li>Mente A, et al. Urinary sodium excretion, blood pressure, cardiovascular disease, and mortality: a community-level prospective epidemiological cohort study. <em>Lancet</em>. 2018;392(10146):496-506. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/30129465/">30129465</a></li>
+<li>He FJ, Pombo-Rodrigues S, MacGregor GA. Salt reduction in England from 2003 to 2011: its relationship to blood pressure, stroke and ischaemic heart disease mortality. <em>BMJ Open</em>. 2014;4(4):e004549. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/24732242/">24732242</a></li>
+<li>Neal B, et al. Effect of salt substitution on cardiovascular events and death. <em>N Engl J Med</em>. 2021;385(12):1067-1077. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/34459569/">34459569</a></li>
+<li>Marklund M, et al. Estimated population wide benefits and risks in China of lowering sodium through potassium enriched salt substitution: modelling study. <em>BMJ</em>. 2020;369:m824. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32321724/">32321724</a></li>
+<li>Nakamura H, Miyashita H. Augmented gustation using electricity. <em>Proceedings of the 2nd Augmented Human International Conference</em>. 2011; article 34. DOI: <a href="https://doi.org/10.1145/1959826.1959860">10.1145/1959826.1959860</a></li>
+<li>Kirin Holdings Co., Ltd. Electric Salt Spoon press release. May 20, 2024. URL: <a href="https://www.kirinholdings.com/en/newsroom/release/2024/0520_01.html">https://www.kirinholdings.com/en/newsroom/release/2024/0520_01.html</a></li>
+</ol>
+<hr />
+<p><em>This article was produced by Project Asymptote for educational purposes and does not aim to diagnose or treat any specific condition. The information presented is based on publicly available peer-reviewed literature and does not constitute medical advice.</em></p>
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の疾患の診断や治療を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、医学的助言を構成するものではありません。</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成医学建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento médico.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह चिकित्सा सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة طبية.</em></p>
+<div class="disclaimer"><p>This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p></div>
+</article>
+
+<article id="content-zh-Hans" class="content-section" dir="ltr" lang="zh-Hans">
+<h1>你的肾脏仍然记得大海 — 盐与人类进化、流行病学干预的前沿，以及用电改变味觉的未来</h1>
+<hr />
+<h2>导言：大海的记忆与进化失配</h2>
+<p>所有脊椎动物的体液含有约0.9%的氯化钠。生理盐水的这一浓度并非巧合，而是约5亿年前脊椎动物祖先在海水中获得循环系统时海水组成的化石性反映。我们的血液，确切地说，是被封闭在体内的稀释海水。</p>
+<p>当脊椎动物从海洋过渡到陆地时，它们失去了从环境中自由获取钠的能力。针对这一生存危机的进化性回答是肾素 - 血管紧张素 - 醛固酮系统（RAAS）。RAAS在硬骨鱼阶段已经出现，作为控制肾脏钠重吸收的内分泌系统，一直是陆生脊椎动物体液稳态的核心 [1]。醛固酮促进肾集合管中Na<span class="math inline">\(^+\)</span>的重吸收，同时增加K<span class="math inline">\(^+\)</span>的排泄。即Na<span class="math inline">\(^+\)</span>保持与K<span class="math inline">\(^+\)</span>排泄在进化上是耦合的。</p>
+<p>1985年，Eaton与Konner重建了旧石器时代的祖先膳食，估算了人类进化环境中的钠摄入量 [2]。</p>
+<span class="math display">\[\text{Na}^+_{\text{ancestral}} \approx 690 \text{ mg/day} \quad (\text{NaCl当量} \approx 1.7 \text{ g/day})\]</span>
+<p>而WHO估计的当前全球平均钠摄入量为4,278 mg/日（食盐当量约11 g/日）[3]。</p>
+<span class="math display">\[\frac{\text{Na}^+_{\text{modern}}}{\text{Na}^+_{\text{ancestral}}} = \frac{4{,}278}{690} \approx 6.2\]</span>
+<p>现代人类摄入的钠约为祖先的6.2倍。同时，钾摄入量下降至祖先水平的约四分之一。这种Na/K比的逆转在进化史上前所未有，而由于RAAS是为低钠、高钾环境优化的系统，现代高钠、低钾饮食造成了系统设计与输入之间的根本不匹配 — 即进化失配。</p>
+<h2>展开1：现代钠过量与"隐性盐分"</h2>
+<p>WHO建议成人每日食盐摄入量低于5 g [3]。然而，几乎没有WHO成员国达到这一目标。日本成人的平均食盐摄入量约为10 g/日 — 是WHO推荐量的两倍。</p>
+<p>日常饮食对这种过量的贡献，通过具体例子变得直观。横滨风格的家系拉面一碗（含汤）约含7 g食盐。</p>
+<span class="math display">\[\frac{7 \text{ g}}{5 \text{ g}} = 1.40\]</span>
+<p>一碗拉面即提供WHO每日推荐限量的140%。即使与日本男性的每日目标值（低于7.5 g）相比，一碗几乎耗尽全天配额。</p>
+<p>然而，问题的核心并不在于明显的咸味食品。加工食品中的"隐性盐分（hidden salt）"占总摄入量的大部分。面包、奶酪、火腿、麦片、调味品 — 这些食品尝起来并不特别咸，却含有大量的钠。英国的分析显示，约75%的食盐摄入来自加工食品，而餐桌盐和烹饪盐仅占总量的约15% [4]。</p>
+<p>这一结构性特征揭示了将减盐责任归于个人"饮食行为改善"之方法的局限性。消费者无法准确感知自己摄入的盐分量，而无法感知的事物是无法控制的。</p>
+<h2>展开2：PURE试验的J曲线论争 — "减盐过度也危险"是否属实？</h2>
+<p>2014年，O'Donnell等人作为前瞻性城乡流行病学研究（PURE）的一部分，从17个国家101,945人的清晨空腹随机尿中估算钠排泄量，并检验其与心血管事件及死亡的关联 [5]。</p>
+<p>结果对当时的公共卫生指南构成了重大挑战。风险最低的群体是推定钠排泄量3–6 g/日（食盐当量7.5–15 g/日）的组别，低于该范围风险也会升高 — 形成J曲线。这一发现暗示严格遵守WHO推荐（2 g Na/日）可能反而增加风险，在媒体上引起广泛报道。</p>
+<p>2018年，Mente等人在369个社区、95,767人的层面上重新分析PURE数据，报告了社区水平上的类似模式 [6]。钠与心血管疾病之间的显著关联仅在平均摄入量超过5 g/日的社区中被检出。</p>
+<p>然而，PURE的方法论面临多项根本性批评。</p>
+<p><strong>第一，测量手段的问题。</strong> PURE研究使用的是Kawasaki公式从随机晨尿中的估算值，而非24小时蓄尿。基于随机尿的钠排泄量估算无法反映日内变异、饮食内容或药物效应，对个体层面的测量精度施加了严重限制。</p>
+<p><strong>第二，逆因果（reverse causality）。</strong> 低钠摄入组心血管风险升高的主要解释是：已经身患重病（心力衰竭、癌症、肝病等）的患者因食欲下降而钠摄入量减少 — 低摄入是疾病的结果而非原因。PURE研究者进行了排除基线心血管疾病患者及追踪前两年内事件的敏感性分析，但消除全部混杂因素是观察性研究的结构性不可能。</p>
+<span class="math display">\[\text{逆因果：疾病} \xrightarrow{\text{食欲下降}} \text{低Na摄入} \xrightarrow{\text{表观关联}} \text{高死亡率}\]</span>
+<p>这一因果方向性问题凸显了通过观察性研究确定"最优钠摄入量"的原理性困难。PURE研究的J曲线提供了一个有吸引力的叙事 — "减盐过度也危险" — 但支撑该叙事的方法论基础是脆弱的。</p>
+<h2>展开3：两项干预 — 英国隐性减盐与SSaSS试验</h2>
+<p>干预研究克服了观察性研究的局限。在盐与健康的辩论中，两项大规模干预提供了最具说服力的证据。</p>
+<h3>英国FSA的"隐性减盐"</h3>
+<p>2003年，英国食品标准局（FSA）与食品产业合作，启动了人群水平的减盐计划。该计划的特征是"隐性（stealth）"策略 — 不依赖消费者行为改变。FSA为各食品类别设定了盐含量上限目标，要求制造商分阶段改良产品 [4]。在数年内逐步降低面包中的盐分，消费者感知不到味道的变化。</p>
+<p>He、MacGregor等人利用英格兰健康调查数据评估了该计划的效果 [7]。</p>
+<span class="math display">\[\text{食盐摄入量：} 9.5 \text{ g/日 (2003)} \rightarrow 8.1 \text{ g/日 (2011)}\]</span>
+<span class="math display">\[\Delta = -1.4 \text{ g/日} \quad (-15\%)\]</span>
+<p>8年间，人群水平的食盐摄入量下降了15%。同期变化如下：</p>
+<span class="math display">\[\Delta \text{BP} = -3.0 / {-1.4} \text{ mmHg}\]</span>
+<span class="math display">\[\text{脑卒中死亡率：} -42\%, \quad \text{缺血性心脏病死亡率：} -40\%\]</span>
+<p>该研究采用生态学设计，减盐与死亡率下降之间的因果推断存在局限（同期包括降压药处方增加、吸烟率下降、胆固醇降低等多因素影响，无法分离）。然而，它证明了全国规模的"隐性减盐"是可行的，且伴随人群水平的血压降低，具有重大的公共卫生政策意义。</p>
+<h3>SSaSS试验：追踪率近100%的集群RCT</h3>
+<p>2021年，Neal等人在NEJM上报告了以中国农村地区600个村庄、20,995人为对象的大规模集群随机对照试验（SSaSS：Salt Substitute and Stroke Study）的结果 [8]。</p>
+<p>干预极其简单。干预组参与者免费获得代替普通食盐（100% NaCl）的替代盐（NaCl 75% + KCl 25%）。对照组继续使用普通食盐。平均追踪期4.74年。</p>
+<span class="math display">\[\text{脑卒中：RR} = 0.86 \quad (95\% \text{ CI：} 0.77 \text{--} 0.96, \; p = 0.006)\]</span>
+<span class="math display">\[\text{主要心血管事件：RR} = 0.87 \quad (95\% \text{ CI：} 0.80 \text{--} 0.94)\]</span>
+<span class="math display">\[\text{全因死亡：RR} = 0.88 \quad (95\% \text{ CI：} 0.82 \text{--} 0.95)\]</span>
+<p>脑卒中减少14%，主要心血管事件减少13%，全因死亡减少12%。最关键的安全性数据：</p>
+<span class="math display">\[\text{临床高钾血症：RR} = 1.04 \quad (95\% \text{ CI：} 0.80 \text{--} 1.37)\]</span>
+<p>替代盐组与对照组之间高钾血症发生率无显著差异。</p>
+<p>SSaSS试验首次以RCT证明，将食盐替换为NaCl/KCl混合物这一单一干预，能显著降低脑卒中、心血管事件和全因死亡。其效应量与降压药临床试验同一量级，而成本仅为药物的数分之一。</p>
+<h2>结语：替代盐的未来与电气味觉的挑战</h2>
+<p>SSaSS试验的证据有力支持KCl替代盐的人群水平推广。然而，普遍适用面临一个重要制约 — 慢性肾脏病（CKD）患者钾排泄能力的下降。</p>
+<p>在肾功能减退的患者中，额外的KCl摄入可能诱发高钾血症。建模研究预测，KCl替代盐的全球推广可避免461,000例心血管死亡，同时可能在CKD患者中导致约11,000例高钾血症所致死亡 [9]。</p>
+<span class="math display">\[\text{NNT}_{\text{CVD}} \gg \text{NNH}_{\text{hyperkalemia}}\]</span>
+<p>在人群水平上，获益 - 风险比压倒性地倾向获益一侧，但对CKD stage 3b及以上的患者，个体风险评估不可或缺。区分公共卫生政策层面的人群推广与临床医学层面的个体化处理 — 这是替代盐恰当社会实施的前提条件。</p>
+<p>与化学替代不同的路径也在推进。2011年，明治大学的宫下芳明与中村裕美提出了"电气味觉"的概念 — 通过微弱电流调制食品的味觉感知 [10]。这项研究获得了2023年搞笑诺贝尔奖（营养学部门），与麒麟控股共同开发并于2024年商业化的"电气盐"勺子，可将减盐食品的咸味感知增强约1.5倍 [11]。</p>
+<span class="math display">\[\text{感知咸味} = f(\text{NaCl浓度}, \text{电刺激}) \approx 1.5 \times \text{仅NaCl浓度时}\]</span>
+<p>不是减少钠，而是让同等量的钠尝起来更咸。不是绕过RAAS的进化性制约，而是利用神经科学的知识操控感知侧的参数。</p>
+<p>5亿年前离开大海的脊椎动物，进化出RAAS以将海洋封闭于体内。那精密的钠保持机制在钠稀缺的环境中保障了生存，但在钠过剩的环境中成为高血压与脑卒中的风险因素。PURE研究的J曲线论争表明，这一问题的流行病学回答并不简单；英国的隐性减盐与SSaSS试验则提供了超越观察性研究局限的干预证据。而"电气盐"则是以工程手段重新校准进化所设计的味觉系统的尝试。</p>
+<p>我们的肾脏仍然记得大海。问题是，如何改写那段记忆。</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Fournier D, et al. Emergence and evolution of the renin-angiotensin-aldosterone system. <em>J Mol Med</em>. 2012;90(5):495-508. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/22527880/">22527880</a></li>
+<li>Eaton SB, Konner M. Paleolithic nutrition: a consideration of its nature and current implications. <em>N Engl J Med</em>. 1985;312(5):283-289. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/2981409/">2981409</a></li>
+<li>World Health Organization. Sodium reduction (Fact sheet). Geneva: WHO; 2024. URL: <a href="https://www.who.int/news-room/fact-sheets/detail/sodium-reduction">https://www.who.int/news-room/fact-sheets/detail/sodium-reduction</a></li>
+<li>He FJ, MacGregor GA. Reducing population salt intake worldwide: from evidence to implementation. <em>Prog Cardiovasc Dis</em>. 2010;52(5):363-382. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/20226955/">20226955</a></li>
+<li>O'Donnell M, et al. Urinary sodium and potassium excretion, mortality, and cardiovascular events. <em>N Engl J Med</em>. 2014;371(7):612-623. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/25119607/">25119607</a></li>
+<li>Mente A, et al. Urinary sodium excretion, blood pressure, cardiovascular disease, and mortality: a community-level prospective epidemiological cohort study. <em>Lancet</em>. 2018;392(10146):496-506. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/30129465/">30129465</a></li>
+<li>He FJ, Pombo-Rodrigues S, MacGregor GA. Salt reduction in England from 2003 to 2011: its relationship to blood pressure, stroke and ischaemic heart disease mortality. <em>BMJ Open</em>. 2014;4(4):e004549. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/24732242/">24732242</a></li>
+<li>Neal B, et al. Effect of salt substitution on cardiovascular events and death. <em>N Engl J Med</em>. 2021;385(12):1067-1077. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/34459569/">34459569</a></li>
+<li>Marklund M, et al. Estimated population wide benefits and risks in China of lowering sodium through potassium enriched salt substitution: modelling study. <em>BMJ</em>. 2020;369:m824. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32321724/">32321724</a></li>
+<li>Nakamura H, Miyashita H. Augmented gustation using electricity. <em>Proceedings of the 2nd Augmented Human International Conference</em>. 2011; article 34. DOI: <a href="https://doi.org/10.1145/1959826.1959860">10.1145/1959826.1959860</a></li>
+<li>Kirin Holdings Co., Ltd. Electric Salt Spoon press release. May 20, 2024. URL: <a href="https://www.kirinholdings.com/en/newsroom/release/2024/0520_01.html">https://www.kirinholdings.com/en/newsroom/release/2024/0520_01.html</a></li>
+</ol>
+<hr />
+<p><em>This article was produced by Project Asymptote for educational purposes and does not aim to diagnose or treat any specific condition. The information presented is based on publicly available peer-reviewed literature and does not constitute medical advice.</em></p>
+<p><em>本记事はProject Asymptoteが制作した科学解説記事であり、特定の疾患の診断や治療を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、医学的助言を構成するものではありません。</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成医学建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento médico.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह चिकित्सा सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة طبية.</em></p>
+<div class="disclaimer"><p>本内容仅供参考，基于客观的学术证据和数据分析。本内容不构成医疗建议、诊断或政治评论。</p></div>
+</article>
+
+<article id="content-es" class="content-section" dir="ltr" lang="es">
+<h1>Tus riñones aún recuerdan el mar — La sal y la evolución humana, la frontera de la intervención epidemiológica y un futuro donde la electricidad cambia el sabor</h1>
+<hr />
+<h2>Introducción: Memorias del mar y el desajuste evolutivo</h2>
+<p>El líquido corporal de todo vertebrado contiene aproximadamente un 0,9% de cloruro de sodio. Esta concentración en el suero fisiológico no es una coincidencia: es un reflejo fósil de la composición del océano en el momento en que los ancestros de los vertebrados adquirieron sistemas circulatorios hace unos 500 millones de años. Nuestra sangre es, literalmente, un mar diluido aprisionado dentro de nuestros cuerpos.</p>
+<p>Cuando los vertebrados transitaron del mar a la tierra, perdieron la capacidad de obtener sodio libremente de su entorno. La respuesta evolutiva a esta crisis de supervivencia fue el sistema renina-angiotensina-aldosterona (SRAA). El SRAA ya había surgido en la etapa de los peces óseos y ha servido como el sistema endocrino central que controla la reabsorción renal de sodio y mantiene la homeostasis de fluidos en los vertebrados terrestres [1]. La aldosterona promueve la reabsorción de Na<span class="math inline">\(^+\)</span> en el túbulo colector renal mientras aumenta simultáneamente la excreción de K<span class="math inline">\(^+\)</span>. Es decir, la conservación de Na<span class="math inline">\(^+\)</span> y la excreción de K<span class="math inline">\(^+\)</span> están evolutivamente acopladas.</p>
+<p>En 1985, Eaton y Konner reconstruyeron las dietas ancestrales del Paleolítico y estimaron la ingesta de sodio en el entorno evolutivo del ser humano [2].</p>
+<span class="math display">\[\text{Na}^+_{\text{ancestral}} \approx 690 \text{ mg/día} \quad (\text{equivalente de NaCl} \approx 1,7 \text{ g/día})\]</span>
+<p>Mientras tanto, la ingesta media mundial actual de sodio es de 4.278 mg/día (equivalente a aproximadamente 11 g/día de sal) según estimaciones de la OMS [3].</p>
+<span class="math display">\[\frac{\text{Na}^+_{\text{moderno}}}{\text{Na}^+_{\text{ancestral}}} = \frac{4.278}{690} \approx 6,2\]</span>
+<p>Los seres humanos modernos consumen aproximadamente 6,2 veces el sodio de sus ancestros. Simultáneamente, la ingesta de potasio ha disminuido a aproximadamente una cuarta parte de los niveles ancestrales. Esta inversión de la proporción Na/K no tiene precedentes en la historia evolutiva, y dado que el SRAA fue optimizado para un entorno de bajo sodio y alto potasio, la dieta moderna alta en sodio y baja en potasio crea un desajuste fundamental entre el diseño del sistema y su entrada — un desajuste evolutivo.</p>
+<h2>Sección 1: El exceso de sodio moderno y la "sal oculta"</h2>
+<p>La OMS recomienda que los adultos consuman menos de 5 g de sal por día [3]. Sin embargo, prácticamente ningún estado miembro de la OMS alcanza este objetivo. La ingesta media de sal entre los adultos japoneses es de aproximadamente 10 g/día — el doble de la recomendación de la OMS.</p>
+<p>Cómo las comidas cotidianas contribuyen a este exceso se hace vívido con ejemplos concretos. Una porción de ramen Iekei estilo Yokohama (incluido el caldo) contiene aproximadamente 7 g de sal.</p>
+<span class="math display">\[\frac{7 \text{ g}}{5 \text{ g}} = 1,40\]</span>
+<p>Un tazón de ramen proporciona el 140% del límite diario recomendado por la OMS. Incluso en comparación con la directriz japonesa para hombres (menos de 7,5 g/día), un solo tazón agota casi toda la asignación diaria.</p>
+<p>Sin embargo, el núcleo del problema no radica en los alimentos evidentemente salados. La "sal oculta" en los alimentos procesados representa la mayor parte de la ingesta total. Pan, queso, jamón, cereales, condimentos — ninguno sabe particularmente salado, pero contienen cantidades sustanciales de sodio. En el Reino Unido, aproximadamente el 75% de la ingesta de sal proviene de alimentos procesados, mientras que la sal de mesa y la sal de cocina representan solo alrededor del 15% del total [4].</p>
+<p>Esta característica estructural subraya las limitaciones de los enfoques que asignan la responsabilidad de la reducción de sodio a la "modificación del comportamiento alimentario" de los individuos. Los consumidores no pueden percibir con precisión cuánta sal están consumiendo, y lo que no se puede percibir no se puede controlar.</p>
+<h2>Sección 2: La controversia de la curva J del estudio PURE — ¿Es realmente peligroso "demasiado poca sal"?</h2>
+<p>En 2014, O'Donnell et al., como parte del estudio Prospective Urban Rural Epidemiology (PURE), estimaron la excreción de sodio a partir de muestras de orina puntual matutina en ayunas de 101.945 individuos en 17 países y examinaron su asociación con eventos cardiovasculares y mortalidad [5].</p>
+<p>Los resultados constituyeron un desafío importante a la orientación de salud pública vigente. El riesgo más bajo se observó en el grupo con excreción estimada de sodio de 3–6 g/día (equivalente de sal 7,5–15 g/día), con un aumento del riesgo también por debajo de ese rango — una curva J. Este hallazgo, que sugería que la adherencia estricta a la recomendación de la OMS (2 g Na/día) podría paradójicamente aumentar el riesgo, recibió amplia cobertura mediática.</p>
+<p>En 2018, Mente et al. reanalizaron los datos PURE en 369 comunidades y 95.767 individuos, reportando un patrón similar a nivel comunitario [6]. Una asociación significativa entre sodio y enfermedad cardiovascular solo se detectó en comunidades donde la ingesta media superaba los 5 g/día.</p>
+<p>Sin embargo, la metodología de PURE ha enfrentado múltiples críticas fundamentales.</p>
+<p><strong>Primero, el problema de medición.</strong> El estudio PURE utilizó estimaciones de la fórmula Kawasaki a partir de orina puntual matutina en lugar de recolección de orina de 24 horas. Las estimaciones de excreción de sodio basadas en orina puntual no pueden explicar la variación diurna, el contenido dietético ni los efectos de medicamentos, lo que impone limitaciones graves a la precisión de medición a nivel individual.</p>
+<p><strong>Segundo, la causalidad inversa (reverse causality).</strong> La explicación principal para el riesgo cardiovascular elevado en el grupo de baja ingesta de sodio es que los pacientes que ya están gravemente enfermos (insuficiencia cardíaca, cáncer, enfermedad hepática, etc.) experimentan una reducción del apetito, lo que resulta en una menor ingesta de sodio como consecuencia — no causa — de su condición. Los investigadores de PURE realizaron análisis de sensibilidad excluyendo a los participantes con enfermedad cardiovascular basal y eventos dentro de los primeros dos años de seguimiento, pero eliminar toda confusión es una imposibilidad estructural en los estudios observacionales.</p>
+<span class="math display">\[\text{Causalidad inversa: Enfermedad} \xrightarrow{\text{pérdida de apetito}} \text{Baja ingesta de Na} \xrightarrow{\text{asociación aparente}} \text{Alta mortalidad}\]</span>
+<p>Este problema de direccionalidad destaca la dificultad de principio para determinar la "ingesta óptima de sodio" mediante estudios observacionales. La curva J del estudio PURE proporcionó una narrativa atractiva — "reducir la sal en exceso es peligroso" — pero los fundamentos metodológicos que sustentan esa narrativa son frágiles.</p>
+<h2>Sección 3: Dos intervenciones — La reducción sigilosa de sal del Reino Unido y el ensayo SSaSS</h2>
+<p>Los estudios de intervención superan las limitaciones de la investigación observacional. En el debate sobre sal y salud, dos intervenciones a gran escala han proporcionado la evidencia más convincente.</p>
+<h3>La "reducción sigilosa de sal" de la FSA del Reino Unido</h3>
+<p>En 2003, la Agencia de Normas Alimentarias del Reino Unido (FSA) lanzó un programa de reducción de sal a nivel poblacional en colaboración con la industria alimentaria. La característica distintiva de este programa fue su estrategia "sigilosa" — que no dependía del cambio de comportamiento del consumidor. La FSA estableció objetivos de contenido máximo de sal para cada categoría alimentaria y exigió a los fabricantes reformular productos de manera incremental [4]. Reducir la sal del pan gradualmente a lo largo de varios años hace que los consumidores nunca noten el cambio.</p>
+<p>He, MacGregor y colegas examinaron los efectos del programa utilizando datos de la Encuesta de Salud de Inglaterra [7].</p>
+<span class="math display">\[\text{Ingesta de sal: } 9,5 \text{ g/día (2003)} \rightarrow 8,1 \text{ g/día (2011)}\]</span>
+<span class="math display">\[\Delta = -1,4 \text{ g/día} \quad (-15\%)\]</span>
+<p>En ocho años, la ingesta de sal a nivel poblacional disminuyó un 15%. Los cambios concurrentes fueron los siguientes:</p>
+<span class="math display">\[\Delta \text{PA} = -3,0 / {-1,4} \text{ mmHg}\]</span>
+<span class="math display">\[\text{Mortalidad por ictus: } -42\%, \quad \text{Mortalidad por cardiopatía isquémica: } -40\%\]</span>
+<p>Este estudio empleó un diseño ecológico, y la inferencia causal entre la reducción de sal y la disminución de la mortalidad tiene limitaciones (el período concurrente incluyó un aumento de prescripciones antihipertensivas, disminución de tasas de tabaquismo y reducciones de colesterol — influencias multifactoriales que no pueden desagregarse). No obstante, demostró que la "reducción sigilosa de sal" a escala nacional es factible y se acompaña de reducciones de presión arterial a nivel poblacional, otorgándole una importancia sustancial en política de salud pública.</p>
+<h3>El ensayo SSaSS: un ECA por conglomerados con seguimiento cercano al 100%</h3>
+<p>En 2021, Neal et al. reportaron en el NEJM los resultados de un ensayo controlado aleatorizado por conglomerados a gran escala (SSaSS: Salt Substitute and Stroke Study) que incluyó 20.995 participantes de 600 aldeas en la China rural [8].</p>
+<p>La intervención fue notablemente simple. Los participantes del grupo de intervención recibieron gratuitamente un sustituto de sal (75% NaCl + 25% KCl) en lugar de sal regular (100% NaCl). El grupo control continuó usando sal regular. El seguimiento medio fue de 4,74 años.</p>
+<span class="math display">\[\text{Ictus: RR} = 0,86 \quad (95\% \text{ IC: } 0,77 \text{--} 0,96, \; p = 0,006)\]</span>
+<span class="math display">\[\text{Eventos cardiovasculares mayores: RR} = 0,87 \quad (95\% \text{ IC: } 0,80 \text{--} 0,94)\]</span>
+<span class="math display">\[\text{Mortalidad por todas las causas: RR} = 0,88 \quad (95\% \text{ IC: } 0,82 \text{--} 0,95)\]</span>
+<p>Ictus reducido en un 14%, eventos cardiovasculares mayores en un 13%, mortalidad por todas las causas en un 12%. Y los datos de seguridad más críticos:</p>
+<span class="math display">\[\text{Hiperpotasemia clínica: RR} = 1,04 \quad (95\% \text{ IC: } 0,80 \text{--} 1,37)\]</span>
+<p>No hubo diferencia significativa en la incidencia de hiperpotasemia entre los grupos de sustituto de sal y control.</p>
+<p>El ensayo SSaSS fue el primer ECA en demostrar que una intervención única — sustituir la sal de mesa por una mezcla de NaCl/KCl — reduce significativamente el ictus, los eventos cardiovasculares y la mortalidad por todas las causas. Los tamaños del efecto son del mismo orden que los observados en ensayos clínicos de fármacos antihipertensivos, pero a una fracción del costo.</p>
+<h2>Conclusión: El futuro de los sustitutos de sal y el desafío del sabor eléctrico</h2>
+<p>La evidencia del ensayo SSaSS apoya firmemente la adopción a nivel poblacional de sustitutos de sal con KCl. Sin embargo, la aplicación universal enfrenta una restricción importante — la capacidad disminuida de excreción de potasio en pacientes con enfermedad renal crónica (ERC).</p>
+<p>En pacientes con función renal reducida, la ingesta adicional de KCl puede precipitar hiperpotasemia. Un estudio de modelización predice que la adopción global de sustitutos de sal con KCl evitaría 461.000 muertes cardiovasculares mientras podría causar aproximadamente 11.000 muertes por hiperpotasemia en pacientes con ERC [9].</p>
+<span class="math display">\[\text{NNT}_{\text{ECV}} \gg \text{NNH}_{\text{hiperpotasemia}}\]</span>
+<p>La proporción beneficio-riesgo favorece abrumadoramente el beneficio a nivel poblacional, pero la evaluación individual del riesgo es esencial para los pacientes con ERC estadio 3b en adelante. Distinguir entre la política de salud pública para el despliegue a nivel poblacional y la medicina clínica para la atención individualizada es el prerrequisito para la implementación social apropiada de los sustitutos de sal.</p>
+<p>Un enfoque distinto de la sustitución química también avanza. En 2011, Homei Miyashita y Hiromi Nakamura de la Universidad de Meiji propusieron el concepto de "sabor eléctrico" — modular la percepción del sabor de los alimentos mediante corrientes eléctricas débiles [10]. Esta investigación recibió el Premio Ig Nobel de Nutrición 2023, y la cuchara "Electric Salt", desarrollada en colaboración con Kirin Holdings y comercializada en 2024, mejora la salinidad percibida de alimentos con sodio reducido aproximadamente 1,5 veces [11].</p>
+<span class="math display">\[\text{Salinidad percibida} = f(\text{concentración de NaCl}, \text{estimulación eléctrica}) \approx 1,5 \times \text{solo concentración de NaCl}\]</span>
+<p>En lugar de reducir el sodio, el enfoque hace que la misma cantidad de sodio sepa más salada. En vez de eludir las restricciones evolutivas del SRAA, aprovecha la neurociencia para manipular el parámetro perceptivo.</p>
+<p>Hace 500 millones de años, los vertebrados que abandonaron el mar evolucionaron el SRAA para aprisionar el océano dentro de sus cuerpos. Esa exquisita maquinaria de conservación de sodio garantizó la supervivencia en entornos con escasez de sodio, pero en entornos saturados de sodio se convirtió en un factor de riesgo para la hipertensión y el ictus. La controversia de la curva J del estudio PURE demostró que la respuesta epidemiológica a este problema no es simple, mientras que la reducción sigilosa de sal del Reino Unido y el ensayo SSaSS proporcionaron evidencia de intervención que trasciende las limitaciones de los estudios observacionales. Y el dispositivo Electric Salt es un intento de recalibrar — mediante ingeniería — el sistema gustativo que la evolución diseñó.</p>
+<p>Nuestros riñones aún recuerdan el mar. La pregunta es cómo reescribir esa memoria.</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Fournier D, et al. Emergence and evolution of the renin-angiotensin-aldosterone system. <em>J Mol Med</em>. 2012;90(5):495-508. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/22527880/">22527880</a></li>
+<li>Eaton SB, Konner M. Paleolithic nutrition: a consideration of its nature and current implications. <em>N Engl J Med</em>. 1985;312(5):283-289. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/2981409/">2981409</a></li>
+<li>World Health Organization. Sodium reduction (Fact sheet). Geneva: WHO; 2024. URL: <a href="https://www.who.int/news-room/fact-sheets/detail/sodium-reduction">https://www.who.int/news-room/fact-sheets/detail/sodium-reduction</a></li>
+<li>He FJ, MacGregor GA. Reducing population salt intake worldwide: from evidence to implementation. <em>Prog Cardiovasc Dis</em>. 2010;52(5):363-382. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/20226955/">20226955</a></li>
+<li>O'Donnell M, et al. Urinary sodium and potassium excretion, mortality, and cardiovascular events. <em>N Engl J Med</em>. 2014;371(7):612-623. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/25119607/">25119607</a></li>
+<li>Mente A, et al. Urinary sodium excretion, blood pressure, cardiovascular disease, and mortality: a community-level prospective epidemiological cohort study. <em>Lancet</em>. 2018;392(10146):496-506. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/30129465/">30129465</a></li>
+<li>He FJ, Pombo-Rodrigues S, MacGregor GA. Salt reduction in England from 2003 to 2011: its relationship to blood pressure, stroke and ischaemic heart disease mortality. <em>BMJ Open</em>. 2014;4(4):e004549. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/24732242/">24732242</a></li>
+<li>Neal B, et al. Effect of salt substitution on cardiovascular events and death. <em>N Engl J Med</em>. 2021;385(12):1067-1077. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/34459569/">34459569</a></li>
+<li>Marklund M, et al. Estimated population wide benefits and risks in China of lowering sodium through potassium enriched salt substitution: modelling study. <em>BMJ</em>. 2020;369:m824. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32321724/">32321724</a></li>
+<li>Nakamura H, Miyashita H. Augmented gustation using electricity. <em>Proceedings of the 2nd Augmented Human International Conference</em>. 2011; article 34. DOI: <a href="https://doi.org/10.1145/1959826.1959860">10.1145/1959826.1959860</a></li>
+<li>Kirin Holdings Co., Ltd. Electric Salt Spoon press release. May 20, 2024. URL: <a href="https://www.kirinholdings.com/en/newsroom/release/2024/0520_01.html">https://www.kirinholdings.com/en/newsroom/release/2024/0520_01.html</a></li>
+</ol>
+<hr />
+<p><em>This article was produced by Project Asymptote for educational purposes and does not aim to diagnose or treat any specific condition. The information presented is based on publicly available peer-reviewed literature and does not constitute medical advice.</em></p>
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の疾患の診断や治療を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、医学的助言を構成するものではありません。</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成医学建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento médico.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह चिकित्सा सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة طبية.</em></p>
+<div class="disclaimer"><p>Este contenido es solo con fines informativos, basado en evidencia académica objetiva y análisis de datos. No pretende ser consejo médico, diagnóstico ni crítica política.</p></div>
+</article>
+
+<article id="content-hi" class="content-section" dir="ltr" lang="hi">
+<h1>आपकी किडनी अभी भी समुद्र को याद करती हैं — नमक और मानव विकास, महामारी विज्ञान के हस्तक्षेप की सीमांत, और विद्युत से स्वाद बदलने का भविष्य</h1>
+<hr />
+<h2>प्रस्तावना: समुद्र की स्मृति और विकासवादी असंगति</h2>
+<p>प्रत्येक कशेरुकी प्राणी के शारीरिक तरल में लगभग 0.9% सोडियम क्लोराइड होता है। फिजियोलॉजिकल सैलाइन में यह सांद्रता कोई संयोग नहीं है — यह लगभग 500 मिलियन वर्ष पहले कशेरुकी पूर्वजों द्वारा समुद्री जल में परिसंचरण तंत्र प्राप्त करने के समय की समुद्री संरचना का जीवाश्म प्रतिबिंब है। हमारा रक्त, शाब्दिक रूप से, शरीर के भीतर बंद किया गया तनु समुद्र है।</p>
+<p>जब कशेरुकी प्राणियों ने समुद्र से भूमि पर संक्रमण किया, तो उन्होंने अपने पर्यावरण से स्वतंत्र रूप से सोडियम प्राप्त करने की क्षमता खो दी। इस जीवित रहने के संकट का विकासवादी उत्तर रेनिन-एंजियोटेंसिन-एल्डोस्टेरोन प्रणाली (RAAS) था। RAAS अस्थिमीन (bony fish) चरण में पहले ही उत्पन्न हो चुका था और स्थलीय कशेरुकियों में वृक्क सोडियम पुनर्अवशोषण को नियंत्रित करने वाली मुख्य अंतःस्रावी प्रणाली के रूप में द्रव समस्थिति का केंद्र रहा है [1]। एल्डोस्टेरोन वृक्क संग्रहण वाहिनी में Na<span class="math inline">\(^+\)</span> पुनर्अवशोषण को बढ़ावा देता है, साथ ही K<span class="math inline">\(^+\)</span> उत्सर्जन भी बढ़ाता है। अर्थात, Na<span class="math inline">\(^+\)</span> संरक्षण और K<span class="math inline">\(^+\)</span> उत्सर्जन विकासवादी रूप से युग्मित हैं।</p>
+<p>1985 में, Eaton और Konner ने पुरापाषाण काल के पूर्वज आहार का पुनर्निर्माण किया और मानव विकासवादी पर्यावरण में सोडियम सेवन का अनुमान लगाया [2]।</p>
+<span class="math display">\[\text{Na}^+_{\text{ancestral}} \approx 690 \text{ mg/day} \quad (\text{NaCl समतुल्य} \approx 1.7 \text{ g/day})\]</span>
+<p>इसी बीच, WHO के अनुमान के अनुसार वर्तमान वैश्विक औसत सोडियम सेवन 4,278 mg/दिन (लगभग 11 g/दिन नमक समतुल्य) है [3]।</p>
+<span class="math display">\[\frac{\text{Na}^+_{\text{modern}}}{\text{Na}^+_{\text{ancestral}}} = \frac{4{,}278}{690} \approx 6.2\]</span>
+<p>आधुनिक मनुष्य अपने पूर्वजों की तुलना में लगभग 6.2 गुना सोडियम का सेवन करते हैं। साथ ही, पोटैशियम सेवन पूर्वज स्तर के लगभग एक-चौथाई तक घट गया है। Na/K अनुपात का यह उलटाव विकासवादी इतिहास में अभूतपूर्व है, और चूंकि RAAS को कम-सोडियम, उच्च-पोटैशियम वातावरण के लिए अनुकूलित किया गया था, आधुनिक उच्च-सोडियम, कम-पोटैशियम आहार प्रणाली डिज़ाइन और इनपुट के बीच एक मौलिक असंगति — अर्थात विकासवादी असंगति — उत्पन्न करता है।</p>
+<h2>खंड 1: आधुनिक सोडियम अधिकता और "छिपा हुआ नमक"</h2>
+<p>WHO अनुशंसा करता है कि वयस्क प्रतिदिन 5 g से कम नमक का सेवन करें [3]। फिर भी, WHO का वस्तुतः कोई सदस्य राज्य इस लक्ष्य को प्राप्त नहीं करता। जापानी वयस्कों का औसत नमक सेवन लगभग 10 g/दिन है — WHO अनुशंसा का दोगुना।</p>
+<p>दैनिक भोजन इस अधिकता में कैसे योगदान करता है, यह ठोस उदाहरणों से स्पष्ट होता है। योकोहामा शैली के इएकेइ रामेन का एक कटोरा (शोरबा सहित) लगभग 7 g नमक रखता है।</p>
+<span class="math display">\[\frac{7 \text{ g}}{5 \text{ g}} = 1.40\]</span>
+<p>रामेन का एक कटोरा WHO की दैनिक अनुशंसित सीमा का 140% प्रदान करता है। जापानी पुरुषों के दिशानिर्देश (7.5 g/दिन से कम) की तुलना में भी, एक कटोरा लगभग पूरा दैनिक कोटा समाप्त कर देता है।</p>
+<p>हालांकि, समस्या का केंद्र स्पष्ट रूप से नमकीन खाद्य पदार्थों में नहीं है। प्रसंस्कृत खाद्य पदार्थों में "छिपा हुआ नमक (hidden salt)" कुल सेवन का अधिकांश भाग बनाता है। ब्रेड, चीज़, हैम, सीरियल, मसाले — इनमें से कोई भी विशेष रूप से नमकीन नहीं लगता, फिर भी इनमें पर्याप्त मात्रा में सोडियम होता है। यूनाइटेड किंगडम में, लगभग 75% नमक सेवन प्रसंस्कृत खाद्य पदार्थों से आता है, जबकि मेज़ का नमक और खाना पकाने का नमक कुल का केवल लगभग 15% है [4]।</p>
+<p>यह संरचनात्मक विशेषता उन दृष्टिकोणों की सीमाओं को रेखांकित करती है जो सोडियम कमी की जिम्मेदारी व्यक्तियों के "आहार व्यवहार संशोधन" पर डालते हैं। उपभोक्ता सटीक रूप से नहीं जान सकते कि वे कितना नमक सेवन कर रहे हैं, और जो अनुभव नहीं किया जा सकता उसे नियंत्रित नहीं किया जा सकता।</p>
+<h2>खंड 2: PURE परीक्षण का J-वक्र विवाद — क्या "बहुत कम नमक" वास्तव में खतरनाक है?</h2>
+<p>2014 में, O'Donnell एवं अन्य ने Prospective Urban Rural Epidemiology (PURE) अध्ययन के भाग के रूप में, 17 देशों के 101,945 व्यक्तियों के सुबह की उपवास स्पॉट मूत्र नमूनों से सोडियम उत्सर्जन का अनुमान लगाया और हृदय संवहनी घटनाओं तथा मृत्यु दर के साथ इसके संबंधन की जांच की [5]।</p>
+<p>परिणाम प्रचलित सार्वजनिक स्वास्थ्य मार्गदर्शन के लिए एक बड़ी चुनौती थे। सबसे कम जोखिम अनुमानित सोडियम उत्सर्जन 3–6 g/दिन (नमक समतुल्य 7.5–15 g/दिन) वाले समूह में देखा गया, उस सीमा से नीचे भी जोखिम बढ़ा — एक J-वक्र। यह खोज, जो सुझाव देती थी कि WHO अनुशंसा (2 g Na/दिन) का सख्त पालन विरोधाभासी रूप से जोखिम बढ़ा सकता है, मीडिया में व्यापक रूप से कवर की गई।</p>
+<p>2018 में, Mente एवं अन्य ने 369 समुदायों और 95,767 व्यक्तियों में PURE डेटा का पुन: विश्लेषण किया, समुदाय स्तर पर समान पैटर्न की रिपोर्ट करते हुए [6]। सोडियम और हृदय संवहनी रोग के बीच सार्थक संबंधन केवल उन समुदायों में पता चला जहां औसत सेवन 5 g/दिन से अधिक था।</p>
+<p>हालांकि, PURE की कार्यप्रणाली को अनेक मौलिक आलोचनाओं का सामना करना पड़ा है।</p>
+<p><strong>पहला, माप पद्धति का मुद्दा।</strong> PURE अध्ययन ने 24-घंटे मूत्र संग्रह के बजाय सुबह के स्पॉट मूत्र से Kawasaki सूत्र अनुमान का उपयोग किया। स्पॉट मूत्र आधारित सोडियम उत्सर्जन अनुमान दैनिक भिन्नता, आहार सामग्री या औषधि प्रभावों का हिसाब नहीं रख सकते, जो व्यक्तिगत स्तर की माप सटीकता पर गंभीर सीमाएं लगाता है।</p>
+<p><strong>दूसरा, प्रतिलोम कार्य-कारण (reverse causality)।</strong> कम-सोडियम सेवन समूह में बढ़े हुए हृदय संवहनी जोखिम की मुख्य व्याख्या यह है कि जो रोगी पहले से गंभीर रूप से बीमार हैं (हृदय विफलता, कैंसर, यकृत रोग आदि) उनकी भूख कम हो जाती है, जिसके परिणामस्वरूप उनके सोडियम सेवन में कमी उनकी स्थिति का परिणाम है — कारण नहीं। PURE शोधकर्ताओं ने आधारभूत हृदय संवहनी रोग वाले प्रतिभागियों और अनुवर्तन के पहले दो वर्षों के भीतर की घटनाओं को बाहर करने वाले संवेदनशीलता विश्लेषण किए, लेकिन सभी भ्रामक कारकों को समाप्त करना अवलोकन अध्ययनों की संरचनात्मक असंभवता है।</p>
+<span class="math display">\[\text{प्रतिलोम कार्य-कारण: रोग} \xrightarrow{\text{भूख में कमी}} \text{कम Na सेवन} \xrightarrow{\text{प्रकट संबंधन}} \text{उच्च मृत्यु दर}\]</span>
+<p>यह दिशात्मकता समस्या अवलोकन अध्ययनों के माध्यम से "इष्टतम सोडियम सेवन" निर्धारित करने की सैद्धांतिक कठिनाई को उजागर करती है। PURE अध्ययन के J-वक्र ने एक आकर्षक कथा प्रदान की — "नमक बहुत कम करना खतरनाक है" — लेकिन उस कथा का समर्थन करने वाली पद्धतिगत नींव नाजुक है।</p>
+<h2>खंड 3: दो हस्तक्षेप — यूके की गुप्त नमक कमी और SSaSS परीक्षण</h2>
+<p>हस्तक्षेप अध्ययन अवलोकन अनुसंधान की सीमाओं को पार करते हैं। नमक और स्वास्थ्य की बहस में, दो बड़े पैमाने के हस्तक्षेपों ने सबसे प्रेरक साक्ष्य प्रदान किया है।</p>
+<h3>यूके FSA की "गुप्त नमक कमी"</h3>
+<p>2003 में, यूके खाद्य मानक एजेंसी (FSA) ने खाद्य उद्योग के सहयोग से जनसंख्या-स्तरीय नमक कमी कार्यक्रम शुरू किया। इस कार्यक्रम की पहचान इसकी "गुप्त (stealth)" रणनीति थी — जो उपभोक्ता व्यवहार परिवर्तन पर निर्भर नहीं थी। FSA ने प्रत्येक खाद्य श्रेणी के लिए अधिकतम नमक सामग्री लक्ष्य निर्धारित किए और निर्माताओं से उत्पादों को क्रमिक रूप से सुधारने की आवश्यकता रखी [4]। कई वर्षों में ब्रेड में नमक को धीरे-धीरे कम करें, और उपभोक्ताओं को परिवर्तन का कभी पता नहीं चलता।</p>
+<p>He, MacGregor और सहयोगियों ने इंग्लैंड स्वास्थ्य सर्वेक्षण डेटा का उपयोग करके कार्यक्रम के प्रभावों की जांच की [7]।</p>
+<span class="math display">\[\text{नमक सेवन: } 9.5 \text{ g/दिन (2003)} \rightarrow 8.1 \text{ g/दिन (2011)}\]</span>
+<span class="math display">\[\Delta = -1.4 \text{ g/दिन} \quad (-15\%)\]</span>
+<p>आठ वर्षों में, जनसंख्या-स्तरीय नमक सेवन 15% घटा। समवर्ती परिवर्तन निम्नानुसार थे:</p>
+<span class="math display">\[\Delta \text{BP} = -3.0 / {-1.4} \text{ mmHg}\]</span>
+<span class="math display">\[\text{स्ट्रोक मृत्यु दर: } -42\%, \quad \text{इस्केमिक हृदय रोग मृत्यु दर: } -40\%\]</span>
+<p>इस अध्ययन ने पारिस्थितिक डिज़ाइन का उपयोग किया, और नमक कमी और मृत्यु दर में गिरावट के बीच कारणात्मक अनुमान की सीमाएं हैं (समवर्ती अवधि में उच्चरक्तचापरोधी नुस्खों में वृद्धि, धूम्रपान दरों में गिरावट और कोलेस्ट्रॉल में कमी शामिल थी — बहुकारक प्रभाव जिन्हें अलग नहीं किया जा सकता)। फिर भी, इसने प्रदर्शित किया कि राष्ट्रव्यापी "गुप्त नमक कमी" व्यवहार्य है और जनसंख्या-स्तरीय रक्तचाप में कमी के साथ होती है, जो इसे महत्वपूर्ण सार्वजनिक स्वास्थ्य नीति महत्व प्रदान करती है।</p>
+<h3>SSaSS परीक्षण: लगभग 100% अनुवर्तन दर वाला क्लस्टर RCT</h3>
+<p>2021 में, Neal एवं अन्य ने NEJM में ग्रामीण चीन के 600 गांवों के 20,995 प्रतिभागियों के बड़े पैमाने के क्लस्टर यादृच्छिक नियंत्रित परीक्षण (SSaSS: Salt Substitute and Stroke Study) के परिणाम प्रस्तुत किए [8]।</p>
+<p>हस्तक्षेप उल्लेखनीय रूप से सरल था। हस्तक्षेप समूह के प्रतिभागियों को सामान्य नमक (100% NaCl) के स्थान पर निःशुल्क एक वैकल्पिक नमक (75% NaCl + 25% KCl) प्रदान किया गया। नियंत्रण समूह ने सामान्य नमक का उपयोग जारी रखा। औसत अनुवर्तन 4.74 वर्ष था।</p>
+<span class="math display">\[\text{स्ट्रोक: RR} = 0.86 \quad (95\% \text{ CI: } 0.77 \text{--} 0.96, \; p = 0.006)\]</span>
+<span class="math display">\[\text{प्रमुख हृदय संवहनी घटनाएं: RR} = 0.87 \quad (95\% \text{ CI: } 0.80 \text{--} 0.94)\]</span>
+<span class="math display">\[\text{सर्वकारण मृत्यु दर: RR} = 0.88 \quad (95\% \text{ CI: } 0.82 \text{--} 0.95)\]</span>
+<p>स्ट्रोक 14% कम, प्रमुख हृदय संवहनी घटनाएं 13% कम, सर्वकारण मृत्यु दर 12% कम। और सबसे महत्वपूर्ण सुरक्षा डेटा:</p>
+<span class="math display">\[\text{नैदानिक हाइपरकैलेमिया: RR} = 1.04 \quad (95\% \text{ CI: } 0.80 \text{--} 1.37)\]</span>
+<p>वैकल्पिक नमक और नियंत्रण समूहों के बीच हाइपरकैलेमिया की घटना दर में कोई सार्थक अंतर नहीं था।</p>
+<p>SSaSS परीक्षण पहला RCT था जिसने प्रदर्शित किया कि एक एकल हस्तक्षेप — मेज के नमक को NaCl/KCl मिश्रण से बदलना — स्ट्रोक, हृदय संवहनी घटनाओं और सर्वकारण मृत्यु दर को सार्थक रूप से कम करता है। प्रभाव आकार उच्चरक्तचापरोधी दवा परीक्षणों में देखे गए समान क्रम के हैं, लेकिन लागत का एक अंश मात्र है।</p>
+<h2>निष्कर्ष: वैकल्पिक नमक का भविष्य और विद्युत स्वाद की चुनौती</h2>
+<p>SSaSS परीक्षण का साक्ष्य KCl वैकल्पिक नमक के जनसंख्या-स्तरीय अपनाने का दृढ़ता से समर्थन करता है। हालांकि, सार्वभौमिक अनुप्रयोग एक महत्वपूर्ण प्रतिबंध का सामना करता है — क्रोनिक किडनी डिजीज (CKD) रोगियों में पोटैशियम उत्सर्जन क्षमता में कमी।</p>
+<p>कम वृक्क कार्य वाले रोगियों में, अतिरिक्त KCl सेवन हाइपरकैलेमिया उत्पन्न कर सकता है। एक मॉडलिंग अध्ययन भविष्यवाणी करता है कि KCl वैकल्पिक नमक का वैश्विक अपनाव 461,000 हृदय संवहनी मृत्यु टाल सकता है जबकि CKD रोगियों में लगभग 11,000 हाइपरकैलेमिया-जनित मृत्यु संभावित रूप से हो सकती हैं [9]।</p>
+<span class="math display">\[\text{NNT}_{\text{CVD}} \gg \text{NNH}_{\text{hyperkalemia}}\]</span>
+<p>जनसंख्या स्तर पर लाभ-जोखिम अनुपात अत्यधिक रूप से लाभ की ओर झुकता है, लेकिन CKD stage 3b और उससे आगे के रोगियों के लिए व्यक्तिगत जोखिम मूल्यांकन अनिवार्य है। जनसंख्या-स्तरीय परिनियोजन के लिए सार्वजनिक स्वास्थ्य नीति और व्यक्तिगत देखभाल के लिए नैदानिक चिकित्सा के बीच अंतर करना — वैकल्पिक नमक के उचित सामाजिक कार्यान्वयन की पूर्वशर्त है।</p>
+<p>रासायनिक प्रतिस्थापन से भिन्न एक दृष्टिकोण भी प्रगति कर रहा है। 2011 में, मेइजी विश्वविद्यालय के Homei Miyashita और Hiromi Nakamura ने "विद्युत स्वाद" की अवधारणा प्रस्तुत की — कमजोर विद्युत धाराओं के माध्यम से खाद्य स्वाद की धारणा को संशोधित करना [10]। इस शोध को 2023 का इग नोबेल पोषण पुरस्कार मिला, और Kirin Holdings के सहयोग से विकसित और 2024 में व्यावसायीकृत "इलेक्ट्रिक सॉल्ट" चम्मच, कम-सोडियम भोजन की अनुभूत नमकीनता को लगभग 1.5 गुना बढ़ाता है [11]।</p>
+<span class="math display">\[\text{अनुभूत नमकीनता} = f(\text{NaCl सांद्रता}, \text{विद्युत उत्तेजना}) \approx 1.5 \times \text{केवल NaCl सांद्रता}\]</span>
+<p>सोडियम कम करने के बजाय, यह दृष्टिकोण उसी मात्रा के सोडियम को अधिक नमकीन अनुभव कराता है। RAAS की विकासवादी बाधाओं को दरकिनार करने के बजाय, यह तंत्रिका विज्ञान का लाभ उठाकर अवधारणात्मक मापदंड में हेरफेर करता है।</p>
+<p>500 मिलियन वर्ष पहले समुद्र छोड़ने वाले कशेरुकियों ने अपने शरीर के भीतर महासागर को कैद करने के लिए RAAS का विकास किया। वह परिष्कृत सोडियम-संरक्षण तंत्र सोडियम-दुर्लभ वातावरण में जीवित रहने की गारंटी देता था, लेकिन सोडियम-संतृप्त वातावरण में यह उच्च रक्तचाप और स्ट्रोक का जोखिम कारक बन गया। PURE अध्ययन के J-वक्र विवाद ने प्रदर्शित किया कि इस समस्या का महामारी विज्ञानिक उत्तर सरल नहीं है, जबकि यूके की गुप्त नमक कमी और SSaSS परीक्षण ने अवलोकन अध्ययनों की सीमाओं को पार करने वाला हस्तक्षेप साक्ष्य प्रदान किया। और इलेक्ट्रिक सॉल्ट उपकरण विकास द्वारा डिज़ाइन की गई स्वाद प्रणाली को — इंजीनियरिंग के माध्यम से — पुनः अंशशोधन करने का प्रयास है।</p>
+<p>हमारी किडनी अभी भी समुद्र को याद करती हैं। प्रश्न यह है कि उस स्मृति को कैसे पुनर्लिखित किया जाए।</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Fournier D, et al. Emergence and evolution of the renin-angiotensin-aldosterone system. <em>J Mol Med</em>. 2012;90(5):495-508. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/22527880/">22527880</a></li>
+<li>Eaton SB, Konner M. Paleolithic nutrition: a consideration of its nature and current implications. <em>N Engl J Med</em>. 1985;312(5):283-289. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/2981409/">2981409</a></li>
+<li>World Health Organization. Sodium reduction (Fact sheet). Geneva: WHO; 2024. URL: <a href="https://www.who.int/news-room/fact-sheets/detail/sodium-reduction">https://www.who.int/news-room/fact-sheets/detail/sodium-reduction</a></li>
+<li>He FJ, MacGregor GA. Reducing population salt intake worldwide: from evidence to implementation. <em>Prog Cardiovasc Dis</em>. 2010;52(5):363-382. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/20226955/">20226955</a></li>
+<li>O'Donnell M, et al. Urinary sodium and potassium excretion, mortality, and cardiovascular events. <em>N Engl J Med</em>. 2014;371(7):612-623. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/25119607/">25119607</a></li>
+<li>Mente A, et al. Urinary sodium excretion, blood pressure, cardiovascular disease, and mortality: a community-level prospective epidemiological cohort study. <em>Lancet</em>. 2018;392(10146):496-506. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/30129465/">30129465</a></li>
+<li>He FJ, Pombo-Rodrigues S, MacGregor GA. Salt reduction in England from 2003 to 2011: its relationship to blood pressure, stroke and ischaemic heart disease mortality. <em>BMJ Open</em>. 2014;4(4):e004549. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/24732242/">24732242</a></li>
+<li>Neal B, et al. Effect of salt substitution on cardiovascular events and death. <em>N Engl J Med</em>. 2021;385(12):1067-1077. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/34459569/">34459569</a></li>
+<li>Marklund M, et al. Estimated population wide benefits and risks in China of lowering sodium through potassium enriched salt substitution: modelling study. <em>BMJ</em>. 2020;369:m824. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32321724/">32321724</a></li>
+<li>Nakamura H, Miyashita H. Augmented gustation using electricity. <em>Proceedings of the 2nd Augmented Human International Conference</em>. 2011; article 34. DOI: <a href="https://doi.org/10.1145/1959826.1959860">10.1145/1959826.1959860</a></li>
+<li>Kirin Holdings Co., Ltd. Electric Salt Spoon press release. May 20, 2024. URL: <a href="https://www.kirinholdings.com/en/newsroom/release/2024/0520_01.html">https://www.kirinholdings.com/en/newsroom/release/2024/0520_01.html</a></li>
+</ol>
+<hr />
+<p><em>This article was produced by Project Asymptote for educational purposes and does not aim to diagnose or treat any specific condition. The information presented is based on publicly available peer-reviewed literature and does not constitute medical advice.</em></p>
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の疾患の診断や治療を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、医学的助言を構成するものではありません。</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成医学建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento médico.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह चिकित्सा सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة طبية.</em></p>
+<div class="disclaimer"><p>यह सामग्री केवल सूचनात्मक उद्देश्यों के लिए है, जो वस्तुनिष्ठ शैक्षणिक साक्ष्य और डेटा विश्लेषण पर आधारित है। यह चिकित्सा सलाह, निदान या राजनीतिक आलोचना के रूप में अभिप्रेत नहीं है।</p></div>
+</article>
+
+<article id="content-ar" class="content-section" dir="rtl" lang="ar">
+<h1>كليتاك لا تزالان تتذكران البحر — الملح وتطور الإنسان، وحدود التدخل الوبائي، ومستقبل يغيّر فيه الكهرباء المذاق</h1>
+<hr />
+<h2>المقدمة: ذاكرة البحر والتفاوت التطوري</h2>
+<p>يحتوي سائل جسم كل فقاري على حوالي 0.9% من كلوريد الصوديوم. هذا التركيز في المحلول الملحي الفسيولوجي ليس مصادفة — إنه انعكاس أحفوري لتركيبة المحيط في الوقت الذي اكتسب فيه أسلاف الفقاريات أجهزة الدورة الدموية قبل نحو 500 مليون سنة. دمنا هو، حرفياً، بحر مخفف محبوس داخل أجسادنا.</p>
+<p>عندما انتقلت الفقاريات من البحر إلى اليابسة، فقدت القدرة على الحصول على الصوديوم بحرية من بيئتها. كان الجواب التطوري لأزمة البقاء هذه هو نظام الرينين-أنجيوتنسين-ألدوستيرون (RAAS). ظهر RAAS بالفعل في مرحلة الأسماك العظمية وعمل كنظام الغدد الصماء الأساسي الذي يتحكم في إعادة امتصاص الصوديوم الكلوي ويحافظ على التوازن السائلي في الفقاريات البرية [1]. يعزز الألدوستيرون إعادة امتصاص Na<span class="math inline">\(^+\)</span> في القناة الجامعة الكلوية بينما يزيد في الوقت ذاته من إفراز K<span class="math inline">\(^+\)</span>. أي أن الحفاظ على Na<span class="math inline">\(^+\)</span> وإفراز K<span class="math inline">\(^+\)</span> مقترنان تطورياً.</p>
+<p>في عام 1985، أعاد Eaton وKonner بناء النظام الغذائي السلفي في العصر الحجري القديم وقدّرا مدخول الصوديوم في البيئة التطورية للإنسان [2].</p>
+<span class="math display">\[\text{Na}^+_{\text{ancestral}} \approx 690 \text{ mg/day} \quad (\text{معادل NaCl} \approx 1.7 \text{ g/day})\]</span>
+<p>في المقابل، يبلغ متوسط مدخول الصوديوم العالمي الحالي 4,278 ملغ/يوم (ما يعادل حوالي 11 غ/يوم ملح) وفقاً لتقديرات منظمة الصحة العالمية [3].</p>
+<span class="math display">\[\frac{\text{Na}^+_{\text{modern}}}{\text{Na}^+_{\text{ancestral}}} = \frac{4{,}278}{690} \approx 6.2\]</span>
+<p>يستهلك الإنسان الحديث حوالي 6.2 أضعاف الصوديوم الذي استهلكه أسلافه. وفي الوقت ذاته، انخفض مدخول البوتاسيوم إلى حوالي ربع المستويات السلفية. هذا الانقلاب في نسبة Na/K غير مسبوق في التاريخ التطوري، ولأن RAAS تم تحسينه لبيئة منخفضة الصوديوم وعالية البوتاسيوم، فإن النظام الغذائي الحديث العالي الصوديوم والمنخفض البوتاسيوم يخلق تفاوتاً جوهرياً بين تصميم النظام ومدخلاته — أي تفاوت تطوري.</p>
+<h2>القسم الأول: فرط الصوديوم الحديث و"الملح المخفي"</h2>
+<p>توصي منظمة الصحة العالمية بأن يستهلك البالغون أقل من 5 غ من الملح يومياً [3]. ومع ذلك، لا تحقق أي دولة عضو في المنظمة تقريباً هذا الهدف. يبلغ متوسط مدخول الملح بين البالغين اليابانيين حوالي 10 غ/يوم — ضعف توصية المنظمة.</p>
+<p>يتضح إسهام الوجبات اليومية في هذا الفرط من خلال أمثلة ملموسة. تحتوي حصة واحدة من رامن إيكي على طريقة يوكوهاما (مع المرق) على حوالي 7 غ من الملح.</p>
+<span class="math display">\[\frac{7 \text{ g}}{5 \text{ g}} = 1.40\]</span>
+<p>وعاء واحد من الرامن يوفر 140% من الحد اليومي الموصى به من منظمة الصحة العالمية. حتى مقارنة بالمبدأ التوجيهي الياباني للرجال (أقل من 7.5 غ/يوم)، فإن وعاءً واحداً يكاد يستنفد الحصة اليومية بأكملها.</p>
+<p>غير أن جوهر المشكلة لا يكمن في الأطعمة المالحة بشكل واضح. "الملح المخفي" في الأغذية المصنّعة يمثل الجزء الأكبر من إجمالي المدخول. الخبز والجبن واللحوم المصنّعة والحبوب والتوابل — لا يبدو أي منها مالحاً بشكل خاص، ومع ذلك يحتوي على كميات كبيرة من الصوديوم. في المملكة المتحدة، يأتي حوالي 75% من مدخول الملح من الأغذية المصنّعة، بينما لا يمثل ملح المائدة وملح الطهي سوى حوالي 15% من الإجمالي [4].</p>
+<p>تبرز هذه السمة البنيوية حدود المقاربات التي تحمّل الأفراد مسؤولية تقليل الصوديوم عبر "تعديل السلوك الغذائي". لا يستطيع المستهلكون إدراك كمية الملح التي يتناولونها بدقة، وما لا يمكن إدراكه لا يمكن التحكم فيه.</p>
+<h2>القسم الثاني: جدل المنحنى J لدراسة PURE — هل "قليل جداً من الملح" خطير حقاً؟</h2>
+<p>في عام 2014، قدّر O'Donnell وآخرون، كجزء من دراسة الوبائيات الحضرية الريفية المستقبلية (PURE)، إفراز الصوديوم من عينات بول صباحية عشوائية صائمة لـ 101,945 فرداً في 17 دولة وفحصوا ارتباطه بالأحداث القلبية الوعائية والوفاة [5].</p>
+<p>شكّلت النتائج تحدياً كبيراً للإرشادات الصحية العامة السائدة. لوحظ أدنى خطر في المجموعة ذات إفراز الصوديوم المُقدَّر بـ 3–6 غ/يوم (معادل ملح 7.5–15 غ/يوم)، مع ارتفاع الخطر أيضاً دون ذلك المدى — منحنى J. هذه النتيجة، التي اقترحت أن الالتزام الصارم بتوصية المنظمة (2 غ Na/يوم) قد يزيد الخطر بشكل متناقض، حظيت بتغطية إعلامية واسعة.</p>
+<p>في عام 2018، أعاد Mente وآخرون تحليل بيانات PURE عبر 369 مجتمعاً و95,767 فرداً، مبلّغين عن نمط مشابه على مستوى المجتمعات [6]. تم اكتشاف ارتباط ذي دلالة إحصائية بين الصوديوم والأمراض القلبية الوعائية فقط في المجتمعات التي تجاوز فيها متوسط المدخول 5 غ/يوم.</p>
+<p>غير أن منهجية PURE واجهت انتقادات جوهرية متعددة.</p>
+<p><strong>أولاً، مشكلة القياس.</strong> استخدمت دراسة PURE تقديرات صيغة Kawasaki من البول العشوائي الصباحي بدلاً من جمع البول على مدار 24 ساعة. لا تستطيع تقديرات إفراز الصوديوم المبنية على البول العشوائي حساب التغير اليومي أو محتوى النظام الغذائي أو تأثيرات الأدوية، مما يفرض قيوداً خطيرة على دقة القياس على المستوى الفردي.</p>
+<p><strong>ثانياً، السببية العكسية (reverse causality).</strong> التفسير الرئيسي لارتفاع الخطر القلبي الوعائي في مجموعة مدخول الصوديوم المنخفض هو أن المرضى المصابين بأمراض خطيرة بالفعل (قصور القلب، السرطان، أمراض الكبد، إلخ) يعانون من فقدان الشهية، مما يؤدي إلى انخفاض مدخول الصوديوم كنتيجة — لا سبب — لحالتهم. أجرى باحثو PURE تحليلات حساسية استبعدت المشاركين المصابين بأمراض قلبية وعائية أساسية والأحداث خلال العامين الأولين من المتابعة، لكن القضاء على جميع العوامل المربكة يظل استحالة بنيوية في الدراسات الرصدية.</p>
+<span class="math display">\[\text{السببية العكسية: المرض} \xrightarrow{\text{فقدان الشهية}} \text{مدخول Na منخفض} \xrightarrow{\text{ارتباط ظاهري}} \text{معدل وفيات مرتفع}\]</span>
+<p>تبرز مشكلة الاتجاهية هذه الصعوبة المبدئية في تحديد "مدخول الصوديوم الأمثل" من خلال الدراسات الرصدية. قدّم منحنى J لدراسة PURE سردية جذابة — "تقليل الملح بشكل مفرط خطير" — لكن الأسس المنهجية الداعمة لتلك السردية هشة.</p>
+<h2>القسم الثالث: تدخلان — تقليل الملح الخفي في المملكة المتحدة وتجربة SSaSS</h2>
+<p>تتغلب دراسات التدخل على قيود البحث الرصدي. في نقاش الملح والصحة، قدّم تدخلان واسعا النطاق الدليل الأكثر إقناعاً.</p>
+<h3>"تقليل الملح الخفي" لوكالة FSA البريطانية</h3>
+<p>في عام 2003، أطلقت وكالة المعايير الغذائية البريطانية (FSA) برنامجاً لتقليل الملح على مستوى السكان بالتعاون مع صناعة الأغذية. تميّز هذا البرنامج باستراتيجيته "الخفية (stealth)" — التي لم تعتمد على تغيير سلوك المستهلك. وضعت FSA أهدافاً قصوى لمحتوى الملح لكل فئة غذائية وطلبت من المصنّعين إعادة صياغة المنتجات تدريجياً [4]. خفض ملح الخبز تدريجياً على مدار عدة سنوات يجعل المستهلكين لا يلاحظون التغيير أبداً.</p>
+<p>فحص He وMacGregor وزملاؤهم تأثيرات البرنامج باستخدام بيانات المسح الصحي لإنجلترا [7].</p>
+<span class="math display">\[\text{مدخول الملح: } 9.5 \text{ غ/يوم (2003)} \rightarrow 8.1 \text{ غ/يوم (2011)}\]</span>
+<span class="math display">\[\Delta = -1.4 \text{ غ/يوم} \quad (-15\%)\]</span>
+<p>على مدار ثماني سنوات، انخفض مدخول الملح على مستوى السكان بنسبة 15%. كانت التغيرات المتزامنة كالتالي:</p>
+<span class="math display">\[\Delta \text{BP} = -3.0 / {-1.4} \text{ mmHg}\]</span>
+<span class="math display">\[\text{معدل وفيات السكتة الدماغية: } -42\%, \quad \text{معدل وفيات أمراض القلب الإقفارية: } -40\%\]</span>
+<p>استخدمت هذه الدراسة تصميماً بيئياً، والاستدلال السببي بين تقليل الملح وانخفاض الوفيات له حدود (شملت الفترة المتزامنة زيادة وصفات الأدوية الخافضة للضغط، وانخفاض معدلات التدخين، وانخفاض الكوليسترول — تأثيرات متعددة العوامل لا يمكن فصلها). ومع ذلك، أثبتت أن "تقليل الملح الخفي" على المستوى الوطني ممكن ويصاحبه انخفاض في ضغط الدم على مستوى السكان، مما يمنحه أهمية كبيرة في سياسة الصحة العامة.</p>
+<h3>تجربة SSaSS: تجربة عشوائية عنقودية بمعدل متابعة قريب من 100%</h3>
+<p>في عام 2021، نشر Neal وآخرون في NEJM نتائج تجربة عشوائية محكومة عنقودية واسعة النطاق (SSaSS: Salt Substitute and Stroke Study) شملت 20,995 مشاركاً من 600 قرية في الريف الصيني [8].</p>
+<p>كان التدخل بسيطاً بشكل لافت. تلقّى المشاركون في مجموعة التدخل مجاناً بديلاً للملح (75% NaCl + 25% KCl) بدلاً من الملح العادي (100% NaCl). واصلت مجموعة المقارنة استخدام الملح العادي. بلغ متوسط المتابعة 4.74 سنة.</p>
+<span class="math display">\[\text{السكتة الدماغية: RR} = 0.86 \quad (95\% \text{ CI: } 0.77 \text{--} 0.96, \; p = 0.006)\]</span>
+<span class="math display">\[\text{الأحداث القلبية الوعائية الرئيسية: RR} = 0.87 \quad (95\% \text{ CI: } 0.80 \text{--} 0.94)\]</span>
+<span class="math display">\[\text{الوفيات لجميع الأسباب: RR} = 0.88 \quad (95\% \text{ CI: } 0.82 \text{--} 0.95)\]</span>
+<p>انخفاض السكتة الدماغية بنسبة 14%، والأحداث القلبية الوعائية الرئيسية بنسبة 13%، والوفيات لجميع الأسباب بنسبة 12%. وبيانات السلامة الأكثر أهمية:</p>
+<span class="math display">\[\text{فرط بوتاسيوم الدم السريري: RR} = 1.04 \quad (95\% \text{ CI: } 0.80 \text{--} 1.37)\]</span>
+<p>لم يكن هناك فرق ذو دلالة إحصائية في حدوث فرط بوتاسيوم الدم بين مجموعتي بديل الملح والمقارنة.</p>
+<p>كانت تجربة SSaSS أول تجربة عشوائية محكومة تُثبت أن تدخلاً واحداً — استبدال ملح الطعام بمزيج NaCl/KCl — يقلل بشكل ملحوظ السكتة الدماغية والأحداث القلبية الوعائية والوفيات لجميع الأسباب. أحجام التأثير من نفس الرتبة المُلاحَظة في التجارب السريرية للأدوية الخافضة للضغط، لكن بجزء يسير من التكلفة.</p>
+<h2>الخاتمة: مستقبل بدائل الملح وتحدي المذاق الكهربائي</h2>
+<p>يدعم دليل تجربة SSaSS بقوة تبنّي بدائل ملح KCl على مستوى السكان. غير أن التطبيق الشامل يواجه قيداً مهماً — انخفاض قدرة إفراز البوتاسيوم لدى مرضى أمراض الكلى المزمنة (CKD).</p>
+<p>لدى المرضى ذوي الوظيفة الكلوية المنخفضة، يمكن أن يُسبب المدخول الإضافي من KCl فرط بوتاسيوم الدم. تتنبأ دراسة نمذجة بأن التبني العالمي لبدائل ملح KCl سيمنع 461,000 حالة وفاة قلبية وعائية بينما قد يتسبب في حوالي 11,000 حالة وفاة مرتبطة بفرط بوتاسيوم الدم لدى مرضى CKD [9].</p>
+<span class="math display">\[\text{NNT}_{\text{CVD}} \gg \text{NNH}_{\text{hyperkalemia}}\]</span>
+<p>نسبة الفائدة إلى الخطر تميل بشكل ساحق نحو الفائدة على مستوى السكان، لكن تقييم الخطر الفردي ضروري للمرضى في المرحلة 3b من CKD وما بعدها. التمييز بين سياسة الصحة العامة للنشر على مستوى السكان والطب السريري للرعاية الفردية هو الشرط المسبق للتنفيذ الاجتماعي المناسب لبدائل الملح.</p>
+<p>نهج مختلف عن الاستبدال الكيميائي يتقدم أيضاً. في عام 2011، اقترح Homei Miyashita وHiromi Nakamura من جامعة ميجي مفهوم "المذاق الكهربائي" — تعديل إدراك نكهة الطعام من خلال تيارات كهربائية ضعيفة [10]. حصل هذا البحث على جائزة إيج نوبل للتغذية 2023، وملعقة "الملح الكهربائي" التي طُوّرت بالتعاون مع Kirin Holdings وتم تسويقها في 2024، تعزز الملوحة المُدرَكة للطعام المنخفض الصوديوم بحوالي 1.5 مرة [11].</p>
+<span class="math display">\[\text{الملوحة المُدرَكة} = f(\text{تركيز NaCl}, \text{التحفيز الكهربائي}) \approx 1.5 \times \text{تركيز NaCl وحده}\]</span>
+<p>بدلاً من تقليل الصوديوم، يجعل هذا النهج نفس كمية الصوديوم ذات مذاق أكثر ملوحة. بدلاً من التحايل على القيود التطورية لـ RAAS، يستفيد من علم الأعصاب للتلاعب بالمعامل الإدراكي.</p>
+<p>قبل 500 مليون سنة، طوّرت الفقاريات التي غادرت البحر نظام RAAS لحبس المحيط داخل أجسادها. تلك الآلية الدقيقة للحفاظ على الصوديوم ضمنت البقاء في بيئات شحيحة الصوديوم، لكن في بيئات مشبعة بالصوديوم أصبحت عامل خطر لارتفاع ضغط الدم والسكتة الدماغية. أظهر جدل المنحنى J لدراسة PURE أن الإجابة الوبائية لهذه المشكلة ليست بسيطة، بينما قدّم تقليل الملح الخفي في المملكة المتحدة وتجربة SSaSS أدلة تدخلية تتجاوز حدود الدراسات الرصدية. وجهاز الملح الكهربائي هو محاولة لإعادة معايرة — عبر الهندسة — نظام التذوق الذي صممه التطور.</p>
+<p>كليتانا لا تزالان تتذكران البحر. السؤال هو كيف نعيد كتابة تلك الذاكرة.</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Fournier D, et al. Emergence and evolution of the renin-angiotensin-aldosterone system. <em>J Mol Med</em>. 2012;90(5):495-508. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/22527880/">22527880</a></li>
+<li>Eaton SB, Konner M. Paleolithic nutrition: a consideration of its nature and current implications. <em>N Engl J Med</em>. 1985;312(5):283-289. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/2981409/">2981409</a></li>
+<li>World Health Organization. Sodium reduction (Fact sheet). Geneva: WHO; 2024. URL: <a href="https://www.who.int/news-room/fact-sheets/detail/sodium-reduction">https://www.who.int/news-room/fact-sheets/detail/sodium-reduction</a></li>
+<li>He FJ, MacGregor GA. Reducing population salt intake worldwide: from evidence to implementation. <em>Prog Cardiovasc Dis</em>. 2010;52(5):363-382. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/20226955/">20226955</a></li>
+<li>O'Donnell M, et al. Urinary sodium and potassium excretion, mortality, and cardiovascular events. <em>N Engl J Med</em>. 2014;371(7):612-623. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/25119607/">25119607</a></li>
+<li>Mente A, et al. Urinary sodium excretion, blood pressure, cardiovascular disease, and mortality: a community-level prospective epidemiological cohort study. <em>Lancet</em>. 2018;392(10146):496-506. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/30129465/">30129465</a></li>
+<li>He FJ, Pombo-Rodrigues S, MacGregor GA. Salt reduction in England from 2003 to 2011: its relationship to blood pressure, stroke and ischaemic heart disease mortality. <em>BMJ Open</em>. 2014;4(4):e004549. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/24732242/">24732242</a></li>
+<li>Neal B, et al. Effect of salt substitution on cardiovascular events and death. <em>N Engl J Med</em>. 2021;385(12):1067-1077. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/34459569/">34459569</a></li>
+<li>Marklund M, et al. Estimated population wide benefits and risks in China of lowering sodium through potassium enriched salt substitution: modelling study. <em>BMJ</em>. 2020;369:m824. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32321724/">32321724</a></li>
+<li>Nakamura H, Miyashita H. Augmented gustation using electricity. <em>Proceedings of the 2nd Augmented Human International Conference</em>. 2011; article 34. DOI: <a href="https://doi.org/10.1145/1959826.1959860">10.1145/1959826.1959860</a></li>
+<li>Kirin Holdings Co., Ltd. Electric Salt Spoon press release. May 20, 2024. URL: <a href="https://www.kirinholdings.com/en/newsroom/release/2024/0520_01.html">https://www.kirinholdings.com/en/newsroom/release/2024/0520_01.html</a></li>
+</ol>
+<hr />
+<p><em>This article was produced by Project Asymptote for educational purposes and does not aim to diagnose or treat any specific condition. The information presented is based on publicly available peer-reviewed literature and does not constitute medical advice.</em></p>
+<p><em>本記事はProject Asymptoteが制作した科学解説記事であり、特定の疾患の診断や治療を目的とするものではありません。記事中の情報は公開された査読付き学術文献に基づいていますが、医学的助言を構成するものではありません。</em></p>
+<p><em>本文由 Project Asymptote 制作，仅供科学教育用途。文中信息基于公开的同行评审学术文献，不构成医学建议。</em></p>
+<p><em>Este artículo fue producido por Project Asymptote con fines educativos. La información presentada se basa en literatura académica revisada por pares y no constituye asesoramiento médico.</em></p>
+<p><em>यह लेख Project Asymptote द्वारा शैक्षिक उद्देश्यों के लिए तैयार किया गया है। प्रस्तुत जानकारी सार्वजनिक रूप से उपलब्ध सहकर्मी-समीक्षित साहित्य पर आधारित है और यह चिकित्सा सलाह नहीं है।</em></p>
+<p><em>هذا المقال من إنتاج Project Asymptote لأغراض تعليمية. تستند المعلومات المقدمة إلى الأدبيات الأكاديمية المحكّمة المتاحة للعموم ولا تشكل استشارة طبية.</em></p>
+<div class="disclaimer"><p>هذا المحتوى لأغراض إعلامية فقط، استناداً إلى أدلة أكاديمية موضوعية وتحليل بيانات. وهو غير مخصص كاستشارة طبية أو تشخيص أو نقد سياسي.</p></div>
+</article>
+
+<footer class="site-footer">
+  Project Asymptote &mdash; Bridging mathematics, data science, and public health.
+</footer>
+
+</div>
+
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+  const section = document.getElementById('content-' + lang);
+  const btn = document.querySelector('[data-lang="' + lang + '"]');
+  if (section) section.classList.add('active');
+  if (btn) btn.classList.add('active');
+  document.documentElement.lang = lang.split('-')[0];
+  // Re-render math in newly visible section.
+  if (typeof renderMathInElement !== 'undefined') {
+    renderMathInElement(section, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+  // Update URL hash.
+  history.replaceState(null, '', '#' + lang);
+}
+
+// Initialize from hash or default to 'ja'.
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = location.hash.slice(1);
+  const validLangs = ['ja', 'en', 'zh-Hans', 'es', 'hi', 'ar'];
+  switchLang(validLangs.includes(hash) ? hash : 'ja');
+});
+</script>
+</body>
+</html>

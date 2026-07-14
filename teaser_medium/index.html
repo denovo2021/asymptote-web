@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untitled</title>
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --accent: #2563eb;
+  --border: #e5e7eb;
+  --code-bg: #f3f4f6;
+  --max-w: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Serif", "Source Han Serif", "Georgia", serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.8;
+  padding: 2rem 1rem;
+}
+.container { max-width: var(--max-w); margin: 0 auto; }
+
+/* Language selector */
+.lang-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+.lang-btn {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px 4px 0 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--fg);
+  transition: all 0.15s;
+}
+.lang-btn:hover { background: var(--code-bg); }
+.lang-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Content sections */
+.content-section { display: none; }
+.content-section.active { display: block; }
+.content-section[dir="rtl"] { direction: rtl; text-align: right; }
+
+/* Typography */
+h1 { font-size: 1.8rem; margin: 1.5rem 0 1rem; line-height: 1.3; }
+h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.15rem; margin: 1.2rem 0 0.6rem; }
+p { margin: 0.8rem 0; }
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+[dir="rtl"] blockquote { border-left: none; border-right: 3px solid var(--accent); }
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+pre { background: var(--code-bg); padding: 1rem; overflow-x: auto; border-radius: 6px; margin: 1rem 0; }
+pre code { background: none; padding: 0; }
+table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.8rem; text-align: left; }
+[dir="rtl"] th, [dir="rtl"] td { text-align: right; }
+th { background: var(--code-bg); font-weight: 600; }
+a { color: var(--accent); }
+sup { font-size: 0.75em; }
+
+/* Math */
+.math.display { display: block; text-align: center; margin: 1.2rem 0; overflow-x: auto; }
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: 3rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: #999;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h1 { font-size: 1.4rem; }
+  body { padding: 1rem 0.75rem; }
+  .lang-btn { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<nav class="lang-selector" role="tablist" aria-label="Language">
+  <button class="lang-btn" data-lang="en" role="tab" onclick="switchLang('en')">English</button>
+</nav>
+
+<article id="content-en" class="content-section" dir="ltr" lang="en">
+<p>The Illusion of Proportions — What "Cause-of-Death Rankings" Fail to Convey</p>
+<p>In 2023, Japan's Ministry of Health, Labour and Welfare reported that suicide was the leading cause of death among individuals aged 15 to 39. This fact has been repeatedly amplified by media outlets, accompanied by narratives such as "Japanese youth have no hope" and "society has collapsed." However, this interpretation contains a critical epidemiological fallacy.</p>
+<p>The crux of the issue lies in the conflation of proportional mortality (PM) with mortality rate.</p>
+<p>Proportional mortality is defined as the proportion of all deaths attributable to a specific cause:</p>
+<p>Comparison of Leading Causes of Death Among Young Adults in OECD Countries</p>
+<p>International Comparison of Suicide Mortality Rates</p>
+<p>According to the OECD's "Society at a Glance 2024," suicide mortality rates (per 100,000) among individuals under 30 are highest in Korea, New Zealand, Japan, and Estonia — exceeding 17 — while rates are lowest in Mediterranean European countries and Israel [3]. Japan's suicide mortality rate among those aged 15 to 24 is approximately 13.4 per 100,000, a figure lower than Korea's (approximately 18–20) and comparable to New Zealand's (approximately 17).</p>
+<p>However, as discussed in the preceding section, Japan's distinguishing feature is not an exceptionally high absolute suicide rate but rather an exceptionally low mortality rate from other causes, which elevates the proportional mortality attributable to suicide. According to OECD Health at a Glance 2025, Japan's preventable mortality rate stands at 86 per 100,000 — substantially below the OECD average of 145 [2].</p>
+<p>Unintentional Injuries and Road Traffic Accidents</p>
+<p>According to the WHO Global Health Estimates 2021, road traffic injuries are the leading cause of death among those aged 15 to 29 worldwide, followed by interpersonal violence and suicide [4]. In the United States, unintentional injuries rank as the leading cause of death among those aged 15 to 24, with drug overdose and road traffic accidents constituting the majority.</p>
+<p>A systematic analysis from GBD 2019 found that 32.7% of deaths among individuals aged 10 to 24 were attributable to transport injuries, unintentional injuries, or interpersonal violence; 32.1% to communicable, nutritional, or maternal causes; 27.0% to non-communicable diseases; and 8.2% to self-harm [5]. These proportions vary dramatically by region and income level.</p>
+<p>Structural Disparities in Low- and Middle-Income Countries</p>
+<p>India — The Weight of Absolute Numbers</p>
+<p>According to the GBD 2021 systematic analysis (The Lancet Public Health, 2025), approximately 746,000 suicide deaths occurred worldwide in 2021, with roughly 73% occurring in low- and middle-income countries (LMICs) [6].</p>
+<p>India records the highest absolute number of suicide deaths of any country. While accounting for approximately 18% of the global population, India accounts for approximately 28% of global suicide deaths — including roughly 25% of male and 37% of female suicides worldwide [6]. India's age-standardized suicide mortality rate declined from 18.9 per 100,000 in 1990 to 13.0 in 2021, a reduction of approximately 30%, yet the absolute number remains enormous given the country's population [7].</p>
+<p>The GBD 2019 analysis identified self-harm as the leading cause of death among females aged 15 to 24 in South Asia and the second leading cause among males aged 20 to 24 [5]. Ready access to pesticides in rural areas plays a critical role as a highly lethal means of suicide.</p>
+<p>Sub-Saharan Africa — The Layered Burden of Infectious Disease and Maternal Mortality</p>
+<p>In sub-Saharan Africa, the mortality profile of young adults is fundamentally different. The HIV/AIDS epidemic, high rates of injury and violence, and maternal mortality among women constitute a triple burden [8]. The leading causes of maternal death are obstetric hemorrhage (28.8%), hypertensive disorders of pregnancy (22.1%), non-obstetric complications (18.8%), and pregnancy-related infections (11.5%) [9].</p>
+<hr />
+<p>Read the full article with complete mathematical derivations:
+  Substack: https://projectasymptote.substack.com
+  GitHub Pages: https://denovo2021.github.io/asymptote-web/youth_mortality/</p>
+<hr />
+<blockquote>
+<p>This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p>
+</blockquote>
+<div class="disclaimer"><p>This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p></div>
+</article>
+
+<footer class="site-footer">
+  Project Asymptote &mdash; Bridging mathematics, data science, and public health.
+</footer>
+
+</div>
+
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+  const section = document.getElementById('content-' + lang);
+  const btn = document.querySelector('[data-lang="' + lang + '"]');
+  if (section) section.classList.add('active');
+  if (btn) btn.classList.add('active');
+  document.documentElement.lang = lang.split('-')[0];
+  // Re-render math in newly visible section.
+  if (typeof renderMathInElement !== 'undefined') {
+    renderMathInElement(section, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+  // Update URL hash.
+  history.replaceState(null, '', '#' + lang);
+}
+
+// Initialize from hash or default to 'ja'.
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = location.hash.slice(1);
+  const validLangs = ['en'];
+  switchLang(validLangs.includes(hash) ? hash : 'ja');
+});
+</script>
+</body>
+</html>
