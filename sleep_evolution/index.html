@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>分割された夜からオレキシンまで — 人類の睡眠をめぐる進化、歴史、そして分子機構</title>
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --accent: #2563eb;
+  --border: #e5e7eb;
+  --code-bg: #f3f4f6;
+  --max-w: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Serif", "Source Han Serif", "Georgia", serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.8;
+  padding: 2rem 1rem;
+}
+.container { max-width: var(--max-w); margin: 0 auto; }
+
+/* Language selector */
+.lang-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+.lang-btn {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px 4px 0 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--fg);
+  transition: all 0.15s;
+}
+.lang-btn:hover { background: var(--code-bg); }
+.lang-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Content sections */
+.content-section { display: none; }
+.content-section.active { display: block; }
+.content-section[dir="rtl"] { direction: rtl; text-align: right; }
+
+/* Typography */
+h1 { font-size: 1.8rem; margin: 1.5rem 0 1rem; line-height: 1.3; }
+h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.15rem; margin: 1.2rem 0 0.6rem; }
+p { margin: 0.8rem 0; }
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+[dir="rtl"] blockquote { border-left: none; border-right: 3px solid var(--accent); }
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+pre { background: var(--code-bg); padding: 1rem; overflow-x: auto; border-radius: 6px; margin: 1rem 0; }
+pre code { background: none; padding: 0; }
+table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.8rem; text-align: left; }
+[dir="rtl"] th, [dir="rtl"] td { text-align: right; }
+th { background: var(--code-bg); font-weight: 600; }
+a { color: var(--accent); }
+sup { font-size: 0.75em; }
+
+/* Math */
+.math.display { display: block; text-align: center; margin: 1.2rem 0; overflow-x: auto; }
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: 3rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: #999;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h1 { font-size: 1.4rem; }
+  body { padding: 1rem 0.75rem; }
+  .lang-btn { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<nav class="lang-selector" role="tablist" aria-label="Language">
+  <button class="lang-btn" data-lang="ja" role="tab" onclick="switchLang('ja')">日本語</button>
+  <button class="lang-btn" data-lang="en" role="tab" onclick="switchLang('en')">English</button>
+  <button class="lang-btn" data-lang="zh-Hans" role="tab" onclick="switchLang('zh-Hans')">简体中文</button>
+  <button class="lang-btn" data-lang="es" role="tab" onclick="switchLang('es')">Español</button>
+  <button class="lang-btn" data-lang="hi" role="tab" onclick="switchLang('hi')">हिन्दी</button>
+  <button class="lang-btn" data-lang="ar" role="tab" onclick="switchLang('ar')">العربية</button>
+</nav>
+
+<article id="content-ja" class="content-section" dir="ltr" lang="ja">
+<h1>分割された夜からオレキシンまで — 人類の睡眠をめぐる進化、歴史、そして分子機構</h1>
+<!-- タイトル案:
+# 分割された夜からオレキシンまで — 人類の睡眠をめぐる進化、歴史、そして分子機構
+# なぜヒトは短く深く眠るのか — 歩哨仮説から SIK3 キナーゼまで
+# 火と時計遺伝子が設計した眠り — 睡眠の進化人類学と分子生物学
+-->
+
+<h2>導入 — 進化が形作った「短く深い」眠りと歩哨仮説</h2>
+<p>30種の霊長類を対象とした系統発生学的比較において、ヒトの睡眠時間は約7時間と霊長類中最短でありながら、REM睡眠の割合は全睡眠時間の約25%に達し、最高値を示す [1,2]。チンパンジーが樹上の巣で9.5時間以上を費やすのに対し、ヒトは地上で、しかも著しく短い時間で睡眠を完結させる。Samson &amp; Nunn（2015）はこの現象を「睡眠の圧縮と強化（sleep intensity）」と呼び、地上での捕食リスクに対する進化的適応であると論じた [1]。</p>
+<p>地上睡眠は捕食者への曝露を増大させる。ではなぜヒトは樹上を放棄できたのか。第一に、火の利用がある。火は捕食者の忌避、昆虫の駆除、体温調節を同時に実現し、地上での安全な睡眠環境を構築した [3]。第二に、集団内のクロノタイプ（朝型・夜型）の多様性が「歩哨（sentinel）」機能を果たした。Samson ら（2017）はタンザニアの狩猟採集民ハッザの33名にアクチグラフィを装着し、220夜にわたる睡眠データを収集した。全員が同時に入眠していた時間は20日間でわずか18分であった [4]。年齢によるクロノタイプの分散 — 若年層は夜型、高齢者は朝型 — が、能動的な見張り行動なしに常時覚醒者を生み出す構造を自然に形成していた。この知見は、高齢者の睡眠の断片化が病理ではなく進化的に保存された適応である可能性を示唆する。</p>
+<h2>展開1 — 中世の「分割睡眠」の真偽</h2>
+<p>歴史家 A. Roger Ekirch（2001）は、15世紀から18世紀にかけてのヨーロッパの日記、裁判記録、文学作品、医学書から500以上の記述を収集し、産業革命以前の西欧では「第一睡眠（first sleep）」と「第二睡眠（second sleep / morning sleep）」に分かれた二相性睡眠（biphasic sleep）が標準的であったことを実証した [5]。両者の間には1時間ほどの静かな覚醒期間があり、人々は祈り、読書、会話、性行為に費やしていた。ホメロスの『オデュッセイア』やウェルギリウスの『アエネーイス』にも「第一の眠りが終わる時刻」への言及が確認されている。</p>
+<p>この歴史的記述は実験的にも裏付けられた。Wehr（1992）は、被験者を通常の16時間明期から10時間明期（14時間暗期）の環境へ移行させた。すると睡眠は二相に分割され、その間に1〜3時間の覚醒期が出現した。同時に、夜間のメラトニン分泌持続時間も延長していた [6]。すなわち、単相性睡眠（monophasic sleep）は長い自然暗期に対するヒトの本来の睡眠応答ではなく、人工照明によって暗期が圧縮された環境への馴化に過ぎない可能性がある。</p>
+<p>この仮説は、電気照明へのアクセスの有無による自然実験でも支持される。de la Iglesia ら（2015）は、アルゼンチンのチャコ地方に居住する先住民トバ／コムの二つの集落 — 電気へのアクセスを有する集落と自然光のみの集落 — を比較した。電気へのアクセスを有する集落では入眠時刻が有意に遅延し、睡眠時間が短縮していた [7]。Stothard ら（2017）も、被験者をキャンプで自然光のみの環境に1週間曝露したところ、概日リズム位相が約2時間前進し、メラトニン分泌開始が早期化したことを報告した [8]。</p>
+<p>50のヨーロッパ都市が1700年までに公的街灯を導入し、1816年にはボルチモアが米国初のガス灯都市となり、20世紀初頭には電気照明が一般家庭に普及した。二相性から単相性への移行は、産業化と人工照明の普及による歴史的に最近の変化であり、ヒトの睡眠の「本来の」形態ではなかった可能性が高い。</p>
+<h2>展開2 — 「最高の眠り」の疫学と地理的要因</h2>
+<h3>睡眠時間と全死因死亡のU字型の関連</h3>
+<p>Cappuccio ら（2010）は、16の前向きコホート研究（27の独立コホート、1,382,999名、追跡期間4〜25年）を統合したメタアナリシスにおいて、睡眠時間と全死因死亡との間にU字型の関連を報告した [9]。</p>
+<span class="math display">\[\text{短時間睡眠: HR} = 1.12 \quad (95\%\ \text{CI: } 1.06\text{--}1.18)\]</span>
+<span class="math display">\[\text{長時間睡眠: HR} = 1.30 \quad (95\%\ \text{CI: } 1.22\text{--}1.38)\]</span>
+<p>短時間睡眠（概ね7時間未満）で12%、長時間睡眠（概ね9時間超）で30%の死亡リスク上昇が認められた。ただし長時間睡眠側のリスク上昇には逆因果 — 基礎疾患を有する者ほど睡眠時間が延長する — の寄与が指摘されており、因果推論には留意が必要である。</p>
+<h3>温度環境と入眠メカニズム</h3>
+<p>ヒトの入眠には、深部体温の約1〜3 °Fの低下が必要である。この体温低下は、末梢血管（特に手足）の拡張による放熱によって達成される。室温の至適範囲は約15.6〜19.4 °C（60〜67 °F）とされ、この範囲内で睡眠効率、徐波睡眠持続時間、REM睡眠の質がいずれもピークに達する。Obradovich ら（2017）は、米国765,000名の調査データと夜間気温データを結合し、夜間気温の1 °C上昇が100人あたり月3夜の睡眠不足に関連していることを示した [10]。気候変動下における睡眠の質への影響は、低所得層と高齢者で特に顕著であった。</p>
+<h3>加齢と性差による睡眠構築の変化</h3>
+<p>Ohayon ら（2004）は、65のポリソムノグラフィ研究（3,577名）を統合したメタアナリシスにおいて、加齢に伴う睡眠構築の変化を定量的に示した [11]。総睡眠時間、睡眠効率、徐波睡眠（深睡眠）の割合はいずれも加齢とともに減少し、中途覚醒時間は増加した。徐波睡眠の減少は、Samson らの歩哨仮説の文脈で再解釈すれば、高齢者が集団の夜間監視機能を担うための適応的形質であった可能性がある。</p>
+<p>性差も睡眠構築に影響を与える。客観的な睡眠測定では、女性は男性と比較して総睡眠時間が長く、入眠潜時が短く、睡眠効率が高い傾向にある。一方、女性は月経周期に伴うホルモン変動の影響を受け、黄体期（プロゲステロン高値）では卵胞期と比較して中途覚醒が増加し、徐波睡眠の割合が低下する [12]。更年期以降、エストロゲンの急激な低下はホットフラッシュ（血管運動神経症状）を引き起こし、周閉経期女性の16〜47%、閉経後女性の35〜60%が睡眠障害を訴える [13]。</p>
+<h3>緯度・光環境と概日リズム</h3>
+<p>極端な光環境は概日リズムに影響を及ぼす。北緯69度のノルウェー・トロムソにおける研究では、白夜期間中に入眠困難や主観的睡眠の質の低下が報告される一方、極夜期間中の季節性感情障害（SAD）の有病率は10〜14%に達する [14]。ただし、Johnsen ら（2013）のトロムソ研究（中高年対象）では、自己報告の睡眠覚醒リズムとクロノタイプに主要な季節変動が認められなかったことも報告されており [15]、社会的時計（就労・通学スケジュール）によるマスキング効果が自然光周期の影響を相殺している可能性がある。</p>
+<h2>展開3 — 睡眠を規定する分子生物学的メカニズム</h2>
+<h3>ツープロセスモデル</h3>
+<p>Borbély（1982）が提唱したツープロセスモデルは、現在も睡眠制御の概念的基盤であり続けている [16]。睡眠傾向は二つの独立したプロセスの総和として記述される。</p>
+<p><strong>プロセスS</strong>（睡眠恒常性）は覚醒中に指数関数的に蓄積し、睡眠中に指数関数的に減衰する:</p>
+<span class="math display">\[S_{\text{wake}}(t) = S_{\max}\!\left(1 - e^{-t/\tau_r}\right) + S_0 \cdot e^{-t/\tau_r}\]</span>
+<span class="math display">\[S_{\text{sleep}}(t) = S_0 \cdot e^{-t/\tau_d}\]</span>
+<p>ここで <span class="math inline">\(\tau_r\)</span> は蓄積の時定数、<span class="math inline">\(\tau_d\)</span> は減衰の時定数、<span class="math inline">\(S_0\)</span> は初期値である。</p>
+<p><strong>プロセスC</strong>（概日リズム）は視交叉上核（SCN）が駆動する約24.2時間周期の振動であり、近似的に:</p>
+<span class="math display">\[C(t) = M + A\cos\!\left(\frac{2\pi t}{\tau} - \phi\right), \quad \tau \approx 24.2\ \text{h}\]</span>
+<p>と表現される。<span class="math inline">\(M\)</span> は平均レベル、<span class="math inline">\(A\)</span> は振幅、<span class="math inline">\(\phi\)</span> は位相である。入眠はプロセスSの蓄積がプロセスCの定める覚醒閾値を超えた時点で開始され、覚醒はSの減衰がCの定める睡眠閾値を下回った時点で生じる。</p>
+<h3>時計遺伝子と転写翻訳フィードバックループ</h3>
+<p>プロセスCの分子基盤は、転写翻訳フィードバックループ（TTFL）である。2017年ノーベル生理学・医学賞は、このメカニズムの発見に対して Hall, Rosbash, Young に授与された。</p>
+<p>哺乳類では、CLOCK/BMAL1ヘテロ二量体がE-box配列（5'-CACGTG-3'）に結合し、<em>Period</em>（<em>Per1</em>, <em>Per2</em>）および <em>Cryptochrome</em>（<em>Cry1</em>, <em>Cry2</em>）遺伝子の転写を活性化する（正のアーム）。PERタンパク質とCRYタンパク質は細胞質で複合体を形成した後に核へ移行し、CLOCK/BMAL1による自身の転写を抑制する（負のアーム）[17]。このフィードバックの一巡に約24時間を要し、リン酸化（CK1δ/εによるPERのリン酸化）やユビキチン依存性分解などの翻訳後修飾が遅延を生み出すことで周期が精密に調律される。</p>
+<h3>アデノシンと睡眠圧</h3>
+<p>プロセスSの分子的実体として最も有力な候補がアデノシンである。Porkka-Heiskanen ら（1997）は、覚醒の延長に伴い前脳基底部（basal forebrain）の細胞外アデノシン濃度が進行的に上昇し、回復睡眠中に低下することを実証した [18]。蓄積したアデノシンはA<span class="math inline">\(_1\)</span>受容体を介して覚醒促進ニューロン（コリン作動性ニューロン等）を抑制し、同時にA<span class="math inline">\(_{2A}\)</span>受容体を介して睡眠促進ニューロンを活性化する。カフェインはA<span class="math inline">\(_1\)</span>およびA<span class="math inline">\(_{2A}\)</span>受容体の競合的拮抗薬であり、このメカニズムを遮断することで覚醒を維持する。</p>
+<h3>オレキシン — 睡眠覚醒の「スイッチ」</h3>
+<p>1998年、二つの研究グループがほぼ同時に視床下部外側野に特異的な神経ペプチドを発見した。de Lecea らは「ヒポクレチン（hypocretin）」と命名し [19]、柳沢正史らのグループの櫻井武は「オレキシン（orexin）」と命名した [20]。オレキシンA/Bは覚醒系の多数の神経核 — 青斑核（ノルアドレナリン）、背側縫線核（セロトニン）、結節乳頭体核（ヒスタミン）、前脳基底部（アセチルコリン）— に広範に投射し、覚醒状態を安定化させる。</p>
+<p>1999年、オレキシン受容体の遺伝子変異がイヌのナルコレプシーの原因であることが同定され、翌2000年にはヒトのナルコレプシー1型がオレキシン産生ニューロンの選択的脱落（おそらく自己免疫機序による）に起因することが確認された。オレキシン系は睡眠と覚醒の「フリップフロップスイッチ」モデルにおける安定化因子として機能し、この系の機能不全がナルコレプシーにおける覚醒・睡眠状態の不安定な切り替わり（カタプレキシー、入眠時幻覚、睡眠麻痺）を説明する。</p>
+<h3>SIK3 — 睡眠要求の分子実体への接近</h3>
+<p>2016年、船戸弘正・柳沢正史らは、ランダム変異マウスの脳波スクリーニングから、慢性的に過剰な睡眠を示す変異体 <em>Sleepy</em> を同定した [21]。原因遺伝子は塩誘導性キナーゼ3（SIK3）であり、エクソン13のスプライス変異によりPKAリン酸化部位（S551）が欠失していた。</p>
+<span class="math display">\[\text{Sleepy変異}: \Delta\text{exon13} \rightarrow \text{S551欠失} \rightarrow \text{NREM睡眠量・}\delta\text{パワー増大}\]</span>
+<p>Honda ら（2018）は、S551の一アミノ酸が日毎のNREM睡眠量と睡眠要求を制御していることを確認し [22]、この部位が線虫からヒトまで保存されていることを示した。SIK3はプロセスSの分子的基盤 — 覚醒中にリン酸化が蓄積し、睡眠を駆動する「睡眠圧タンパク質」— の有力候補として、現在も精力的な研究が継続されている。</p>
+<h2>結語 — 環境と生物学の交差点としての睡眠</h2>
+<p>人類の睡眠は、単一の原理では記述できない多層的な現象である。進化は、捕食リスクへの応答としてREM比率の高い短時間睡眠と、集団内クロノタイプの分散による歩哨機能を形成した。歴史は、人工照明の普及がわずか200年で二相性から単相性への移行を促したことを示す。疫学は、7時間前後の睡眠と死亡リスクとのU字型の関連を繰り返し確認し、温度・光・ホルモン環境が睡眠の質を規定することを明らかにしてきた。そして分子生物学は、TTFL時計遺伝子、アデノシン、オレキシン、SIK3という分子群が、プロセスSとプロセスCの二つの柱をいかに実装しているかを解き明かしつつある。</p>
+<p>睡眠は、太古の進化的適応と精緻な分子機構が、文化・テクノロジー・気候の変遷と交差する場である。その「最適解」は、進化的遺産と現代環境の間の動的な均衡点として、なお探索の途上にある。</p>
+<hr />
+<h2>参考文献</h2>
+<ol>
+<li>Samson DR, Nunn CL. Sleep intensity and the evolution of human cognition. <em>Evol Anthropol.</em> 2015;24(6):225-237. PMID: 26662946.</li>
+<li>Nunn CL, Samson DR. Sleep in a comparative context: Investigating how human sleep differs from sleep in other primates. <em>Am J Phys Anthropol.</em> 2018;166(3):601-612. DOI: 10.1002/ajpa.23427.</li>
+<li>Samson DR, Nunn CL. Shining evolutionary light on human sleep and sleep disorders. <em>Evol Med Public Health.</em> 2016;2016(1):227-243. PMID: 27470330.</li>
+<li>Samson DR, Crittenden AN, Mabulla IA, Mabulla AZP, Nunn CL. Chronotype variation drives night-time sentinel-like behaviour in hunter–gatherers. <em>Proc R Soc B.</em> 2017;284(1858):20170967. PMID: 28747475.</li>
+<li>Ekirch AR. Sleep we have lost: Pre-industrial slumber in the British Isles. <em>Am Hist Rev.</em> 2001;106(2):343-386.</li>
+<li>Wehr TA. In short photoperiods, human sleep is biphasic. <em>J Sleep Res.</em> 1992;1(2):103-107. PMID: 10607034.</li>
+<li>de la Iglesia HO, et al. Access to electric light is associated with shorter sleep duration in a traditionally hunter-gatherer community. <em>J Biol Rhythms.</em> 2015;30(4):342-350. PMID: 26092820.</li>
+<li>Stothard ER, et al. Circadian entrainment to the natural light-dark cycle across seasons and the weekend. <em>Curr Biol.</em> 2017;27(4):508-513. PMID: 28162893.</li>
+<li>Cappuccio FP, D'Elia L, Strazzullo P, Miller MA. Sleep duration and all-cause mortality: A systematic review and meta-analysis of prospective studies. <em>Sleep.</em> 2010;33(5):585-592. PMID: 20469800.</li>
+<li>Obradovich N, Migliorini R, Mednick SC, Fowler JH. Nighttime temperature and human sleep loss in a changing climate. <em>Sci Adv.</em> 2017;3(5):e1601555. PMID: 28560320.</li>
+<li>Ohayon MM, Carskadon MA, Guilleminault C, Vitiello MV. Meta-analysis of quantitative sleep parameters from childhood to old age in healthy individuals: Developing normative sleep values across the human lifespan. <em>Sleep.</em> 2004;27(7):1255-1273. PMID: 15586779.</li>
+<li>Baker FC, Driver HS. Circadian rhythms, sleep, and the menstrual cycle. <em>Sleep Med.</em> 2007;8(6):613-622. PMID: 17383933.</li>
+<li>Kravitz HM, et al. Sleep during the perimenopause: A SWAN story. <em>Obstet Gynecol Clin North Am.</em> 2011;38(3):567-586. PMID: 21961720.</li>
+<li>Friborg O, Rosenvinge JH, Wynn R, Gradisar M. Sleep timing, chronotype, mood, and behavior at an Arctic latitude (69°N). <em>Sleep Med.</em> 2014;15(7):798-807. PMID: 24933084.</li>
+<li>Johnsen MT, et al. Lack of major seasonal variations in self reported sleep-wake rhythms and chronotypes among middle aged and older people at 69 degrees North: The Tromsø Study. <em>Sleep Med.</em> 2013;14(2):140-148. PMID: 23219143.</li>
+<li>Borbély AA. A two process model of sleep regulation. <em>Hum Neurobiol.</em> 1982;1(3):195-204. PMID: 7185792.</li>
+<li>Takahashi JS. Transcriptional architecture of the mammalian circadian clock. <em>Nat Rev Genet.</em> 2017;18(3):164-179. DOI: 10.1038/nrg.2016.150.</li>
+<li>Porkka-Heiskanen T, Strecker RE, Thakkar M, Bjorkum AA, Greene RW, McCarley RW. Adenosine: A mediator of the sleep-inducing effects of prolonged wakefulness. <em>Science.</em> 1997;276(5316):1265-1268. PMID: 9157887.</li>
+<li>de Lecea L, Kilduff TS, Peyron C, et al. The hypocretins: Hypothalamus-specific peptides with neuroexcitatory activity. <em>Proc Natl Acad Sci USA.</em> 1998;95(1):322-327. PMID: 9419374.</li>
+<li>Sakurai T, Amemiya A, Ishii M, et al. Orexins and orexin receptors: A family of hypothalamic neuropeptides and G protein-coupled receptors that regulate feeding behavior. <em>Cell.</em> 1998;92(4):573-585. PMID: 9527442.</li>
+<li>Funato H, Miyoshi C, Fujiyama T, et al. Forward-genetics analysis of sleep in randomly mutagenized mice. <em>Nature.</em> 2016;539(7629):378-383. PMID: 27806374.</li>
+<li>Honda T, Fujiyama T, Miyoshi C, et al. A single phosphorylation site of SIK3 regulates daily sleep amounts and sleep need in mice. <em>Proc Natl Acad Sci USA.</em> 2018;115(41):10458-10463. PMID: 30254177.</li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>免責事項 / Disclaimers</strong></p>
+<p><strong>日本語:</strong> 本コンテンツは、客観的な学術的エビデンスとデータ分析に基づく情報提供のみを目的としています。医学的助言、診断、または政治的批評を意図するものではありません。</p>
+<p><strong>English:</strong> This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p>
+<p><strong>简体中文:</strong> 本内容仅供参考，基于客观的学术证据和数据分析。本内容不构成医疗建议、诊断或政治评论。</p>
+<p><strong>Español:</strong> Este contenido es solo con fines informativos, basado en evidencia académica objetiva y análisis de datos. No pretende ser consejo médico, diagnóstico ni crítica política.</p>
+<p><strong>हिन्दी:</strong> यह सामग्री केवल सूचनात्मक उद्देश्यों के लिए है, जो वस्तुनिष्ठ शैक्षणिक साक्ष्य और डेटा विश्लेषण पर आधारित है। यह चिकित्सा सलाह, निदान या राजनीतिक आलोचना के रूप में अभिप्रेत नहीं है।</p>
+<p><strong>العربية:</strong> هذا المحتوى لأغراض إعلامية فقط، استناداً إلى أدلة أكاديمية موضوعية وتحليل بيانات. وهو غير مخصص كاستشارة طبية أو تشخيص أو نقد سياسي.</p>
+</blockquote>
+<div class="disclaimer"><p>本コンテンツは、客観的な学術的エビデンスとデータ分析に基づく情報提供のみを目的としています。医学的助言、診断、または政治的批評を意図するものではありません。</p></div>
+</article>
+
+<article id="content-en" class="content-section" dir="ltr" lang="en">
+<h1>From Segmented Nights to Orexin — The Evolution, History, and Molecular Machinery of Human Sleep</h1>
+<h2>Introduction — The "Short but Deep" Sleep That Evolution Shaped, and the Sentinel Hypothesis</h2>
+<p>In a phylogenetic comparison of 30 primate species, human sleep duration stands at approximately 7 hours — the shortest among all primates — yet the proportion of REM sleep reaches roughly 25% of total sleep time, the highest recorded value [1,2]. While chimpanzees spend over 9.5 hours in arboreal nests, humans complete their sleep on the ground in markedly less time. Samson and Nunn (2015) termed this phenomenon "sleep intensity" and argued that it represents an evolutionary adaptation to the predation risk inherent in terrestrial sleeping [1].</p>
+<p>Ground sleeping increases exposure to predators. How, then, were humans able to abandon the trees? First, the use of fire simultaneously achieved predator deterrence, insect repulsion, and thermoregulation, constructing a safe terrestrial sleep environment [3]. Second, the diversity of chronotypes (morning types and evening types) within a group served a "sentinel" function. Samson et al. (2017) fitted 33 Hadza hunter-gatherers in Tanzania with actigraphs and collected sleep data across 220 nights. The total time during which all individuals were simultaneously asleep amounted to only 18 minutes over 20 days [4]. The age-dependent dispersion of chronotypes — younger individuals tending toward eveningness, older individuals toward morningness — naturally generated a structure in which at least one person was always awake, without any active vigilance behavior. This finding suggests that sleep fragmentation in older adults may not be pathological but rather an evolutionarily conserved adaptation.</p>
+<h2>Section 1 — The Veracity of Medieval "Segmented Sleep"</h2>
+<p>Historian A. Roger Ekirch (2001) collected over 500 references from diaries, court records, literary works, and medical texts spanning the 15th through 18th centuries, demonstrating that biphasic sleep — divided into a "first sleep" and a "second sleep" (or "morning sleep") — was the standard pattern in pre-industrial Western Europe [5]. Between the two sleep bouts lay a quiet waking interval of approximately one hour, during which people engaged in prayer, reading, conversation, and sexual activity. References to "the hour that terminates the first sleep" appear as early as Homer's <em>Odyssey</em> and Virgil's <em>Aeneid</em>.</p>
+<p>This historical account received experimental corroboration. Wehr (1992) transferred subjects from a standard 16-hour photoperiod to a 10-hour photoperiod (14 hours of darkness). Sleep divided into two bouts, with a 1- to 3-hour waking interval emerging between them. Concurrently, the duration of nocturnal melatonin secretion expanded [6]. In other words, monophasic sleep may not be the intrinsic human response to long natural scotophases but rather an acclimatization to the compressed darkness imposed by artificial lighting.</p>
+<p>This hypothesis finds further support in natural experiments comparing access to electric light. De la Iglesia et al. (2015) compared two communities of the indigenous Toba/Qom people in the Argentine Chaco — one with access to electricity and one relying solely on natural light. The community with electrical access exhibited significantly delayed sleep onset and reduced sleep duration [7]. Stothard et al. (2017) similarly reported that exposing subjects to natural light only during a one-week camping trip advanced the circadian phase by approximately 2 hours and shifted melatonin onset earlier [8].</p>
+<p>Fifty European cities had introduced publicly funded street lighting by 1700; Baltimore became the first American city lit by gas in 1816; and by the early 20th century, electric lighting had reached ordinary households. The transition from biphasic to monophasic sleep was a historically recent change driven by industrialization and the spread of artificial illumination, likely not the "original" form of human sleep.</p>
+<h2>Section 2 — The Epidemiology of "Optimal Sleep" and Geographic Determinants</h2>
+<h3>The U-Shaped Association Between Sleep Duration and All-Cause Mortality</h3>
+<p>Cappuccio et al. (2010) conducted a meta-analysis of 16 prospective cohort studies (27 independent cohorts; 1,382,999 participants; follow-up 4–25 years) and reported a U-shaped association between sleep duration and all-cause mortality [9].</p>
+<span class="math display">\[\text{Short sleep: HR} = 1.12 \quad (95\%\ \text{CI: } 1.06\text{--}1.18)\]</span>
+<span class="math display">\[\text{Long sleep: HR} = 1.30 \quad (95\%\ \text{CI: } 1.22\text{--}1.38)\]</span>
+<p>A 12% increase in mortality risk was observed for short sleep (generally &lt;7 hours) and a 30% increase for long sleep (generally &gt;9 hours). However, reverse causation — individuals with underlying illness sleeping longer — likely contributes to the elevated risk on the long-sleep side, and caution is warranted in causal inference.</p>
+<h3>Temperature, Environment, and Sleep-Onset Mechanisms</h3>
+<p>Human sleep onset requires a decline in core body temperature of approximately 1–3 °F. This temperature drop is achieved through vasodilation in peripheral blood vessels, particularly in the hands and feet. The optimal ambient temperature range is approximately 15.6–19.4 °C (60–67 °F), within which sleep efficiency, slow-wave sleep duration, and REM sleep quality all peak. Obradovich et al. (2017) linked survey data from 765,000 U.S. respondents with nighttime temperature records and found that a 1 °C increase in nighttime temperature was associated with three additional nights of insufficient sleep per 100 individuals per month [10]. The effects of climate change on sleep quality were particularly pronounced among lower-income populations and older adults.</p>
+<h3>Age- and Sex-Dependent Changes in Sleep Architecture</h3>
+<p>Ohayon et al. (2004) conducted a meta-analysis of 65 polysomnography studies (3,577 participants) and quantified age-related changes in sleep architecture [11]. Total sleep time, sleep efficiency, and the proportion of slow-wave sleep (deep sleep) all decreased with age, while wake after sleep onset increased. Reinterpreted through the lens of Samson et al.'s sentinel hypothesis, the decline in slow-wave sleep in older adults may represent an adaptive trait enabling nighttime vigilance within the group.</p>
+<p>Sex differences also influence sleep architecture. Objective sleep measurements indicate that women tend to have longer total sleep time, shorter sleep-onset latency, and higher sleep efficiency compared with men. However, women are subject to hormonal fluctuations across the menstrual cycle: during the luteal phase (elevated progesterone), wake after sleep onset increases and the proportion of slow-wave sleep decreases relative to the follicular phase [12]. After menopause, the precipitous decline in estrogen triggers vasomotor symptoms (hot flashes), and 16–47% of perimenopausal women and 35–60% of postmenopausal women report sleep disturbances [13].</p>
+<h3>Latitude, Light Environment, and Circadian Rhythms</h3>
+<p>Extreme photic environments affect circadian rhythms. Research conducted in Tromsø, Norway (69°N), reports difficulty falling asleep and decreased subjective sleep quality during the midnight sun period, while the prevalence of seasonal affective disorder (SAD) during the polar night reaches 10–14% [14]. However, Johnsen et al. (2013), also studying the Tromsø population (middle-aged and older adults), found no major seasonal variations in self-reported sleep-wake rhythms and chronotypes [15], suggesting that social clocks (work and school schedules) may mask the influence of natural photoperiod through a compensatory effect.</p>
+<h2>Section 3 — The Molecular Mechanisms Governing Sleep</h2>
+<h3>The Two-Process Model</h3>
+<p>The two-process model proposed by Borbély (1982) remains the conceptual foundation of sleep regulation [16]. Sleep propensity is described as the sum of two independent processes.</p>
+<p><strong>Process S</strong> (sleep homeostasis) accumulates exponentially during wakefulness and decays exponentially during sleep:</p>
+<span class="math display">\[S_{\text{wake}}(t) = S_{\max}\!\left(1 - e^{-t/\tau_r}\right) + S_0 \cdot e^{-t/\tau_r}\]</span>
+<span class="math display">\[S_{\text{sleep}}(t) = S_0 \cdot e^{-t/\tau_d}\]</span>
+<p>where <span class="math inline">\(\tau_r\)</span> is the accumulation time constant, <span class="math inline">\(\tau_d\)</span> is the decay time constant, and <span class="math inline">\(S_0\)</span> is the initial value.</p>
+<p><strong>Process C</strong> (circadian rhythm) is an oscillation with a period of approximately 24.2 hours driven by the suprachiasmatic nucleus (SCN), approximated by:</p>
+<span class="math display">\[C(t) = M + A\cos\!\left(\frac{2\pi t}{\tau} - \phi\right), \quad \tau \approx 24.2\ \text{h}\]</span>
+<p>where <span class="math inline">\(M\)</span> is the mean level, <span class="math inline">\(A\)</span> is the amplitude, and <span class="math inline">\(\phi\)</span> is the phase. Sleep onset occurs when the accumulation of Process S exceeds the wake threshold set by Process C, and awakening occurs when the decay of S falls below the sleep threshold set by C.</p>
+<h3>Clock Genes and the Transcription–Translation Feedback Loop</h3>
+<p>The molecular basis of Process C is the transcription–translation feedback loop (TTFL). The 2017 Nobel Prize in Physiology or Medicine was awarded to Hall, Rosbash, and Young for discoveries elucidating this mechanism.</p>
+<p>In mammals, the CLOCK/BMAL1 heterodimer binds to E-box sequences (5'-CACGTG-3') and activates transcription of the <em>Period</em> (<em>Per1</em>, <em>Per2</em>) and <em>Cryptochrome</em> (<em>Cry1</em>, <em>Cry2</em>) genes (the positive arm). PER and CRY proteins form a complex in the cytoplasm, translocate to the nucleus, and repress their own transcription by inhibiting CLOCK/BMAL1 (the negative arm) [17]. One complete cycle of this feedback loop requires approximately 24 hours, with post-translational modifications — including phosphorylation of PER by CK1δ/ε and ubiquitin-dependent degradation — introducing the delays necessary for precise period tuning.</p>
+<h3>Adenosine and Sleep Pressure</h3>
+<p>The most compelling molecular candidate for Process S is adenosine. Porkka-Heiskanen et al. (1997) demonstrated that extracellular adenosine concentrations in the basal forebrain rise progressively during sustained wakefulness and decline during recovery sleep [18]. Accumulated adenosine inhibits wake-promoting neurons (including cholinergic neurons) via A<span class="math inline">\(_1\)</span> receptors and simultaneously activates sleep-promoting neurons via A<span class="math inline">\(_{2A}\)</span> receptors. Caffeine is a competitive antagonist at both A<span class="math inline">\(_1\)</span> and A<span class="math inline">\(_{2A}\)</span> receptors, blocking this mechanism to sustain wakefulness.</p>
+<h3>Orexin — The Sleep–Wake "Switch"</h3>
+<p>In 1998, two research groups nearly simultaneously discovered neuropeptides specific to the lateral hypothalamus. De Lecea et al. named them "hypocretins" [19], while Sakurai, working in the laboratory of Masashi Yanagisawa, named them "orexins" [20]. Orexins A and B project extensively to multiple wake-promoting nuclei — the locus coeruleus (noradrenaline), dorsal raphe nucleus (serotonin), tuberomammillary nucleus (histamine), and basal forebrain (acetylcholine) — stabilizing the waking state.</p>
+<p>In 1999, a genetic mutation in the orexin receptor was identified as the cause of canine narcolepsy, and by 2000, human narcolepsy type 1 was confirmed to result from the selective loss of orexin-producing neurons, presumably through an autoimmune mechanism. The orexin system functions as a stabilizing element in the "flip-flop switch" model of sleep–wake transitions; dysfunction of this system explains the unstable state switching characteristic of narcolepsy (cataplexy, hypnagogic hallucinations, sleep paralysis).</p>
+<h3>SIK3 — Approaching the Molecular Substrate of Sleep Need</h3>
+<p>In 2016, Funato, Yanagisawa, and colleagues screened randomly mutagenized mice by EEG and identified the <em>Sleepy</em> mutant, which exhibits chronically excessive sleep [21]. The causative gene was salt-inducible kinase 3 (SIK3), carrying a splice mutation in exon 13 that deletes the PKA phosphorylation site at S551.</p>
+<span class="math display">\[\text{Sleepy mutation}: \Delta\text{exon13} \rightarrow \text{S551 deletion} \rightarrow \text{increased NREM sleep amount and}\ \delta\ \text{power}\]</span>
+<p>Honda et al. (2018) confirmed that this single amino acid governs daily NREM sleep amounts and sleep need [22], and demonstrated that the site is conserved from nematodes to humans. SIK3 remains a leading candidate for the molecular basis of Process S — a "sleep-pressure protein" whose phosphorylation accumulates during wakefulness and drives sleep — and is the subject of intensive ongoing research.</p>
+<h2>Conclusion — Sleep as an Intersection of Environment and Biology</h2>
+<p>Human sleep is a multilayered phenomenon that defies description by any single principle. Evolution shaped short-duration, REM-dense sleep as a response to predation risk, along with within-group chronotype dispersion that provides sentinel functionality. History reveals that artificial illumination drove the transition from biphasic to monophasic sleep in a mere 200 years. Epidemiology has repeatedly confirmed the U-shaped association between approximately 7 hours of sleep and mortality risk, and has elucidated how temperature, light, and hormonal environments govern sleep quality. And molecular biology is revealing how the TTFL clock genes, adenosine, orexin, and SIK3 implement the two pillars of Process S and Process C.</p>
+<p>Sleep is the arena where ancient evolutionary adaptations and precise molecular machinery intersect with the shifting landscape of culture, technology, and climate. Its "optimal solution" remains under exploration — a dynamic equilibrium point between evolutionary heritage and the modern environment.</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Samson DR, Nunn CL. Sleep intensity and the evolution of human cognition. <em>Evol Anthropol.</em> 2015;24(6):225-237. PMID: 26662946.</li>
+<li>Nunn CL, Samson DR. Sleep in a comparative context: Investigating how human sleep differs from sleep in other primates. <em>Am J Phys Anthropol.</em> 2018;166(3):601-612. DOI: 10.1002/ajpa.23427.</li>
+<li>Samson DR, Nunn CL. Shining evolutionary light on human sleep and sleep disorders. <em>Evol Med Public Health.</em> 2016;2016(1):227-243. PMID: 27470330.</li>
+<li>Samson DR, Crittenden AN, Mabulla IA, Mabulla AZP, Nunn CL. Chronotype variation drives night-time sentinel-like behaviour in hunter–gatherers. <em>Proc R Soc B.</em> 2017;284(1858):20170967. PMID: 28747475.</li>
+<li>Ekirch AR. Sleep we have lost: Pre-industrial slumber in the British Isles. <em>Am Hist Rev.</em> 2001;106(2):343-386.</li>
+<li>Wehr TA. In short photoperiods, human sleep is biphasic. <em>J Sleep Res.</em> 1992;1(2):103-107. PMID: 10607034.</li>
+<li>de la Iglesia HO, et al. Access to electric light is associated with shorter sleep duration in a traditionally hunter-gatherer community. <em>J Biol Rhythms.</em> 2015;30(4):342-350. PMID: 26092820.</li>
+<li>Stothard ER, et al. Circadian entrainment to the natural light-dark cycle across seasons and the weekend. <em>Curr Biol.</em> 2017;27(4):508-513. PMID: 28162893.</li>
+<li>Cappuccio FP, D'Elia L, Strazzullo P, Miller MA. Sleep duration and all-cause mortality: A systematic review and meta-analysis of prospective studies. <em>Sleep.</em> 2010;33(5):585-592. PMID: 20469800.</li>
+<li>Obradovich N, Migliorini R, Mednick SC, Fowler JH. Nighttime temperature and human sleep loss in a changing climate. <em>Sci Adv.</em> 2017;3(5):e1601555. PMID: 28560320.</li>
+<li>Ohayon MM, Carskadon MA, Guilleminault C, Vitiello MV. Meta-analysis of quantitative sleep parameters from childhood to old age in healthy individuals: Developing normative sleep values across the human lifespan. <em>Sleep.</em> 2004;27(7):1255-1273. PMID: 15586779.</li>
+<li>Baker FC, Driver HS. Circadian rhythms, sleep, and the menstrual cycle. <em>Sleep Med.</em> 2007;8(6):613-622. PMID: 17383933.</li>
+<li>Kravitz HM, et al. Sleep during the perimenopause: A SWAN story. <em>Obstet Gynecol Clin North Am.</em> 2011;38(3):567-586. PMID: 21961720.</li>
+<li>Friborg O, Rosenvinge JH, Wynn R, Gradisar M. Sleep timing, chronotype, mood, and behavior at an Arctic latitude (69°N). <em>Sleep Med.</em> 2014;15(7):798-807. PMID: 24933084.</li>
+<li>Johnsen MT, et al. Lack of major seasonal variations in self reported sleep-wake rhythms and chronotypes among middle aged and older people at 69 degrees North: The Tromsø Study. <em>Sleep Med.</em> 2013;14(2):140-148. PMID: 23219143.</li>
+<li>Borbély AA. A two process model of sleep regulation. <em>Hum Neurobiol.</em> 1982;1(3):195-204. PMID: 7185792.</li>
+<li>Takahashi JS. Transcriptional architecture of the mammalian circadian clock. <em>Nat Rev Genet.</em> 2017;18(3):164-179. DOI: 10.1038/nrg.2016.150.</li>
+<li>Porkka-Heiskanen T, Strecker RE, Thakkar M, Bjorkum AA, Greene RW, McCarley RW. Adenosine: A mediator of the sleep-inducing effects of prolonged wakefulness. <em>Science.</em> 1997;276(5316):1265-1268. PMID: 9157887.</li>
+<li>de Lecea L, Kilduff TS, Peyron C, et al. The hypocretins: Hypothalamus-specific peptides with neuroexcitatory activity. <em>Proc Natl Acad Sci USA.</em> 1998;95(1):322-327. PMID: 9419374.</li>
+<li>Sakurai T, Amemiya A, Ishii M, et al. Orexins and orexin receptors: A family of hypothalamic neuropeptides and G protein-coupled receptors that regulate feeding behavior. <em>Cell.</em> 1998;92(4):573-585. PMID: 9527442.</li>
+<li>Funato H, Miyoshi C, Fujiyama T, et al. Forward-genetics analysis of sleep in randomly mutagenized mice. <em>Nature.</em> 2016;539(7629):378-383. PMID: 27806374.</li>
+<li>Honda T, Fujiyama T, Miyoshi C, et al. A single phosphorylation site of SIK3 regulates daily sleep amounts and sleep need in mice. <em>Proc Natl Acad Sci USA.</em> 2018;115(41):10458-10463. PMID: 30254177.</li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>Disclaimers</strong></p>
+<p><strong>日本語:</strong> 本コンテンツは、客観的な学術的エビデンスとデータ分析に基づく情報提供のみを目的としています。医学的助言、診断、または政治的批評を意図するものではありません。</p>
+<p><strong>English:</strong> This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p>
+<p><strong>简体中文:</strong> 本内容仅供参考，基于客观的学术证据和数据分析。本内容不构成医疗建议、诊断或政治评论。</p>
+<p><strong>Español:</strong> Este contenido es solo con fines informativos, basado en evidencia académica objetiva y análisis de datos. No pretende ser consejo médico, diagnóstico ni crítica política.</p>
+<p><strong>हिन्दी:</strong> यह सामग्री केवल सूचनात्मक उद्देश्यों के लिए है, जो वस्तुनिष्ठ शैक्षणिक साक्ष्य और डेटा विश्लेषण पर आधारित है। यह चिकित्सा सलाह, निदान या राजनीतिक आलोचना के रूप में अभिप्रेत नहीं है।</p>
+<p><strong>العربية:</strong> هذا المحتوى لأغراض إعلامية فقط، استناداً إلى أدلة أكاديمية موضوعية وتحليل بيانات. وهو غير مخصص كاستشارة طبية أو تشخيص أو نقد سياسي.</p>
+</blockquote>
+<div class="disclaimer"><p>This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p></div>
+</article>
+
+<article id="content-zh-Hans" class="content-section" dir="ltr" lang="zh-Hans">
+<h1>从分段之夜到食欲素 — 人类睡眠的进化、历史与分子机制</h1>
+<h2>导入 — 进化塑造的"短而深"的睡眠与哨兵假说</h2>
+<p>在对30种灵长类动物的系统发生学比较中，人类的睡眠时间约为7小时 — 在灵长类中最短 — 然而REM睡眠占总睡眠时间的比例约达25%，为最高值 [1,2]。黑猩猩在树冠巢中花费9.5小时以上，而人类在地面上以显著更短的时间完成睡眠。Samson与Nunn（2015）将这一现象称为"睡眠强度（sleep intensity）"，并认为它是对地面睡眠中捕食风险的进化适应 [1]。</p>
+<p>地面睡眠增加了对捕食者的暴露。那么人类为何能够放弃树栖？第一，火的使用同时实现了驱避捕食者、驱除昆虫和体温调节，构建了安全的地面睡眠环境 [3]。第二，群体内时间型（晨型与夜型）的多样性发挥了"哨兵"功能。Samson等（2017）为坦桑尼亚哈扎狩猎采集者33人佩戴活动记录仪，收集了220夜的睡眠数据。在20天中，所有人同时处于睡眠状态的总时间仅为18分钟 [4]。年龄驱动的时间型分散 — 年轻人倾向于夜型，老年人倾向于晨型 — 在没有主动监视行为的情况下，自然产生了始终有人清醒的结构。这一发现提示，老年人的睡眠碎片化可能并非病理表现，而是进化上保守的适应性状。</p>
+<h2>展开1 — 中世纪"分段睡眠"的真伪</h2>
+<p>历史学家A. Roger Ekirch（2001）从15至18世纪的日记、法庭记录、文学作品和医学文献中收集了500余条记述，证实在工业革命前的西欧，分为"第一睡眠（first sleep）"和"第二睡眠（second sleep / morning sleep）"的二相性睡眠（biphasic sleep）是标准模式 [5]。两段睡眠之间有约1小时的安静清醒期，人们在此期间进行祈祷、阅读、对话和性行为。荷马的《奥德赛》和维吉尔的《埃涅阿斯纪》中也出现了"第一睡眠结束的时刻"的记载。</p>
+<p>这一历史记述获得了实验验证。Wehr（1992）将受试者从标准的16小时光照期转移至10小时光照期（14小时暗期）。结果睡眠分裂为两段，其间出现1至3小时的觉醒期。同时，夜间褪黑素分泌的持续时间也延长了 [6]。换言之，单相性睡眠（monophasic sleep）可能并非人类对长时间自然暗期的固有反应，而仅是对人工照明压缩暗期后的环境适应。</p>
+<p>这一假说在比较电力获取差异的自然实验中也得到了支持。de la Iglesia等（2015）比较了阿根廷查科地区原住民托巴/科姆的两个社区 — 一个有电力供应，另一个仅依赖自然光。有电力供应的社区入睡时间显著推迟，睡眠时间缩短 [7]。Stothard等（2017）同样报告，受试者在一周的露营期间仅暴露于自然光环境后，昼夜节律相位前移约2小时，褪黑素分泌启动时间提前 [8]。</p>
+<p>1700年前，50个欧洲城市已引入公共街道照明；1816年，巴尔的摩成为美国第一座使用煤气灯的城市；至20世纪初，电力照明已普及至普通家庭。从二相性到单相性睡眠的转变是工业化和人工照明普及驱动的历史性晚近变化，很可能并非人类睡眠的"原始"形态。</p>
+<h2>展开2 — "最佳睡眠"的流行病学与地理因素</h2>
+<h3>睡眠时间与全因死亡的U型关联</h3>
+<p>Cappuccio等（2010）在整合16项前瞻性队列研究（27个独立队列，1,382,999名参与者，随访4至25年）的荟萃分析中，报告了睡眠时间与全因死亡之间的U型关联 [9]。</p>
+<span class="math display">\[\text{短时间睡眠: HR} = 1.12 \quad (95\%\ \text{CI: } 1.06\text{--}1.18)\]</span>
+<span class="math display">\[\text{长时间睡眠: HR} = 1.30 \quad (95\%\ \text{CI: } 1.22\text{--}1.38)\]</span>
+<p>短时间睡眠（一般&lt;7小时）的死亡风险升高12%，长时间睡眠（一般&gt;9小时）升高30%。然而，长时间睡眠侧的风险升高可能受逆因果 — 患有基础疾病者睡眠时间延长 — 的影响，因果推断需谨慎对待。</p>
+<h3>温度环境与入睡机制</h3>
+<p>人类入睡需要核心体温下降约1至3 °F。这一温度下降通过外周血管（尤其是手足）的扩张散热实现。最佳室温范围约为15.6至19.4 °C（60至67 °F），在此范围内睡眠效率、慢波睡眠持续时间和REM睡眠质量均达到峰值。Obradovich等（2017）将美国765,000名受访者的调查数据与夜间气温数据结合，发现夜间气温每升高1 °C，每100人每月增加3个睡眠不足之夜 [10]。气候变化对睡眠质量的影响在低收入人群和老年人中尤为显著。</p>
+<h3>增龄与性别差异对睡眠结构的影响</h3>
+<p>Ohayon等（2004）在整合65项多导睡眠图研究（3,577名参与者）的荟萃分析中，定量呈现了增龄伴随的睡眠结构变化 [11]。总睡眠时间、睡眠效率和慢波睡眠（深度睡眠）的比例均随增龄而下降，中途觉醒时间则增加。在Samson等人的哨兵假说框架下重新解读，老年人慢波睡眠的减少可能是使其承担群体夜间监视功能的适应性状。</p>
+<p>性别差异也影响睡眠结构。客观睡眠测量显示，女性的总睡眠时间往往长于男性，入睡潜伏期更短，睡眠效率更高。然而，女性受月经周期激素波动的影响：黄体期（孕酮水平升高）与卵泡期相比，中途觉醒增加，慢波睡眠比例下降 [12]。绝经后，雌激素的急剧下降引发血管运动症状（潮热），16%至47%的围绝经期女性和35%至60%的绝经后女性报告睡眠障碍 [13]。</p>
+<h3>纬度、光环境与昼夜节律</h3>
+<p>极端光环境影响昼夜节律。在挪威特罗姆瑟（北纬69°）开展的研究报告，午夜太阳期间出现入睡困难和主观睡眠质量下降，而极夜期间季节性情感障碍（SAD）的患病率达10%至14% [14]。然而，Johnsen等（2013）同样在特罗姆瑟人群（中老年对象）中的研究未发现自我报告的睡眠-觉醒节律和时间型存在显著的季节性变化 [15]，提示社会时钟（工作和上学时间表）可能通过补偿效应掩盖了自然光周期的影响。</p>
+<h2>展开3 — 支配睡眠的分子生物学机制</h2>
+<h3>双过程模型</h3>
+<p>Borbély（1982）提出的双过程模型至今仍是睡眠调控的概念基础 [16]。睡眠倾向被描述为两个独立过程之和。</p>
+<p><strong>过程S</strong>（睡眠稳态）在觉醒期间呈指数累积，在睡眠期间呈指数衰减：</p>
+<span class="math display">\[S_{\text{wake}}(t) = S_{\max}\!\left(1 - e^{-t/\tau_r}\right) + S_0 \cdot e^{-t/\tau_r}\]</span>
+<span class="math display">\[S_{\text{sleep}}(t) = S_0 \cdot e^{-t/\tau_d}\]</span>
+<p>其中 <span class="math inline">\(\tau_r\)</span> 为累积时间常数，<span class="math inline">\(\tau_d\)</span> 为衰减时间常数，<span class="math inline">\(S_0\)</span> 为初始值。</p>
+<p><strong>过程C</strong>（昼夜节律）是由视交叉上核（SCN）驱动的约24.2小时周期振荡，近似表示为：</p>
+<span class="math display">\[C(t) = M + A\cos\!\left(\frac{2\pi t}{\tau} - \phi\right), \quad \tau \approx 24.2\ \text{h}\]</span>
+<p>其中 <span class="math inline">\(M\)</span> 为平均水平，<span class="math inline">\(A\)</span> 为振幅，<span class="math inline">\(\phi\)</span> 为相位。当过程S的累积超过过程C设定的觉醒阈值时启动入睡，当S的衰减降至C设定的睡眠阈值以下时发生觉醒。</p>
+<h3>时钟基因与转录翻译反馈环路</h3>
+<p>过程C的分子基础是转录翻译反馈环路（TTFL）。2017年诺贝尔生理学或医学奖授予Hall、Rosbash和Young，以表彰他们对这一机制的发现。</p>
+<p>在哺乳动物中，CLOCK/BMAL1异源二聚体与E-box序列（5'-CACGTG-3'）结合，激活 <em>Period</em>（<em>Per1</em>、<em>Per2</em>）和 <em>Cryptochrome</em>（<em>Cry1</em>、<em>Cry2</em>）基因的转录（正臂）。PER和CRY蛋白在细胞质中形成复合体后转位至细胞核，抑制CLOCK/BMAL1对自身的转录（负臂）[17]。这一反馈环路完成一个循环约需24小时，磷酸化（CK1δ/ε对PER的磷酸化）和泛素依赖性降解等翻译后修饰产生必要的延迟，从而精确调谐周期。</p>
+<h3>腺苷与睡眠压力</h3>
+<p>作为过程S分子实体最有力的候选者是腺苷。Porkka-Heiskanen等（1997）证实，在持续觉醒期间，前脑基底部的细胞外腺苷浓度进行性升高，并在恢复睡眠期间下降 [18]。累积的腺苷通过A<span class="math inline">\(_1\)</span>受体抑制觉醒促进神经元（包括胆碱能神经元），同时通过A<span class="math inline">\(_{2A}\)</span>受体激活睡眠促进神经元。咖啡因是A<span class="math inline">\(_1\)</span>和A<span class="math inline">\(_{2A}\)</span>受体的竞争性拮抗剂，通过阻断这一机制维持觉醒。</p>
+<h3>食欲素 — 睡眠-觉醒的"开关"</h3>
+<p>1998年，两个研究组几乎同时发现了下丘脑外侧野特异性的神经肽。de Lecea等将其命名为"下丘脑泌素（hypocretin）"[19]，而柳泽正史实验室的櫻井武将其命名为"食欲素（orexin）"[20]。食欲素A/B广泛投射至多个觉醒促进核团 — 蓝斑（去甲肾上腺素）、背侧中缝核（5-羟色胺）、结节乳头体核（组胺）和前脑基底部（乙酰胆碱）— 以稳定觉醒状态。</p>
+<p>1999年，食欲素受体的基因突变被鉴定为犬发作性睡病的病因，翌年确认人类1型发作性睡病源于食欲素产生神经元的选择性丧失（推测为自身免疫机制所致）。食欲素系统在睡眠-觉醒"翻转开关"模型中起稳定化作用；该系统的功能障碍解释了发作性睡病中觉醒与睡眠状态之间不稳定切换的特征表现（猝倒、入睡前幻觉、睡眠瘫痪）。</p>
+<h3>SIK3 — 接近睡眠需求的分子实体</h3>
+<p>2016年，船戸弘正、柳泽正史等通过随机突变小鼠的脑电图筛查，鉴定出慢性过度睡眠的突变体 <em>Sleepy</em> [21]。致病基因为盐诱导性激酶3（SIK3），其外显子13的剪接突变导致PKA磷酸化位点（S551）缺失。</p>
+<span class="math display">\[\text{Sleepy突变}: \Delta\text{exon13} \rightarrow \text{S551缺失} \rightarrow \text{NREM睡眠量及}\delta\text{功率增大}\]</span>
+<p>Honda等（2018）确认这一单个氨基酸控制每日NREM睡眠量和睡眠需求 [22]，并证实该位点从线虫到人类均保守存在。SIK3作为过程S的分子基础 — 觉醒期间磷酸化累积并驱动睡眠的"睡眠压力蛋白" — 的有力候选者，目前仍在集中研究之中。</p>
+<h2>结语 — 作为环境与生物学交叉点的睡眠</h2>
+<p>人类睡眠是无法用单一原理描述的多层次现象。进化将捕食风险的应答塑造为REM比例高的短时间睡眠，以及群体内时间型分散所提供的哨兵功能。历史表明，人工照明的普及仅用200年便推动了从二相性到单相性睡眠的转变。流行病学反复确认了约7小时睡眠与死亡风险之间的U型关联，并阐明了温度、光照和激素环境如何决定睡眠质量。而分子生物学正在揭示TTFL时钟基因、腺苷、食欲素和SIK3这些分子群如何实现过程S和过程C的双重支柱。</p>
+<p>睡眠是远古的进化适应与精密的分子机制同文化、技术和气候变迁交汇的场域。其"最优解"作为进化遗产与现代环境之间的动态均衡点，仍处于探索之中。</p>
+<hr />
+<h2>参考文献</h2>
+<ol>
+<li>Samson DR, Nunn CL. Sleep intensity and the evolution of human cognition. <em>Evol Anthropol.</em> 2015;24(6):225-237. PMID: 26662946.</li>
+<li>Nunn CL, Samson DR. Sleep in a comparative context: Investigating how human sleep differs from sleep in other primates. <em>Am J Phys Anthropol.</em> 2018;166(3):601-612. DOI: 10.1002/ajpa.23427.</li>
+<li>Samson DR, Nunn CL. Shining evolutionary light on human sleep and sleep disorders. <em>Evol Med Public Health.</em> 2016;2016(1):227-243. PMID: 27470330.</li>
+<li>Samson DR, Crittenden AN, Mabulla IA, Mabulla AZP, Nunn CL. Chronotype variation drives night-time sentinel-like behaviour in hunter–gatherers. <em>Proc R Soc B.</em> 2017;284(1858):20170967. PMID: 28747475.</li>
+<li>Ekirch AR. Sleep we have lost: Pre-industrial slumber in the British Isles. <em>Am Hist Rev.</em> 2001;106(2):343-386.</li>
+<li>Wehr TA. In short photoperiods, human sleep is biphasic. <em>J Sleep Res.</em> 1992;1(2):103-107. PMID: 10607034.</li>
+<li>de la Iglesia HO, et al. Access to electric light is associated with shorter sleep duration in a traditionally hunter-gatherer community. <em>J Biol Rhythms.</em> 2015;30(4):342-350. PMID: 26092820.</li>
+<li>Stothard ER, et al. Circadian entrainment to the natural light-dark cycle across seasons and the weekend. <em>Curr Biol.</em> 2017;27(4):508-513. PMID: 28162893.</li>
+<li>Cappuccio FP, D'Elia L, Strazzullo P, Miller MA. Sleep duration and all-cause mortality: A systematic review and meta-analysis of prospective studies. <em>Sleep.</em> 2010;33(5):585-592. PMID: 20469800.</li>
+<li>Obradovich N, Migliorini R, Mednick SC, Fowler JH. Nighttime temperature and human sleep loss in a changing climate. <em>Sci Adv.</em> 2017;3(5):e1601555. PMID: 28560320.</li>
+<li>Ohayon MM, Carskadon MA, Guilleminault C, Vitiello MV. Meta-analysis of quantitative sleep parameters from childhood to old age in healthy individuals: Developing normative sleep values across the human lifespan. <em>Sleep.</em> 2004;27(7):1255-1273. PMID: 15586779.</li>
+<li>Baker FC, Driver HS. Circadian rhythms, sleep, and the menstrual cycle. <em>Sleep Med.</em> 2007;8(6):613-622. PMID: 17383933.</li>
+<li>Kravitz HM, et al. Sleep during the perimenopause: A SWAN story. <em>Obstet Gynecol Clin North Am.</em> 2011;38(3):567-586. PMID: 21961720.</li>
+<li>Friborg O, Rosenvinge JH, Wynn R, Gradisar M. Sleep timing, chronotype, mood, and behavior at an Arctic latitude (69°N). <em>Sleep Med.</em> 2014;15(7):798-807. PMID: 24933084.</li>
+<li>Johnsen MT, et al. Lack of major seasonal variations in self reported sleep-wake rhythms and chronotypes among middle aged and older people at 69 degrees North: The Tromsø Study. <em>Sleep Med.</em> 2013;14(2):140-148. PMID: 23219143.</li>
+<li>Borbély AA. A two process model of sleep regulation. <em>Hum Neurobiol.</em> 1982;1(3):195-204. PMID: 7185792.</li>
+<li>Takahashi JS. Transcriptional architecture of the mammalian circadian clock. <em>Nat Rev Genet.</em> 2017;18(3):164-179. DOI: 10.1038/nrg.2016.150.</li>
+<li>Porkka-Heiskanen T, Strecker RE, Thakkar M, Bjorkum AA, Greene RW, McCarley RW. Adenosine: A mediator of the sleep-inducing effects of prolonged wakefulness. <em>Science.</em> 1997;276(5316):1265-1268. PMID: 9157887.</li>
+<li>de Lecea L, Kilduff TS, Peyron C, et al. The hypocretins: Hypothalamus-specific peptides with neuroexcitatory activity. <em>Proc Natl Acad Sci USA.</em> 1998;95(1):322-327. PMID: 9419374.</li>
+<li>Sakurai T, Amemiya A, Ishii M, et al. Orexins and orexin receptors: A family of hypothalamic neuropeptides and G protein-coupled receptors that regulate feeding behavior. <em>Cell.</em> 1998;92(4):573-585. PMID: 9527442.</li>
+<li>Funato H, Miyoshi C, Fujiyama T, et al. Forward-genetics analysis of sleep in randomly mutagenized mice. <em>Nature.</em> 2016;539(7629):378-383. PMID: 27806374.</li>
+<li>Honda T, Fujiyama T, Miyoshi C, et al. A single phosphorylation site of SIK3 regulates daily sleep amounts and sleep need in mice. <em>Proc Natl Acad Sci USA.</em> 2018;115(41):10458-10463. PMID: 30254177.</li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong></p>
+<p><strong>日本語:</strong> 本コンテンツは、客観的な学術的エビデンスとデータ分析に基づく情報提供のみを目的としています。医学的助言、診断、または政治的批評を意図するものではありません。</p>
+<p><strong>English:</strong> This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p>
+<p><strong>简体中文:</strong> 本内容仅供参考，基于客观的学术证据和数据分析。本内容不构成医疗建议、诊断或政治评论。</p>
+<p><strong>Español:</strong> Este contenido es solo con fines informativos, basado en evidencia académica objetiva y análisis de datos. No pretende ser consejo médico, diagnóstico ni crítica política.</p>
+<p><strong>हिन्दी:</strong> यह सामग्री केवल सूचनात्मक उद्देश्यों के लिए है, जो वस्तुनिष्ठ शैक्षणिक साक्ष्य और डेटा विश्लेषण पर आधारित है। यह चिकित्सा सलाह, निदान या राजनीतिक आलोचना के रूप में अभिप्रेत नहीं है।</p>
+<p><strong>العربية:</strong> هذا المحتوى لأغراض إعلامية فقط، استناداً إلى أدلة أكاديمية موضوعية وتحليل بيانات. وهو غير مخصص كاستشارة طبية أو تشخيص أو نقد سياسي.</p>
+</blockquote>
+<div class="disclaimer"><p>本内容仅供参考，基于客观的学术证据和数据分析。本内容不构成医疗建议、诊断或政治评论。</p></div>
+</article>
+
+<article id="content-es" class="content-section" dir="ltr" lang="es">
+<h1>De las noches segmentadas a la orexina — Evolución, historia y mecanismos moleculares del sueño humano</h1>
+<h2>Introducción — El sueño "breve pero profundo" moldeado por la evolución y la hipótesis del centinela</h2>
+<p>En una comparación filogenética de 30 especies de primates, la duración del sueño humano es de aproximadamente 7 horas — la más corta entre todos los primates — mientras que la proporción de sueño REM alcanza aproximadamente el 25% del tiempo total de sueño, el valor más alto registrado [1,2]. Mientras los chimpancés pasan más de 9,5 horas en nidos arbóreos, los humanos completan su sueño en el suelo en un tiempo notablemente menor. Samson y Nunn (2015) denominaron este fenómeno "intensidad del sueño" y argumentaron que representa una adaptación evolutiva al riesgo de depredación inherente al sueño terrestre [1].</p>
+<p>El sueño en el suelo aumenta la exposición a los depredadores. Entonces, ¿cómo pudieron los humanos abandonar los árboles? En primer lugar, el uso del fuego logró simultáneamente la disuasión de depredadores, la repulsión de insectos y la termorregulación, construyendo un entorno seguro para dormir en el suelo [3]. En segundo lugar, la diversidad de cronotipos (tipos matutinos y vespertinos) dentro del grupo cumplió una función de "centinela". Samson et al. (2017) equiparon a 33 cazadores-recolectores hadza de Tanzania con actígrafos y recopilaron datos de sueño durante 220 noches. El tiempo total en que todos los individuos estaban simultáneamente dormidos fue de solo 18 minutos durante 20 días [4]. La dispersión de cronotipos dependiente de la edad — los jóvenes tendiendo al vespertinismo, los adultos mayores al matutinismo — generó naturalmente una estructura en la que siempre había alguien despierto, sin ningún comportamiento de vigilancia activa. Este hallazgo sugiere que la fragmentación del sueño en adultos mayores podría no ser patológica, sino una adaptación evolutivamente conservada.</p>
+<h2>Sección 1 — La veracidad del "sueño segmentado" medieval</h2>
+<p>El historiador A. Roger Ekirch (2001) recopiló más de 500 referencias de diarios, registros judiciales, obras literarias y textos médicos que abarcan los siglos XV al XVIII, demostrando que el sueño bifásico — dividido en un "primer sueño" y un "segundo sueño" (o "sueño matutino") — era el patrón estándar en la Europa occidental preindustrial [5]. Entre las dos fases de sueño existía un intervalo de vigilia tranquila de aproximadamente una hora, durante el cual las personas se dedicaban a la oración, la lectura, la conversación y la actividad sexual. Referencias a "la hora que termina el primer sueño" aparecen ya en la <em>Odisea</em> de Homero y la <em>Eneida</em> de Virgilio.</p>
+<p>Este relato histórico recibió corroboración experimental. Wehr (1992) trasladó a los sujetos de un fotoperíodo estándar de 16 horas a uno de 10 horas (14 horas de oscuridad). El sueño se dividió en dos fases, emergiendo un intervalo de vigilia de 1 a 3 horas entre ellas. Simultáneamente, la duración de la secreción nocturna de melatonina se expandió [6]. En otras palabras, el sueño monofásico podría no ser la respuesta humana intrínseca a las largas escotofases naturales, sino más bien una aclimatación a la oscuridad comprimida impuesta por la iluminación artificial.</p>
+<p>Esta hipótesis encuentra apoyo adicional en experimentos naturales que comparan el acceso a la luz eléctrica. De la Iglesia et al. (2015) compararon dos comunidades del pueblo indígena toba/qom en el Chaco argentino — una con acceso a electricidad y otra que depende exclusivamente de la luz natural. La comunidad con acceso eléctrico mostró un retraso significativo en el inicio del sueño y una reducción en la duración del sueño [7]. Stothard et al. (2017) igualmente informaron que exponer a los sujetos únicamente a luz natural durante un campamento de una semana adelantó la fase circadiana aproximadamente 2 horas y anticipó el inicio de la secreción de melatonina [8].</p>
+<p>Cincuenta ciudades europeas habían introducido alumbrado público financiado con fondos públicos antes de 1700; Baltimore se convirtió en la primera ciudad estadounidense iluminada con gas en 1816; y a principios del siglo XX, la iluminación eléctrica había llegado a los hogares comunes. La transición del sueño bifásico al monofásico fue un cambio históricamente reciente impulsado por la industrialización y la difusión de la iluminación artificial, probablemente no la forma "original" del sueño humano.</p>
+<h2>Sección 2 — La epidemiología del "sueño óptimo" y los determinantes geográficos</h2>
+<h3>La asociación en forma de U entre la duración del sueño y la mortalidad por todas las causas</h3>
+<p>Cappuccio et al. (2010) realizaron un metaanálisis de 16 estudios de cohorte prospectivos (27 cohortes independientes; 1.382.999 participantes; seguimiento de 4 a 25 años) e informaron una asociación en forma de U entre la duración del sueño y la mortalidad por todas las causas [9].</p>
+<span class="math display">\[\text{Sueño corto: HR} = 1{,}12 \quad (95\%\ \text{IC: } 1{,}06\text{--}1{,}18)\]</span>
+<span class="math display">\[\text{Sueño largo: HR} = 1{,}30 \quad (95\%\ \text{IC: } 1{,}22\text{--}1{,}38)\]</span>
+<p>Se observó un aumento del 12% en el riesgo de mortalidad para el sueño corto (generalmente &lt;7 horas) y del 30% para el sueño largo (generalmente &gt;9 horas). Sin embargo, la causalidad inversa — los individuos con enfermedades subyacentes duermen más — probablemente contribuye al riesgo elevado en el lado del sueño prolongado, y se requiere cautela en la inferencia causal.</p>
+<h3>Temperatura ambiental y mecanismos de inicio del sueño</h3>
+<p>El inicio del sueño humano requiere una disminución de la temperatura corporal central de aproximadamente 1 a 3 °F. Esta caída de temperatura se logra mediante la vasodilatación en los vasos sanguíneos periféricos, particularmente en las manos y los pies. El rango óptimo de temperatura ambiente es de aproximadamente 15,6 a 19,4 °C (60 a 67 °F), dentro del cual la eficiencia del sueño, la duración del sueño de ondas lentas y la calidad del sueño REM alcanzan su máximo. Obradovich et al. (2017) vincularon datos de encuestas de 765.000 encuestados estadounidenses con registros de temperatura nocturna y encontraron que un aumento de 1 °C en la temperatura nocturna estaba asociado con tres noches adicionales de sueño insuficiente por cada 100 individuos por mes [10]. Los efectos del cambio climático en la calidad del sueño fueron particularmente pronunciados entre las poblaciones de bajos ingresos y los adultos mayores.</p>
+<h3>Cambios en la arquitectura del sueño dependientes de la edad y el sexo</h3>
+<p>Ohayon et al. (2004) realizaron un metaanálisis de 65 estudios de polisomnografía (3.577 participantes) y cuantificaron los cambios en la arquitectura del sueño asociados con la edad [11]. El tiempo total de sueño, la eficiencia del sueño y la proporción de sueño de ondas lentas (sueño profundo) disminuyeron con la edad, mientras que el tiempo de vigilia después del inicio del sueño aumentó. Reinterpretada a través de la hipótesis del centinela de Samson et al., la disminución del sueño de ondas lentas en adultos mayores podría representar un rasgo adaptativo que permite la vigilancia nocturna dentro del grupo.</p>
+<p>Las diferencias de sexo también influyen en la arquitectura del sueño. Las mediciones objetivas del sueño indican que las mujeres tienden a tener mayor tiempo total de sueño, menor latencia de inicio del sueño y mayor eficiencia del sueño en comparación con los hombres. Sin embargo, las mujeres están sujetas a fluctuaciones hormonales a lo largo del ciclo menstrual: durante la fase lútea (progesterona elevada), el despertar después del inicio del sueño aumenta y la proporción de sueño de ondas lentas disminuye en comparación con la fase folicular [12]. Después de la menopausia, la disminución precipitada del estrógeno desencadena síntomas vasomotores (sofocos), y el 16-47% de las mujeres perimenopáusicas y el 35-60% de las mujeres posmenopáusicas reportan trastornos del sueño [13].</p>
+<h3>Latitud, entorno lumínico y ritmos circadianos</h3>
+<p>Los entornos fóticos extremos afectan los ritmos circadianos. Investigaciones realizadas en Tromsø, Noruega (69°N), informan dificultad para conciliar el sueño y disminución de la calidad subjetiva del sueño durante el período del sol de medianoche, mientras que la prevalencia del trastorno afectivo estacional (TAE) durante la noche polar alcanza el 10-14% [14]. Sin embargo, Johnsen et al. (2013), también estudiando la población de Tromsø (adultos de mediana edad y mayores), no encontraron variaciones estacionales importantes en los ritmos sueño-vigilia autoinformados ni en los cronotipos [15], lo que sugiere que los relojes sociales (horarios de trabajo y escuela) podrían enmascarar la influencia del fotoperíodo natural a través de un efecto compensatorio.</p>
+<h2>Sección 3 — Los mecanismos moleculares que gobiernan el sueño</h2>
+<h3>El modelo de dos procesos</h3>
+<p>El modelo de dos procesos propuesto por Borbély (1982) sigue siendo la base conceptual de la regulación del sueño [16]. La propensión al sueño se describe como la suma de dos procesos independientes.</p>
+<p><strong>Proceso S</strong> (homeostasis del sueño) se acumula exponencialmente durante la vigilia y decae exponencialmente durante el sueño:</p>
+<span class="math display">\[S_{\text{wake}}(t) = S_{\max}\!\left(1 - e^{-t/\tau_r}\right) + S_0 \cdot e^{-t/\tau_r}\]</span>
+<span class="math display">\[S_{\text{sleep}}(t) = S_0 \cdot e^{-t/\tau_d}\]</span>
+<p>donde <span class="math inline">\(\tau_r\)</span> es la constante de tiempo de acumulación, <span class="math inline">\(\tau_d\)</span> es la constante de tiempo de decaimiento y <span class="math inline">\(S_0\)</span> es el valor inicial.</p>
+<p><strong>Proceso C</strong> (ritmo circadiano) es una oscilación con un período de aproximadamente 24,2 horas impulsada por el núcleo supraquiasmático (NSQ), aproximada por:</p>
+<span class="math display">\[C(t) = M + A\cos\!\left(\frac{2\pi t}{\tau} - \phi\right), \quad \tau \approx 24{,}2\ \text{h}\]</span>
+<p>donde <span class="math inline">\(M\)</span> es el nivel medio, <span class="math inline">\(A\)</span> es la amplitud y <span class="math inline">\(\phi\)</span> es la fase. El inicio del sueño ocurre cuando la acumulación del Proceso S supera el umbral de vigilia establecido por el Proceso C, y el despertar ocurre cuando el decaimiento de S cae por debajo del umbral de sueño establecido por C.</p>
+<h3>Genes reloj y el bucle de retroalimentación transcripción-traducción</h3>
+<p>La base molecular del Proceso C es el bucle de retroalimentación transcripción-traducción (TTFL). El Premio Nobel de Fisiología o Medicina 2017 fue otorgado a Hall, Rosbash y Young por los descubrimientos que elucidaron este mecanismo.</p>
+<p>En mamíferos, el heterodímero CLOCK/BMAL1 se une a secuencias E-box (5'-CACGTG-3') y activa la transcripción de los genes <em>Period</em> (<em>Per1</em>, <em>Per2</em>) y <em>Cryptochrome</em> (<em>Cry1</em>, <em>Cry2</em>) (el brazo positivo). Las proteínas PER y CRY forman un complejo en el citoplasma, se translocan al núcleo y reprimen su propia transcripción inhibiendo a CLOCK/BMAL1 (el brazo negativo) [17]. Un ciclo completo de este bucle de retroalimentación requiere aproximadamente 24 horas, con modificaciones postraduccionales — incluyendo la fosforilación de PER por CK1δ/ε y la degradación dependiente de ubiquitina — introduciendo los retrasos necesarios para el ajuste preciso del período.</p>
+<h3>Adenosina y presión de sueño</h3>
+<p>El candidato molecular más convincente para el Proceso S es la adenosina. Porkka-Heiskanen et al. (1997) demostraron que las concentraciones extracelulares de adenosina en el prosencéfalo basal aumentan progresivamente durante la vigilia sostenida y disminuyen durante el sueño de recuperación [18]. La adenosina acumulada inhibe las neuronas promotoras de la vigilia (incluyendo neuronas colinérgicas) a través de receptores A<span class="math inline">\(_1\)</span> y simultáneamente activa las neuronas promotoras del sueño a través de receptores A<span class="math inline">\(_{2A}\)</span>. La cafeína es un antagonista competitivo de los receptores A<span class="math inline">\(_1\)</span> y A<span class="math inline">\(_{2A}\)</span>, bloqueando este mecanismo para mantener la vigilia.</p>
+<h3>Orexina — El "interruptor" sueño-vigilia</h3>
+<p>En 1998, dos grupos de investigación descubrieron casi simultáneamente neuropéptidos específicos del hipotálamo lateral. De Lecea et al. los denominaron "hipocretinas" [19], mientras que Sakurai, trabajando en el laboratorio de Masashi Yanagisawa, los denominó "orexinas" [20]. Las orexinas A y B proyectan extensamente a múltiples núcleos promotores de la vigilia — el locus coeruleus (noradrenalina), el núcleo dorsal del rafe (serotonina), el núcleo tuberomamilar (histamina) y el prosencéfalo basal (acetilcolina) — estabilizando el estado de vigilia.</p>
+<p>En 1999, una mutación genética en el receptor de orexina fue identificada como la causa de la narcolepsia canina, y para el año 2000, se confirmó que la narcolepsia tipo 1 humana resulta de la pérdida selectiva de neuronas productoras de orexina, presumiblemente a través de un mecanismo autoinmune. El sistema de orexina funciona como un elemento estabilizador en el modelo de "interruptor basculante" de las transiciones sueño-vigilia; la disfunción de este sistema explica la conmutación inestable de estados característica de la narcolepsia (cataplejía, alucinaciones hipnagógicas, parálisis del sueño).</p>
+<h3>SIK3 — Aproximación al sustrato molecular de la necesidad de sueño</h3>
+<p>En 2016, Funato, Yanagisawa y colegas realizaron un cribado por EEG de ratones mutagenizados aleatoriamente e identificaron el mutante <em>Sleepy</em>, que exhibe sueño crónicamente excesivo [21]. El gen causante fue la quinasa inducible por sal 3 (SIK3), que porta una mutación de empalme en el exón 13 que elimina el sitio de fosforilación por PKA en S551.</p>
+<span class="math display">\[\text{Mutación Sleepy}: \Delta\text{exón13} \rightarrow \text{deleción de S551} \rightarrow \text{aumento de sueño NREM y potencia}\ \delta\]</span>
+<p>Honda et al. (2018) confirmaron que este único aminoácido gobierna las cantidades diarias de sueño NREM y la necesidad de sueño [22], y demostraron que el sitio está conservado desde nematodos hasta humanos. SIK3 sigue siendo un candidato principal para la base molecular del Proceso S — una "proteína de presión de sueño" cuya fosforilación se acumula durante la vigilia e impulsa el sueño — y es objeto de intensa investigación en curso.</p>
+<h2>Conclusión — El sueño como intersección de ambiente y biología</h2>
+<p>El sueño humano es un fenómeno multicapa que desafía la descripción por un único principio. La evolución moldeó un sueño de corta duración y denso en REM como respuesta al riesgo de depredación, junto con la dispersión de cronotipos intragrupal que proporciona funcionalidad de centinela. La historia revela que la iluminación artificial impulsó la transición del sueño bifásico al monofásico en apenas 200 años. La epidemiología ha confirmado repetidamente la asociación en forma de U entre aproximadamente 7 horas de sueño y el riesgo de mortalidad, y ha elucidado cómo los entornos de temperatura, luz y hormonas gobiernan la calidad del sueño. Y la biología molecular está revelando cómo los genes reloj TTFL, la adenosina, la orexina y SIK3 implementan los dos pilares del Proceso S y el Proceso C.</p>
+<p>El sueño es el escenario donde las adaptaciones evolutivas ancestrales y la maquinaria molecular precisa se intersectan con el paisaje cambiante de la cultura, la tecnología y el clima. Su "solución óptima" permanece en exploración — un punto de equilibrio dinámico entre la herencia evolutiva y el entorno moderno.</p>
+<hr />
+<h2>Referencias</h2>
+<ol>
+<li>Samson DR, Nunn CL. Sleep intensity and the evolution of human cognition. <em>Evol Anthropol.</em> 2015;24(6):225-237. PMID: 26662946.</li>
+<li>Nunn CL, Samson DR. Sleep in a comparative context: Investigating how human sleep differs from sleep in other primates. <em>Am J Phys Anthropol.</em> 2018;166(3):601-612. DOI: 10.1002/ajpa.23427.</li>
+<li>Samson DR, Nunn CL. Shining evolutionary light on human sleep and sleep disorders. <em>Evol Med Public Health.</em> 2016;2016(1):227-243. PMID: 27470330.</li>
+<li>Samson DR, Crittenden AN, Mabulla IA, Mabulla AZP, Nunn CL. Chronotype variation drives night-time sentinel-like behaviour in hunter–gatherers. <em>Proc R Soc B.</em> 2017;284(1858):20170967. PMID: 28747475.</li>
+<li>Ekirch AR. Sleep we have lost: Pre-industrial slumber in the British Isles. <em>Am Hist Rev.</em> 2001;106(2):343-386.</li>
+<li>Wehr TA. In short photoperiods, human sleep is biphasic. <em>J Sleep Res.</em> 1992;1(2):103-107. PMID: 10607034.</li>
+<li>de la Iglesia HO, et al. Access to electric light is associated with shorter sleep duration in a traditionally hunter-gatherer community. <em>J Biol Rhythms.</em> 2015;30(4):342-350. PMID: 26092820.</li>
+<li>Stothard ER, et al. Circadian entrainment to the natural light-dark cycle across seasons and the weekend. <em>Curr Biol.</em> 2017;27(4):508-513. PMID: 28162893.</li>
+<li>Cappuccio FP, D'Elia L, Strazzullo P, Miller MA. Sleep duration and all-cause mortality: A systematic review and meta-analysis of prospective studies. <em>Sleep.</em> 2010;33(5):585-592. PMID: 20469800.</li>
+<li>Obradovich N, Migliorini R, Mednick SC, Fowler JH. Nighttime temperature and human sleep loss in a changing climate. <em>Sci Adv.</em> 2017;3(5):e1601555. PMID: 28560320.</li>
+<li>Ohayon MM, Carskadon MA, Guilleminault C, Vitiello MV. Meta-analysis of quantitative sleep parameters from childhood to old age in healthy individuals: Developing normative sleep values across the human lifespan. <em>Sleep.</em> 2004;27(7):1255-1273. PMID: 15586779.</li>
+<li>Baker FC, Driver HS. Circadian rhythms, sleep, and the menstrual cycle. <em>Sleep Med.</em> 2007;8(6):613-622. PMID: 17383933.</li>
+<li>Kravitz HM, et al. Sleep during the perimenopause: A SWAN story. <em>Obstet Gynecol Clin North Am.</em> 2011;38(3):567-586. PMID: 21961720.</li>
+<li>Friborg O, Rosenvinge JH, Wynn R, Gradisar M. Sleep timing, chronotype, mood, and behavior at an Arctic latitude (69°N). <em>Sleep Med.</em> 2014;15(7):798-807. PMID: 24933084.</li>
+<li>Johnsen MT, et al. Lack of major seasonal variations in self reported sleep-wake rhythms and chronotypes among middle aged and older people at 69 degrees North: The Tromsø Study. <em>Sleep Med.</em> 2013;14(2):140-148. PMID: 23219143.</li>
+<li>Borbély AA. A two process model of sleep regulation. <em>Hum Neurobiol.</em> 1982;1(3):195-204. PMID: 7185792.</li>
+<li>Takahashi JS. Transcriptional architecture of the mammalian circadian clock. <em>Nat Rev Genet.</em> 2017;18(3):164-179. DOI: 10.1038/nrg.2016.150.</li>
+<li>Porkka-Heiskanen T, Strecker RE, Thakkar M, Bjorkum AA, Greene RW, McCarley RW. Adenosine: A mediator of the sleep-inducing effects of prolonged wakefulness. <em>Science.</em> 1997;276(5316):1265-1268. PMID: 9157887.</li>
+<li>de Lecea L, Kilduff TS, Peyron C, et al. The hypocretins: Hypothalamus-specific peptides with neuroexcitatory activity. <em>Proc Natl Acad Sci USA.</em> 1998;95(1):322-327. PMID: 9419374.</li>
+<li>Sakurai T, Amemiya A, Ishii M, et al. Orexins and orexin receptors: A family of hypothalamic neuropeptides and G protein-coupled receptors that regulate feeding behavior. <em>Cell.</em> 1998;92(4):573-585. PMID: 9527442.</li>
+<li>Funato H, Miyoshi C, Fujiyama T, et al. Forward-genetics analysis of sleep in randomly mutagenized mice. <em>Nature.</em> 2016;539(7629):378-383. PMID: 27806374.</li>
+<li>Honda T, Fujiyama T, Miyoshi C, et al. A single phosphorylation site of SIK3 regulates daily sleep amounts and sleep need in mice. <em>Proc Natl Acad Sci USA.</em> 2018;115(41):10458-10463. PMID: 30254177.</li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>Descargos de responsabilidad</strong></p>
+<p><strong>日本語:</strong> 本コンテンツは、客観的な学術的エビデンスとデータ分析に基づく情報提供のみを目的としています。医学的助言、診断、または政治的批評を意図するものではありません。</p>
+<p><strong>English:</strong> This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p>
+<p><strong>简体中文:</strong> 本内容仅供参考，基于客观的学术证据和数据分析。本内容不构成医疗建议、诊断或政治评论。</p>
+<p><strong>Español:</strong> Este contenido es solo con fines informativos, basado en evidencia académica objetiva y análisis de datos. No pretende ser consejo médico, diagnóstico ni crítica política.</p>
+<p><strong>हिन्दी:</strong> यह सामग्री केवल सूचनात्मक उद्देश्यों के लिए है, जो वस्तुनिष्ठ शैक्षणिक साक्ष्य और डेटा विश्लेषण पर आधारित है। यह चिकित्सा सलाह, निदान या राजनीतिक आलोचना के रूप में अभिप्रेत नहीं है।</p>
+<p><strong>العربية:</strong> هذا المحتوى لأغراض إعلامية فقط، استناداً إلى أدلة أكاديمية موضوعية وتحليل بيانات. وهو غير مخصص كاستشارة طبية أو تشخيص أو نقد سياسي.</p>
+</blockquote>
+<div class="disclaimer"><p>Este contenido es solo con fines informativos, basado en evidencia académica objetiva y análisis de datos. No pretende ser consejo médico, diagnóstico ni crítica política.</p></div>
+</article>
+
+<article id="content-hi" class="content-section" dir="ltr" lang="hi">
+<h1>खंडित रातों से ओरेक्सिन तक — मानव नींद का विकास, इतिहास और आणविक तंत्र</h1>
+<h2>प्रस्तावना — विकास द्वारा गढ़ी गई "छोटी किंतु गहरी" नींद और प्रहरी परिकल्पना</h2>
+<p>30 प्राइमेट प्रजातियों के जातिवृत्तीय तुलनात्मक अध्ययन में, मानव नींद की अवधि लगभग 7 घंटे है — सभी प्राइमेट्स में सबसे कम — जबकि REM नींद का अनुपात कुल नींद समय का लगभग 25% है, जो अधिकतम दर्ज मान है [1,2]। जहाँ चिम्पैंजी वृक्षीय घोंसलों में 9.5 घंटे से अधिक बिताते हैं, वहीं मनुष्य भूमि पर उल्लेखनीय रूप से कम समय में अपनी नींद पूरी करते हैं। Samson और Nunn (2015) ने इस घटना को "नींद की तीव्रता (sleep intensity)" कहा और तर्क दिया कि यह भूमि पर सोने में निहित शिकारी जोखिम के प्रति एक विकासवादी अनुकूलन है [1]।</p>
+<p>भूमि पर सोने से शिकारियों के संपर्क में वृद्धि होती है। तो मनुष्य वृक्षों को छोड़ने में कैसे सक्षम हुए? प्रथमतः, अग्नि के उपयोग ने एक साथ शिकारी निवारण, कीट प्रतिकर्षण और तापनियमन को साध लिया, जिससे भूमि पर सुरक्षित नींद का वातावरण निर्मित हुआ [3]। द्वितीयतः, समूह के भीतर कालप्रकार (प्रभातचर एवं रात्रिचर) की विविधता ने "प्रहरी (sentinel)" कार्य किया। Samson et al. (2017) ने तंजानिया के हाड्ज़ा शिकारी-संग्राहकों के 33 व्यक्तियों पर ऐक्टिग्राफ लगाकर 220 रातों का नींद डेटा एकत्र किया। 20 दिनों में सभी व्यक्ति एक साथ सोए हुए थे — ऐसा कुल समय मात्र 18 मिनट था [4]। आयु-निर्भर कालप्रकार वितरण — युवा रात्रिचर, वृद्ध प्रभातचर — ने बिना किसी सक्रिय चौकसी व्यवहार के, स्वाभाविक रूप से ऐसी संरचना उत्पन्न की जिसमें सदैव कोई न कोई जागा रहता था। यह खोज सुझाती है कि वृद्धों में नींद का विखंडन रोगात्मक नहीं, बल्कि विकासवादी रूप से संरक्षित अनुकूलन हो सकता है।</p>
+<h2>खंड 1 — मध्ययुगीन "खंडित नींद" की सत्यता</h2>
+<p>इतिहासकार A. Roger Ekirch (2001) ने 15वीं से 18वीं शताब्दी तक की डायरियों, न्यायालय अभिलेखों, साहित्यिक कृतियों और चिकित्सा ग्रंथों से 500 से अधिक संदर्भ एकत्र किए और प्रमाणित किया कि पूर्व-औद्योगिक पश्चिमी यूरोप में "प्रथम नींद (first sleep)" और "द्वितीय नींद (second sleep)" में विभाजित द्विचरणीय नींद (biphasic sleep) मानक प्रतिमान थी [5]। दोनों नींद चरणों के बीच लगभग एक घंटे का शांत जागरण अंतराल था, जिसमें लोग प्रार्थना, पठन, वार्तालाप और यौन क्रिया में संलग्न होते थे। होमर की <em>ओडिसी</em> और वर्जिल की <em>एनीड</em> में भी "प्रथम नींद समाप्त होने का समय" का उल्लेख मिलता है।</p>
+<p>इस ऐतिहासिक विवरण को प्रयोगात्मक पुष्टि मिली। Wehr (1992) ने प्रयोज्यों को मानक 16 घंटे के प्रकाशकाल से 10 घंटे के प्रकाशकाल (14 घंटे का अंधकार) में स्थानांतरित किया। नींद दो चरणों में विभाजित हो गई, बीच में 1 से 3 घंटे का जागरण अंतराल प्रकट हुआ। इसके साथ ही, रात्रिकालीन मेलाटोनिन स्राव की अवधि भी विस्तारित हुई [6]। अर्थात, एकचरणीय नींद (monophasic sleep) लंबी प्राकृतिक अंधकार अवधि के प्रति मानव की सहज प्रतिक्रिया नहीं, बल्कि कृत्रिम प्रकाश द्वारा संपीडित अंधकार के वातावरण में अनुकूलन मात्र हो सकती है।</p>
+<p>यह परिकल्पना विद्युत प्रकाश की पहुँच के अंतर पर आधारित प्राकृतिक प्रयोगों से भी समर्थित है। de la Iglesia et al. (2015) ने अर्जेंटीना के चाको क्षेत्र में आदिवासी तोबा/कोम के दो समुदायों — एक विद्युत-सुलभ और एक केवल प्राकृतिक प्रकाश पर निर्भर — की तुलना की। विद्युत-सुलभ समुदाय में नींद का आरंभ-समय महत्वपूर्ण रूप से विलंबित और नींद की अवधि कम थी [7]। Stothard et al. (2017) ने भी बताया कि एक सप्ताह के शिविर में प्रयोज्यों को केवल प्राकृतिक प्रकाश में रखने पर दैनिक जैविक लय प्रावस्था लगभग 2 घंटे आगे खिसक गई और मेलाटोनिन स्राव का आरंभ पहले हो गया [8]।</p>
+<p>1700 से पहले 50 यूरोपीय शहरों ने सार्वजनिक सड़क प्रकाश व्यवस्था आरंभ की; 1816 में बाल्टीमोर गैस प्रकाश वाला प्रथम अमेरिकी शहर बना; और 20वीं सदी के प्रारंभ तक विद्युत प्रकाश सामान्य घरों तक पहुँच गया। द्विचरणीय से एकचरणीय नींद की ओर संक्रमण औद्योगीकरण और कृत्रिम प्रकाश के प्रसार द्वारा प्रेरित ऐतिहासिक रूप से हालिया परिवर्तन था, संभवतः मानव नींद का "मूल" स्वरूप नहीं।</p>
+<h2>खंड 2 — "इष्टतम नींद" की महामारी विज्ञान और भौगोलिक निर्धारक</h2>
+<h3>नींद की अवधि और सर्वकारण मृत्यु दर के बीच U-आकार की संबद्धता</h3>
+<p>Cappuccio et al. (2010) ने 16 संभावित समूह अध्ययनों (27 स्वतंत्र समूह; 1,382,999 प्रतिभागी; अनुवर्तन 4-25 वर्ष) के मेटा-विश्लेषण में नींद की अवधि और सर्वकारण मृत्यु दर के बीच U-आकार की संबद्धता की सूचना दी [9]।</p>
+<span class="math display">\[\text{अल्प नींद: HR} = 1.12 \quad (95\%\ \text{CI: } 1.06\text{--}1.18)\]</span>
+<span class="math display">\[\text{दीर्घ नींद: HR} = 1.30 \quad (95\%\ \text{CI: } 1.22\text{--}1.38)\]</span>
+<p>अल्प नींद (सामान्यतः &lt;7 घंटे) में 12% और दीर्घ नींद (सामान्यतः &gt;9 घंटे) में 30% मृत्यु जोखिम वृद्धि देखी गई। हालाँकि, दीर्घ नींद पक्ष में जोखिम वृद्धि में प्रतिलोम कारणता — अंतर्निहित रोगों वाले व्यक्तियों की नींद अवधि बढ़ जाना — का योगदान संभव है, अतः कारणात्मक अनुमान में सावधानी आवश्यक है।</p>
+<h3>तापमान वातावरण और निद्रारंभ तंत्र</h3>
+<p>मानव निद्रारंभ के लिए मूल शरीर तापमान में लगभग 1-3 °F की कमी आवश्यक है। यह तापमान ह्रास परिधीय रक्त वाहिकाओं, विशेषकर हाथों और पैरों में वासोडिलेशन द्वारा ऊष्मा विकिरण से प्राप्त होता है। इष्टतम कमरे का तापमान सीमा लगभग 15.6-19.4 °C (60-67 °F) है, जिसके भीतर नींद दक्षता, धीमी-तरंग नींद अवधि और REM नींद गुणवत्ता सभी चरम पर होती हैं। Obradovich et al. (2017) ने 765,000 अमेरिकी उत्तरदाताओं के सर्वेक्षण डेटा को रात्रिकालीन तापमान अभिलेखों से जोड़ा और पाया कि रात्रि तापमान में 1 °C वृद्धि प्रति 100 व्यक्ति प्रति माह 3 अतिरिक्त अपर्याप्त नींद रातों से संबद्ध थी [10]। नींद गुणवत्ता पर जलवायु परिवर्तन के प्रभाव निम्न-आय जनसंख्या और वृद्ध वयस्कों में विशेष रूप से प्रबल थे।</p>
+<h3>आयु और लिंग पर निर्भर नींद वास्तुकला में परिवर्तन</h3>
+<p>Ohayon et al. (2004) ने 65 पॉलीसोम्नोग्राफी अध्ययनों (3,577 प्रतिभागी) के मेटा-विश्लेषण में आयु-संबद्ध नींद वास्तुकला परिवर्तनों का मात्रात्मक विवरण प्रस्तुत किया [11]। कुल नींद समय, नींद दक्षता और धीमी-तरंग नींद (गहरी नींद) का अनुपात सभी आयु के साथ घटे, जबकि निद्रारंभ के बाद जागरण समय बढ़ा। Samson et al. की प्रहरी परिकल्पना के आलोक में पुनर्व्याख्या करें तो, वृद्धों में धीमी-तरंग नींद की कमी समूह में रात्रिकालीन चौकसी को सक्षम करने वाला अनुकूली लक्षण हो सकता है।</p>
+<p>लिंग भेद भी नींद वास्तुकला को प्रभावित करते हैं। वस्तुनिष्ठ नींद मापन बताते हैं कि महिलाओं में पुरुषों की तुलना में कुल नींद समय अधिक, निद्रारंभ विलंबता कम और नींद दक्षता अधिक होती है। हालाँकि, महिलाएँ मासिक चक्र में हार्मोनल उतार-चढ़ाव से प्रभावित होती हैं: ल्यूटियल चरण (उन्नत प्रोजेस्टेरोन) में फॉलिक्युलर चरण की तुलना में निद्रारंभ के बाद जागरण बढ़ता है और धीमी-तरंग नींद अनुपात घटता है [12]। रजोनिवृत्ति के बाद, एस्ट्रोजन में तीव्र गिरावट वासोमोटर लक्षण (हॉट फ्लैश) उत्पन्न करती है, और 16-47% पेरिमेनोपॉज़ल महिलाएँ तथा 35-60% पोस्टमेनोपॉज़ल महिलाएँ नींद विकार की शिकायत करती हैं [13]।</p>
+<h3>अक्षांश, प्रकाश वातावरण और दैनिक जैविक लय</h3>
+<p>चरम प्रकाश वातावरण दैनिक जैविक लय को प्रभावित करते हैं। नॉर्वे के ट्रोम्सो (69°N) में किए गए शोध से पता चलता है कि मध्यरात्रि सूर्य अवधि में निद्रारंभ कठिनाई और व्यक्तिपरक नींद गुणवत्ता में कमी होती है, जबकि ध्रुवीय रात्रि अवधि में मौसमी भावात्मक विकार (SAD) की व्यापकता 10-14% तक पहुँचती है [14]। हालाँकि, Johnsen et al. (2013) ने भी ट्रोम्सो जनसंख्या (मध्यम आयु और वृद्ध वयस्क) के अध्ययन में स्व-रिपोर्टित निद्रा-जागरण लय और कालप्रकार में कोई प्रमुख मौसमी भिन्नता नहीं पाई [15], जो सुझाता है कि सामाजिक घड़ियाँ (कार्य और विद्यालय अनुसूचियाँ) प्राकृतिक प्रकाशकाल के प्रभाव को प्रतिपूरक प्रभाव द्वारा आच्छादित कर सकती हैं।</p>
+<h2>खंड 3 — नींद को नियंत्रित करने वाले आणविक तंत्र</h2>
+<h3>द्वि-प्रक्रिया मॉडल</h3>
+<p>Borbély (1982) द्वारा प्रस्तावित द्वि-प्रक्रिया मॉडल आज भी नींद नियमन की वैचारिक नींव बना हुआ है [16]। नींद प्रवृत्ति को दो स्वतंत्र प्रक्रियाओं के योग के रूप में वर्णित किया जाता है।</p>
+<p><strong>प्रक्रिया S</strong> (नींद समस्थापन) जागरण के दौरान घातांकीय रूप से संचित होती है और नींद के दौरान घातांकीय रूप से क्षीण होती है:</p>
+<span class="math display">\[S_{\text{wake}}(t) = S_{\max}\!\left(1 - e^{-t/\tau_r}\right) + S_0 \cdot e^{-t/\tau_r}\]</span>
+<span class="math display">\[S_{\text{sleep}}(t) = S_0 \cdot e^{-t/\tau_d}\]</span>
+<p>जहाँ <span class="math inline">\(\tau_r\)</span> संचय समय स्थिरांक है, <span class="math inline">\(\tau_d\)</span> क्षय समय स्थिरांक है, और <span class="math inline">\(S_0\)</span> प्रारंभिक मान है।</p>
+<p><strong>प्रक्रिया C</strong> (दैनिक जैविक लय) सुप्राकियाज़्मैटिक न्यूक्लियस (SCN) द्वारा संचालित लगभग 24.2 घंटे आवर्तकाल का दोलन है, जिसका सन्निकटन:</p>
+<span class="math display">\[C(t) = M + A\cos\!\left(\frac{2\pi t}{\tau} - \phi\right), \quad \tau \approx 24.2\ \text{h}\]</span>
+<p>जहाँ <span class="math inline">\(M\)</span> औसत स्तर, <span class="math inline">\(A\)</span> आयाम, और <span class="math inline">\(\phi\)</span> प्रावस्था है। निद्रारंभ तब होता है जब प्रक्रिया S का संचय प्रक्रिया C द्वारा निर्धारित जागरण सीमा को पार करता है, और जागरण तब होता है जब S का क्षय C द्वारा निर्धारित निद्रा सीमा से नीचे गिरता है।</p>
+<h3>घड़ी जीन और प्रतिलेखन-अनुवाद प्रतिपुष्टि पाश</h3>
+<p>प्रक्रिया C का आणविक आधार प्रतिलेखन-अनुवाद प्रतिपुष्टि पाश (TTFL) है। 2017 का शरीरविज्ञान या चिकित्सा में नोबेल पुरस्कार Hall, Rosbash और Young को इस तंत्र की खोजों के लिए प्रदान किया गया।</p>
+<p>स्तनधारियों में, CLOCK/BMAL1 विषम-द्विलक E-box अनुक्रमों (5'-CACGTG-3') से बंधता है और <em>Period</em> (<em>Per1</em>, <em>Per2</em>) तथा <em>Cryptochrome</em> (<em>Cry1</em>, <em>Cry2</em>) जीनों के प्रतिलेखन को सक्रिय करता है (धनात्मक भुजा)। PER और CRY प्रोटीन कोशिकाद्रव्य में जटिल बनाते हैं, केंद्रक में स्थानांतरित होते हैं, और CLOCK/BMAL1 को बाधित करके अपने स्वयं के प्रतिलेखन का दमन करते हैं (ऋणात्मक भुजा) [17]। इस प्रतिपुष्टि पाश के एक पूर्ण चक्र में लगभग 24 घंटे लगते हैं, जिसमें अनुवादोत्तर संशोधन — CK1δ/ε द्वारा PER का फॉस्फोराइलेशन और यूबिक्विटिन-निर्भर अपघटन सहित — आवर्तकाल के सटीक समंजन हेतु आवश्यक विलंब उत्पन्न करते हैं।</p>
+<h3>एडेनोसिन और निद्रा दबाव</h3>
+<p>प्रक्रिया S के आणविक सत्त्व का सबसे प्रबल उम्मीदवार एडेनोसिन है। Porkka-Heiskanen et al. (1997) ने प्रमाणित किया कि सतत जागरण के दौरान अग्रमस्तिष्क आधार (basal forebrain) में बाह्यकोशिकीय एडेनोसिन सांद्रता प्रगतिशील रूप से बढ़ती है और पुनर्प्राप्ति नींद में घटती है [18]। संचित एडेनोसिन A<span class="math inline">\(_1\)</span> ग्राहकों द्वारा जागरण-प्रवर्तक तंत्रिकाओं (कोलीनर्जिक तंत्रिकाओं सहित) को बाधित करता है और साथ ही A<span class="math inline">\(_{2A}\)</span> ग्राहकों द्वारा निद्रा-प्रवर्तक तंत्रिकाओं को सक्रिय करता है। कैफीन A<span class="math inline">\(_1\)</span> और A<span class="math inline">\(_{2A}\)</span> ग्राहकों का प्रतिस्पर्धी प्रतिरोधी है, जो इस तंत्र को अवरुद्ध करके जागरण बनाए रखता है।</p>
+<h3>ओरेक्सिन — निद्रा-जागरण का "स्विच"</h3>
+<p>1998 में, दो शोध समूहों ने लगभग एक साथ पार्श्व अधश्चेतन (lateral hypothalamus) के विशिष्ट न्यूरोपेप्टाइड खोजे। de Lecea et al. ने इन्हें "हाइपोक्रेटिन (hypocretin)" नाम दिया [19], जबकि Masashi Yanagisawa की प्रयोगशाला में Sakurai ने इन्हें "ओरेक्सिन (orexin)" नाम दिया [20]। ओरेक्सिन A/B अनेक जागरण-प्रवर्तक केंद्रकों — लोकस कोएरूलियस (नोरएड्रेनालिन), पृष्ठीय रेफे केंद्रक (सेरोटोनिन), ट्यूबरोमैमिलरी केंद्रक (हिस्टामिन), और अग्रमस्तिष्क आधार (एसिटिलकोलीन) — तक व्यापक प्रक्षेपण करते हैं, जागरण अवस्था को स्थिर करते हुए।</p>
+<p>1999 में, ओरेक्सिन ग्राहक में आनुवंशिक उत्परिवर्तन को कुक्कुर नार्कोलेप्सी का कारण चिह्नित किया गया, और 2000 तक यह पुष्टि हुई कि मानव नार्कोलेप्सी प्रकार 1 ओरेक्सिन-उत्पादक तंत्रिकाओं के चयनात्मक क्षय — संभवतः स्वप्रतिरक्षी तंत्र द्वारा — से उत्पन्न होती है। ओरेक्सिन प्रणाली निद्रा-जागरण संक्रमणों के "फ्लिप-फ्लॉप स्विच" मॉडल में स्थिरीकरण तत्व का कार्य करती है; इस प्रणाली की कार्यात्मक विफलता नार्कोलेप्सी में जागरण और निद्रा अवस्थाओं के बीच अस्थिर स्विचिंग — कैटाप्लेक्सी, निद्रागमन मतिभ्रम, निद्रा पक्षाघात — की व्याख्या करती है।</p>
+<h3>SIK3 — निद्रा आवश्यकता के आणविक सत्त्व की ओर</h3>
+<p>2016 में, Funato, Yanagisawa और सहयोगियों ने यादृच्छिक रूप से उत्परिवर्तित चूहों की EEG जाँच से चिरकालिक अत्यधिक नींद प्रदर्शित करने वाले उत्परिवर्ती <em>Sleepy</em> की पहचान की [21]। कारणात्मक जीन लवण-प्रेरणीय काइनेस 3 (SIK3) था, जिसमें एक्सॉन 13 में स्प्लाइस उत्परिवर्तन से PKA फॉस्फोराइलेशन स्थल (S551) का विलोपन हुआ था।</p>
+<span class="math display">\[\text{Sleepy उत्परिवर्तन}: \Delta\text{exon13} \rightarrow \text{S551 विलोपन} \rightarrow \text{NREM नींद मात्रा एवं}\ \delta\ \text{शक्ति में वृद्धि}\]</span>
+<p>Honda et al. (2018) ने पुष्टि की कि यह एकल अमीनो अम्ल दैनिक NREM नींद मात्रा और नींद आवश्यकता को नियंत्रित करता है [22], और प्रमाणित किया कि यह स्थल सूत्रकृमि से लेकर मनुष्यों तक संरक्षित है। SIK3 प्रक्रिया S के आणविक आधार — एक "निद्रा दबाव प्रोटीन" जिसका फॉस्फोराइलेशन जागरण के दौरान संचित होता है और नींद को प्रेरित करता है — के प्रमुख उम्मीदवार के रूप में गहन शोध का विषय बना हुआ है।</p>
+<h2>उपसंहार — पर्यावरण और जीवविज्ञान के संगम-बिंदु के रूप में नींद</h2>
+<p>मानव नींद एक बहुस्तरीय घटना है जिसे किसी एकल सिद्धांत से वर्णित नहीं किया जा सकता। विकास ने शिकारी जोखिम के प्रत्युत्तर में REM-सघन अल्पावधि नींद और समूह-आंतरिक कालप्रकार वितरण द्वारा प्रहरी कार्यक्षमता का निर्माण किया। इतिहास बताता है कि कृत्रिम प्रकाश ने मात्र 200 वर्षों में द्विचरणीय से एकचरणीय नींद की ओर संक्रमण प्रेरित किया। महामारी विज्ञान ने लगभग 7 घंटे की नींद और मृत्यु जोखिम के बीच U-आकार की संबद्धता की बार-बार पुष्टि की है, और स्पष्ट किया है कि तापमान, प्रकाश और हार्मोनल वातावरण नींद की गुणवत्ता कैसे निर्धारित करते हैं। और आणविक जीवविज्ञान यह उजागर कर रहा है कि TTFL घड़ी जीन, एडेनोसिन, ओरेक्सिन और SIK3 किस प्रकार प्रक्रिया S और प्रक्रिया C के दो स्तंभों को कार्यान्वित करते हैं।</p>
+<p>नींद वह क्षेत्र है जहाँ प्राचीन विकासवादी अनुकूलन और सटीक आणविक यंत्रावली संस्कृति, प्रौद्योगिकी और जलवायु के बदलते परिदृश्य से मिलती है। इसका "इष्टतम समाधान" — विकासवादी विरासत और आधुनिक वातावरण के बीच एक गतिशील संतुलन बिंदु — अभी भी अन्वेषण में है।</p>
+<hr />
+<h2>संदर्भ</h2>
+<ol>
+<li>Samson DR, Nunn CL. Sleep intensity and the evolution of human cognition. <em>Evol Anthropol.</em> 2015;24(6):225-237. PMID: 26662946.</li>
+<li>Nunn CL, Samson DR. Sleep in a comparative context: Investigating how human sleep differs from sleep in other primates. <em>Am J Phys Anthropol.</em> 2018;166(3):601-612. DOI: 10.1002/ajpa.23427.</li>
+<li>Samson DR, Nunn CL. Shining evolutionary light on human sleep and sleep disorders. <em>Evol Med Public Health.</em> 2016;2016(1):227-243. PMID: 27470330.</li>
+<li>Samson DR, Crittenden AN, Mabulla IA, Mabulla AZP, Nunn CL. Chronotype variation drives night-time sentinel-like behaviour in hunter–gatherers. <em>Proc R Soc B.</em> 2017;284(1858):20170967. PMID: 28747475.</li>
+<li>Ekirch AR. Sleep we have lost: Pre-industrial slumber in the British Isles. <em>Am Hist Rev.</em> 2001;106(2):343-386.</li>
+<li>Wehr TA. In short photoperiods, human sleep is biphasic. <em>J Sleep Res.</em> 1992;1(2):103-107. PMID: 10607034.</li>
+<li>de la Iglesia HO, et al. Access to electric light is associated with shorter sleep duration in a traditionally hunter-gatherer community. <em>J Biol Rhythms.</em> 2015;30(4):342-350. PMID: 26092820.</li>
+<li>Stothard ER, et al. Circadian entrainment to the natural light-dark cycle across seasons and the weekend. <em>Curr Biol.</em> 2017;27(4):508-513. PMID: 28162893.</li>
+<li>Cappuccio FP, D'Elia L, Strazzullo P, Miller MA. Sleep duration and all-cause mortality: A systematic review and meta-analysis of prospective studies. <em>Sleep.</em> 2010;33(5):585-592. PMID: 20469800.</li>
+<li>Obradovich N, Migliorini R, Mednick SC, Fowler JH. Nighttime temperature and human sleep loss in a changing climate. <em>Sci Adv.</em> 2017;3(5):e1601555. PMID: 28560320.</li>
+<li>Ohayon MM, Carskadon MA, Guilleminault C, Vitiello MV. Meta-analysis of quantitative sleep parameters from childhood to old age in healthy individuals: Developing normative sleep values across the human lifespan. <em>Sleep.</em> 2004;27(7):1255-1273. PMID: 15586779.</li>
+<li>Baker FC, Driver HS. Circadian rhythms, sleep, and the menstrual cycle. <em>Sleep Med.</em> 2007;8(6):613-622. PMID: 17383933.</li>
+<li>Kravitz HM, et al. Sleep during the perimenopause: A SWAN story. <em>Obstet Gynecol Clin North Am.</em> 2011;38(3):567-586. PMID: 21961720.</li>
+<li>Friborg O, Rosenvinge JH, Wynn R, Gradisar M. Sleep timing, chronotype, mood, and behavior at an Arctic latitude (69°N). <em>Sleep Med.</em> 2014;15(7):798-807. PMID: 24933084.</li>
+<li>Johnsen MT, et al. Lack of major seasonal variations in self reported sleep-wake rhythms and chronotypes among middle aged and older people at 69 degrees North: The Tromsø Study. <em>Sleep Med.</em> 2013;14(2):140-148. PMID: 23219143.</li>
+<li>Borbély AA. A two process model of sleep regulation. <em>Hum Neurobiol.</em> 1982;1(3):195-204. PMID: 7185792.</li>
+<li>Takahashi JS. Transcriptional architecture of the mammalian circadian clock. <em>Nat Rev Genet.</em> 2017;18(3):164-179. DOI: 10.1038/nrg.2016.150.</li>
+<li>Porkka-Heiskanen T, Strecker RE, Thakkar M, Bjorkum AA, Greene RW, McCarley RW. Adenosine: A mediator of the sleep-inducing effects of prolonged wakefulness. <em>Science.</em> 1997;276(5316):1265-1268. PMID: 9157887.</li>
+<li>de Lecea L, Kilduff TS, Peyron C, et al. The hypocretins: Hypothalamus-specific peptides with neuroexcitatory activity. <em>Proc Natl Acad Sci USA.</em> 1998;95(1):322-327. PMID: 9419374.</li>
+<li>Sakurai T, Amemiya A, Ishii M, et al. Orexins and orexin receptors: A family of hypothalamic neuropeptides and G protein-coupled receptors that regulate feeding behavior. <em>Cell.</em> 1998;92(4):573-585. PMID: 9527442.</li>
+<li>Funato H, Miyoshi C, Fujiyama T, et al. Forward-genetics analysis of sleep in randomly mutagenized mice. <em>Nature.</em> 2016;539(7629):378-383. PMID: 27806374.</li>
+<li>Honda T, Fujiyama T, Miyoshi C, et al. A single phosphorylation site of SIK3 regulates daily sleep amounts and sleep need in mice. <em>Proc Natl Acad Sci USA.</em> 2018;115(41):10458-10463. PMID: 30254177.</li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>अस्वीकरण</strong></p>
+<p><strong>日本語:</strong> 本コンテンツは、客観的な学術的エビデンスとデータ分析に基づく情報提供のみを目的としています。医学的助言、診断、または政治的批評を意図するものではありません。</p>
+<p><strong>English:</strong> This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p>
+<p><strong>简体中文:</strong> 本内容仅供参考，基于客观的学术证据和数据分析。本内容不构成医疗建议、诊断或政治评论。</p>
+<p><strong>Español:</strong> Este contenido es solo con fines informativos, basado en evidencia académica objetiva y análisis de datos. No pretende ser consejo médico, diagnóstico ni crítica política.</p>
+<p><strong>हिन्दी:</strong> यह सामग्री केवल सूचनात्मक उद्देश्यों के लिए है, जो वस्तुनिष्ठ शैक्षणिक साक्ष्य और डेटा विश्लेषण पर आधारित है। यह चिकित्सा सलाह, निदान या राजनीतिक आलोचना के रूप में अभिप्रेत नहीं है।</p>
+<p><strong>العربية:</strong> هذا المحتوى لأغراض إعلامية فقط، استناداً إلى أدلة أكاديمية موضوعية وتحليل بيانات. وهو غير مخصص كاستشارة طبية أو تشخيص أو نقد سياسي.</p>
+</blockquote>
+<div class="disclaimer"><p>यह सामग्री केवल सूचनात्मक उद्देश्यों के लिए है, जो वस्तुनिष्ठ शैक्षणिक साक्ष्य और डेटा विश्लेषण पर आधारित है। यह चिकित्सा सलाह, निदान या राजनीतिक आलोचना के रूप में अभिप्रेत नहीं है।</p></div>
+</article>
+
+<article id="content-ar" class="content-section" dir="rtl" lang="ar">
+<h1>من الليالي المجزأة إلى الأوركسين — تطور النوم البشري وتاريخه وآلياته الجزيئية</h1>
+<h2>المقدمة — النوم "القصير لكن العميق" الذي شكّله التطور وفرضية الحارس</h2>
+<p>في مقارنة تطورية تشمل 30 نوعاً من الرئيسيات، تبلغ مدة النوم البشري نحو 7 ساعات — وهي الأقصر بين جميع الرئيسيات — في حين تصل نسبة نوم حركة العين السريعة (REM) إلى نحو 25% من إجمالي وقت النوم، وهي أعلى قيمة مسجلة [1,2]. بينما يقضي الشمبانزي أكثر من 9.5 ساعة في أعشاش الأشجار، يُتم الإنسان نومه على الأرض في وقت أقصر بشكل ملحوظ. أطلق Samson وNunn (2015) على هذه الظاهرة مصطلح "شدة النوم (sleep intensity)" وطرحا أنها تمثل تكيفاً تطورياً مع خطر الافتراس الكامن في النوم الأرضي [1].</p>
+<p>يزيد النوم على الأرض من التعرض للمفترسات. فكيف تمكن البشر من التخلي عن الأشجار؟ أولاً، حقق استخدام النار ردع المفترسات وطرد الحشرات والتنظيم الحراري في آن واحد، مما هيّأ بيئة نوم أرضية آمنة [3]. ثانياً، أدى تنوع الأنماط الزمنية (النمط الصباحي والمسائي) داخل المجموعة وظيفة "الحارس (sentinel)". ثبّت Samson وآخرون (2017) أجهزة قياس النشاط على 33 فرداً من صيادي-جامعي الهادزا في تنزانيا وجمعوا بيانات نوم عبر 220 ليلة. بلغ الوقت الإجمالي الذي كان فيه جميع الأفراد نائمين في آن واحد 18 دقيقة فقط خلال 20 يوماً [4]. أنتج التوزيع العمري للأنماط الزمنية — الشباب يميلون للنمط المسائي والكبار للنمط الصباحي — بنية يكون فيها شخص ما مستيقظاً دائماً دون أي سلوك حراسة نشط. يشير هذا الاكتشاف إلى أن تجزؤ النوم عند كبار السن قد لا يكون مرضياً بل تكيفاً محفوظاً تطورياً.</p>
+<h2>القسم الأول — مصداقية "النوم المجزأ" في العصور الوسطى</h2>
+<p>جمع المؤرخ A. Roger Ekirch (2001) أكثر من 500 مرجع من يوميات وسجلات محاكم وأعمال أدبية ونصوص طبية تمتد من القرن الخامس عشر إلى الثامن عشر، مثبتاً أن النوم ثنائي الطور — المقسم إلى "نوم أول (first sleep)" و"نوم ثانٍ (second sleep)" — كان النمط المعياري في أوروبا الغربية قبل الثورة الصناعية [5]. بين المرحلتين كانت هناك فترة يقظة هادئة مدتها نحو ساعة، كان الناس خلالها ينخرطون في الصلاة والقراءة والحوار والنشاط الجنسي. وتظهر إشارات إلى "الساعة التي تنتهي فيها النومة الأولى" في <em>الأوديسة</em> لهوميروس و<em>الإنيادة</em> لفرجيل.</p>
+<p>تلقى هذا السرد التاريخي تأكيداً تجريبياً. نقل Wehr (1992) المشاركين من فترة إضاءة معيارية مدتها 16 ساعة إلى فترة 10 ساعات (14 ساعة ظلام). انقسم النوم إلى مرحلتين، وظهرت فترة يقظة تتراوح بين ساعة و3 ساعات بينهما. وفي الوقت نفسه، امتدت مدة إفراز الميلاتونين الليلي [6]. بعبارة أخرى، قد لا يكون النوم أحادي الطور (monophasic sleep) هو الاستجابة البشرية الفطرية لفترات الظلام الطبيعية الطويلة، بل مجرد تأقلم مع الظلام المضغوط الذي فرضته الإضاءة الاصطناعية.</p>
+<p>تجد هذه الفرضية دعماً إضافياً في تجارب طبيعية تقارن الوصول إلى الضوء الكهربائي. قارن de la Iglesia وآخرون (2015) مجتمعين من شعب التوبا/قوم الأصلي في منطقة تشاكو الأرجنتينية — أحدهما لديه كهرباء والآخر يعتمد حصرياً على الضوء الطبيعي. أظهر المجتمع المزود بالكهرباء تأخراً ملحوظاً في بدء النوم وانخفاضاً في مدته [7]. وأفاد Stothard وآخرون (2017) أيضاً بأن تعريض المشاركين للضوء الطبيعي فقط خلال تخييم لمدة أسبوع قدّم الطور اليوماوي نحو ساعتين وبكّر بدء إفراز الميلاتونين [8].</p>
+<p>أدخلت 50 مدينة أوروبية إضاءة الشوارع العامة بحلول عام 1700؛ وأصبحت بالتيمور أول مدينة أمريكية مضاءة بالغاز عام 1816؛ وبحلول مطلع القرن العشرين وصلت الإضاءة الكهربائية إلى المنازل العادية. كان الانتقال من النوم ثنائي الطور إلى أحادي الطور تغييراً تاريخياً حديثاً دفعته الصناعة وانتشار الإضاءة الاصطناعية، وعلى الأرجح لم يكن الشكل "الأصلي" للنوم البشري.</p>
+<h2>القسم الثاني — وبائيات "النوم الأمثل" والمحددات الجغرافية</h2>
+<h3>الارتباط على شكل حرف U بين مدة النوم والوفيات لجميع الأسباب</h3>
+<p>أجرى Cappuccio وآخرون (2010) تحليلاً تلوياً لـ 16 دراسة أتراب استباقية (27 أترابة مستقلة؛ 1,382,999 مشاركاً؛ متابعة 4-25 سنة) وأبلغوا عن ارتباط على شكل حرف U بين مدة النوم والوفيات لجميع الأسباب [9].</p>
+<span class="math display">\[\text{النوم القصير: HR} = 1.12 \quad (95\%\ \text{CI: } 1.06\text{--}1.18)\]</span>
+<span class="math display">\[\text{النوم الطويل: HR} = 1.30 \quad (95\%\ \text{CI: } 1.22\text{--}1.38)\]</span>
+<p>لوحظ ارتفاع بنسبة 12% في خطر الوفاة للنوم القصير (عموماً &lt;7 ساعات) و30% للنوم الطويل (عموماً &gt;9 ساعات). غير أن السببية العكسية — نوم الأفراد المصابين بأمراض كامنة لفترات أطول — تسهم على الأرجح في ارتفاع الخطر في جانب النوم الطويل، مما يستدعي الحذر في الاستدلال السببي.</p>
+<h3>البيئة الحرارية وآليات بدء النوم</h3>
+<p>يتطلب بدء النوم البشري انخفاضاً في درجة حرارة الجسم الأساسية بنحو 1-3 درجات فهرنهايت. يتحقق هذا الانخفاض من خلال توسع الأوعية في الأوعية الدموية الطرفية، خاصة في اليدين والقدمين. يتراوح النطاق الأمثل لدرجة حرارة الغرفة بين 15.6 و19.4 درجة مئوية (60-67 °F)، وضمن هذا النطاق تبلغ كفاءة النوم ومدة نوم الموجات البطيئة وجودة نوم REM ذروتها جميعاً. ربط Obradovich وآخرون (2017) بيانات مسح 765,000 مستجيب أمريكي بسجلات درجات الحرارة الليلية ووجدوا أن ارتفاع درجة الحرارة الليلية بمقدار 1 درجة مئوية ارتبط بثلاث ليالٍ إضافية من النوم غير الكافي لكل 100 فرد شهرياً [10]. كانت آثار تغير المناخ على جودة النوم أكثر وضوحاً بين السكان ذوي الدخل المنخفض وكبار السن.</p>
+<h3>التغيرات المرتبطة بالعمر والجنس في بنية النوم</h3>
+<p>أجرى Ohayon وآخرون (2004) تحليلاً تلوياً لـ 65 دراسة تخطيط النوم المتعدد (3,577 مشاركاً) وحددوا كمياً التغيرات المرتبطة بالعمر في بنية النوم [11]. انخفض إجمالي وقت النوم وكفاءة النوم ونسبة نوم الموجات البطيئة (النوم العميق) مع التقدم في العمر، بينما ازدادت فترة اليقظة بعد بدء النوم. في إطار إعادة التفسير عبر فرضية الحارس لـ Samson وآخرين، قد يمثل انخفاض نوم الموجات البطيئة لدى كبار السن سمة تكيفية تمكّن من اليقظة الليلية داخل المجموعة.</p>
+<p>تؤثر الفروق بين الجنسين أيضاً في بنية النوم. تشير القياسات الموضوعية للنوم إلى أن النساء يملن إلى إجمالي نوم أطول وزمن كمون نوم أقصر وكفاءة نوم أعلى مقارنة بالرجال. غير أن النساء يتأثرن بالتقلبات الهرمونية عبر الدورة الشهرية: خلال المرحلة الأصفرية (ارتفاع البروجسترون)، تزداد اليقظة بعد بدء النوم وتنخفض نسبة نوم الموجات البطيئة مقارنة بالمرحلة الجريبية [12]. بعد انقطاع الطمث، يُحفز الانخفاض الحاد في الإستروجين أعراضاً وعائية حركية (الهبّات الساخنة)، وتبلغ 16-47% من النساء في مرحلة ما قبل انقطاع الطمث و35-60% من النساء بعد انقطاع الطمث عن اضطرابات في النوم [13].</p>
+<h3>خطوط العرض والبيئة الضوئية والإيقاعات اليوماوية</h3>
+<p>تؤثر البيئات الضوئية المتطرفة في الإيقاعات اليوماوية. تُفيد أبحاث أُجريت في ترومسو بالنرويج (69° شمالاً) بصعوبة النوم وانخفاض جودة النوم الذاتية خلال فترة شمس منتصف الليل، بينما تصل نسبة انتشار الاضطراب العاطفي الموسمي (SAD) خلال الليل القطبي إلى 10-14% [14]. غير أن Johnsen وآخرين (2013)، في دراستهم لسكان ترومسو أيضاً (البالغين في منتصف العمر وكبار السن)، لم يجدوا تغيرات موسمية رئيسية في إيقاعات النوم-اليقظة المبلغ عنها ذاتياً أو في الأنماط الزمنية [15]، مما يشير إلى أن الساعات الاجتماعية (جداول العمل والدراسة) قد تحجب تأثير الفترة الضوئية الطبيعية من خلال تأثير تعويضي.</p>
+<h2>القسم الثالث — الآليات الجزيئية التي تحكم النوم</h2>
+<h3>نموذج العمليتين</h3>
+<p>لا يزال نموذج العمليتين الذي اقترحه Borbély (1982) يمثل الأساس المفاهيمي لتنظيم النوم [16]. يُوصف الميل للنوم بوصفه مجموع عمليتين مستقلتين.</p>
+<p><strong>العملية S</strong> (الاستتباب النومي) تتراكم أسّياً خلال اليقظة وتتناقص أسّياً خلال النوم:</p>
+<span class="math display">\[S_{\text{wake}}(t) = S_{\max}\!\left(1 - e^{-t/\tau_r}\right) + S_0 \cdot e^{-t/\tau_r}\]</span>
+<span class="math display">\[S_{\text{sleep}}(t) = S_0 \cdot e^{-t/\tau_d}\]</span>
+<p>حيث <span class="math inline">\(\tau_r\)</span> ثابت زمن التراكم، و<span class="math inline">\(\tau_d\)</span> ثابت زمن التناقص، و<span class="math inline">\(S_0\)</span> القيمة الابتدائية.</p>
+<p><strong>العملية C</strong> (الإيقاع اليوماوي) تذبذب بدورة تقارب 24.2 ساعة تحركها النواة فوق التصالبية (SCN)، ويُقرَّب بـ:</p>
+<span class="math display">\[C(t) = M + A\cos\!\left(\frac{2\pi t}{\tau} - \phi\right), \quad \tau \approx 24.2\ \text{h}\]</span>
+<p>حيث <span class="math inline">\(M\)</span> المستوى المتوسط، و<span class="math inline">\(A\)</span> السعة، و<span class="math inline">\(\phi\)</span> الطور. يبدأ النوم عندما يتجاوز تراكم العملية S عتبة اليقظة التي تحددها العملية C، وتحدث اليقظة عندما ينخفض تناقص S إلى ما دون عتبة النوم التي تحددها C.</p>
+<h3>جينات الساعة وحلقة التغذية الراجعة للنسخ والترجمة</h3>
+<p>الأساس الجزيئي للعملية C هو حلقة التغذية الراجعة للنسخ والترجمة (TTFL). مُنحت جائزة نوبل في الفسيولوجيا أو الطب لعام 2017 لكل من Hall وRosbash وYoung لاكتشافاتهم في توضيح هذه الآلية.</p>
+<p>في الثدييات، يرتبط المتغاير الثنائي CLOCK/BMAL1 بتسلسلات E-box (5'-CACGTG-3') وينشّط نسخ جينات <em>Period</em> (<em>Per1</em>، <em>Per2</em>) و<em>Cryptochrome</em> (<em>Cry1</em>، <em>Cry2</em>) (الذراع الموجبة). تشكّل بروتينات PER وCRY معقداً في السيتوبلازم، تنتقل إلى النواة، وتكبت نسخها الخاص بتثبيط CLOCK/BMAL1 (الذراع السالبة) [17]. تتطلب دورة واحدة كاملة من حلقة التغذية الراجعة نحو 24 ساعة، حيث تُدخِل التعديلات بعد الترجمية — بما في ذلك فسفرة PER بواسطة CK1δ/ε والتحلل المعتمد على اليوبيكويتين — التأخيرات اللازمة لضبط الدورة بدقة.</p>
+<h3>الأدينوسين وضغط النوم</h3>
+<p>أقوى مرشح جزيئي للعملية S هو الأدينوسين. أثبت Porkka-Heiskanen وآخرون (1997) أن تركيزات الأدينوسين خارج الخلوية في الدماغ الأمامي القاعدي ترتفع تدريجياً خلال اليقظة المستمرة وتنخفض خلال نوم التعافي [18]. يثبّط الأدينوسين المتراكم الخلايا العصبية المعززة لليقظة (بما فيها الخلايا الكولينية) عبر مستقبلات A<span class="math inline">\(_1\)</span>، وينشّط في الوقت ذاته الخلايا العصبية المعززة للنوم عبر مستقبلات A<span class="math inline">\(_{2A}\)</span>. الكافيين مضاد تنافسي لمستقبلات A<span class="math inline">\(_1\)</span> وA<span class="math inline">\(_{2A}\)</span>، يحول دون هذه الآلية للحفاظ على اليقظة.</p>
+<h3>الأوركسين — "مفتاح" النوم واليقظة</h3>
+<p>في عام 1998، اكتشف فريقان بحثيان بصورة شبه متزامنة ببتيدات عصبية خاصة بالوطاء الجانبي. أطلق عليها de Lecea وآخرون اسم "الهيبوكريتين (hypocretin)" [19]، بينما أطلق عليها Sakurai في مختبر Masashi Yanagisawa اسم "الأوركسين (orexin)" [20]. يُسقط الأوركسين A/B على نطاق واسع إلى نوى متعددة معززة لليقظة — الموضع الأزرق (النورأدرينالين)، ونواة الرفاء الظهرية (السيروتونين)، والنواة الحدبية الحلمية (الهيستامين)، والدماغ الأمامي القاعدي (الأسيتيل كولين) — مما يُثبّت حالة اليقظة.</p>
+<p>في عام 1999، حُدّدت طفرة جينية في مستقبل الأوركسين بوصفها سبب التغفيق في الكلاب، وبحلول عام 2000 تأكد أن التغفيق البشري من النوع الأول ينجم عن الفقدان الانتقائي للخلايا العصبية المنتجة للأوركسين، على الأرجح بآلية مناعة ذاتية. يعمل نظام الأوركسين كعنصر تثبيت في نموذج "المفتاح القلاّب (flip-flop switch)" لانتقالات النوم واليقظة؛ ويُفسر خلل هذا النظام التبديل غير المستقر بين حالات اليقظة والنوم المميز للتغفيق (الجمدة، والهلاوس التنويمية، وشلل النوم).</p>
+<h3>SIK3 — الاقتراب من الركيزة الجزيئية للحاجة إلى النوم</h3>
+<p>في عام 2016، فحص Funato وYanagisawa وزملاؤهم فئراناً مطفَّرة عشوائياً بواسطة تخطيط كهربية الدماغ وحدّدوا الطافر <em>Sleepy</em> الذي يُظهر نوماً مفرطاً مزمناً [21]. كان الجين المسبب هو الكيناز المستحث بالملح 3 (SIK3)، الذي يحمل طفرة ربط في الإكسون 13 تحذف موقع فسفرة PKA عند S551.</p>
+<span class="math display">\[\text{طفرة Sleepy}: \Delta\text{exon13} \rightarrow \text{حذف S551} \rightarrow \text{زيادة كمية نوم NREM وقدرة}\ \delta\]</span>
+<p>أكد Honda وآخرون (2018) أن هذا الحمض الأميني الواحد يتحكم في كميات نوم NREM اليومية والحاجة إلى النوم [22]، وأثبتوا أن هذا الموقع محفوظ من الديدان الخيطية إلى البشر. يظل SIK3 المرشح الرئيسي للأساس الجزيئي للعملية S — "بروتين ضغط النوم" الذي تتراكم فسفرته أثناء اليقظة وتحفز النوم — ويخضع لبحث مكثف مستمر.</p>
+<h2>الخاتمة — النوم بوصفه تقاطعاً بين البيئة والبيولوجيا</h2>
+<p>النوم البشري ظاهرة متعددة الطبقات لا يمكن وصفها بمبدأ واحد. شكّل التطور نوماً قصيراً كثيف REM استجابةً لخطر الافتراس، إلى جانب تشتت الأنماط الزمنية داخل المجموعة الذي يوفر وظيفة الحراسة. يكشف التاريخ أن الإضاءة الاصطناعية دفعت الانتقال من النوم ثنائي الطور إلى أحادي الطور في 200 عام فحسب. وقد أكدت الوبائيات مراراً الارتباط على شكل حرف U بين نحو 7 ساعات من النوم وخطر الوفاة، وأوضحت كيف تحكم بيئات الحرارة والضوء والهرمونات جودة النوم. أما البيولوجيا الجزيئية فتكشف كيف تُنفّذ جينات ساعة TTFL والأدينوسين والأوركسين وSIK3 الركيزتين: العملية S والعملية C.</p>
+<p>النوم هو الساحة التي تتقاطع فيها التكيفات التطورية القديمة والآلية الجزيئية الدقيقة مع المشهد المتغير للثقافة والتكنولوجيا والمناخ. ولا يزال "حلّه الأمثل" قيد الاستكشاف — نقطة توازن ديناميكية بين الإرث التطوري والبيئة الحديثة.</p>
+<hr />
+<h2>المراجع</h2>
+<ol>
+<li>Samson DR, Nunn CL. Sleep intensity and the evolution of human cognition. <em>Evol Anthropol.</em> 2015;24(6):225-237. PMID: 26662946.</li>
+<li>Nunn CL, Samson DR. Sleep in a comparative context: Investigating how human sleep differs from sleep in other primates. <em>Am J Phys Anthropol.</em> 2018;166(3):601-612. DOI: 10.1002/ajpa.23427.</li>
+<li>Samson DR, Nunn CL. Shining evolutionary light on human sleep and sleep disorders. <em>Evol Med Public Health.</em> 2016;2016(1):227-243. PMID: 27470330.</li>
+<li>Samson DR, Crittenden AN, Mabulla IA, Mabulla AZP, Nunn CL. Chronotype variation drives night-time sentinel-like behaviour in hunter–gatherers. <em>Proc R Soc B.</em> 2017;284(1858):20170967. PMID: 28747475.</li>
+<li>Ekirch AR. Sleep we have lost: Pre-industrial slumber in the British Isles. <em>Am Hist Rev.</em> 2001;106(2):343-386.</li>
+<li>Wehr TA. In short photoperiods, human sleep is biphasic. <em>J Sleep Res.</em> 1992;1(2):103-107. PMID: 10607034.</li>
+<li>de la Iglesia HO, et al. Access to electric light is associated with shorter sleep duration in a traditionally hunter-gatherer community. <em>J Biol Rhythms.</em> 2015;30(4):342-350. PMID: 26092820.</li>
+<li>Stothard ER, et al. Circadian entrainment to the natural light-dark cycle across seasons and the weekend. <em>Curr Biol.</em> 2017;27(4):508-513. PMID: 28162893.</li>
+<li>Cappuccio FP, D'Elia L, Strazzullo P, Miller MA. Sleep duration and all-cause mortality: A systematic review and meta-analysis of prospective studies. <em>Sleep.</em> 2010;33(5):585-592. PMID: 20469800.</li>
+<li>Obradovich N, Migliorini R, Mednick SC, Fowler JH. Nighttime temperature and human sleep loss in a changing climate. <em>Sci Adv.</em> 2017;3(5):e1601555. PMID: 28560320.</li>
+<li>Ohayon MM, Carskadon MA, Guilleminault C, Vitiello MV. Meta-analysis of quantitative sleep parameters from childhood to old age in healthy individuals: Developing normative sleep values across the human lifespan. <em>Sleep.</em> 2004;27(7):1255-1273. PMID: 15586779.</li>
+<li>Baker FC, Driver HS. Circadian rhythms, sleep, and the menstrual cycle. <em>Sleep Med.</em> 2007;8(6):613-622. PMID: 17383933.</li>
+<li>Kravitz HM, et al. Sleep during the perimenopause: A SWAN story. <em>Obstet Gynecol Clin North Am.</em> 2011;38(3):567-586. PMID: 21961720.</li>
+<li>Friborg O, Rosenvinge JH, Wynn R, Gradisar M. Sleep timing, chronotype, mood, and behavior at an Arctic latitude (69°N). <em>Sleep Med.</em> 2014;15(7):798-807. PMID: 24933084.</li>
+<li>Johnsen MT, et al. Lack of major seasonal variations in self reported sleep-wake rhythms and chronotypes among middle aged and older people at 69 degrees North: The Tromsø Study. <em>Sleep Med.</em> 2013;14(2):140-148. PMID: 23219143.</li>
+<li>Borbély AA. A two process model of sleep regulation. <em>Hum Neurobiol.</em> 1982;1(3):195-204. PMID: 7185792.</li>
+<li>Takahashi JS. Transcriptional architecture of the mammalian circadian clock. <em>Nat Rev Genet.</em> 2017;18(3):164-179. DOI: 10.1038/nrg.2016.150.</li>
+<li>Porkka-Heiskanen T, Strecker RE, Thakkar M, Bjorkum AA, Greene RW, McCarley RW. Adenosine: A mediator of the sleep-inducing effects of prolonged wakefulness. <em>Science.</em> 1997;276(5316):1265-1268. PMID: 9157887.</li>
+<li>de Lecea L, Kilduff TS, Peyron C, et al. The hypocretins: Hypothalamus-specific peptides with neuroexcitatory activity. <em>Proc Natl Acad Sci USA.</em> 1998;95(1):322-327. PMID: 9419374.</li>
+<li>Sakurai T, Amemiya A, Ishii M, et al. Orexins and orexin receptors: A family of hypothalamic neuropeptides and G protein-coupled receptors that regulate feeding behavior. <em>Cell.</em> 1998;92(4):573-585. PMID: 9527442.</li>
+<li>Funato H, Miyoshi C, Fujiyama T, et al. Forward-genetics analysis of sleep in randomly mutagenized mice. <em>Nature.</em> 2016;539(7629):378-383. PMID: 27806374.</li>
+<li>Honda T, Fujiyama T, Miyoshi C, et al. A single phosphorylation site of SIK3 regulates daily sleep amounts and sleep need in mice. <em>Proc Natl Acad Sci USA.</em> 2018;115(41):10458-10463. PMID: 30254177.</li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>إخلاء المسؤولية</strong></p>
+<p><strong>日本語:</strong> 本コンテンツは、客観的な学術的エビデンスとデータ分析に基づく情報提供のみを目的としています。医学的助言、診断、または政治的批評を意図するものではありません。</p>
+<p><strong>English:</strong> This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p>
+<p><strong>简体中文:</strong> 本内容仅供参考，基于客观的学术证据和数据分析。本内容不构成医疗建议、诊断或政治评论。</p>
+<p><strong>Español:</strong> Este contenido es solo con fines informativos, basado en evidencia académica objetiva y análisis de datos. No pretende ser consejo médico, diagnóstico ni crítica política.</p>
+<p><strong>हिन्दी:</strong> यह सामग्री केवल सूचनात्मक उद्देश्यों के लिए है, जो वस्तुनिष्ठ शैक्षणिक साक्ष्य और डेटा विश्लेषण पर आधारित है। यह चिकित्सा सलाह, निदान या राजनीतिक आलोचना के रूप में अभिप्रेत नहीं है।</p>
+<p><strong>العربية:</strong> هذا المحتوى لأغراض إعلامية فقط، استناداً إلى أدلة أكاديمية موضوعية وتحليل بيانات. وهو غير مخصص كاستشارة طبية أو تشخيص أو نقد سياسي.</p>
+</blockquote>
+<div class="disclaimer"><p>هذا المحتوى لأغراض إعلامية فقط، استناداً إلى أدلة أكاديمية موضوعية وتحليل بيانات. وهو غير مخصص كاستشارة طبية أو تشخيص أو نقد سياسي.</p></div>
+</article>
+
+<footer class="site-footer">
+  Project Asymptote &mdash; Bridging mathematics, data science, and public health.
+</footer>
+
+</div>
+
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+  const section = document.getElementById('content-' + lang);
+  const btn = document.querySelector('[data-lang="' + lang + '"]');
+  if (section) section.classList.add('active');
+  if (btn) btn.classList.add('active');
+  document.documentElement.lang = lang.split('-')[0];
+  // Re-render math in newly visible section.
+  if (typeof renderMathInElement !== 'undefined') {
+    renderMathInElement(section, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+  // Update URL hash.
+  history.replaceState(null, '', '#' + lang);
+}
+
+// Initialize from hash or default to 'ja'.
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = location.hash.slice(1);
+  const validLangs = ['ja', 'en', 'zh-Hans', 'es', 'hi', 'ar'];
+  switchLang(validLangs.includes(hash) ? hash : 'ja');
+});
+</script>
+</body>
+</html>
