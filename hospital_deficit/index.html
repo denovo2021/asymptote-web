@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>「赤字の病院」という錯覚 — 公共インフラの市場化がもたらす医療経済のパラドックス</title>
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --accent: #2563eb;
+  --border: #e5e7eb;
+  --code-bg: #f3f4f6;
+  --max-w: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Serif", "Source Han Serif", "Georgia", serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.8;
+  padding: 2rem 1rem;
+}
+.container { max-width: var(--max-w); margin: 0 auto; }
+
+/* Language selector */
+.lang-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+.lang-btn {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px 4px 0 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--fg);
+  transition: all 0.15s;
+}
+.lang-btn:hover { background: var(--code-bg); }
+.lang-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Content sections */
+.content-section { display: none; }
+.content-section.active { display: block; }
+.content-section[dir="rtl"] { direction: rtl; text-align: right; }
+
+/* Typography */
+h1 { font-size: 1.8rem; margin: 1.5rem 0 1rem; line-height: 1.3; }
+h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.15rem; margin: 1.2rem 0 0.6rem; }
+p { margin: 0.8rem 0; }
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+[dir="rtl"] blockquote { border-left: none; border-right: 3px solid var(--accent); }
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+pre { background: var(--code-bg); padding: 1rem; overflow-x: auto; border-radius: 6px; margin: 1rem 0; }
+pre code { background: none; padding: 0; }
+table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.8rem; text-align: left; }
+[dir="rtl"] th, [dir="rtl"] td { text-align: right; }
+th { background: var(--code-bg); font-weight: 600; }
+a { color: var(--accent); }
+sup { font-size: 0.75em; }
+
+/* Math */
+.math.display { display: block; text-align: center; margin: 1.2rem 0; overflow-x: auto; }
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: 3rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: #999;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h1 { font-size: 1.4rem; }
+  body { padding: 1rem 0.75rem; }
+  .lang-btn { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<nav class="lang-selector" role="tablist" aria-label="Language">
+  <button class="lang-btn" data-lang="ja" role="tab" onclick="switchLang('ja')">日本語</button>
+  <button class="lang-btn" data-lang="en" role="tab" onclick="switchLang('en')">English</button>
+  <button class="lang-btn" data-lang="zh-Hans" role="tab" onclick="switchLang('zh-Hans')">简体中文</button>
+  <button class="lang-btn" data-lang="es" role="tab" onclick="switchLang('es')">Español</button>
+  <button class="lang-btn" data-lang="hi" role="tab" onclick="switchLang('hi')">हिन्दी</button>
+  <button class="lang-btn" data-lang="ar" role="tab" onclick="switchLang('ar')">العربية</button>
+</nav>
+
+<article id="content-ja" class="content-section" dir="ltr" lang="ja">
+<h1>「赤字の病院」という錯覚 — 公共インフラの市場化がもたらす医療経済のパラドックス</h1>
+<hr />
+<p>警察に黒字化を求める政治家はいない。消防署の年間収支が赤字であることを問題視する報道もない。公立学校が授業料収入だけで運営費を賄えないことを「経営の怠慢」と断じる論者も存在しない。しかし、同じく国民の生命と安全を守る公共インフラである公的病院に対しては、独立採算制と黒字化が繰り返し要求される。この非対称性は、論理的に正当化できるのだろうか。</p>
+<h2>導入：公共財と市場原理の論理的矛盾</h2>
+<p>Kenneth Arrowは1963年、<em>American Economic Review</em>に発表した論文「Uncertainty and the Welfare Economics of Medical Care」において、医療市場が完全競争の条件を構造的に満たし得ないことを証明した [1]。医療サービスには、情報の非対称性（患者は自身の疾患の重症度も治療の適切性も評価できない）、需要の不確実性（いつ、どの程度の医療を必要とするか事前に予測できない）、外部性（感染症対策は社会全体に便益をもたらす）という、市場の失敗（market failure）を引き起こす条件が構造的に内在する。</p>
+<p>この市場の失敗が放置された場合に何が起こるか。医療を純粋な市場財として扱えば、資本は期待収益率の高い領域に集中する。日本の美容医療市場は2024年時点で約5,258百万米ドルに達し、年平均成長率9.27%で拡大を続けている。自由診療（保険外診療）には公定価格の制約がなく、提供者が価格を自由に設定できるため、投下資本利益率は保険診療を大幅に上回る。これは、経済学でいうcream skimming（クリームスキミング）の典型例であり、収益性の高い患者層・診療領域にのみ資源が集中し、不採算だが生命に直結する救急医療、小児医療、周産期医療、感染症対策から資源が流出するメカニズムを意味する [2]。</p>
+<p>総務省のデータによれば、2024年度（令和6年度）、全国678の自治体病院のうち83.3%が経常赤字を計上し、赤字総額は過去最大の3,952億円に達した。しかし、これらの病院が担う機能は、①民間医療機関の立地が困難な地域における医療提供、②救急・小児・周産期・感染症など不採算部門の維持、③高度・先進医療の提供、④広域的な医師派遣の拠点機能——のいずれも、利益最大化を目的とする民間資本が自発的に供給しない、あるいは供給量が社会的最適水準を下回る公共財的性質を有するものである [3]。</p>
+<p>公立病院の「赤字」とは、市場価格で回収できない公共サービスの提供コストが、公定価格による収入を上回っている状態——すなわち、インフラ維持費の不足——にほかならない。</p>
+<h2>展開1：社会保障財源の歴史的経緯——グリーンピアの教訓</h2>
+<p>公的病院の経営に対する国民の厳しい視線の背景には、社会保障財源の運用をめぐる行政の歴史的失態がある。年金保険料と医療保険料は法的にも会計的にも異なる財源であり、両者を混同することは正確性を欠く。しかし、国民の認知においては「社会保障のために支払ったカネが適切に使われているのか」という不信感が、制度の区別を超えて共有されている。その不信感の形成に最も大きく寄与した事例のひとつが、大規模年金保養基地「グリーンピア」の経営破綻である。</p>
+<p>グリーンピアは、旧厚生省所管の特殊法人「年金福祉事業団」が、年金積立金を原資として全国13か所に建設した保養施設群である。建設費の総額は1,914億円。しかし、需要予測の甘さ、立地選定の政治的偏向（歴代厚生大臣の地元への集中が指摘された）、そして開業後の恒常的な稼働率低迷により、施設は累積赤字を膨張させ続けた [4]。2004年に成立した年金積立金管理運用独立行政法人法により全施設の廃止が決定され、2005年度末までに売却が完了したが、売却総額はわずか約48億円。建設費、借入金利子、維持管理費を含めた損失総額は約3,682億円に達した [4]。</p>
+<p>この事例が示す構造的問題は、財源の流用や放漫経営そのものに加え、失敗の責任が明確に帰属されなかったという点にある。会計検査院は繰り返し問題を指摘したが、政策決定者が個人として責任を問われることはなく、損失は年金保険料という形で国民全体に転嫁された。こうした行政の失態と社会保障制度全体に対する国民の不信感との間には強い関連（association）が認められ、本来は区別されるべき年金制度と医療制度が「公的資金の無駄遣い」という単一の物語のもとに括られる言説構造を生んだ。</p>
+<p>ここで注意すべきは、グリーンピアの失敗を根拠に「公的機関には経営能力がない」と一般化する議論は、論理的に不適切だということである。グリーンピアの破綻は、本来の目的（年金積立金の安全な運用）と無関連の事業に資金を投入したガバナンスの失敗であり、公的医療機関が不採算部門を維持するために必要とする財政的支援とは性質が根本的に異なる。前者は目的外の資本配分、後者は公共サービスの適正コストである。両者を同列に扱うことは、警察の不祥事を理由に治安維持そのものの必要性を否定するに等しい。</p>
+<h2>展開2：医師の給与と医療制度の国際比較——日本 vs アメリカ</h2>
+<p>「医療費が高いのは医師の給与が高すぎるからだ」という言説は、日本の医療費議論において頻繁に登場する。この主張を検証するには、日米の医療制度の構造的差異を踏まえた比較が必要である。</p>
+<p>OECDのデータによれば、日本の勤務医の平均年収は対国民平均賃金比で約4.7倍であり、OECD加盟国の中央値とおおむね一致する [5]。一方、アメリカの医師の平均年収は約352,000米ドルで、絶対額では日本を大きく上回る。しかし、この差は医療制度の設計思想の違いに起因する。日本では診療報酬制度（fee schedule）により、すべての保険診療行為の価格が全国一律に公定されている。Ikegami et al.（2011）が<em>Lancet</em>で論じたように、この統一価格制度が医療へのアクセスの公平性を維持しながらコストを抑制する主要な機構として機能してきた [6]。</p>
+<p>アメリカでは対照的に、医療サービスの価格は市場原理によって決定される。その帰結は、破滅的医療支出（catastrophic health expenditure）の常態化である。WHO（Xu et al., 2003）は、医療に関する自己負担が世帯の支払能力（所得から生存必需的支出を差し引いた額）の40%を超えた場合を「破滅的」と定義した [7]。Himmelstein et al.（2019）が<em>American Journal of Public Health</em>で報告したところによれば、Affordable Care Act（ACA、オバマケア）施行後もなお、アメリカでは年間約530,000世帯が医療費を主因とする自己破産を申し立てており、全破産件数の66.5%に医療問題が寄与している [8]。</p>
+<p>すなわち、「医師の給与を下げれば医療費問題は解決する」という議論は、公定価格制度下で既にOECD平均水準にある日本の医師報酬と、市場価格制度下で膨張するアメリカの医療費総額を混同するものであり、問題の所在を見誤っている。日本の医療費の対GDP比は約11%であり、アメリカの約17%を大幅に下回る [5]。皆保険制度による価格統制と患者の経済的負担の軽減には明確な関連（association）が示されており、公定価格制度は、アクセスの公平性と費用抑制の両立において国際的にも高い効率性を発揮している。</p>
+<h2>展開3：マクロ経済と診療報酬の矛盾——インフレ下の賃金抑制</h2>
+<p>日本経済は長期デフレからの転換期にある。消費者物価指数（CPI）上昇率は2023年に3.27%、2024年に2.74%を記録し、日本銀行が目標とする2%を持続的に上回る状態が続いている [9]。2025年の春季労使交渉（春闘）では、大企業の平均賃上げ率が5.46%に達し、30年以上ぶりの高水準を記録した [9]。</p>
+<p>しかし、この賃上げの波は医療機関には十分に波及していない。2024年の春闘において、病院の賃上げ率は2.41%にとどまり、全産業平均の5.10%の半分以下であった [10]。社会保障費抑制を目的とした診療報酬の据え置きないしマイナス改定と、医療従事者の実質賃金の低下には直接的な関連（association）がある。その構造的原因は明確である——医療機関の収入の大部分は診療報酬という公定価格に依存しており、一般市場のように価格転嫁（コスト上昇分を販売価格に反映する）ができない。</p>
+<p>この構造を簡潔に表現すれば、一般企業の収益関数が</p>
+<span class="math display">\[R = P(c) \times Q\]</span>
+<p>（ここで <span class="math inline">\(P(c)\)</span> はコスト <span class="math inline">\(c\)</span> の増加関数として設定可能な価格、<span class="math inline">\(Q\)</span> は数量）であるのに対し、保険医療機関の収益関数は</p>
+<span class="math display">\[R = \bar{P} \times Q\]</span>
+<p>（ここで <span class="math inline">\(\bar{P}\)</span> は政府が設定する固定価格）である。<span class="math inline">\(c\)</span> が上昇しても <span class="math inline">\(\bar{P}\)</span> が据え置かれれば、利益 <span class="math inline">\(\pi = \bar{P} \times Q - c \times Q = (\bar{P} - c)Q\)</span> は必然的に縮小する。</p>
+<p>2024年度の診療報酬改定は、本体部分でプラス0.88%にとどまり、同年のCPI上昇率（2.74%）を大きく下回った。すなわち、実質的にはマイナス改定であった。2026年度改定では本体プラス3.09%（2年平均）と30年ぶりの高水準が決定されたが、この改定には賃上げ原資として2.5%分が含まれており、医療機関の経営改善に充当できる実質的な増収分は限定的である [10]。</p>
+<p>William Baumolが提唱した「コスト病（cost disease）」の概念は、この矛盾を理論的に説明する。労働集約型のサービス産業（医療、教育、芸術など）では、製造業のような生産性向上による単位コスト削減が構造的に困難である。手術の所要時間を半分にすることはできない。しかし労働市場では、製造業の賃金上昇に追随する形で医療従事者の賃金にも上昇圧力がかかる。公定価格がこの上昇圧力を吸収しなければ、医療機関は人材を確保できず、サービスの質と量が低下する——これがBaumolのコスト病が医療に適用された場合の帰結である [11]。</p>
+<p>現在の日本では、この理論的予測が現実化しつつある。物価高騰下で実質賃金が低下した医療従事者の離職が増加し、特に看護師の離職率上昇が病床稼働率の低下を招き、それがさらなる収益悪化を引き起こすという負のフィードバックループが形成されている。</p>
+<h2>展開4：「高齢化」だけでは説明できない薬剤費高騰——製薬企業の論理と調剤薬局の政治力</h2>
+<p>医療費高騰の要因を問えば、「高齢化」という回答が定型句のように返ってくる。確かに高齢化は医療需要の増大を通じて総医療費を押し上げる主要因のひとつである。しかし、近年の医療費増加の内訳を精査すると、「高齢化」という単一の説明変数では捕捉しきれない構造的変化が進行していることがわかる。</p>
+<p>その最大の変化は、高額薬剤の臨床普及である。免疫チェックポイント阻害薬（immune checkpoint inhibitor; ICI）を例にとる。Takami et al.（2026）が<em>Japanese Journal of Clinical Oncology</em>で報告したところによれば、日本におけるICIの薬剤費総額は2015年度の169億円から2022年度の4,196億円へと約25倍に増加し、8年間の累計は1兆7,930億円を超えた [12]。ニボルマブ（オプジーボ）やペムブロリズマブ（キイトルーダ）に代表されるこれらの薬剤は、悪性黒色腫、非小細胞肺がん、腎細胞がん、頭頸部がんなど幅広い固形がんに対して奏効率の革新的改善をもたらしており、適応の拡大が処方量と総費用の増加に直結している。</p>
+<p>重要なのは、これらの薬剤の恩恵を受ける患者の多くが現役世代を含むという点である。肺がんの好発年齢は60代後半であるが、悪性黒色腫やホジキンリンパ腫は40〜50代にも多く、ICIの適応はますます若年層に広がっている。すなわち、高額薬剤による医療費増加は「高齢化コスト」として一括できる問題ではなく、医療技術の進歩がもたらす普遍的な構造変化である。</p>
+<p>製薬企業がこれらの薬剤に高い価格を設定する根拠は、研究開発（R&amp;D）コストの回収にある。DiMasi et al.（2016）の推計によれば、1つの新薬を市場に送り出すまでの平均開発コスト（資本コスト込み）は約26億米ドルに達する [13]。臨床試験の失敗率は90%を超え、成功した1剤が残りの失敗分のコストも回収しなければならない。この論理自体は経済学的に正当である。</p>
+<p>しかし、同じ論理を用いてR&amp;Dリスクの負担を価格正当化の根拠とする製薬企業の経営陣が、極めて高額な報酬を受け取っている事実は、その論理の内的整合性を損なう。2025年度の有価証券報告書によれば、武田薬品工業の社長CEOの報酬は23億1,500万円であり、同社従業員の平均年収との倍率は約200倍に達する [14]。製薬業界全体では、1億円以上の役員報酬を受け取る者が20社50人にのぼる [14]。「患者の命を救う薬を開発するリスクを負っている」という価格正当化の論理と、そのリスク負担者が億単位の個人報酬を得ているという事実の間には、少なくとも国民感情に対する説明責任という観点から、論理的な緊張が存在する。</p>
+<p>さらに見過ごされがちな構造的問題が、調剤薬局チェーンの政治力である。日本の調剤医療費は2024年度に8兆4,008億円に達し、国民医療費の約18%を占める [15]。医薬分業の推進により院外処方が普及した結果、大手調剤薬局チェーンが急成長した。アインホールディングスの売上高は4,568億円、クオールホールディングスは2,640億円に達している。</p>
+<p>「医師の給与が高すぎる」という言説は繰り返し報道されるが、調剤薬局チェーンの収益構造や、その政治的影響力に対する批判的検討は驚くほど少ない。日本薬剤師連盟は自民党の組織内候補を参議院比例代表に継続的に擁立しており、政治資金収支報告書によれば、同連盟から特定の国会議員側への献金が政治資金規正法の上限を回避する形で分散されていた事例が報じられている [16]。医師の診療報酬は繰り返し削減の対象となる一方、調剤報酬の技術料（2024年度：処方箋1枚あたり2,594円）が政治的に保護される構造は、医療費配分の効率性という観点から再検証が必要である。</p>
+<p>要するに、医療費高騰の要因分析において「高齢化」は必要条件ではあるが十分条件ではない。高額薬剤の臨床普及、製薬企業のR&amp;Dコスト構造と経営陣報酬の乖離、そして調剤薬局の政治的影響力による報酬構造の硬直性——これらの要因を複合的に捉えなければ、処方箋（比喩的な意味での）は書けない。</p>
+<h2>結語：医療を「コスト」から「インフラ」へ再定義する</h2>
+<p>本稿で検討した問題群は、ひとつの構造的パラドックスに収斂する。公立病院の「赤字」は経営の怠慢ではなく、公定価格制度の下で不採算部門を維持するための構造的帰結である。救急医療、小児医療、周産期医療、感染症対策——これらの部門は、市場原理に委ねれば供給量が社会的最適水準を下回る典型的な公共財であり、その維持コストは本質的に社会が負担すべきインフラ維持費である。そして、その「赤字」をさらに拡大させているのが、高額薬剤の臨床普及という、高齢化とは独立した医療費増加の構造変化であり、この変化の受益者と負担者の間に横たわる非対称性——製薬企業経営陣の報酬と患者の自己負担、調剤薬局の政治的保護と病院経営の圧迫——は、未だ十分に可視化されていない。</p>
+<p>必要なパラダイムシフトは二重である。第一に、病院の収支を企業会計の枠組みで評価することをやめ、社会が享受する便益（救急搬送の受け入れ体制、災害時の医療供給能力、感染症パンデミックへの対応力）に対する投資として再定義すること。道路の維持補修費を「赤字」とは呼ばない。上下水道の運営コストを「経営の怠慢」とは断じない。医療インフラもまた、同じ論理の上に立つべきである。第二に、医療費の配分構造——誰が負担し、誰が受益し、どの中間プレイヤーがどれだけの利益を得ているのか——を政治的タブーなしに可視化し、再検討すること。</p>
+<p>公的資金の投入には厳格なガバナンスと透明性が不可欠であり、グリーンピアの教訓はその重要性を明確に示している。しかし、ガバナンスの強化と、公共インフラへの適正な財政投入は、相互に排他的ではない。そして、医療従事者の報酬のみを聖域なき改革の対象とし、製薬企業の経営陣報酬や調剤薬局チェーンの収益構造を政治的に不問に付すことは、公平性の原則に反する。すべてのステークホルダーに対する等しい透明性の要求——それが、持続可能な医療制度設計の出発点である。</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Arrow KJ. Uncertainty and the welfare economics of medical care. <em>Am Econ Rev.</em> 1963;53(5):941–973. PMID: 15042238.</li>
+<li>Newhouse JP. Reimbursing health plans and health providers: efficiency in production versus selection. <em>J Econ Lit.</em> 1996;34(3):1236–1263.</li>
+<li>総務省自治財政局. 病院事業決算状況（令和5年度）. https://www.soumu.go.jp/main_sosiki/c-zaisei/hospital/kessan-bunseki/R05.html</li>
+<li>衆議院. 年金福祉事業団の行った事業に関する質問主意書（第152回国会）. https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/152/syuh/s152004.htm</li>
+<li>OECD. Health at a Glance 2023: OECD Indicators. Paris: OECD Publishing; 2023. doi:10.1787/7a7afb35-en.</li>
+<li>Ikegami N, Yoo BK, Hashimoto H, et al. Japanese universal health coverage: evolution, achievements, and challenges. <em>Lancet.</em> 2011;378(9796):1106–1115. PMID: 21885107.</li>
+<li>Xu K, Evans DB, Kawabata K, Zeramdini R, Klavus J, Murray CJL. Household catastrophic health expenditure: a multicountry analysis. <em>Lancet.</em> 2003;362(9378):111–117. PMID: 12867110.</li>
+<li>Himmelstein DU, Lawless RM, Thorne D, Foohey P, Woolhandler S. Medical bankruptcy: still common despite the Affordable Care Act. <em>Am J Public Health.</em> 2019;109(3):431–433. doi:10.2105/AJPH.2018.304901.</li>
+<li>総務省統計局. 消費者物価指数（CPI）. https://www.stat.go.jp/data/cpi/</li>
+<li>厚生労働省. 令和6年度診療報酬改定について. https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411_00045.html</li>
+<li>Baumol WJ. The cost disease: why computers get cheaper and health care doesn't. New Haven: Yale University Press; 2012. ISBN: 978-0-300-17903-3.</li>
+<li>Takami A, Yamashita K, Igarashi A. Trends in usage and drug costs of immune checkpoint inhibitors in Japan. <em>Jpn J Clin Oncol.</em> 2026;56(2):155–167. doi:10.1093/jjco/hyae177.</li>
+<li>DiMasi JA, Grabowski HG, Hansen RW. Innovation in the pharmaceutical industry: new estimates of R&amp;D costs. <em>J Health Econ.</em> 2016;47:20–33. PMID: 26928437.</li>
+<li>AnswersNews. 製薬業界「役員報酬1億円以上」25年度は20社50人. https://answers.and-pro.jp/pharmanews/32805/</li>
+<li>厚生労働省. 調剤医療費の動向（令和6年度）. https://www.e-stat.go.jp/stat-search/files?toukei=00450482</li>
+<li>総務省. 政治資金収支報告書（日本薬剤師連盟）. https://www.soumu.go.jp/senkyo/seiji_s/seijishikin/</li>
+</ol>
+<hr />
+<h2>免責事項</h2>
+<p>本記事は、査読付き学術論文および公的データに基づく科学的知見の紹介を目的としたものであり、個人の医療判断や臨床的意思決定を代替するものではありません。本記事に記載された情報は、執筆時点（2026年8月）で著者がアクセス可能な文献に基づいており、最新の研究成果を網羅していることを保証するものではありません。健康上の懸念がある場合は、必ず資格を有する医療専門家にご相談ください。</p>
+<h2>Disclaimer</h2>
+<p>This article is intended to introduce scientific findings based on peer-reviewed academic papers and publicly available data. It is not a substitute for individual medical judgment or clinical decision-making. The information presented is based on literature accessible to the author at the time of writing (August 2026) and may not encompass the latest research findings. If you have health concerns, please consult a qualified healthcare professional.</p>
+<h2>Descargo de responsabilidad</h2>
+<p>Este artículo tiene como objetivo presentar hallazgos científicos basados en artículos académicos revisados por pares y datos disponibles públicamente. No sustituye el juicio médico individual ni la toma de decisiones clínicas. La información presentada se basa en la literatura accesible para el autor en el momento de la redacción (agosto de 2026) y puede no abarcar los hallazgos de investigación más recientes. Si tiene preocupaciones de salud, consulte a un profesional de la salud calificado.</p>
+<h2>免责声明</h2>
+<p>本文旨在介绍基于同行评审学术论文和公开数据的科学发现，不能替代个人医疗判断或临床决策。所呈现的信息基于作者在撰写时（2026年8月）可获取的文献，可能未涵盖最新的研究成果。如有健康方面的疑虑，请咨询合格的医疗专业人员。</p>
+<h2>अस्वीकरण</h2>
+<p>यह लेख सहकर्मी-समीक्षित शैक्षणिक पत्रों और सार्वजनिक रूप से उपलब्ध आंकड़ों पर आधारित वैज्ञानिक निष्कर्षों का परिचय देने के उद्देश्य से है। यह व्यक्तिगत चिकित्सा निर्णय या नैदानिक निर्णय लेने का विकल्प नहीं है। प्रस्तुत जानकारी लेखन के समय (अगस्त 2026) लेखक को उपलब्ध साहित्य पर आधारित है और नवीनतम शोध निष्कर्षों को समाहित नहीं कर सकती। यदि आपको स्वास्थ्य संबंधी चिंता है, तो कृपया किसी योग्य स्वास्थ्य पेशेवर से परामर्श करें।</p>
+<h2>إخلاء المسؤولية</h2>
+<p>تهدف هذه المقالة إلى تقديم نتائج علمية مبنية على أوراق أكاديمية محكّمة وبيانات متاحة للعامة، وهي لا تُغني عن الحكم الطبي الفردي أو اتخاذ القرارات السريرية. تستند المعلومات المقدّمة إلى الأدبيات المتاحة للمؤلف وقت الكتابة (أغسطس 2026) وقد لا تشمل أحدث نتائج الأبحاث. إذا كانت لديك مخاوف صحية، يُرجى استشارة أخصائي رعاية صحية مؤهّل.</p>
+<div class="disclaimer"><p>本コンテンツは、客観的な学術的エビデンスとデータ分析に基づく情報提供のみを目的としています。医学的助言、診断、または政治的批評を意図するものではありません。</p></div>
+</article>
+
+<article id="content-en" class="content-section" dir="ltr" lang="en">
+<h1>The Illusion of "Deficit Hospitals" — The Healthcare Economic Paradox of Marketizing Public Infrastructure</h1>
+<hr />
+<p>No politician demands that police departments turn a profit. No news outlet criticizes fire stations for running annual deficits. No commentator condemns public schools as "managerially negligent" for failing to cover operating costs through tuition alone. Yet public hospitals — equally tasked with protecting the lives and safety of citizens — face repeated demands for financial self-sufficiency and surplus generation. Can this asymmetry be logically justified?</p>
+<h2>Introduction: The Logical Contradiction Between Public Goods and Market Principles</h2>
+<p>In 1963, Kenneth Arrow demonstrated in his paper "Uncertainty and the Welfare Economics of Medical Care," published in the <em>American Economic Review</em>, that healthcare markets are structurally incapable of satisfying the conditions for perfect competition [1]. Healthcare services inherently contain the conditions that trigger market failure: information asymmetry (patients cannot evaluate either the severity of their illness or the appropriateness of treatment), demand uncertainty (no one can predict when or to what extent they will need medical care), and externalities (infectious disease control benefits society as a whole).</p>
+<p>What happens when this market failure is left unaddressed? If healthcare is treated as a pure market good, capital concentrates in areas with the highest expected returns. Japan's cosmetic medicine market reached approximately USD 5,258 million in 2024 and continues to expand at a compound annual growth rate of 9.27%. Unregulated "free practice" (non-insured care) carries no administered-price constraints, allowing providers to set prices freely, which yields returns on invested capital far exceeding those of insured care. This is a textbook case of what economists call cream skimming — the concentration of resources in profitable patient segments and treatment areas, with a corresponding outflow of resources from unprofitable but life-critical services such as emergency medicine, pediatrics, perinatal care, and infectious disease control [2].</p>
+<p>According to the Ministry of Internal Affairs and Communications, in fiscal year 2024, 83.3% of the nation's 678 municipal hospitals recorded operating deficits, with a combined deficit reaching a record ¥395.2 billion. However, the functions these hospitals fulfill — (i) healthcare delivery in areas where private facilities cannot viably operate, (ii) maintenance of unprofitable departments such as emergency, pediatric, perinatal, and infectious disease services, (iii) provision of advanced and specialized care, and (iv) regional physician dispatch hub functions — all possess the characteristics of public goods that profit-maximizing private capital either will not supply voluntarily or will supply at levels below the social optimum [3].</p>
+<p>The "deficit" of public hospitals is nothing more than a state in which the cost of delivering public services that cannot be recovered at market prices exceeds revenue from administered prices — that is, a shortfall in infrastructure maintenance funding.</p>
+<h2>Section 1: The Historical Context of Social Security Funding — The Lesson of Green-pia</h2>
+<p>Behind the public's critical scrutiny of public hospital management lies a history of administrative failure in the stewardship of social security funds. Pension premiums and health insurance premiums are legally and fiscally distinct funding sources, and conflating the two lacks precision. However, in public perception, the suspicion that "the money we pay for social security is not being used properly" transcends institutional distinctions. One of the cases that contributed most to shaping this distrust was the collapse of the large-scale pension resort facilities known as "Green-pia."</p>
+<p>Green-pia was a network of 13 resort facilities built nationwide by the Pension Welfare Service Public Corporation, a special-purpose entity under the former Ministry of Health and Welfare, using pension reserve funds as their capital source. Total construction costs amounted to ¥191.4 billion. However, overly optimistic demand projections, politically skewed site selection (concentration in the home districts of successive health ministers was noted), and chronically low occupancy rates after opening caused the facilities' cumulative deficits to balloon [4]. Following the enactment of the Government Pension Investment Fund Act in 2004, all facilities were ordered closed and sold by the end of fiscal 2005. The total sale price was a mere approximately ¥4.8 billion. The total loss — including construction costs, borrowing interest, and maintenance expenses — reached approximately ¥368.2 billion [4].</p>
+<p>The structural problem this case illustrates extends beyond the misappropriation of funds and profligate management to the fact that responsibility for the failure was never clearly attributed. The Board of Audit repeatedly flagged the problems, but no policymaker was held personally accountable, and the losses were socialized across the entire population through pension premiums. A strong association exists between such administrative failures and public distrust toward the social security system as a whole, giving rise to a discursive structure in which the pension system and the healthcare system — which ought to be distinguished — are subsumed under a single narrative of "government waste."</p>
+<p>It is critical to note that the argument generalizing from Green-pia's failure to claim that "public institutions are incapable of management" is logically unsound. Green-pia's collapse was a governance failure involving investment in ventures entirely unrelated to the entity's core purpose (the safe management of pension reserves), and it differs fundamentally in nature from the fiscal support public healthcare institutions require to maintain unprofitable departments. The former represents off-purpose capital allocation; the latter represents the proper cost of a public service. Treating the two equivalently is akin to denying the necessity of public safety itself on the grounds of police misconduct.</p>
+<h2>Section 2: Physician Compensation and International Healthcare System Comparison — Japan vs. the United States</h2>
+<p>The claim that "healthcare costs are high because physician salaries are too high" appears frequently in Japan's healthcare expenditure debate. Testing this assertion requires a comparison that accounts for the structural differences between the Japanese and American healthcare systems.</p>
+<p>According to OECD data, the average annual income of salaried physicians in Japan is approximately 4.7 times the national average wage, roughly in line with the OECD median [5]. In contrast, the average annual income of American physicians is approximately USD 352,000, substantially higher in absolute terms. However, this gap is attributable to differences in the design philosophy of the two healthcare systems. In Japan, the fee schedule system (shinryō hōshū seido) sets nationally uniform administered prices for all insured medical services. As Ikegami et al. (2011) argued in <em>The Lancet</em>, this uniform pricing system has functioned as the principal mechanism for maintaining equitable access to healthcare while containing costs [6].</p>
+<p>In the United States, by contrast, healthcare service prices are determined by market forces. The consequence is the normalization of catastrophic health expenditure. The WHO (Xu et al., 2003) defined health spending as "catastrophic" when a household's out-of-pocket payments exceed 40% of its capacity to pay — income minus subsistence-level expenditures [7]. According to Himmelstein et al. (2019), reporting in the <em>American Journal of Public Health</em>, even after the implementation of the Affordable Care Act (ACA), approximately 530,000 American households per year file for bankruptcy with medical costs as a primary contributing factor, and medical issues contribute to 66.5% of all bankruptcy filings [8].</p>
+<p>In short, the argument that "reducing physician salaries will solve the healthcare cost problem" confuses Japan's physician compensation — already at the OECD average level under an administered pricing system — with the inflated total healthcare expenditures of the United States under a market pricing system, misidentifying the locus of the problem. Japan's healthcare expenditure as a percentage of GDP is approximately 11%, substantially below the United States' approximately 17% [5]. A clear association has been demonstrated between price regulation through universal insurance and the reduction of patients' financial burden, and the administered pricing system exhibits high efficiency by international standards in simultaneously achieving equitable access and cost containment.</p>
+<h2>Section 3: The Contradiction Between Macroeconomics and the Fee Schedule — Wage Suppression Under Inflation</h2>
+<p>Japan's economy is in a transitional period away from prolonged deflation. The Consumer Price Index (CPI) increase rate reached 3.27% in 2023 and 2.74% in 2024, persistently exceeding the Bank of Japan's 2% target [9]. In the 2025 Spring Wage Offensive (Shuntō), the average wage increase for large corporations reached 5.46%, the highest level in over 30 years [9].</p>
+<p>However, this wave of wage increases has not sufficiently reached healthcare institutions. In the 2024 Shuntō, hospital wage increases stood at just 2.41%, less than half the all-industry average of 5.10% [10]. A direct association exists between the restraint or negative revision of the fee schedule, undertaken with the goal of curbing social security expenditures, and the decline in real wages of healthcare workers. The structural cause is clear — the bulk of healthcare institutions' revenue depends on the administered price of the fee schedule, and unlike the general market, they cannot pass through cost increases to their selling prices.</p>
+<p>This structure can be expressed concisely: the revenue function of a typical firm is</p>
+<span class="math display">\[R = P(c) \times Q\]</span>
+<p>(where <span class="math inline">\(P(c)\)</span> is a price that can be set as an increasing function of cost <span class="math inline">\(c\)</span>, and <span class="math inline">\(Q\)</span> is quantity), whereas the revenue function of an insured healthcare institution is</p>
+<span class="math display">\[R = \bar{P} \times Q\]</span>
+<p>(where <span class="math inline">\(\bar{P}\)</span> is a fixed price set by the government). If <span class="math inline">\(c\)</span> rises while <span class="math inline">\(\bar{P}\)</span> remains unchanged, profit <span class="math inline">\(\pi = \bar{P} \times Q - c \times Q = (\bar{P} - c)Q\)</span> inevitably contracts.</p>
+<p>The fiscal 2024 fee schedule revision raised the "base" component by just 0.88%, far below the CPI increase of 2.74% in the same year — amounting to a negative revision in real terms. The fiscal 2026 revision set the base increase at 3.09% (two-year average), the highest level in 30 years, but this revision includes 2.5% earmarked as wage increase funding, leaving the effective revenue increase available for institutional financial improvement limited [10].</p>
+<p>The concept of "cost disease" proposed by William Baumol provides a theoretical explanation for this contradiction. In labor-intensive service industries (healthcare, education, the arts), achieving unit cost reductions through productivity gains, as in manufacturing, is structurally difficult. The time required for surgery cannot be halved. Yet in the labor market, upward pressure on healthcare workers' wages follows manufacturing wage increases. If the administered price fails to absorb this upward pressure, healthcare institutions cannot recruit and retain staff, and the quality and volume of services decline — this is the consequence when Baumol's cost disease is applied to healthcare [11].</p>
+<p>In present-day Japan, this theoretical prediction is becoming reality. Departures of healthcare workers whose real wages have declined amid rising prices are increasing, with rising nurse turnover rates in particular driving decreases in bed occupancy, which in turn trigger further revenue deterioration — a negative feedback loop.</p>
+<h2>Section 4: Drug Cost Escalation Beyond "Aging" — Pharmaceutical Industry Logic and the Political Power of Dispensing Pharmacies</h2>
+<p>When asked about the drivers of rising healthcare costs, "aging" is invariably the stock answer. While population aging is indeed a major factor pushing up total healthcare expenditure through increased demand, a close examination of the composition of recent healthcare cost growth reveals structural changes that a single explanatory variable — "aging" — cannot capture.</p>
+<p>The most significant of these changes is the clinical adoption of high-cost pharmaceuticals. Take immune checkpoint inhibitors (ICIs) as an example. According to Takami et al. (2026), reporting in the <em>Japanese Journal of Clinical Oncology</em>, total ICI drug costs in Japan increased approximately 25-fold, from ¥16.9 billion in fiscal 2015 to ¥419.6 billion in fiscal 2022, with cumulative costs over the eight-year period exceeding ¥1.793 trillion [12]. These drugs, represented by nivolumab (Opdivo) and pembrolizumab (Keytruda), have brought revolutionary improvements in response rates for a broad range of solid cancers including melanoma, non-small cell lung cancer, renal cell carcinoma, and head and neck cancers, and the expansion of approved indications has directly driven increases in prescription volumes and total costs.</p>
+<p>Critically, many patients who benefit from these drugs include the working-age population. While the peak age of incidence for lung cancer is the late 60s, melanoma and Hodgkin lymphoma frequently affect those in their 40s and 50s, and the indications for ICIs are expanding increasingly toward younger cohorts. In other words, healthcare cost increases driven by high-cost pharmaceuticals cannot be aggregated under "aging costs" — they represent a universal structural transformation brought about by advances in medical technology.</p>
+<p>The rationale for pharmaceutical companies setting high prices for these drugs lies in the recoupment of research and development (R&amp;D) costs. According to DiMasi et al. (2016), the average development cost per approved new compound (including cost of capital) reaches approximately USD 2.6 billion [13]. With clinical trial failure rates exceeding 90%, a single successful drug must recoup the costs of the failed attempts as well. This logic is economically valid in itself.</p>
+<p>However, the fact that pharmaceutical executives who invoke this same logic of R&amp;D risk-bearing as the justification for pricing receive extremely high compensation undermines the internal coherence of the argument. According to fiscal 2025 securities filings, the CEO of Takeda Pharmaceutical Company received ¥2.315 billion in compensation — approximately 200 times the average employee salary [14]. Across the pharmaceutical industry, 50 executives at 20 companies receive compensation exceeding ¥100 million [14]. Between the pricing justification of "we bear the risk of developing life-saving drugs" and the reality that those risk-bearers receive personal compensation in the hundreds of millions, there exists, at minimum from the perspective of accountability to public sentiment, a logical tension.</p>
+<p>A further structural issue that tends to be overlooked is the political power of dispensing pharmacy chains. Japan's dispensing pharmacy medical expenses reached ¥8.4 trillion in fiscal 2024, accounting for approximately 18% of national medical expenditure [15]. The promotion of the separation of prescribing and dispensing has led to the widespread adoption of outpatient prescriptions and, consequently, the rapid growth of major pharmacy chains. AIN Holdings' revenue has reached ¥456.8 billion; Qol Holdings' stands at ¥264.0 billion.</p>
+<p>The claim that "physician salaries are too high" is repeatedly reported in the media, yet critical examination of pharmacy chains' revenue structures and their political influence is strikingly scarce. The Japan Pharmacists Political League has continuously fielded organizational candidates on the Liberal Democratic Party's proportional representation list for the House of Councillors, and political funds reports have documented instances where donations from the league to specific legislators' political bodies were distributed across multiple entities to circumvent upper limits set by the Political Funds Control Act [16]. While physicians' fee schedule reimbursements are repeatedly targeted for reduction, the dispensing fee technical charge (¥2,594 per prescription in fiscal 2024) remains politically protected — a structure that warrants reexamination from the perspective of healthcare expenditure allocation efficiency.</p>
+<p>In sum, in analyzing the drivers of healthcare cost escalation, "aging" is a necessary condition but not a sufficient one. The clinical adoption of high-cost pharmaceuticals, the gap between pharmaceutical companies' R&amp;D cost structures and executive compensation, and the rigidity of the fee structure sustained by pharmacies' political influence — unless these factors are comprehended in combination, no prescription (in the figurative sense) can be written.</p>
+<h2>Conclusion: Redefining Healthcare from "Cost" to "Infrastructure"</h2>
+<p>The issues examined in this article converge on a single structural paradox. The "deficit" of public hospitals is not the result of managerial negligence but a structural consequence of maintaining unprofitable departments under an administered pricing system. Emergency medicine, pediatric medicine, perinatal care, infectious disease control — these departments are classic public goods whose supply, if left to market forces, falls below the socially optimal level, and whose maintenance costs are inherently infrastructure expenditures that society should bear. And what is further expanding those "deficits" is the structural change of rising healthcare costs driven by the clinical adoption of high-cost pharmaceuticals — a change independent of aging — while the asymmetry between the beneficiaries and the burden-bearers of this change — between pharmaceutical executive compensation and patients' out-of-pocket expenses, between the political protection of dispensing pharmacies and the financial squeeze on hospitals — has yet to be adequately made visible.</p>
+<p>The necessary paradigm shift is twofold. First, to cease evaluating hospital finances within the framework of corporate accounting and instead redefine them as investment in the benefits society enjoys — the capacity to accept emergency transport, the ability to supply healthcare during disasters, the readiness to respond to infectious disease pandemics. No one calls road maintenance expenditures a "deficit." No one condemns water and sewage system operating costs as "managerial negligence." Healthcare infrastructure should stand on the same logic. Second, to make visible and reexamine the allocation structure of healthcare expenditures — who bears the burden, who benefits, and how much profit each intermediary player captures — without political taboo.</p>
+<p>The investment of public funds demands rigorous governance and transparency, and the lesson of Green-pia clearly demonstrates the importance of this principle. However, strengthening governance and providing appropriate fiscal investment in public infrastructure are not mutually exclusive. And subjecting only healthcare workers' compensation to reform "without sacred cows" while politically exempting pharmaceutical executives' compensation and pharmacy chain revenue structures violates the principle of fairness. The demand for equal transparency toward all stakeholders — that is the starting point for sustainable healthcare system design.</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Arrow KJ. Uncertainty and the welfare economics of medical care. <em>Am Econ Rev.</em> 1963;53(5):941–973. PMID: 15042238.</li>
+<li>Newhouse JP. Reimbursing health plans and health providers: efficiency in production versus selection. <em>J Econ Lit.</em> 1996;34(3):1236–1263.</li>
+<li>Ministry of Internal Affairs and Communications, Local Public Finance Bureau. Public hospital financial statements (FY2023). https://www.soumu.go.jp/main_sosiki/c-zaisei/hospital/kessan-bunseki/R05.html</li>
+<li>House of Councillors. Written question on projects undertaken by the Pension Welfare Service Public Corporation (152nd Diet session). https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/152/syuh/s152004.htm</li>
+<li>OECD. Health at a Glance 2023: OECD Indicators. Paris: OECD Publishing; 2023. doi:10.1787/7a7afb35-en.</li>
+<li>Ikegami N, Yoo BK, Hashimoto H, et al. Japanese universal health coverage: evolution, achievements, and challenges. <em>Lancet.</em> 2011;378(9796):1106–1115. PMID: 21885107.</li>
+<li>Xu K, Evans DB, Kawabata K, Zeramdini R, Klavus J, Murray CJL. Household catastrophic health expenditure: a multicountry analysis. <em>Lancet.</em> 2003;362(9378):111–117. PMID: 12867110.</li>
+<li>Himmelstein DU, Lawless RM, Thorne D, Foohey P, Woolhandler S. Medical bankruptcy: still common despite the Affordable Care Act. <em>Am J Public Health.</em> 2019;109(3):431–433. doi:10.2105/AJPH.2018.304901.</li>
+<li>Statistics Bureau of Japan. Consumer Price Index (CPI). https://www.stat.go.jp/data/cpi/</li>
+<li>Ministry of Health, Labour and Welfare. FY2024 fee schedule revision. https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411_00045.html</li>
+<li>Baumol WJ. The cost disease: why computers get cheaper and health care doesn't. New Haven: Yale University Press; 2012. ISBN: 978-0-300-17903-3.</li>
+<li>Takami A, Yamashita K, Igarashi A. Trends in usage and drug costs of immune checkpoint inhibitors in Japan. <em>Jpn J Clin Oncol.</em> 2026;56(2):155–167. doi:10.1093/jjco/hyae177.</li>
+<li>DiMasi JA, Grabowski HG, Hansen RW. Innovation in the pharmaceutical industry: new estimates of R&amp;D costs. <em>J Health Econ.</em> 2016;47:20–33. PMID: 26928437.</li>
+<li>AnswersNews. Pharmaceutical industry: 50 executives at 20 companies received over ¥100 million in FY2025. https://answers.and-pro.jp/pharmanews/32805/</li>
+<li>Ministry of Health, Labour and Welfare. Trends in dispensing medical expenses (FY2024). https://www.e-stat.go.jp/stat-search/files?toukei=00450482</li>
+<li>Ministry of Internal Affairs and Communications. Political funds reports (Japan Pharmacists Political League). https://www.soumu.go.jp/senkyo/seiji_s/seijishikin/</li>
+</ol>
+<hr />
+<h2>Disclaimer</h2>
+<p>This article is intended to introduce scientific findings based on peer-reviewed academic papers and publicly available data. It is not a substitute for individual medical judgment or clinical decision-making. The information presented is based on literature accessible to the author at the time of writing (August 2026) and may not encompass the latest research findings. If you have health concerns, please consult a qualified healthcare professional.</p>
+<div class="disclaimer"><p>This content is for informational purposes only, based on objective academic evidence and data analysis. It is not intended as medical advice, diagnosis, or political critique.</p></div>
+</article>
+
+<article id="content-zh-Hans" class="content-section" dir="ltr" lang="zh-Hans">
+<h1>"亏损医院"的错觉 — 公共基础设施市场化所带来的医疗经济悖论</h1>
+<hr />
+<p>没有政治家要求警察局实现盈利。没有媒体报道将消防站的年度收支赤字视为问题。也没有评论家将公立学校仅靠学费收入无法覆盖运营成本斥为"经营懈怠"。然而，同样承担保护国民生命与安全使命的公立医院，却反复面临独立核算和盈利的要求。这种不对称性在逻辑上能否成立？</p>
+<h2>引言：公共产品与市场原理的逻辑矛盾</h2>
+<p>1963年，Kenneth Arrow在《American Economic Review》发表论文"Uncertainty and the Welfare Economics of Medical Care"，论证了医疗市场在结构上无法满足完全竞争的条件 [1]。医疗服务内含引发市场失灵（market failure）的结构性条件：信息不对称（患者既无法评估自身疾病的严重程度，也无法判断治疗方案的适当性）、需求的不确定性（无人能预测自己何时需要何种程度的医疗服务）以及外部性（传染病防控惠及全社会）。</p>
+<p>当这种市场失灵被放任不管时会发生什么？如果将医疗视为纯粹的市场商品，资本将集中于预期回报率最高的领域。日本美容医疗市场在2024年已达到约52.58亿美元，以年均复合增长率9.27%持续扩张。自由诊疗（非医保诊疗）不受管制价格约束，提供者可自由定价，使得投入资本回报率远超医保诊疗。这是经济学所说的撇脂（cream skimming）的典型案例 — 资源仅集中于高利润的患者群体和诊疗领域，而急诊医疗、儿科、围产期医疗、传染病防控等无利可图但攸关生命的领域则面临资源流失 [2]。</p>
+<p>据总务省数据，2024年度（令和6年度），全国678家市町村立医院中83.3%录得经常性亏损，亏损总额达到创纪录的3,952亿日元。然而这些医院承担的职能 — ①在民间医疗机构难以立足的地区提供医疗服务；②维持急诊、儿科、围产期、传染病等不盈利科室；③提供高水平先进医疗；④作为区域性医师派遣中心 — 均具有公共产品属性，是以利润最大化为目标的民间资本不会自发提供、或供给量低于社会最优水平的服务 [3]。</p>
+<p>公立医院的"亏损"不过是这样一种状态：提供无法以市场价格回收成本的公共服务时，支出超过了管制价格所带来的收入 — 即基础设施维护费用的不足。</p>
+<h2>展开1：社会保障财源的历史经纬 — 绿色广场的教训</h2>
+<p>公众对公立医院经营的严格审视背后，是社会保障财源运用方面的历史性行政失败。养老保险费与医疗保险费在法律和财务上属于不同财源，将两者混为一谈并不准确。然而在国民认知中，"为社会保障缴纳的钱是否被妥善使用"的不信任感已超越了制度区分。对这一不信任感形成贡献最大的案例之一，便是大型养老金度假基地"绿色广场（Green-pia）"的经营破产。</p>
+<p>绿色广场是由原厚生省下属特殊法人"年金福利事业团"以养老金储备基金为资本来源在全国13处建设的度假设施群。建设总费用为1,914亿日元。然而，需求预测过于乐观、选址带有政治偏向（被指出集中在历任厚生大臣的选区）、以及开业后持续低迷的入住率，导致设施累计亏损不断膨胀 [4]。2004年《年金储备基金管理运用独立行政法人法》的通过决定了全部设施的废止，至2005年度末完成出售，但出售总价仅约48亿日元。包括建设费、借款利息和维护管理费在内的损失总额约达3,682亿日元 [4]。</p>
+<p>这一案例所揭示的结构性问题不仅在于财源挪用和铺张经营本身，更在于失败的责任从未被明确追究。会计检查院多次指出问题，但政策决定者从未以个人身份承担责任，损失以养老保险费的形式转嫁给了全体国民。此类行政失误与国民对社会保障制度整体的不信任感之间存在强烈的关联（association），催生了一种话语结构 — 将本应加以区分的养老金制度和医疗制度笼统归入"公共资金的浪费"这一单一叙事之下。</p>
+<p>这里需要指出的是，以绿色广场的失败为依据将"公共机构没有经营能力"一般化的论点，在逻辑上是不成立的。绿色广场的破产是将资金投入与本来目的（养老金储备的安全运用）无关的事业所导致的治理失败，与公立医疗机构为维持不盈利科室所需要的财政支援在性质上有根本区别。前者是偏离目的的资本配置，后者是公共服务的适当成本。将两者等同视之，无异于以警察的渎职为由否定治安维护本身的必要性。</p>
+<h2>展开2：医师薪酬与医疗制度的国际比较 — 日本 vs 美国</h2>
+<p>"医疗费高是因为医生工资太高" — 这一说法在日本的医疗费讨论中频繁出现。验证这一主张，需要基于日美两国医疗制度结构性差异进行比较。</p>
+<p>据OECD数据，日本受雇医师的平均年收入约为国民平均工资的4.7倍，与OECD成员国中位数大致一致 [5]。相比之下，美国医师的平均年收入约为352,000美元，在绝对金额上远高于日本。但这一差距源于两国医疗制度设计理念的不同。在日本，诊疗报酬制度（fee schedule）将所有医保诊疗行为的价格在全国统一制定。如Ikegami et al.（2011）在《Lancet》中论述的那样，这一统一价格制度作为在维持医疗可及性公平的同时抑制成本的主要机制发挥着作用 [6]。</p>
+<p>与此形成对照的是，美国的医疗服务价格由市场原理决定。其结果是灾难性医疗支出（catastrophic health expenditure）的常态化。WHO（Xu et al., 2003）将家庭医疗自付费用超过支付能力（收入减去基本生存支出）40%的情形定义为"灾难性" [7]。据Himmelstein et al.（2019）在《American Journal of Public Health》的报告，即使在《平价医疗法案》（ACA）实施后，美国每年仍有约530,000个家庭以医疗费用为主因申请破产，66.5%的破产案件涉及医疗问题 [8]。</p>
+<p>换言之，"降低医生工资就能解决医疗费问题"的论点，是将管制价格制度下已处于OECD平均水平的日本医师报酬与市场价格制度下膨胀的美国医疗费总额相混淆，对问题所在产生了误判。日本的医疗费占GDP比约为11%，远低于美国的约17% [5]。通过全民医保实现的价格管制与患者经济负担的减轻之间已显示出明确的关联（association），管制价格制度在同时实现可及性公平和费用控制方面展现了国际水平上的高效率。</p>
+<h2>展开3：宏观经济与诊疗报酬的矛盾 — 通胀下的工资抑制</h2>
+<p>日本经济正处于从长期通缩转型的时期。消费者物价指数（CPI）上升率在2023年为3.27%，2024年为2.74%，持续超过日本银行设定的2%目标 [9]。2025年春季劳资谈判（春斗）中，大企业平均加薪率达到5.46%，为30多年来最高水平 [9]。</p>
+<p>然而，这波加薪潮并未充分惠及医疗机构。2024年春斗中，医院加薪率仅为2.41%，不足全行业平均5.10%的一半 [10]。以抑制社会保障支出为目的的诊疗报酬维持不变或负向修订与医疗从业者实际工资的下降之间存在直接关联（association）。其结构性原因十分明确 — 医疗机构收入的大部分依赖于作为管制价格的诊疗报酬，无法像一般市场那样进行价格转嫁（将成本上升部分反映到销售价格中）。</p>
+<p>这一结构可以简洁表述如下：一般企业的收入函数为</p>
+<span class="math display">\[R = P(c) \times Q\]</span>
+<p>（其中 <span class="math inline">\(P(c)\)</span> 是可设定为成本 <span class="math inline">\(c\)</span> 的递增函数的价格，<span class="math inline">\(Q\)</span> 为数量），而医保医疗机构的收入函数为</p>
+<span class="math display">\[R = \bar{P} \times Q\]</span>
+<p>（其中 <span class="math inline">\(\bar{P}\)</span> 是政府设定的固定价格）。当 <span class="math inline">\(c\)</span> 上升而 <span class="math inline">\(\bar{P}\)</span> 维持不变时，利润 <span class="math inline">\(\pi = \bar{P} \times Q - c \times Q = (\bar{P} - c)Q\)</span> 必然收缩。</p>
+<p>2024年度的诊疗报酬修订在本体部分仅上调0.88%，远低于同年CPI上升率（2.74%） — 实质上为负向修订。2026年度修订决定将本体上调3.09%（两年平均），为30年来最高水平，但其中包含作为加薪资金的2.5%，可用于改善医疗机构经营的实际增收部分十分有限 [10]。</p>
+<p>William Baumol提出的"成本病（cost disease）"概念为这一矛盾提供了理论解释。在劳动密集型服务业（医疗、教育、艺术等）中，通过提高生产率来降低单位成本在结构上是困难的。手术所需时间不可能减半。然而在劳动力市场中，制造业工资上涨会对医疗从业者的工资产生追随性上升压力。如果管制价格不能吸收这一上升压力，医疗机构将无法确保人才，服务的质量和数量将会下降 — 这就是Baumol成本病应用于医疗领域时的后果 [11]。</p>
+<p>在当前的日本，这一理论预测正在变为现实。在物价飞涨中实际工资下降的医疗从业者离职增加，特别是护士离职率的上升导致床位使用率下降，进而引发更严重的收入恶化 — 形成了负反馈循环。</p>
+<h2>展开4："老龄化"无法解释的药剂费飙升 — 制药企业的逻辑与调剂药局的政治力量</h2>
+<p>当被问及医疗费攀升的驱动因素时，"老龄化"是千篇一律的标准答案。诚然，老龄化通过增加医疗需求成为推高总医疗费的主要因素之一。然而，仔细审视近年医疗费增长的构成就会发现，仅凭"老龄化"这一单一解释变量无法捕捉的结构性变化正在发生。</p>
+<p>其中最重大的变化是高价药物的临床普及。以免疫检查点抑制剂（immune checkpoint inhibitor; ICI）为例。据Takami et al.（2026）在《Japanese Journal of Clinical Oncology》的报告，日本ICI药品费总额从2015年度的169亿日元增至2022年度的4,196亿日元，增长约25倍，8年累计超过1.793万亿日元 [12]。以纳武利尤单抗（Opdivo）和帕博利珠单抗（Keytruda）为代表的这些药物，对黑色素瘤、非小细胞肺癌、肾细胞癌、头颈部癌等多种实体瘤带来了革命性的疗效改善，适应症的扩大直接推动了处方量和总费用的增长。</p>
+<p>关键在于，受益于这些药物的患者中很多属于劳动年龄人口。肺癌的高发年龄虽在60岁后半段，但黑色素瘤和霍奇金淋巴瘤在40至50多岁人群中也很常见，ICI的适应症正越来越多地向年轻群体扩展。换言之，高价药物导致的医疗费增长并非可以一概归入"老龄化成本"的问题，而是医疗技术进步带来的普遍性结构变化。</p>
+<p>制药企业为这些药物设定高价的依据在于研发（R&amp;D）成本的回收。据DiMasi et al.（2016）的估算，将一种新药推向市场的平均开发成本（含资本成本）约达26亿美元 [13]。临床试验失败率超过90%，成功的一种药物必须回收其余失败项目的成本。这一逻辑本身在经济学上是正当的。</p>
+<p>然而，以同样的逻辑将R&amp;D风险承担作为定价正当性依据的制药企业经营层，实际上获得了极高的薪酬，这一事实损害了上述逻辑的内在一致性。据2025年度有价证券报告书，武田药品工业社长CEO的薪酬为23.15亿日元，约为公司员工平均年薪的200倍 [14]。制药行业整体中，年薪超过1亿日元的高管遍布20家公司共50人 [14]。"我们承担着开发救命药物的风险"这一定价正当化逻辑，与风险承担者获得数亿级个人报酬的现实之间，至少从对国民情感的说明责任角度而言，存在着逻辑上的紧张。</p>
+<p>更容易被忽视的结构性问题是调剂药局连锁企业的政治力量。日本的调剂医疗费在2024年度达到8.4万亿日元，约占国民医疗费的18% [15]。医药分业的推进使院外处方普及，大型调剂药局连锁由此急速增长。AEON Holdings的营业额达4,568亿日元，Qol Holdings为2,640亿日元。</p>
+<p>"医生工资太高"的说法在媒体中反复出现，但对调剂药局连锁企业收益结构及其政治影响力的批判性审视却少得惊人。日本药剂师联盟持续在自民党参议院比例代表名单中推出组织内候选人，政治资金收支报告书显示，该联盟向特定国会议员方面的献金存在以分散至多个实体的方式规避《政治资金规正法》上限的案例 [16]。医师的诊疗报酬反复成为削减对象，而调剂报酬的技术费（2024年度：每张处方2,594日元）则受到政治性保护 — 这一结构从医疗费分配效率的角度需要重新审视。</p>
+<p>总之，在分析医疗费攀升的驱动因素时，"老龄化"是必要条件但非充分条件。高价药物的临床普及、制药企业R&amp;D成本结构与高管薪酬的背离、以及调剂药局的政治影响力导致的报酬结构僵化 — 若不综合把握这些因素，就无法开出处方（比喻意义上的）。</p>
+<h2>结语：将医疗从"成本"重新定义为"基础设施"</h2>
+<p>本文所考察的问题群收敛于一个结构性悖论。公立医院的"亏损"并非经营懈怠，而是在管制价格制度下维持不盈利科室的结构性结果。急诊医疗、儿科医疗、围产期医疗、传染病防控 — 这些科室是典型的公共产品，若交由市场机制运作，其供给量将低于社会最优水平，其维护成本本质上是社会应当承担的基础设施维护费。而进一步扩大这些"亏损"的，正是高价药物临床普及这一独立于老龄化的医疗费增长结构变化，此变化中受益者与负担者之间的不对称性 — 制药企业高管薪酬与患者自付费用之间、调剂药局的政治保护与医院经营压力之间 — 至今尚未被充分可视化。</p>
+<p>所需的范式转换是双重的。第一，停止以企业财务框架评价医院收支，转而将其重新定义为对社会所享受的效益（急救转运接收能力、灾害时医疗供给能力、传染病大流行应对能力）的投资。没有人将道路维护费称为"亏损"。没有人将给排水系统运营成本斥为"经营懈怠"。医疗基础设施也应当建立在同样的逻辑之上。第二，不设政治禁区地使医疗费分配结构 — 谁承担、谁受益、各中间参与者获取了多少利润 — 可视化并加以重新审视。</p>
+<p>公共资金的投入离不开严格的治理和透明度，绿色广场的教训清楚地表明了这一原则的重要性。然而，强化治理与对公共基础设施进行适当的财政投入并非相互排斥。而仅将医疗从业者的薪酬作为"无圣域改革"的对象，却在政治上对制药企业高管薪酬和调剂药局连锁企业的收益结构不予追问，这违反了公平性原则。对所有利益相关者要求同等的透明度 — 这才是可持续医疗制度设计的起点。</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Arrow KJ. Uncertainty and the welfare economics of medical care. <em>Am Econ Rev.</em> 1963;53(5):941–973. PMID: 15042238.</li>
+<li>Newhouse JP. Reimbursing health plans and health providers: efficiency in production versus selection. <em>J Econ Lit.</em> 1996;34(3):1236–1263.</li>
+<li>总务省自治财政局. 病院事业决算状况（令和5年度）. https://www.soumu.go.jp/main_sosiki/c-zaisei/hospital/kessan-bunseki/R05.html</li>
+<li>参议院. 关于年金福利事业团所开展事业的质询书（第152届国会）. https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/152/syuh/s152004.htm</li>
+<li>OECD. Health at a Glance 2023: OECD Indicators. Paris: OECD Publishing; 2023. doi:10.1787/7a7afb35-en.</li>
+<li>Ikegami N, Yoo BK, Hashimoto H, et al. Japanese universal health coverage: evolution, achievements, and challenges. <em>Lancet.</em> 2011;378(9796):1106–1115. PMID: 21885107.</li>
+<li>Xu K, Evans DB, Kawabata K, Zeramdini R, Klavus J, Murray CJL. Household catastrophic health expenditure: a multicountry analysis. <em>Lancet.</em> 2003;362(9378):111–117. PMID: 12867110.</li>
+<li>Himmelstein DU, Lawless RM, Thorne D, Foohey P, Woolhandler S. Medical bankruptcy: still common despite the Affordable Care Act. <em>Am J Public Health.</em> 2019;109(3):431–433. doi:10.2105/AJPH.2018.304901.</li>
+<li>总务省统计局. 消费者物价指数（CPI）. https://www.stat.go.jp/data/cpi/</li>
+<li>厚生劳动省. 令和6年度诊疗报酬修订. https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411_00045.html</li>
+<li>Baumol WJ. The cost disease: why computers get cheaper and health care doesn't. New Haven: Yale University Press; 2012. ISBN: 978-0-300-17903-3.</li>
+<li>Takami A, Yamashita K, Igarashi A. Trends in usage and drug costs of immune checkpoint inhibitors in Japan. <em>Jpn J Clin Oncol.</em> 2026;56(2):155–167. doi:10.1093/jjco/hyae177.</li>
+<li>DiMasi JA, Grabowski HG, Hansen RW. Innovation in the pharmaceutical industry: new estimates of R&amp;D costs. <em>J Health Econ.</em> 2016;47:20–33. PMID: 26928437.</li>
+<li>AnswersNews. 制药行业"年薪超1亿日元高管"25年度为20社50人. https://answers.and-pro.jp/pharmanews/32805/</li>
+<li>厚生劳动省. 调剂医疗费动向（令和6年度）. https://www.e-stat.go.jp/stat-search/files?toukei=00450482</li>
+<li>总务省. 政治资金收支报告书（日本药剂师联盟）. https://www.soumu.go.jp/senkyo/seiji_s/seijishikin/</li>
+</ol>
+<hr />
+<h2>免责声明</h2>
+<p>本文旨在介绍基于同行评审学术论文和公开数据的科学发现，不能替代个人医疗判断或临床决策。所呈现的信息基于作者在撰写时（2026年8月）可获取的文献，可能未涵盖最新的研究成果。如有健康方面的疑虑，请咨询合格的医疗专业人员。</p>
+<div class="disclaimer"><p>本内容仅供参考，基于客观的学术证据和数据分析。本内容不构成医疗建议、诊断或政治评论。</p></div>
+</article>
+
+<article id="content-es" class="content-section" dir="ltr" lang="es">
+<h1>La ilusión de los "hospitales deficitarios" — La paradoja económica sanitaria de la mercantilización de la infraestructura pública</h1>
+<hr />
+<p>Ningún político exige que las comisarías de policía sean rentables. Ningún medio de comunicación problematiza que las estaciones de bomberos operen con déficit anual. Ningún comentarista califica de "negligencia administrativa" que las escuelas públicas no puedan cubrir sus costos operativos únicamente con la matrícula. Sin embargo, a los hospitales públicos — igualmente encargados de proteger la vida y la seguridad de los ciudadanos — se les exigen repetidamente la autosuficiencia financiera y la generación de superávit. ¿Puede justificarse lógicamente esta asimetría?</p>
+<h2>Introducción: La contradicción lógica entre bienes públicos y principios de mercado</h2>
+<p>En 1963, Kenneth Arrow demostró en su artículo "Uncertainty and the Welfare Economics of Medical Care," publicado en la <em>American Economic Review</em>, que los mercados sanitarios son estructuralmente incapaces de satisfacer las condiciones de competencia perfecta [1]. Los servicios sanitarios contienen inherentemente las condiciones que desencadenan el fallo de mercado (market failure): asimetría de información (los pacientes no pueden evaluar ni la gravedad de su enfermedad ni la idoneidad del tratamiento), incertidumbre de la demanda (nadie puede predecir cuándo ni en qué medida necesitará atención médica) y externalidades (el control de enfermedades infecciosas beneficia a toda la sociedad).</p>
+<p>¿Qué sucede cuando este fallo de mercado se deja sin abordar? Si la atención sanitaria se trata como un bien de mercado puro, el capital se concentra en las áreas con mayor rendimiento esperado. El mercado de medicina estética de Japón alcanzó aproximadamente 5.258 millones de dólares en 2024 y continúa expandiéndose a una tasa de crecimiento anual compuesta del 9,27%. La práctica libre (atención no asegurada) no está sujeta a restricciones de precios administrados, lo que permite a los proveedores fijar precios libremente, generando rendimientos sobre el capital invertido muy superiores a los de la atención asegurada. Este es un caso típico de lo que los economistas denominan cream skimming (descremado) — la concentración de recursos en segmentos de pacientes y áreas de tratamiento rentables, con la correspondiente fuga de recursos de servicios no rentables pero vitales como la medicina de urgencias, la pediatría, la atención perinatal y el control de enfermedades infecciosas [2].</p>
+<p>Según datos del Ministerio de Asuntos Internos y Comunicaciones, en el ejercicio fiscal 2024, el 83,3% de los 678 hospitales municipales del país registraron déficits operativos, con un déficit combinado que alcanzó un récord de 395.200 millones de yenes. Sin embargo, las funciones que cumplen estos hospitales — (i) provisión de atención sanitaria en áreas donde las instalaciones privadas no pueden operar viablemente, (ii) mantenimiento de departamentos no rentables como urgencias, pediatría, perinatología e infectología, (iii) provisión de atención avanzada y especializada, y (iv) funciones como centros de distribución regional de médicos — poseen todas las características de bienes públicos que el capital privado orientado a la maximización de beneficios no suministrará voluntariamente o suministrará en niveles inferiores al óptimo social [3].</p>
+<p>El "déficit" de los hospitales públicos no es más que un estado en el que el costo de prestar servicios públicos que no pueden recuperarse a precios de mercado supera los ingresos procedentes de precios administrados — es decir, un déficit de financiación del mantenimiento de infraestructuras.</p>
+<h2>Sección 1: El contexto histórico de la financiación de la seguridad social — La lección de Green-pia</h2>
+<p>Detrás del escrutinio público sobre la gestión de los hospitales públicos se encuentra una historia de fracasos administrativos en la administración de los fondos de seguridad social. Las cotizaciones de pensiones y las primas de seguro de salud son fuentes de financiación legal y fiscalmente distintas, y confundirlas carece de rigor. Sin embargo, en la percepción pública, la desconfianza sobre si "el dinero que pagamos para la seguridad social se está utilizando adecuadamente" trasciende las distinciones institucionales. Uno de los casos que más contribuyó a moldear esta desconfianza fue el colapso de las grandes instalaciones vacacionales de pensiones conocidas como "Green-pia."</p>
+<p>Green-pia fue una red de 13 complejos turísticos construidos en todo el país por la Corporación Pública de Servicios de Bienestar de Pensiones, una entidad de propósito especial bajo el antiguo Ministerio de Salud y Bienestar, utilizando los fondos de reserva de pensiones como fuente de capital. Los costos totales de construcción ascendieron a 191.400 millones de yenes. Sin embargo, las proyecciones de demanda excesivamente optimistas, la selección de ubicaciones políticamente sesgada (se señaló la concentración en los distritos de sucesivos ministros de salud) y las tasas de ocupación crónicamente bajas tras la apertura hicieron que los déficits acumulados de las instalaciones se dispararan [4]. Tras la promulgación de la Ley del Fondo de Inversión de Pensiones del Gobierno en 2004, se ordenó el cierre de todas las instalaciones y su venta se completó a finales del ejercicio 2005. El precio total de venta fue de apenas aproximadamente 4.800 millones de yenes. La pérdida total — incluyendo costos de construcción, intereses de préstamos y gastos de mantenimiento — alcanzó aproximadamente 368.200 millones de yenes [4].</p>
+<p>El problema estructural que ilustra este caso va más allá de la malversación de fondos y la gestión dispendiosa: la responsabilidad por el fracaso nunca fue claramente atribuida. La Junta de Auditoría señaló repetidamente los problemas, pero ningún responsable político fue obligado a rendir cuentas personalmente, y las pérdidas fueron socializadas entre toda la población a través de las cotizaciones de pensiones. Existe una fuerte asociación (association) entre tales fracasos administrativos y la desconfianza pública hacia el sistema de seguridad social en su conjunto, dando lugar a una estructura discursiva en la que el sistema de pensiones y el sistema sanitario — que deberían distinguirse — quedan subsumidos bajo una narrativa única de "despilfarro de fondos públicos."</p>
+<p>Es crucial señalar que el argumento que generaliza a partir del fracaso de Green-pia para afirmar que "las instituciones públicas son incapaces de gestionar" es lógicamente inconsistente. El colapso de Green-pia fue un fallo de gobernanza que implicó la inversión en actividades totalmente ajenas al propósito central de la entidad (la gestión segura de las reservas de pensiones), y difiere fundamentalmente en naturaleza del apoyo fiscal que las instituciones sanitarias públicas requieren para mantener departamentos no rentables. Lo primero representa una asignación de capital fuera del propósito; lo segundo representa el costo legítimo de un servicio público. Equiparar ambos es análogo a negar la necesidad de la seguridad pública misma con base en casos de mala conducta policial.</p>
+<h2>Sección 2: Remuneración médica y comparación internacional de sistemas sanitarios — Japón vs. Estados Unidos</h2>
+<p>La afirmación de que "los costos sanitarios son altos porque los salarios de los médicos son demasiado altos" aparece frecuentemente en el debate sobre el gasto sanitario de Japón. Verificar esta afirmación requiere una comparación que contemple las diferencias estructurales entre los sistemas sanitarios japonés y estadounidense.</p>
+<p>Según datos de la OCDE, el ingreso medio anual de los médicos asalariados en Japón es aproximadamente 4,7 veces el salario medio nacional, aproximadamente en línea con la mediana de la OCDE [5]. En contraste, el ingreso medio anual de los médicos estadounidenses es de aproximadamente 352.000 dólares, sustancialmente mayor en términos absolutos. Sin embargo, esta brecha es atribuible a diferencias en la filosofía de diseño de los dos sistemas sanitarios. En Japón, el sistema de tarifas de remuneración médica (shinryō hōshū seido) establece precios administrados uniformes a nivel nacional para todos los servicios médicos asegurados. Como argumentaron Ikegami et al. (2011) en <em>The Lancet</em>, este sistema de precios uniformes ha funcionado como el mecanismo principal para mantener el acceso equitativo a la atención sanitaria al tiempo que se contienen los costos [6].</p>
+<p>En Estados Unidos, por el contrario, los precios de los servicios sanitarios son determinados por las fuerzas del mercado. La consecuencia es la normalización del gasto sanitario catastrófico. La OMS (Xu et al., 2003) definió el gasto sanitario como "catastrófico" cuando los pagos de bolsillo de un hogar superan el 40% de su capacidad de pago — ingresos menos gastos de subsistencia [7]. Según Himmelstein et al. (2019), publicado en el <em>American Journal of Public Health</em>, incluso tras la implementación de la Ley de Cuidado de Salud Asequible (ACA), aproximadamente 530.000 hogares estadounidenses por año se declaran en bancarrota con los costos médicos como factor principal contribuyente, y los problemas médicos contribuyen al 66,5% de todas las declaraciones de bancarrota [8].</p>
+<p>En resumen, el argumento de que "reducir los salarios de los médicos resolverá el problema del costo sanitario" confunde la remuneración médica de Japón — ya al nivel promedio de la OCDE bajo un sistema de precios administrados — con los gastos sanitarios totales inflados de Estados Unidos bajo un sistema de precios de mercado, identificando erróneamente la raíz del problema. El gasto sanitario de Japón como porcentaje del PIB es aproximadamente del 11%, sustancialmente inferior al aproximadamente 17% de Estados Unidos [5]. Se ha demostrado una clara asociación (association) entre la regulación de precios mediante el seguro universal y la reducción de la carga financiera de los pacientes, y el sistema de precios administrados exhibe alta eficiencia según estándares internacionales al lograr simultáneamente acceso equitativo y contención de costos.</p>
+<h2>Sección 3: La contradicción entre macroeconomía y el baremo de tarifas — Supresión salarial bajo inflación</h2>
+<p>La economía japonesa se encuentra en un período de transición tras una deflación prolongada. La tasa de aumento del Índice de Precios al Consumidor (IPC) alcanzó el 3,27% en 2023 y el 2,74% en 2024, superando persistentemente el objetivo del 2% del Banco de Japón [9]. En la Ofensiva Salarial de Primavera (Shuntō) de 2025, el aumento salarial medio de las grandes empresas alcanzó el 5,46%, el nivel más alto en más de 30 años [9].</p>
+<p>Sin embargo, esta ola de aumentos salariales no ha llegado suficientemente a las instituciones sanitarias. En el Shuntō de 2024, los aumentos salariales hospitalarios se situaron en apenas el 2,41%, menos de la mitad del promedio de todas las industrias del 5,10% [10]. Existe una asociación (association) directa entre la contención o revisión negativa del baremo de tarifas, emprendida con el objetivo de frenar los gastos de seguridad social, y la caída de los salarios reales de los trabajadores sanitarios. La causa estructural es clara — la mayor parte de los ingresos de las instituciones sanitarias depende del precio administrado del baremo de tarifas, y a diferencia del mercado general, no pueden trasladar los aumentos de costos a sus precios de venta.</p>
+<p>Esta estructura puede expresarse de forma concisa: la función de ingresos de una empresa típica es</p>
+<span class="math display">\[R = P(c) \times Q\]</span>
+<p>(donde <span class="math inline">\(P(c)\)</span> es un precio que puede establecerse como función creciente del costo <span class="math inline">\(c\)</span>, y <span class="math inline">\(Q\)</span> es la cantidad), mientras que la función de ingresos de una institución sanitaria asegurada es</p>
+<span class="math display">\[R = \bar{P} \times Q\]</span>
+<p>(donde <span class="math inline">\(\bar{P}\)</span> es un precio fijo establecido por el gobierno). Si <span class="math inline">\(c\)</span> aumenta mientras <span class="math inline">\(\bar{P}\)</span> permanece sin cambios, el beneficio <span class="math inline">\(\pi = \bar{P} \times Q - c \times Q = (\bar{P} - c)Q\)</span> se contrae inevitablemente.</p>
+<p>La revisión del baremo de tarifas del ejercicio 2024 elevó el componente "base" en apenas un 0,88%, muy por debajo del aumento del IPC del 2,74% del mismo año — equivalente a una revisión negativa en términos reales. La revisión del ejercicio 2026 fijó el aumento base en el 3,09% (media bianual), el nivel más alto en 30 años, pero esta revisión incluye un 2,5% destinado a financiar aumentos salariales, dejando el incremento efectivo de ingresos disponible para la mejora financiera institucional como limitado [10].</p>
+<p>El concepto de "enfermedad de costos" (cost disease) propuesto por William Baumol proporciona una explicación teórica de esta contradicción. En las industrias de servicios intensivas en trabajo (sanidad, educación, artes), lograr reducciones de costos unitarios mediante ganancias de productividad, como en la manufactura, es estructuralmente difícil. El tiempo requerido para una cirugía no puede reducirse a la mitad. Sin embargo, en el mercado laboral, la presión al alza sobre los salarios de los trabajadores sanitarios sigue a los aumentos salariales de la manufactura. Si el precio administrado no absorbe esta presión alcista, las instituciones sanitarias no pueden reclutar ni retener personal, y la calidad y el volumen de los servicios disminuyen — esta es la consecuencia cuando la enfermedad de costos de Baumol se aplica a la sanidad [11].</p>
+<p>En el Japón actual, esta predicción teórica se está materializando. Las salidas de trabajadores sanitarios cuyos salarios reales han disminuido en medio del aumento de precios se están incrementando, con la creciente rotación de enfermeras en particular provocando descensos en la ocupación de camas, lo que a su vez desencadena un mayor deterioro de los ingresos — un bucle de retroalimentación negativa.</p>
+<h2>Sección 4: El aumento de los costos farmacéuticos más allá del "envejecimiento" — La lógica de la industria farmacéutica y el poder político de las farmacias de dispensación</h2>
+<p>Cuando se pregunta por los factores impulsores del aumento de los costos sanitarios, "el envejecimiento" es invariablemente la respuesta estándar. Si bien el envejecimiento de la población es efectivamente un factor importante que impulsa el gasto sanitario total a través del aumento de la demanda, un examen detallado de la composición del reciente crecimiento de los costos sanitarios revela cambios estructurales que una única variable explicativa — "el envejecimiento" — no puede capturar.</p>
+<p>El más significativo de estos cambios es la adopción clínica de fármacos de alto costo. Tómense como ejemplo los inhibidores de puntos de control inmunitario (immune checkpoint inhibitors; ICI). Según Takami et al. (2026), publicado en el <em>Japanese Journal of Clinical Oncology</em>, los costos totales de fármacos ICI en Japón aumentaron aproximadamente 25 veces, de 16.900 millones de yenes en el ejercicio 2015 a 419.600 millones de yenes en el ejercicio 2022, con costos acumulados durante el período de ocho años superiores a 1,793 billones de yenes [12]. Estos fármacos, representados por nivolumab (Opdivo) y pembrolizumab (Keytruda), han aportado mejoras revolucionarias en las tasas de respuesta para una amplia gama de tumores sólidos incluyendo melanoma, cáncer de pulmón de células no pequeñas, carcinoma de células renales y cánceres de cabeza y cuello, y la expansión de indicaciones aprobadas ha impulsado directamente el aumento de volúmenes de prescripción y costos totales.</p>
+<p>Críticamente, muchos pacientes que se benefician de estos fármacos pertenecen a la población en edad laboral. Mientras que la edad pico de incidencia del cáncer de pulmón es a finales de los 60, el melanoma y el linfoma de Hodgkin afectan frecuentemente a personas en sus 40 y 50, y las indicaciones de los ICI se están expandiendo cada vez más hacia cohortes más jóvenes. En otras palabras, los aumentos de costos sanitarios impulsados por fármacos de alto costo no pueden agregarse bajo "costos del envejecimiento" — representan una transformación estructural universal producida por los avances en tecnología médica.</p>
+<p>La justificación de las empresas farmacéuticas para fijar precios elevados radica en la recuperación de los costos de investigación y desarrollo (I+D). Según DiMasi et al. (2016), el costo medio de desarrollo por nuevo compuesto aprobado (incluyendo el costo de capital) alcanza aproximadamente 2.600 millones de dólares [13]. Con tasas de fracaso en ensayos clínicos superiores al 90%, un único fármaco exitoso debe recuperar los costos de los intentos fallidos. Esta lógica es económicamente válida en sí misma.</p>
+<p>Sin embargo, el hecho de que los ejecutivos farmacéuticos que invocan esta misma lógica de asunción de riesgo de I+D como justificación de la fijación de precios reciban una compensación extremadamente elevada socava la coherencia interna del argumento. Según las presentaciones de valores del ejercicio 2025, el CEO de Takeda Pharmaceutical Company recibió 2.315 millones de yenes en compensación — aproximadamente 200 veces el salario medio de los empleados [14]. En toda la industria farmacéutica, 50 ejecutivos en 20 empresas reciben compensaciones superiores a 100 millones de yenes [14]. Entre la justificación de precios de "asumimos el riesgo de desarrollar fármacos que salvan vidas" y la realidad de que quienes asumen el riesgo reciben compensaciones personales de cientos de millones, existe, al menos desde la perspectiva de la rendición de cuentas ante el sentimiento público, una tensión lógica.</p>
+<p>Un problema estructural adicional que tiende a pasarse por alto es el poder político de las cadenas de farmacias de dispensación. Los gastos médicos de farmacias de dispensación en Japón alcanzaron 8,4 billones de yenes en el ejercicio 2024, representando aproximadamente el 18% del gasto médico nacional [15]. La promoción de la separación entre prescripción y dispensación ha llevado a la adopción generalizada de recetas ambulatorias y, consecuentemente, al rápido crecimiento de las grandes cadenas de farmacias. Los ingresos de AIN Holdings han alcanzado los 456.800 millones de yenes; los de Qol Holdings, 264.000 millones de yenes.</p>
+<p>La afirmación de que "los salarios de los médicos son demasiado altos" se repite continuamente en los medios, pero el examen crítico de las estructuras de ingresos de las cadenas de farmacias y su influencia política es sorprendentemente escaso. La Liga Política de Farmacéuticos de Japón ha presentado continuamente candidatos organizacionales en la lista de representación proporcional del Partido Liberal Democrático para la Cámara de Consejeros, y los informes de fondos políticos han documentado casos en los que las donaciones de la liga a los organismos políticos de legisladores específicos se distribuyeron entre múltiples entidades para eludir los límites superiores establecidos por la Ley de Control de Fondos Políticos [16]. Mientras que las remuneraciones del baremo de tarifas de los médicos son repetidamente objeto de reducción, la tarifa técnica de dispensación (2.594 yenes por receta en el ejercicio 2024) permanece políticamente protegida — una estructura que merece reexamen desde la perspectiva de la eficiencia en la asignación del gasto sanitario.</p>
+<p>En suma, al analizar los factores impulsores de la escalada de los costos sanitarios, "el envejecimiento" es una condición necesaria pero no suficiente. La adopción clínica de fármacos de alto costo, la brecha entre las estructuras de costos de I+D de las empresas farmacéuticas y la compensación de los ejecutivos, y la rigidez de la estructura tarifaria sostenida por la influencia política de las farmacias — a menos que estos factores se comprendan en combinación, no puede escribirse ninguna receta (en sentido figurado).</p>
+<h2>Conclusión: Redefinir la sanidad de "costo" a "infraestructura"</h2>
+<p>Los problemas examinados en este artículo convergen en una única paradoja estructural. El "déficit" de los hospitales públicos no es el resultado de negligencia administrativa sino una consecuencia estructural del mantenimiento de departamentos no rentables bajo un sistema de precios administrados. La medicina de urgencias, la pediatría, la atención perinatal, el control de enfermedades infecciosas — estos departamentos son bienes públicos clásicos cuya oferta, si se deja a las fuerzas del mercado, cae por debajo del nivel socialmente óptimo, y cuyos costos de mantenimiento son inherentemente gastos de infraestructura que la sociedad debe asumir. Y lo que está expandiendo aún más esos "déficits" es el cambio estructural del aumento de los costos sanitarios impulsado por la adopción clínica de fármacos de alto costo — un cambio independiente del envejecimiento — mientras que la asimetría entre los beneficiarios y los que cargan con los costos de este cambio — entre la compensación de los ejecutivos farmacéuticos y los gastos de bolsillo de los pacientes, entre la protección política de las farmacias de dispensación y la presión financiera sobre los hospitales — aún no se ha hecho adecuadamente visible.</p>
+<p>El cambio de paradigma necesario es doble. Primero, dejar de evaluar las finanzas hospitalarias dentro del marco de la contabilidad empresarial y en su lugar redefinirlas como inversión en los beneficios que la sociedad disfruta. Nadie llama "déficit" a los gastos de mantenimiento de carreteras. Nadie califica los costos operativos del sistema de agua y alcantarillado como "negligencia administrativa." La infraestructura sanitaria debería regirse por la misma lógica. Segundo, hacer visible y reexaminar la estructura de asignación del gasto sanitario — quién asume la carga, quién se beneficia y cuánto beneficio captura cada intermediario — sin tabúes políticos.</p>
+<p>La inversión de fondos públicos exige una gobernanza rigurosa y transparencia, y la lección de Green-pia demuestra claramente la importancia de este principio. Sin embargo, el fortalecimiento de la gobernanza y la provisión de inversión fiscal adecuada en infraestructura pública no son mutuamente excluyentes. Y someter únicamente la compensación de los trabajadores sanitarios a una reforma "sin vacas sagradas" mientras se exime políticamente la compensación de los ejecutivos farmacéuticos y las estructuras de ingresos de las cadenas de farmacias viola el principio de equidad. La exigencia de igual transparencia hacia todos los actores interesados — ese es el punto de partida para un diseño sostenible del sistema sanitario.</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Arrow KJ. Uncertainty and the welfare economics of medical care. <em>Am Econ Rev.</em> 1963;53(5):941–973. PMID: 15042238.</li>
+<li>Newhouse JP. Reimbursing health plans and health providers: efficiency in production versus selection. <em>J Econ Lit.</em> 1996;34(3):1236–1263.</li>
+<li>Ministerio de Asuntos Internos y Comunicaciones. Estados financieros de hospitales públicos (ejercicio 2023). https://www.soumu.go.jp/main_sosiki/c-zaisei/hospital/kessan-bunseki/R05.html</li>
+<li>Cámara de Consejeros. Pregunta escrita sobre los proyectos de la Corporación de Servicios de Bienestar de Pensiones (152.ª sesión de la Dieta). https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/152/syuh/s152004.htm</li>
+<li>OCDE. Health at a Glance 2023: OECD Indicators. París: OECD Publishing; 2023. doi:10.1787/7a7afb35-en.</li>
+<li>Ikegami N, Yoo BK, Hashimoto H, et al. Japanese universal health coverage: evolution, achievements, and challenges. <em>Lancet.</em> 2011;378(9796):1106–1115. PMID: 21885107.</li>
+<li>Xu K, Evans DB, Kawabata K, Zeramdini R, Klavus J, Murray CJL. Household catastrophic health expenditure: a multicountry analysis. <em>Lancet.</em> 2003;362(9378):111–117. PMID: 12867110.</li>
+<li>Himmelstein DU, Lawless RM, Thorne D, Foohey P, Woolhandler S. Medical bankruptcy: still common despite the Affordable Care Act. <em>Am J Public Health.</em> 2019;109(3):431–433. doi:10.2105/AJPH.2018.304901.</li>
+<li>Oficina de Estadísticas de Japón. Índice de Precios al Consumidor (IPC). https://www.stat.go.jp/data/cpi/</li>
+<li>Ministerio de Salud, Trabajo y Bienestar. Revisión del baremo de tarifas del ejercicio 2024. https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411_00045.html</li>
+<li>Baumol WJ. The cost disease: why computers get cheaper and health care doesn't. New Haven: Yale University Press; 2012. ISBN: 978-0-300-17903-3.</li>
+<li>Takami A, Yamashita K, Igarashi A. Trends in usage and drug costs of immune checkpoint inhibitors in Japan. <em>Jpn J Clin Oncol.</em> 2026;56(2):155–167. doi:10.1093/jjco/hyae177.</li>
+<li>DiMasi JA, Grabowski HG, Hansen RW. Innovation in the pharmaceutical industry: new estimates of R&amp;D costs. <em>J Health Econ.</em> 2016;47:20–33. PMID: 26928437.</li>
+<li>AnswersNews. Industria farmacéutica: 50 ejecutivos en 20 empresas recibieron más de ¥100 millones en el ejercicio 2025. https://answers.and-pro.jp/pharmanews/32805/</li>
+<li>Ministerio de Salud, Trabajo y Bienestar. Tendencias del gasto médico en dispensación (ejercicio 2024). https://www.e-stat.go.jp/stat-search/files?toukei=00450482</li>
+<li>Ministerio de Asuntos Internos y Comunicaciones. Informes de fondos políticos (Liga Política de Farmacéuticos de Japón). https://www.soumu.go.jp/senkyo/seiji_s/seijishikin/</li>
+</ol>
+<hr />
+<h2>Descargo de responsabilidad</h2>
+<p>Este artículo tiene como objetivo presentar hallazgos científicos basados en artículos académicos revisados por pares y datos disponibles públicamente. No sustituye el juicio médico individual ni la toma de decisiones clínicas. La información presentada se basa en la literatura accesible para el autor en el momento de la redacción (agosto de 2026) y puede no abarcar los hallazgos de investigación más recientes. Si tiene preocupaciones de salud, consulte a un profesional de la salud calificado.</p>
+<div class="disclaimer"><p>Este contenido es solo con fines informativos, basado en evidencia académica objetiva y análisis de datos. No pretende ser consejo médico, diagnóstico ni crítica política.</p></div>
+</article>
+
+<article id="content-hi" class="content-section" dir="ltr" lang="hi">
+<h1>"घाटे वाले अस्पतालों" का भ्रम — सार्वजनिक बुनियादी ढांचे के बाज़ारीकरण से उत्पन्न स्वास्थ्य अर्थशास्त्र का विरोधाभास</h1>
+<hr />
+<p>कोई भी राजनेता पुलिस विभागों से मुनाफा कमाने की मांग नहीं करता। कोई भी समाचार माध्यम अग्निशमन केंद्रों के वार्षिक घाटे को समस्या के रूप में नहीं देखता। कोई भी टिप्पणीकार सरकारी स्कूलों को केवल शुल्क आय से परिचालन लागत न पूरी कर पाने के लिए "प्रबंधकीय लापरवाही" नहीं कहता। फिर भी, नागरिकों के जीवन और सुरक्षा की रक्षा करने वाले सार्वजनिक अस्पतालों से बार-बार वित्तीय आत्मनिर्भरता और अधिशेष उत्पन्न करने की मांग की जाती है। क्या इस विषमता को तार्किक रूप से उचित ठहराया जा सकता है?</p>
+<h2>परिचय: सार्वजनिक वस्तुओं और बाज़ार सिद्धांतों के बीच तार्किक विरोधाभास</h2>
+<p>1963 में, Kenneth Arrow ने <em>American Economic Review</em> में प्रकाशित अपने शोधपत्र "Uncertainty and the Welfare Economics of Medical Care" में प्रमाणित किया कि स्वास्थ्य सेवा बाज़ार संरचनात्मक रूप से पूर्ण प्रतिस्पर्धा की शर्तों को पूरा करने में असमर्थ हैं [1]। स्वास्थ्य सेवाओं में बाज़ार विफलता (market failure) को जन्म देने वाली संरचनात्मक स्थितियाँ अंतर्निहित हैं: सूचना की विषमता (रोगी न तो अपनी बीमारी की गंभीरता का मूल्यांकन कर सकता है न उपचार की उपयुक्तता का), माँग की अनिश्चितता (कोई भविष्यवाणी नहीं कर सकता कि कब और किस हद तक चिकित्सा देखभाल की आवश्यकता होगी), और बाह्यताएँ (संक्रामक रोग नियंत्रण समाज को समग्र रूप से लाभान्वित करता है)।</p>
+<p>जब इस बाज़ार विफलता को अनदेखा किया जाता है तो क्या होता है? यदि स्वास्थ्य सेवा को शुद्ध बाज़ार वस्तु के रूप में माना जाए, तो पूँजी सर्वाधिक अपेक्षित प्रतिफल वाले क्षेत्रों में केंद्रित होती है। जापान का सौंदर्य चिकित्सा बाज़ार 2024 में लगभग 5,258 मिलियन अमेरिकी डॉलर तक पहुँच गया और 9.27% की चक्रवृद्धि वार्षिक वृद्धि दर से विस्तार जारी है। अनियंत्रित "मुक्त अभ्यास" (गैर-बीमाकृत देखभाल) पर प्रशासित मूल्य प्रतिबंध नहीं हैं, जो प्रदाताओं को स्वतंत्र मूल्य निर्धारण की अनुमति देता है। यह अर्थशास्त्र में cream skimming (क्रीम स्किमिंग) का उत्कृष्ट उदाहरण है — संसाधनों का केवल लाभदायक रोगी वर्गों और उपचार क्षेत्रों में संकेंद्रण, जबकि आपातकालीन चिकित्सा, बाल चिकित्सा, प्रसवकालीन देखभाल और संक्रामक रोग नियंत्रण जैसी अलाभकारी किंतु जीवनरक्षक सेवाओं से संसाधनों का बहिर्वाह [2]।</p>
+<p>आंतरिक मामलों और संचार मंत्रालय के अनुसार, वित्तीय वर्ष 2024 में देश के 678 नगरपालिका अस्पतालों में से 83.3% ने परिचालन घाटा दर्ज किया, संयुक्त घाटा ¥395.2 बिलियन के रिकॉर्ड स्तर पर पहुँचा। हालाँकि, ये अस्पताल जो कार्य करते हैं — (i) उन क्षेत्रों में स्वास्थ्य सेवा प्रदान करना जहाँ निजी सुविधाएँ व्यवहार्य रूप से संचालित नहीं हो सकतीं, (ii) आपातकालीन, बाल, प्रसवकालीन और संक्रामक रोग जैसे अलाभकारी विभागों का रखरखाव, (iii) उन्नत और विशिष्ट देखभाल प्रदान करना, (iv) क्षेत्रीय चिकित्सक प्रेषण केंद्र के रूप में कार्य — ये सभी सार्वजनिक वस्तुओं की विशेषताएँ रखते हैं जिन्हें लाभ-अधिकतमीकरण उन्मुख निजी पूँजी स्वेच्छा से आपूर्ति नहीं करेगी या सामाजिक रूप से इष्टतम स्तर से कम आपूर्ति करेगी [3]।</p>
+<p>सार्वजनिक अस्पतालों का "घाटा" और कुछ नहीं बल्कि वह स्थिति है जिसमें सार्वजनिक सेवाओं की वितरण लागत — जो बाज़ार मूल्यों पर वसूल नहीं की जा सकती — प्रशासित मूल्यों से प्राप्त राजस्व से अधिक हो जाती है — अर्थात बुनियादी ढांचे के रखरखाव वित्तपोषण में कमी।</p>
+<h2>खंड 1: सामाजिक सुरक्षा वित्तपोषण का ऐतिहासिक संदर्भ — ग्रीन-पिया का सबक</h2>
+<p>सार्वजनिक अस्पतालों के प्रबंधन पर जनता की कठोर दृष्टि के पीछे सामाजिक सुरक्षा कोषों के प्रशासन में प्रशासनिक विफलता का इतिहास है। पेंशन प्रीमियम और स्वास्थ्य बीमा प्रीमियम कानूनी और राजकोषीय रूप से भिन्न वित्तपोषण स्रोत हैं। हालाँकि, सार्वजनिक धारणा में, "सामाजिक सुरक्षा के लिए हमारा भुगतान किया गया धन उचित रूप से उपयोग किया जा रहा है या नहीं" का संदेह संस्थागत भेदों से परे है। इस अविश्वास को आकार देने में सबसे अधिक योगदान करने वाले मामलों में एक था "ग्रीन-पिया" नामक बड़े पेंशन रिसॉर्ट सुविधाओं का पतन।</p>
+<p>ग्रीन-पिया पूर्व स्वास्थ्य एवं कल्याण मंत्रालय के अधीन विशेष-उद्देश्य निकाय "पेंशन कल्याण सेवा सार्वजनिक निगम" द्वारा पेंशन आरक्षित निधि को पूँजी स्रोत के रूप में उपयोग कर देशभर में 13 स्थानों पर निर्मित रिसॉर्ट सुविधाओं का नेटवर्क था। कुल निर्माण लागत ¥191.4 बिलियन थी। हालाँकि, अत्यधिक आशावादी माँग अनुमान, राजनीतिक रूप से पक्षपातपूर्ण स्थल चयन, और उद्घाटन के बाद दीर्घकालिक निम्न अधिभोग दरों ने संचित घाटे को बढ़ा दिया [4]। 2004 में सरकारी पेंशन निवेश कोष अधिनियम के पारित होने के बाद सभी सुविधाओं को बंद करने का आदेश दिया गया और वित्तीय वर्ष 2005 के अंत तक बिक्री पूरी हुई। कुल बिक्री मूल्य मात्र लगभग ¥4.8 बिलियन था। हानि — निर्माण लागत, उधार ब्याज और रखरखाव व्यय सहित — लगभग ¥368.2 बिलियन तक पहुँची [4]।</p>
+<p>इस प्रकरण द्वारा उजागर संरचनात्मक समस्या कोष दुरुपयोग और अपव्ययी प्रबंधन से परे इस तथ्य तक विस्तारित है कि विफलता की जवाबदेही कभी स्पष्ट रूप से निर्धारित नहीं की गई। ऐसी प्रशासनिक विफलताओं और सामाजिक सुरक्षा प्रणाली के प्रति जनता के अविश्वास के बीच एक मजबूत संबद्धता (association) विद्यमान है, जिसने पेंशन प्रणाली और स्वास्थ्य प्रणाली — जिन्हें पृथक किया जाना चाहिए — को "सरकारी धन की बर्बादी" की एकल कथा में समाहित कर दिया।</p>
+<h2>खंड 2: चिकित्सक पारिश्रमिक और अंतरराष्ट्रीय स्वास्थ्य प्रणाली तुलना — जापान बनाम अमेरिका</h2>
+<p>OECD के अनुसार, जापान में वेतनभोगी चिकित्सकों की औसत वार्षिक आय राष्ट्रीय औसत वेतन की लगभग 4.7 गुना है, जो OECD मध्यिका के अनुरूप है [5]। अमेरिकी चिकित्सकों की औसत वार्षिक आय लगभग 352,000 अमेरिकी डॉलर है। Ikegami et al. (2011) ने <em>Lancet</em> में तर्क दिया कि जापान की एकीकृत मूल्य प्रणाली लागत नियंत्रण और समान पहुँच बनाए रखने के प्रमुख तंत्र के रूप में कार्य करती रही है [6]। WHO (Xu et al., 2003) ने स्वास्थ्य व्यय को "विनाशकारी" तब परिभाषित किया जब परिवार का जेब से भुगतान उनकी भुगतान क्षमता के 40% से अधिक हो [7]। Himmelstein et al. (2019) के अनुसार, ACA लागू होने के बाद भी अमेरिका में प्रतिवर्ष लगभग 530,000 परिवार चिकित्सा लागत के प्रमुख कारण से दिवालियापन दाखिल करते हैं [8]।</p>
+<p>सार्वभौमिक बीमा के माध्यम से मूल्य नियंत्रण और रोगियों के आर्थिक बोझ में कमी के बीच एक स्पष्ट संबद्धता (association) प्रदर्शित की गई है [5]।</p>
+<h2>खंड 3: समष्टि अर्थशास्त्र और शुल्क अनुसूची के बीच विरोधाभास — मुद्रास्फीति के अधीन वेतन दमन</h2>
+<p>जापान की CPI वृद्धि दर 2023 में 3.27% और 2024 में 2.74% रही [9]। 2025 की वसंत वेतन वार्ता में बड़ी कंपनियों की औसत वेतन वृद्धि 5.46% तक पहुँची [9]। हालाँकि, 2024 में अस्पतालों की वेतन वृद्धि मात्र 2.41% रही, सभी उद्योगों के औसत 5.10% से आधे से भी कम [10]। शुल्क अनुसूची के नकारात्मक या शून्य संशोधन और स्वास्थ्य कर्मियों के वास्तविक वेतन में गिरावट के बीच प्रत्यक्ष संबद्धता (association) है।</p>
+<p>यह संरचना संक्षेप में: सामान्य उद्यम का राजस्व फलन</p>
+<span class="math display">\[R = P(c) \times Q\]</span>
+<p>है (जहाँ <span class="math inline">\(P(c)\)</span> लागत <span class="math inline">\(c\)</span> का बढ़ता फलन है), जबकि बीमाकृत स्वास्थ्य संस्थान का राजस्व फलन</p>
+<span class="math display">\[R = \bar{P} \times Q\]</span>
+<p>है (जहाँ <span class="math inline">\(\bar{P}\)</span> सरकार द्वारा निर्धारित स्थिर मूल्य है)। यदि <span class="math inline">\(c\)</span> बढ़ता है किंतु <span class="math inline">\(\bar{P}\)</span> अपरिवर्तित रहता है, तो लाभ <span class="math inline">\(\pi = (\bar{P} - c)Q\)</span> अनिवार्यतः सिकुड़ता है।</p>
+<p>William Baumol की "लागत रोग" (cost disease) अवधारणा इस विरोधाभास की सैद्धांतिक व्याख्या प्रस्तुत करती है [11]। श्रम-गहन सेवा उद्योगों में उत्पादकता वृद्धि के माध्यम से इकाई लागत में कमी संरचनात्मक रूप से कठिन है — शल्य चिकित्सा का समय आधा नहीं किया जा सकता।</p>
+<h2>खंड 4: "वृद्धावस्था" से परे दवा लागत वृद्धि — फार्मास्युटिकल उद्योग का तर्क और वितरण फार्मेसियों की राजनीतिक शक्ति</h2>
+<p>Takami et al. (2026) के अनुसार, जापान में ICI दवा लागत 2015 में ¥16.9 बिलियन से 2022 में ¥419.6 बिलियन तक लगभग 25 गुना बढ़ी, 8 वर्षों का संचयी कुल ¥1.793 ट्रिलियन से अधिक हुआ [12]। महत्वपूर्ण बात यह है कि इन दवाओं से लाभान्वित रोगियों में कार्यशील आयु वर्ग शामिल है।</p>
+<p>DiMasi et al. (2016) के अनुसार, एक नई दवा का औसत विकास लागत लगभग 2.6 बिलियन अमेरिकी डॉलर है [13]। यह तर्क आर्थिक रूप से वैध है। हालाँकि, R&amp;D जोखिम वहन को मूल्य औचित्य के रूप में प्रस्तुत करने वाली फार्मा कंपनियों के शीर्ष अधिकारी अत्यधिक उच्च पारिश्रमिक प्राप्त करते हैं। 2025 में टेकेडा फार्मास्युटिकल के CEO का पारिश्रमिक ¥2.315 बिलियन था — कर्मचारी औसत वेतन का लगभग 200 गुना [14]। उद्योग में 20 कंपनियों के 50 अधिकारी ¥100 मिलियन से अधिक पारिश्रमिक प्राप्त करते हैं [14]।</p>
+<p>जापान का वितरण फार्मेसी चिकित्सा व्यय 2024 में ¥8.4 ट्रिलियन तक पहुँचा, राष्ट्रीय चिकित्सा व्यय का लगभग 18% [15]। "चिकित्सकों का वेतन बहुत अधिक है" का दावा मीडिया में बार-बार दोहराया जाता है, किंतु फार्मेसी श्रृंखलाओं की राजस्व संरचना और उनके राजनीतिक प्रभाव की आलोचनात्मक जाँच आश्चर्यजनक रूप से दुर्लभ है। जापान फार्मासिस्ट राजनीतिक लीग ने लिबरल डेमोक्रेटिक पार्टी की आनुपातिक प्रतिनिधित्व सूची में निरंतर संगठनात्मक उम्मीदवार प्रस्तुत किए हैं [16]।</p>
+<h2>निष्कर्ष: स्वास्थ्य सेवा को "लागत" से "बुनियादी ढांचा" के रूप में पुनर्परिभाषित करना</h2>
+<p>सार्वजनिक अस्पतालों का "घाटा" प्रबंधकीय लापरवाही नहीं, बल्कि प्रशासित मूल्य प्रणाली के अधीन अलाभकारी विभागों के रखरखाव का संरचनात्मक परिणाम है। आपातकालीन चिकित्सा, बाल चिकित्सा, प्रसवकालीन देखभाल, संक्रामक रोग नियंत्रण — ये विभाग उत्कृष्ट सार्वजनिक वस्तुएँ हैं।</p>
+<p>आवश्यक प्रतिमान परिवर्तन दोहरा है। प्रथम, अस्पताल वित्त का कॉर्पोरेट लेखा ढाँचे में मूल्यांकन बंद करना और इसे समाज द्वारा प्राप्त लाभों में निवेश के रूप में पुनर्परिभाषित करना। सड़क रखरखाव व्यय को कोई "घाटा" नहीं कहता। जल-मल प्रणाली परिचालन लागत को कोई "प्रबंधकीय लापरवाही" नहीं कहता। स्वास्थ्य बुनियादी ढांचे को भी उसी तर्क पर खड़ा होना चाहिए। द्वितीय, स्वास्थ्य व्यय आवंटन संरचना को राजनीतिक वर्जनाओं के बिना दृश्यमान बनाना। केवल स्वास्थ्य कर्मियों के पारिश्रमिक को "बिना पवित्र गायों के" सुधार का विषय बनाना, जबकि फार्मा अधिकारियों के पारिश्रमिक और फार्मेसी श्रृंखलाओं की राजस्व संरचना को राजनीतिक रूप से अछूत रखना, निष्पक्षता के सिद्धांत का उल्लंघन है।</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Arrow KJ. Uncertainty and the welfare economics of medical care. <em>Am Econ Rev.</em> 1963;53(5):941–973. PMID: 15042238.</li>
+<li>Newhouse JP. Reimbursing health plans and health providers: efficiency in production versus selection. <em>J Econ Lit.</em> 1996;34(3):1236–1263.</li>
+<li>Ministry of Internal Affairs and Communications. Public hospital financial statements (FY2023). https://www.soumu.go.jp/main_sosiki/c-zaisei/hospital/kessan-bunseki/R05.html</li>
+<li>House of Councillors. Written question on Pension Welfare Service Public Corporation (152nd Diet). https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/152/syuh/s152004.htm</li>
+<li>OECD. Health at a Glance 2023: OECD Indicators. Paris: OECD Publishing; 2023. doi:10.1787/7a7afb35-en.</li>
+<li>Ikegami N, Yoo BK, Hashimoto H, et al. Japanese universal health coverage: evolution, achievements, and challenges. <em>Lancet.</em> 2011;378(9796):1106–1115. PMID: 21885107.</li>
+<li>Xu K, Evans DB, Kawabata K, Zeramdini R, Klavus J, Murray CJL. Household catastrophic health expenditure: a multicountry analysis. <em>Lancet.</em> 2003;362(9378):111–117. PMID: 12867110.</li>
+<li>Himmelstein DU, Lawless RM, Thorne D, Foohey P, Woolhandler S. Medical bankruptcy: still common despite the Affordable Care Act. <em>Am J Public Health.</em> 2019;109(3):431–433. doi:10.2105/AJPH.2018.304901.</li>
+<li>Statistics Bureau of Japan. Consumer Price Index (CPI). https://www.stat.go.jp/data/cpi/</li>
+<li>Ministry of Health, Labour and Welfare. FY2024 fee schedule revision. https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411_00045.html</li>
+<li>Baumol WJ. The cost disease: why computers get cheaper and health care doesn't. New Haven: Yale University Press; 2012. ISBN: 978-0-300-17903-3.</li>
+<li>Takami A, Yamashita K, Igarashi A. Trends in usage and drug costs of immune checkpoint inhibitors in Japan. <em>Jpn J Clin Oncol.</em> 2026;56(2):155–167. doi:10.1093/jjco/hyae177.</li>
+<li>DiMasi JA, Grabowski HG, Hansen RW. Innovation in the pharmaceutical industry: new estimates of R&amp;D costs. <em>J Health Econ.</em> 2016;47:20–33. PMID: 26928437.</li>
+<li>AnswersNews. Pharmaceutical industry: 50 executives at 20 companies received over ¥100 million in FY2025. https://answers.and-pro.jp/pharmanews/32805/</li>
+<li>Ministry of Health, Labour and Welfare. Trends in dispensing medical expenses (FY2024). https://www.e-stat.go.jp/stat-search/files?toukei=00450482</li>
+<li>Ministry of Internal Affairs and Communications. Political funds reports (Japan Pharmacists Political League). https://www.soumu.go.jp/senkyo/seiji_s/seijishikin/</li>
+</ol>
+<hr />
+<h2>अस्वीकरण</h2>
+<p>यह लेख सहकर्मी-समीक्षित शैक्षणिक पत्रों और सार्वजनिक रूप से उपलब्ध आंकड़ों पर आधारित वैज्ञानिक निष्कर्षों का परिचय देने के उद्देश्य से है। यह व्यक्तिगत चिकित्सा निर्णय या नैदानिक निर्णय लेने का विकल्प नहीं है। प्रस्तुत जानकारी लेखन के समय (अगस्त 2026) लेखक को उपलब्ध साहित्य पर आधारित है और नवीनतम शोध निष्कर्षों को समाहित नहीं कर सकती। यदि आपको स्वास्थ्य संबंधी चिंता है, तो कृपया किसी योग्य स्वास्थ्य पेशेवर से परामर्श करें।</p>
+<div class="disclaimer"><p>यह सामग्री केवल सूचनात्मक उद्देश्यों के लिए है, जो वस्तुनिष्ठ शैक्षणिक साक्ष्य और डेटा विश्लेषण पर आधारित है। यह चिकित्सा सलाह, निदान या राजनीतिक आलोचना के रूप में अभिप्रेत नहीं है।</p></div>
+</article>
+
+<article id="content-ar" class="content-section" dir="rtl" lang="ar">
+<h1>وهم "المستشفيات الخاسرة" — التناقض في اقتصاديات الرعاية الصحية الناجم عن تسليع البنية التحتية العامة</h1>
+<hr />
+<p>لا يوجد سياسي يطالب أقسام الشرطة بتحقيق الأرباح. لا توجد وسيلة إعلامية تعتبر الخسائر السنوية لمراكز الإطفاء مشكلة. لا يوجد معلّق يصف المدارس الحكومية بـ"سوء الإدارة" لمجرد عدم تغطية رسوم التعليم لتكاليف التشغيل. ومع ذلك، يُطالَب المستشفيات العامة — التي تحمي حياة المواطنين وسلامتهم — مراراً بالاكتفاء الذاتي مالياً وتحقيق الفائض. هل يمكن تبرير هذا التناقض منطقياً؟</p>
+<h2>المقدمة: التناقض المنطقي بين السلع العامة ومبادئ السوق</h2>
+<p>في عام 1963، أثبت Kenneth Arrow في ورقته البحثية المنشورة في <em>American Economic Review</em> بعنوان "Uncertainty and the Welfare Economics of Medical Care" أن أسواق الرعاية الصحية عاجزة هيكلياً عن استيفاء شروط المنافسة الكاملة [1]. الظروف الهيكلية المولّدة لإخفاق السوق (market failure) في الرعاية الصحية متأصلة: عدم تماثل المعلومات (لا يستطيع المريض تقييم خطورة مرضه أو ملاءمة العلاج)، وعدم يقين الطلب (لا يمكن التنبؤ بموعد الحاجة إلى الرعاية الطبية أو مداها)، والعوامل الخارجية (مكافحة الأمراض المعدية تعود بالنفع على المجتمع ككل).</p>
+<p>ماذا يحدث حين يُتجاهل إخفاق السوق هذا؟ إذا عُوملت الرعاية الصحية كسلعة سوقية بحتة، يتركز رأس المال في المجالات ذات العائد المتوقع الأعلى. بلغ سوق الطب التجميلي في اليابان عام 2024 نحو 5,258 مليون دولار أمريكي، ويواصل التوسع بمعدل نمو سنوي مركب قدره 9.27%. لا تخضع الممارسة الحرة غير المنظمة (الرعاية غير المشمولة بالتأمين) لقيود الأسعار المُدارة، مما يتيح للمقدمين حرية التسعير. هذا مثال نموذجي لـ cream skimming (اختيار الأفضل ربحية) — تركيز الموارد في فئات المرضى ومجالات العلاج المربحة فحسب، بينما تتسرب الموارد من الخدمات غير المربحة لكن المنقذة للحياة كطب الطوارئ وطب الأطفال ورعاية الفترة المحيطة بالولادة ومكافحة الأمراض المعدية [2].</p>
+<p>وفقاً لوزارة الشؤون الداخلية والاتصالات، سجّل 83.3% من المستشفيات البلدية البالغ عددها 678 في اليابان عجزاً تشغيلياً في السنة المالية 2024، بلغ إجماليه مستوى قياسياً عند 395.2 مليار ين. غير أن الوظائف التي تؤديها هذه المستشفيات — (أ) تقديم الرعاية الصحية في مناطق لا تستطيع المرافق الخاصة العمل فيها بجدوى اقتصادية، (ب) الحفاظ على أقسام غير مربحة كالطوارئ والأطفال والولادة والأمراض المعدية، (ج) تقديم رعاية متقدمة ومتخصصة، (د) العمل كمراكز إحالة طبية إقليمية — تحمل جميعها خصائص السلع العامة التي لن يوفرها رأس المال الخاص الساعي لتعظيم الأرباح طوعاً، أو سيوفرها بمستوى أدنى من المستوى الأمثل اجتماعياً [3].</p>
+<p>"عجز" المستشفيات العامة ليس سوى الحالة التي تتجاوز فيها تكلفة تقديم الخدمات العامة — غير القابلة للتحصيل بأسعار السوق — الإيرادات المحققة من الأسعار المُدارة — أي نقص في تمويل صيانة البنية التحتية.</p>
+<h2>القسم الأول: السياق التاريخي لتمويل الضمان الاجتماعي — درس غرين-بيا</h2>
+<p>وراء النظرة العامة القاسية تجاه إدارة المستشفيات العامة يقف تاريخ من الفشل الإداري في إدارة صناديق الضمان الاجتماعي. أقساط التقاعد وأقساط التأمين الصحي مصادر تمويل متمايزة قانونياً ومالياً. لكن في الإدراك العام، يتجاوز الشك في "ما إذا كانت أموالنا المدفوعة للضمان الاجتماعي تُستخدم بشكل سليم" الحدود المؤسسية. ومن أبرز الحالات التي شكّلت هذا عدم الثقة كان انهيار منتجعات "غرين-بيا" التقاعدية الضخمة.</p>
+<p>كانت غرين-بيا شبكة من 13 منتجعاً أنشأها "مؤسسة خدمات رعاية المعاشات" — وهي هيئة ذات غرض خاص تابعة لوزارة الصحة والرفاه السابقة — باستخدام احتياطيات التقاعد كمصدر رأسمالي. بلغت تكلفة البناء الإجمالية 191.4 مليار ين. غير أن تقديرات الطلب المفرطة في التفاؤل واختيار المواقع المتأثر سياسياً وانخفاض معدلات الإشغال المزمن بعد الافتتاح أدت إلى تراكم الخسائر [4]. بعد إقرار قانون صندوق استثمار المعاشات الحكومي عام 2004، صدر أمر بإغلاق جميع المرافق وأُنجز البيع بحلول نهاية السنة المالية 2005. بلغ إجمالي سعر البيع نحو 4.8 مليار ين فقط. وبلغت الخسارة — شاملة تكلفة البناء وفوائد الاقتراض ونفقات الصيانة — نحو 368.2 مليار ين [4].</p>
+<p>المشكلة الهيكلية التي كشفتها هذه القضية تتجاوز سوء استخدام الأموال والإدارة المسرفة إلى حقيقة أن المسؤولية عن الفشل لم تُحدَّد بوضوح قط. ثمة ارتباط (association) قوي بين مثل هذه الإخفاقات الإدارية وانعدام ثقة الجمهور في منظومة الضمان الاجتماعي، مما أدمج نظام التقاعد ونظام الرعاية الصحية — اللذين ينبغي فصلهما — في سردية واحدة عن "هدر المال العام."</p>
+<h2>القسم الثاني: مقارنة تعويضات الأطباء وأنظمة الرعاية الصحية دولياً — اليابان مقابل الولايات المتحدة</h2>
+<p>وفقاً لمنظمة التعاون الاقتصادي والتنمية (OECD)، يبلغ متوسط الدخل السنوي للأطباء بأجر في اليابان نحو 4.7 ضعف متوسط الأجر الوطني، وهو ما يتوافق مع وسيط OECD [5]. يبلغ متوسط الدخل السنوي للأطباء الأمريكيين نحو 352,000 دولار أمريكي. جادل Ikegami et al. (2011) في <em>Lancet</em> بأن نظام التسعير الموحد في اليابان يعمل كآلية رئيسية للسيطرة على التكاليف والحفاظ على المساواة في الوصول [6]. عرّفت منظمة الصحة العالمية (Xu et al., 2003) الإنفاق الصحي بأنه "كارثي" حين يتجاوز الإنفاق المباشر للأسرة 40% من قدرتها على الدفع [7]. وفقاً لـ Himmelstein et al. (2019)، حتى بعد تطبيق قانون الرعاية الميسرة، لا يزال نحو 530,000 أسرة أمريكية تُعلن إفلاسها سنوياً بسبب التكاليف الطبية كعامل رئيسي [8].</p>
+<p>تبيّن وجود ارتباط (association) واضح بين ضبط الأسعار عبر التأمين الشامل وتخفيف العبء الاقتصادي على المرضى [5].</p>
+<h2>القسم الثالث: التناقض بين الاقتصاد الكلي وجدول الرسوم — قمع الأجور في ظل التضخم</h2>
+<p>بلغ معدل نمو مؤشر أسعار المستهلك في اليابان 3.27% عام 2023 و2.74% عام 2024 [9]. في مفاوضات أجور ربيع 2025، بلغ متوسط الزيادة في أجور الشركات الكبرى 5.46% [9]. لكن زيادة أجور المستشفيات عام 2024 لم تتجاوز 2.41%، أي أقل من نصف المتوسط العام البالغ 5.10% لجميع القطاعات [10]. ثمة ارتباط (association) مباشر بين المراجعات السلبية أو الصفرية لجدول الرسوم وانخفاض الأجور الحقيقية للعاملين في مجال الرعاية الصحية.</p>
+<p>يمكن تلخيص هذه البنية كالتالي: دالة الإيرادات للمؤسسة العادية هي</p>
+<span class="math display">\[R = P(c) \times Q\]</span>
+<p>(حيث <span class="math inline">\(P(c)\)</span> دالة متزايدة للتكلفة <span class="math inline">\(c\)</span>)، بينما دالة الإيرادات للمؤسسة الصحية المشمولة بالتأمين هي</p>
+<span class="math display">\[R = \bar{P} \times Q\]</span>
+<p>(حيث <span class="math inline">\(\bar{P}\)</span> سعر ثابت تحدده الحكومة). إذا ارتفعت <span class="math inline">\(c\)</span> بينما بقيت <span class="math inline">\(\bar{P}\)</span> دون تغيير، فإن الربح <span class="math inline">\(\pi = (\bar{P} - c)Q\)</span> يتقلص حتماً.</p>
+<p>يقدم مفهوم "مرض التكلفة" (cost disease) لـ William Baumol تفسيراً نظرياً لهذا التناقض [11]. في الصناعات الخدمية كثيفة العمالة، يصعب هيكلياً تخفيض تكلفة الوحدة من خلال نمو الإنتاجية — لا يمكن اختصار وقت الجراحة إلى النصف.</p>
+<h2>القسم الرابع: تصاعد تكلفة الأدوية ما وراء "الشيخوخة" — منطق صناعة الأدوية والنفوذ السياسي لصيدليات التوزيع</h2>
+<p>وفقاً لـ Takami et al. (2026)، ارتفعت تكاليف أدوية مثبطات نقاط التفتيش المناعية (ICI) في اليابان من 16.9 مليار ين عام 2015 إلى 419.6 مليار ين عام 2022 — أي بنحو 25 ضعفاً — وبلغ الإجمالي التراكمي لثماني سنوات أكثر من 1.793 تريليون ين [12]. والأهم أن المرضى المستفيدين من هذه الأدوية يشملون الفئات العمرية في سن العمل.</p>
+<p>وفقاً لـ DiMasi et al. (2016)، يبلغ متوسط تكلفة تطوير دواء جديد نحو 2.6 مليار دولار أمريكي [13]. هذه الحجة صحيحة اقتصادياً. غير أن المديرين التنفيذيين لشركات الأدوية التي تقدم تحمُّل مخاطر البحث والتطوير كمبرر للأسعار يحصلون على تعويضات مفرطة. في عام 2025، بلغ تعويض الرئيس التنفيذي لشركة تاكيدا للصناعات الدوائية 2.315 مليار ين — نحو 200 ضعف متوسط رواتب الموظفين [14]. في القطاع، يحصل 50 مديراً تنفيذياً في 20 شركة على تعويضات تتجاوز 100 مليون ين [14].</p>
+<p>بلغ إنفاق صيدليات التوزيع من الإنفاق الطبي في اليابان عام 2024 نحو 8.4 تريليون ين، أي ما يقارب 18% من إجمالي الإنفاق الطبي الوطني [15]. ادعاء أن "رواتب الأطباء مرتفعة جداً" يتكرر في وسائل الإعلام، لكن الفحص النقدي لهيكل إيرادات سلاسل الصيدليات ونفوذها السياسي نادر بشكل مثير للدهشة. حافظ اتحاد الصيادلة السياسي الياباني على تقديم مرشحين تنظيميين ثابتين في قوائم التمثيل النسبي للحزب الليبرالي الديمقراطي [16].</p>
+<h2>الخاتمة: إعادة تعريف الرعاية الصحية من "تكلفة" إلى "بنية تحتية"</h2>
+<p>"عجز" المستشفيات العامة ليس سوء إدارة، بل هو النتيجة الهيكلية للحفاظ على أقسام غير مربحة في ظل نظام أسعار مُدارة. طب الطوارئ وطب الأطفال ورعاية الفترة المحيطة بالولادة ومكافحة الأمراض المعدية — هذه الأقسام سلع عامة بامتياز.</p>
+<p>التحول النموذجي المطلوب مزدوج. أولاً: التوقف عن تقييم مالية المستشفيات ضمن إطار المحاسبة المؤسسية وإعادة تعريفها كاستثمار في المنافع التي يجنيها المجتمع. لا أحد يسمّي نفقات صيانة الطرق "عجزاً". لا أحد يسمّي تكاليف تشغيل شبكات المياه والصرف "سوء إدارة". يجب أن تقوم البنية التحتية الصحية على المنطق ذاته. ثانياً: جعل هيكل توزيع الإنفاق الصحي مرئياً دون محرّمات سياسية. إن جعل تعويضات العاملين في مجال الرعاية الصحية وحدها موضوع إصلاح "بلا مقدسات"، مع إبقاء تعويضات المديرين التنفيذيين لشركات الأدوية وهيكل إيرادات سلاسل الصيدليات بمنأى عن المساءلة السياسية، يُعدّ انتهاكاً لمبدأ الإنصاف.</p>
+<hr />
+<h2>References</h2>
+<ol>
+<li>Arrow KJ. Uncertainty and the welfare economics of medical care. <em>Am Econ Rev.</em> 1963;53(5):941–973. PMID: 15042238.</li>
+<li>Newhouse JP. Reimbursing health plans and health providers: efficiency in production versus selection. <em>J Econ Lit.</em> 1996;34(3):1236–1263.</li>
+<li>Ministry of Internal Affairs and Communications. Public hospital financial statements (FY2023). https://www.soumu.go.jp/main_sosiki/c-zaisei/hospital/kessan-bunseki/R05.html</li>
+<li>House of Councillors. Written question on Pension Welfare Service Public Corporation (152nd Diet). https://www.sangiin.go.jp/japanese/joho1/kousei/syuisyo/152/syuh/s152004.htm</li>
+<li>OECD. Health at a Glance 2023: OECD Indicators. Paris: OECD Publishing; 2023. doi:10.1787/7a7afb35-en.</li>
+<li>Ikegami N, Yoo BK, Hashimoto H, et al. Japanese universal health coverage: evolution, achievements, and challenges. <em>Lancet.</em> 2011;378(9796):1106–1115. PMID: 21885107.</li>
+<li>Xu K, Evans DB, Kawabata K, Zeramdini R, Klavus J, Murray CJL. Household catastrophic health expenditure: a multicountry analysis. <em>Lancet.</em> 2003;362(9378):111–117. PMID: 12867110.</li>
+<li>Himmelstein DU, Lawless RM, Thorne D, Foohey P, Woolhandler S. Medical bankruptcy: still common despite the Affordable Care Act. <em>Am J Public Health.</em> 2019;109(3):431–433. doi:10.2105/AJPH.2018.304901.</li>
+<li>Statistics Bureau of Japan. Consumer Price Index (CPI). https://www.stat.go.jp/data/cpi/</li>
+<li>Ministry of Health, Labour and Welfare. FY2024 fee schedule revision. https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411_00045.html</li>
+<li>Baumol WJ. The cost disease: why computers get cheaper and health care doesn't. New Haven: Yale University Press; 2012. ISBN: 978-0-300-17903-3.</li>
+<li>Takami A, Yamashita K, Igarashi A. Trends in usage and drug costs of immune checkpoint inhibitors in Japan. <em>Jpn J Clin Oncol.</em> 2026;56(2):155–167. doi:10.1093/jjco/hyae177.</li>
+<li>DiMasi JA, Grabowski HG, Hansen RW. Innovation in the pharmaceutical industry: new estimates of R&amp;D costs. <em>J Health Econ.</em> 2016;47:20–33. PMID: 26928437.</li>
+<li>AnswersNews. Pharmaceutical industry: 50 executives at 20 companies received over ¥100 million in FY2025. https://answers.and-pro.jp/pharmanews/32805/</li>
+<li>Ministry of Health, Labour and Welfare. Trends in dispensing medical expenses (FY2024). https://www.e-stat.go.jp/stat-search/files?toukei=00450482</li>
+<li>Ministry of Internal Affairs and Communications. Political funds reports (Japan Pharmacists Political League). https://www.soumu.go.jp/senkyo/seiji_s/seijishikin/</li>
+</ol>
+<hr />
+<h2>إخلاء المسؤولية</h2>
+<p>تهدف هذه المقالة إلى تقديم نتائج علمية مبنية على أبحاث محكّمة وبيانات متاحة للعموم. وهي ليست بديلاً عن القرارات الطبية الشخصية أو الحكم السريري. تستند المعلومات المقدمة إلى الأدبيات المتوفرة للمؤلف وقت الكتابة (أغسطس 2026) وقد لا تعكس أحدث نتائج الأبحاث. إذا كانت لديك مخاوف صحية، يُرجى استشارة أخصائي رعاية صحية مؤهل.</p>
+<div class="disclaimer"><p>هذا المحتوى لأغراض إعلامية فقط، استناداً إلى أدلة أكاديمية موضوعية وتحليل بيانات. وهو غير مخصص كاستشارة طبية أو تشخيص أو نقد سياسي.</p></div>
+</article>
+
+<footer class="site-footer">
+  Project Asymptote &mdash; Bridging mathematics, data science, and public health.
+</footer>
+
+</div>
+
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+  const section = document.getElementById('content-' + lang);
+  const btn = document.querySelector('[data-lang="' + lang + '"]');
+  if (section) section.classList.add('active');
+  if (btn) btn.classList.add('active');
+  document.documentElement.lang = lang.split('-')[0];
+  // Re-render math in newly visible section.
+  if (typeof renderMathInElement !== 'undefined') {
+    renderMathInElement(section, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+  // Update URL hash.
+  history.replaceState(null, '', '#' + lang);
+}
+
+// Initialize from hash or default to 'ja'.
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = location.hash.slice(1);
+  const validLangs = ['ja', 'en', 'zh-Hans', 'es', 'hi', 'ar'];
+  switchLang(validLangs.includes(hash) ? hash : 'ja');
+});
+</script>
+</body>
+</html>
